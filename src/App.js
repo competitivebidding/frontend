@@ -10,7 +10,7 @@ const App = () => {
 export default App;
 
 
-
+// я
 //!оставил на всякий дефолтную разметку
 // import logo from './logo.svg';
 // import './App.css';
