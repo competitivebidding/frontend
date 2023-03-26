@@ -1,9 +1,10 @@
 import React from 'react';
+import './input.css'
 
 const App = () => {
   return (
-    <h1 class="">
-    Hello world!
+    <h1 className='text-red-500 border'>
+    Hello world! koc
   </h1>
   );
 }
