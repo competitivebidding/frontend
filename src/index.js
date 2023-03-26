@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './Components/App';
 
 
-ReactDOM.render(<App/>, document.getElementById('root')) 
+ReactDOM.render(<App />, document.getElementById('root'))
 
 //!оставил на всякий дефолтную разметку
 // const root = ReactDOM.createRoot(document.getElementById('root'));
