@@ -3,8 +3,8 @@ import './input.css'
 
 const App = () => {
   return (
-    <h1 className='text-red-500 border'>
-    Hello world! koc
+    <h1 class="">
+    Hello world!
   </h1>
   );
 }
@@ -12,7 +12,7 @@ const App = () => {
 export default App;
 
 
-
+// я
 //!оставил на всякий дефолтную разметку
 // import logo from './logo.svg';
 // import './App.css';
