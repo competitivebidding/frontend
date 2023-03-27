@@ -3,7 +3,16 @@ import React from 'react';
 
 const App = () => {
   return (
-    <h1 className="text-blue-500">Hell smth smth smtj</h1>
+    <div className="text-red-300">
+      Dev branch
+      <div className="">
+        
+      </div>
+      <div className="">
+        
+      </div>
+    </div>
+    
   );
 }
 
