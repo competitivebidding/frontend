@@ -3,7 +3,8 @@ import './input.css'
 
 const App = () => {
   return (
-    <h1 className="text-red-500">Hell</h1>
+    <h1 className="text-red-500">Hell tryiing change teamtwo</h1>
+    
   );
 }
 
