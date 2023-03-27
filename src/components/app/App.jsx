@@ -6,10 +6,10 @@ const App = () => {
     <div className="text-red-300">
       Dev branch
       <div className="">
-        
+        firstTeam
       </div>
       <div className="">
-        
+
       </div>
     </div>
     
