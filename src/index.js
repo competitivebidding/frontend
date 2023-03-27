@@ -1,12 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/app/App';
+import { createRoot } from "react-dom/client";
+import App from './components/app/App.jsx';
 
 import './style/input.css'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const app = <App/>
+
+createRoot(document.getElementById('root')).render(app);
