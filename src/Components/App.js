@@ -3,9 +3,7 @@ import './input.css'
 
 const App = () => {
   return (
-    <h1 class="">
-    Hello world!
-  </h1>
+    <h1 className="text-red-500">Hell</h1>
   );
 }
 
