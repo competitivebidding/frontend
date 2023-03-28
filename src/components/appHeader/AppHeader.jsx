@@ -5,6 +5,8 @@ import iconExit from '../../assets/imgHeader/iconExit.svg';
 import iconNotification from '../../assets/imgHeader/iconNotification.svg';
 import imgHeader from '../../assets/imgHeader/imgHeader.svg';
 
+import './AppHeader.scss';
+
 const AppHeader = () => {
   return (
     <header className='header'>
