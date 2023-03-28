@@ -1,10 +1,44 @@
 .header {
   display: flex;
   width: 100%;
-  justify-content: flex-end;
-  gap: 70rem;
-}
+  justify-content: space-between;
+  height: fit-content;
+  padding: 26px 0 35px 0;
 
-.header__group {
-  display: flex;
+  &__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 105%;
+    /* identical to box height, or 34px */
+
+
+    color: #FFFFFF;
+  }
+
+  .group {
+    display: flex;
+    align-items: center;
+
+    &__balance {
+      position: relative;
+    }
+
+    &__notifications {
+      margin-left: 22px;
+    }
+
+    &__name {
+      color: white;
+      margin-left: 22px;
+    }
+
+    &__profile {
+      margin-left: 9px;
+    }
+
+    &__exit {
+      margin-left: 19px;
+    }
+  }
 }

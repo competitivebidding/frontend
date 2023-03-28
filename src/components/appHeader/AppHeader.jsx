@@ -12,12 +12,12 @@ const AppHeader = () => {
     <header className='header'>
       <div className='header__title'> Main </div>
 
-      <div className='header__group'>
-        <img src={blueBalance} alt="blueBalance" />
-        <img src={iconNotification} alt="iconNotification" />
-        <div className=''>Nickname</div>
-        <img src={imgHeader} alt="imgHeader" />
-        <img src={iconExit} alt="iconExit" />
+      <div className='header__group group'>
+        <img className='group__balance' src={blueBalance} alt="blueBalance" />
+        <img className='group__notifications' src={iconNotification} alt="iconNotification" />
+        <div className='group__name'>Nickname</div>
+        <img className='group__profile' src={imgHeader} alt="imgHeader" />
+        <img className='group__exit' src={iconExit} alt="iconExit" />
       </div>
     </header>
   );
