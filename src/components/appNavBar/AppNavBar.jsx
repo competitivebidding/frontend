@@ -1,117 +1,120 @@
 import React from 'react';
 
-import logo from '../../../public/img/imgNavBar/LogoCircle.svg';
-import hammerIco from '../../../public/img/imgNavBar/judge.svg';
-import templates from '../../../public/img/imgNavBar/templates.svg';
-import token from '../../../public/img/imgNavBar/token.svg';
-import star from '../../../public/img/imgNavBar/star.svg';
-import cup from '../../../public/img/imgNavBar/cup.svg';
-import emoji from '../../../public/img/imgNavBar/emoji.svg';
-import calendar from '../../../public/img/imgNavBar/calendar.svg';
-import bell from '../../../public/img/imgNavBar/bell.svg';
-import flash from '../../../public/img/imgNavBar/flash.svg';
-import heart from '../../../public/img/imgNavBar/heart.svg';
+import logo from '../../assets/imgNavBar/LogoCircle.svg';
+import hammerIco from '../../assets/imgNavBar/judge.svg';
+import templates from '../../assets/imgNavBar/templates.svg';
+import token from '../../assets/imgNavBar/token.svg';
+import star from '../../assets/imgNavBar/star.svg';
+import cup from '../../assets/imgNavBar/cup.svg';
+import emoji from '../../assets/imgNavBar/emoji.svg';
+import calendar from '../../assets/imgNavBar/calendar.svg';
+import bell from '../../assets/imgNavBar/bell.svg';
+import flash from '../../assets/imgNavBar/flash.svg';
+import heart from '../../assets/imgNavBar/heart.svg';
 
+import './AppNavBar.scss';
 
 
 const AppNavBar = () => {
   return (
-    <nav className="flex flex-col gap-y-[2.6em] py-[20px] px-[17px] border-r border-transparent  shadow-[0px_4px_20px_#000000]">
-      <div className="flex items-center gap-5 mx-[10px]">
+
+    <nav className="navBar">
+  <div className="navBar__logo">
+    <img
+      src={logo}
+      alt=""
+    />
+    <h1 className="navBar__title">
+      Competitive bidding
+    </h1>
+  </div>
+  <div className="navBar__menu menu">
+    <div className="menu__group">
+      <a href='' className="menu__item">
         <img
-          src={logo}
-          alt=""
+          src={templates}
+          alt="templates"
         />
-        <h1 className=" text-white font-semibold text-sm uppercase tracking-widest w-10">
-          Competitive bidding
-        </h1>
-      </div>
-      <div className="flex flex-col gap-[51px] mx-[22px]">
-      <div className="flex flex-col gap-[26px]">
-        <a href='' className="flex gap-[1.3em]">
-          <img
-            src={templates}
-            alt=""
-          />
-          <h3 className='text-white tracking-widest'>Profile</h3>
-        </a>
-        <a href='' className="flex gap-[1.3em]">
-          <img
-            src={hammerIco}
-            alt=""
-          />
-          <h3 className='text-white tracking-widest'>Auctions</h3>
-        </a>
-        <a href='' className="flex gap-[1.3em]">
-          <img
-            src={token}
-            alt=""
-          />
-          <h3 className='text-white tracking-widest'>Tokens</h3>
-        </a>
-      </div>
-      <div className="flex flex-col gap-[26px]">
-        <a href='' className="flex gap-[1.3em]">
-          <img
-            src={star}
-            alt=""
-          />
-          <h3 className='text-white tracking-widest'>My auctions</h3>
-        </a>
-        <a href='' className="flex gap-[1.3em]">
-          <img
-            src={cup}
-            alt=""
-          />
-          <h3 className='text-white tracking-widest'>Winners</h3>
-        </a>
-        <a href='' className="flex gap-[1.3em]">
-          <img
-            src={emoji}
-            alt=""
-          />
-          <h3 className='text-white tracking-widest'>Parnter program</h3>
-        </a>
-      </div>
-      <div className="flex flex-col gap-[26px]">
-        <a href='' className="flex gap-[1.3em]">
-          <img
-            src={calendar}
-            alt=""
-          />
-          <h3 className='text-white tracking-widest'>News</h3>
-        </a>
-        <a href='' className="flex gap-[1.3em]">
-          <img
-            src={bell}
-            alt=""
-          />
-          <h3 className='text-white tracking-widest'>Notifications</h3>
-        </a>
-      </div>
-      <div className="flex flex-col gap-[26px]">
-        <a href='' className="flex gap-[1.3em]">
-          <img
-            src={flash}
-            alt=""
-          />
-          <h3 className='text-white tracking-widest'>Frequent questions</h3>
-        </a>
-        <a href='' className="flex gap-[1.3em]">
-          <img
-            src={heart}
-            alt=""
-          />
-          <h3 className='text-white tracking-widest'>TechSupport</h3>
-        </a>
-      </div>
-
-      </div>
-      <a href="" className=' text-white border w-full text-semibold text-center p-2  bg-[]'>
-        Partner Link
+        <h3>Profile</h3>
       </a>
+      <a href='' className="menu__item">
+        <img
+          src={hammerIco}
+          alt="hammerIco"
+        />
+        <h3>Auctions</h3>
+      </a>
+      <a href='' className="menu__item">
+        <img
+          src={token}
+          alt="token"
+        />
+        <h3>Tokens</h3>
+      </a>
+    </div>
 
-    </nav>
+    <div className="menu__group">
+      <a href='' className="menu__item">
+        <img
+          src={star}
+          alt="star"
+        />
+        <h3>My auctions</h3>
+      </a>
+      <a href='' className="menu__item">
+        <img
+          src={cup}
+          alt="cup"
+        />
+        <h3>Winners</h3>
+      </a>
+      <a href='' className="menu__item">
+        <img
+          src={emoji}
+          alt="emoji"
+        />
+        <h3>Partner program</h3>
+      </a>
+    </div>
+    <div className="menu__group">
+      <a href='' className="menu__item">
+        <img
+          src={calendar}
+          alt="calendar"
+        />
+        <h3>News</h3>
+      </a>
+      <a href='' className="menu__item">
+        <img
+          src={bell}
+          alt="bell"
+        />
+        <h3>Notifications</h3>
+      </a>
+    </div>
+    <div className="menu__group">
+      <a href='' className="menu__item">
+        <img
+          src={flash}
+          alt="flash"
+        />
+        <h3>Frequent questions</h3>
+      </a>
+      <a href='' className="menu__item">
+        <img
+          src={heart}
+          alt="heart"
+        />
+        <h3>TechSupport</h3>
+      </a>
+    </div>
+
+  </div>
+  <button className='navBar__button'>
+    Partner Link
+  </button>
+
+</nav>
   );
 };
 

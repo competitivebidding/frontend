@@ -1,11 +1,15 @@
 import React from 'react';
 import AppNavBar from '../appNavBar/AppNavBar.jsx';
+import AppHeader from '../appHeader/AppHeader.jsx';
+
 
 
 const App = () => {
   return (
-    <div className=" bg-[#121416]  def:w-full flex">
-      <AppNavBar/>
+    <div>
+      <AppHeader />
+      <AppNavBar />
+      
     </div>
     
   );
