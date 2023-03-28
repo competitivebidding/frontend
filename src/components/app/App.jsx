@@ -6,7 +6,7 @@ const App = () => {
     <div className="text-red-300">
       Dev branch fvf
       <div className="">
-        firstTeam
+        firstTeam f
       </div>
       <div className="">
 
