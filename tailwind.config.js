@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {
       screens:{
+        def: "1920px",
         IPM: "428px", // Iphone Pro MAX
         IXR: "414px", // Iphone XR
         IP: "390px", // Iphone Pro 
