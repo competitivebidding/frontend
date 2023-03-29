@@ -6,8 +6,6 @@ import MainSection from "../../MainSection/MainSection.jsx";
 const AuctionsPage = () => {
   return (
     <>
-    <AppNavBar/>
-    <MainSection />
     </>
   );
 }

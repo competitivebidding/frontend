@@ -13,7 +13,7 @@ import QuestionsPage from "../Components/pages/pageQuestions/QuestionsPage.jsx";
 import SupportPage from "../Components/pages/pageSupport/SupportPage.jsx";
 import TokensPage from "../Components/pages/pageTokens/TokensPage.jsx";
 import WinnersListPage from "../Components/pages/pageWinnersList/WinnersListPage.jsx";
-
+import MainSection from '../Components/MainSection/MainSection.jsx';
 
 
 import './App.scss'
@@ -28,6 +28,7 @@ const App = () => {
 
         <Routes>
 
+          <Route element={<MainSection/>}> 
           <Route path='/auctions' element={<AuctionsPage/>} />
           <Route path='/cabinet' element={<CabinetPage/>} />
           <Route path='/' element={<MainPage/>} index />
@@ -39,6 +40,7 @@ const App = () => {
           <Route path='/support' element={<SupportPage/>} />
           <Route path='/tokens' element={<TokensPage/>} />
           <Route path='/winnerList' element={<WinnersListPage/>} />
+          </Route>
 
         </Routes>
 
