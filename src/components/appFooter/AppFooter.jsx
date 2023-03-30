@@ -17,7 +17,7 @@ const AppFooter = () => {
             <li className="footer__menu-item"><a href="" className="footer__menu-link">Victory Tactics</a></li>
         </ul>
     </nav>
-    <p class="footer__copyright">COMPETITIVE BIDDING© 2023. All rights reserved</p>
+    <p className="footer__copyright">COMPETITIVE BIDDING© 2023. All rights reserved</p>
 </footer>
   );
 }
