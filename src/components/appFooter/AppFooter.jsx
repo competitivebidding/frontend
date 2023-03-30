@@ -6,7 +6,7 @@ import './AppFooter.scss';
 const AppFooter = () => {
   return (
 <footer className="footer">
-    <nav> 
+    <nav>
 
         <ul className="footer__menu">
             <li className="footer__menu-item"><a href="" className="footer__menu-link">Public offer</a></li>

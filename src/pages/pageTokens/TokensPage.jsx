@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TokensPage = () => {
+const TokensPage = ({title}) => {
   return (
     <div>
-      
+
     </div>
   );
 }

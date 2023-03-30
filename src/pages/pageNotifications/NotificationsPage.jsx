@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NotificationsPage = () => {
+const NotificationsPage = ({title}) => {
   return (
     <div>
     </div>

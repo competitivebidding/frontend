@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const AuctionsPage = () => {
+const AuctionsPage = ({title}) => {
   return (
     <>
     </>

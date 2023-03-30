@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import React from 'react';
 
@@ -23,31 +23,21 @@ import './App.scss'
 const App = () => {
 
   return (
-    <BrowserRouter>
-
       <div className='app'>
-
         <Routes>
-
-          <Route element={<MainSection/>}> 
-          <Route path='/auctions' element={<AuctionsPage/>} />
-          <Route path='/cabinet' element={<CabinetPage/>} />
-          <Route path='/' element={<MainPage/>} index />
-          <Route path='/myauctions' element={<MyAuctionsPage/>} />
-          <Route path='/news' element={<NewsPage/>} />
-          <Route path='/notifications' element={<NotificationsPage/>} />
-          <Route path='/partnerProgram' element={<PartnerPage/>} />
-          <Route path='/questions' element={<QuestionsPage/>} />
-          <Route path='/support' element={<SupportPage/>} />
-          <Route path='/tokens' element={<TokensPage/>} />
-          <Route path='/winnerList' element={<WinnersListPage/>} />
-          </Route>
-
+          <Route path='/auctions' element={<AuctionsPage title={'Auction'}/>} />
+          <Route path='/cabinet' element={<CabinetPage title={'PartnerProgram'}/>} />
+          <Route path='/' element={<MainPage title={'PartnerProgram'}/>} index />
+          <Route path='/myauctions' element={<MyAuctionsPage title={'PartnerProgram'}/>} />
+          <Route path='/news' element={<NewsPage title={'PartnerProgram'}/>} />
+          <Route path='/notifications' element={<NotificationsPage title={'PartnerProgram'}/>} />
+          <Route path='/partnerProgram' element={<PartnerPage title={'PartnerProgram'}/>} />
+          <Route path='/questions' element={<QuestionsPage title={'PartnerProgram'}/>} />
+          <Route path='/support' element={<SupportPage title={'PartnerProgram'}/>} />
+          <Route path='/tokens' element={<TokensPage title={'PartnerProgram'}/>} />
+          <Route path='/winnerList' element={<WinnersListPage title={'PartnerProgram'}/>} />
         </Routes>
-
       </div>
-
-    </BrowserRouter>
   );
 }
 

@@ -1,10 +1,13 @@
 import React from 'react';
+import AppNavBar from "../../components/appNavBar/AppNavBar.jsx";
+import MainSection from "../../components/MainSection/MainSection.jsx";
 
-const CabinetPage = () => {
+const CabinetPage = ({title}) => {
   return (
-    <div>
-      
-    </div>
+      <>
+        <AppNavBar/>
+        <MainSection PageContent={''} title={title}/> {/*Вставить свой контент*/}
+      </>
   );
 }
 
