@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NewsPage = () => {
+const NewsPage = ({title}) => {
   return (
     <>
     </>
