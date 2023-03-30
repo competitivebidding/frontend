@@ -2,18 +2,19 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import React from 'react';
 
-import AuctionsPage from "../Components/pages/pageAuctions/AuctionsPage.jsx";
-import CabinetPage from "../Components/pages/pageCabinet/CabinetPage.jsx";
-import MainPage from "../Components/pages/pageMain/MainPage.jsx";
-import MyAuctionsPage from "../Components/pages/pageMyAuctions/MyAuctionsPage.jsx";
-import NewsPage from "../Components/pages/pageNews/NewsPage.jsx";
-import NotificationsPage from "../Components/pages/pageNotifications/NotificationsPage.jsx";
-import PartnerPage from "../Components/pages/pagePartnerProgram/PartnerPage.jsx";
-import QuestionsPage from "../Components/pages/pageQuestions/QuestionsPage.jsx";
-import SupportPage from "../Components/pages/pageSupport/SupportPage.jsx";
-import TokensPage from "../Components/pages/pageTokens/TokensPage.jsx";
-import WinnersListPage from "../Components/pages/pageWinnersList/WinnersListPage.jsx";
-import MainSection from '../Components/MainSection/MainSection.jsx';
+import AuctionsPage from "../pages/pageAuctions/AuctionsPage.jsx";
+import CabinetPage from "../pages/pageCabinet/CabinetPage.jsx";
+import MainPage from "../pages/pageMain/MainPage.jsx";
+import MyAuctionsPage from "../pages/pageMyAuctions/MyAuctionsPage.jsx";
+import NewsPage from "../pages/pageNews/NewsPage.jsx";
+import NotificationsPage from "../pages/pageNotifications/NotificationsPage.jsx";
+import PartnerPage from "../pages/pagePartnerProgram/PartnerPage.jsx";
+import QuestionsPage from "../pages/pageQuestions/QuestionsPage.jsx";
+import SupportPage from "../pages/pageSupport/SupportPage.jsx";
+import TokensPage from "../pages/pageTokens/TokensPage.jsx";
+import WinnersListPage from "../pages/pageWinnersList/WinnersListPage.jsx";
+
+import MainSection from '../components/MainSection/MainSection.jsx';
 
 
 import './App.scss'
