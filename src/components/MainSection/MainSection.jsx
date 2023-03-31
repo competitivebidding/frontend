@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom';
 
 import './MainSection.scss'
 
-function MainSection({ title }) {
+function MainSection() {
     return (
       <>
       <AppNavBar />

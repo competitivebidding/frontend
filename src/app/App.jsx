@@ -30,7 +30,7 @@ const App = () => {
         <Route element={<MainSection />}> 
           <Route path='/auctions' element={<AuctionsPage title={'Auction'}/>} />
           <Route path='/cabinet' element={<CabinetPage title={'Cabinet'}/>} />
-          <Route path='/' element={<MainPage title={'Main'}/>} index />
+          <Route path='/*' element={<MainPage title={'Main'}/>} index />
           <Route path='/myauctions' element={<MyAuctionsPage title={'My Auctions'}/>} />
           <Route path='/news' element={<NewsPage title={'News'}/>} />
           <Route path='/notifications' element={<NotificationsPage title={'Notifications'}/>} />
