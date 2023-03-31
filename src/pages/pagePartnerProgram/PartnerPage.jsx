@@ -1,7 +1,7 @@
 import React from 'react';
 import AppHeader from '../../components/appHeader/AppHeader.jsx';
 
-const Partner = () => {
+const PartnerPage = ({title}) => {
   return (
     <div>
       <AppHeader title={title}/>
@@ -9,4 +9,4 @@ const Partner = () => {
   );
 }
 
-export default Partner;
+export default PartnerPage;
