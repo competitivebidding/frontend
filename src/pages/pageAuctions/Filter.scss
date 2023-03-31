@@ -1,0 +1,88 @@
+.filter-panel {
+  background-color: #171A1E;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  width: fit-content;
+  margin-left: auto;
+  color: #fff;
+
+  
+  &.closed {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    h2 {
+      margin: 0;
+    }
+    
+    .hide-filter {
+      background: none;
+      border: none;
+      color: #0070c0;
+      cursor: pointer;
+      font-size: 16px;
+    
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  .filter-categories {
+    margin-top: 20px;
+    
+    h3 {
+      margin: 0 0 10px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      
+      input {
+        margin-right: 5px;
+      }
+    }
+  }
+  
+  .filter-brands {
+
+    
+
+    margin-bottom: 20px;
+    margin-top: 20px;
+    
+    h3 {
+      margin: 0 0 10px;
+    }
+    
+
+    
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      
+      input {
+        margin-right: 5px;
+      }
+    }
+  }
+
+}

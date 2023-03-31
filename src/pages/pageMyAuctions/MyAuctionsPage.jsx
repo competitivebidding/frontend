@@ -1,21 +1,12 @@
 import React from 'react';
-import AppHeader from '../../components/appHeader/AppHeader.jsx';
 
-import Category from './Category.jsx';
-import Filter from './Filter.jsx';
-import Search  from './Search.jsx';
-import CardAuctions from './CardAuctions.jsx';
-
-const MyAuctionsPage = ({title}) => {
+const MyAuctionsPage = () => {
   return (
-      <>
-        <AppHeader title={title}/>
-        <Search/>
-        <Category/>
-        <CardAuctions/>
-        <Filter />
-      </>
+    <div>
+      
+    </div>
   );
 }
 
 export default MyAuctionsPage;
+
