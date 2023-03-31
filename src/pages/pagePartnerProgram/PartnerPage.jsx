@@ -7,7 +7,7 @@ const PartnerPage = ({title}) => {
     return (
         <>
             <AppNavBar/>
-            <MainSection PageContent={Content} title={title}/>
+            <MainSection PageContent={'a'} title={title}/> {/*Вставить свой контент в Page content*/}
         </>
     );
 }

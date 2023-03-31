@@ -6,7 +6,7 @@ function MainPage({title}) {
     return (
         <>
             <AppNavBar/>
-            <MainSection PageContent={''} title={title}/> {/*Вставить свой контент*/}
+            <MainSection PageContent={'a'} title={title}/> {/*Вставить свой контент в Page content*/}
         </>
     );
 }

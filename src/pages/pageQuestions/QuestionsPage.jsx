@@ -4,10 +4,10 @@ import MainSection from "../../components/MainSection/MainSection.jsx";
 
 const QuestionsPage = ({title}) => {
   return (
-    <div>
-      <AppNavBar/>
-      <MainSection PageContent={''} title={title}/> {/*Вставить свой контент*/}
-    </div>
+      <>
+          <AppNavBar/>
+          <MainSection PageContent={'a'} title={title}/> {/*Вставить свой контент в Page content*/}
+      </>
   );
 }
 
