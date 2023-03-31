@@ -6,14 +6,19 @@
 }
 
 .listItem__imgbox {
+    display: flex;
     width: 100%;
+    max-height: 180px;
     margin-bottom: 18px;
-    border-radius: 10px;
-    overflow: hidden;
-
+    
     img {
         width: 100%;
-        max-height: 180px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-right: 14px;
+        &:last-child{
+            margin-right: 0px;
+        }
     }
 }
 
