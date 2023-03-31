@@ -26,16 +26,16 @@ const App = () => {
       <div className='app'>
         <Routes>
           <Route path='/auctions' element={<AuctionsPage title={'Auction'}/>} />
-          <Route path='/cabinet' element={<CabinetPage title={'PartnerProgram'}/>} />
-          <Route path='/' element={<MainPage title={'PartnerProgram'}/>} index />
-          <Route path='/myauctions' element={<MyAuctionsPage title={'PartnerProgram'}/>} />
-          <Route path='/news' element={<NewsPage title={'PartnerProgram'}/>} />
-          <Route path='/notifications' element={<NotificationsPage title={'PartnerProgram'}/>} />
-          <Route path='/partnerProgram' element={<PartnerPage title={'PartnerProgram'}/>} />
-          <Route path='/questions' element={<QuestionsPage title={'PartnerProgram'}/>} />
-          <Route path='/support' element={<SupportPage title={'PartnerProgram'}/>} />
-          <Route path='/tokens' element={<TokensPage title={'PartnerProgram'}/>} />
-          <Route path='/winnerList' element={<WinnersListPage title={'PartnerProgram'}/>} />
+          <Route path='/cabinet' element={<CabinetPage title={'Cabinet'}/>} />
+          <Route path='/' element={<MainPage title={'Main'}/>} index />
+          <Route path='/myauctions' element={<MyAuctionsPage title={'My Auctions'}/>} />
+          <Route path='/news' element={<NewsPage title={'News'}/>} />
+          <Route path='/notifications' element={<NotificationsPage title={'Notifications'}/>} />
+          <Route path='/partnerProgram' element={<PartnerPage title={'Partner Program'}/>} />
+          <Route path='/questions' element={<QuestionsPage title={'Questions'}/>} />
+          <Route path='/support' element={<SupportPage title={'Support'}/>} />
+          <Route path='/tokens' element={<TokensPage title={'Tokens'}/>} />
+          <Route path='/winnerList' element={<WinnersListPage title={'WinnerList'}/>} />
         </Routes>
       </div>
   );

@@ -5,10 +5,10 @@ import Content from "../pagePartnerProgram/Content.jsx";
 
 const SupportPage = ({title}) => {
   return (
-    <div>
-      <AppNavBar/>
-      <MainSection PageContent={''} title={title}/> {/*Вставить свой контент*/}
-    </div>
+      <>
+          <AppNavBar/>
+          <MainSection PageContent={'a'} title={title}/> {/*Вставить свой контент в Page content*/}
+      </>
   );
 }
 

@@ -7,8 +7,8 @@ import MainSection from "../../components/MainSection/MainSection.jsx";
 const AuctionsPage = ({title}) => {
   return (
       <>
-        <AppNavBar/>
-        <MainSection PageContent={''} title={title}/> {/*Вставить свой контент*/}
+          <AppNavBar/>
+          <MainSection PageContent={'a'} title={title}/> {/*Вставить свой контент в Page content*/}
       </>
   );
 }
