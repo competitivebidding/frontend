@@ -1,69 +1,100 @@
 import React, { useState } from "react";
 import "./Filter.scss";
 
-import arrow from "../../assets/imgAuctions/arrow.svg"
-import arrow2 from "../../assets/imgAuctions/arrow2.svg"
+import arrowAfter2 from "../../assets/imgAuctions/arrow.svg"
+import arrowBefore from "../../assets/imgAuctions/arrow2.svg"
+import arrowAfter from "../../assets/imgAuctions/arrowAfter2.svg"
+import arrowBefore2 from "../../assets/imgAuctions/arrowAfter.svg"
 
 const Filter = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const [isCategoriesVisible, setIsCategoriesVisible] = useState(true);
+  const [isBrandVisible, setIsBrandVisible] = useState(true);
 
   const handleToggleVisibility = () => {
     setIsVisible(!isVisible);
   };
 
+  const handleToggleCategoriesVisibility = () => {
+    setIsCategoriesVisible(!isCategoriesVisible);
+  };
+
+  const handleToggleBrandVisibility = () => {
+    setIsBrandVisible(!isBrandVisible);
+  };
 
   return (
-    <div className="filter-panel">
-      <div className="filter-header">
+    <div className="filter">
+      <div className="filter__header">
         <h2>Filtering</h2>
-        <span className="hide-filter" onClick={handleToggleVisibility}>
-          {isVisible ? <img src={arrow2} alt="arrow" /> : <img src={arrow2} alt="arrow2" />}
+        <span className="filter__hide" onClick={handleToggleVisibility}>
+          {isVisible ? <img src={arrowBefore} alt="arrow" /> : <img src={arrowAfter} alt="arrow2" />}
         </span>
+    
       </div>
       {isVisible && (
         <>
-          <h3>Selected Categories:</h3>
-          <div className="filter-categories">
-            <h3>Categories:</h3>
-            <label class="checkbox-container">
+          <div>
+          <h3 className="filter__selected">Selected Categories:</h3>
+          </div>
+
+          <div className="categories">
+            
+          <h3 className="categories__title">Categories:</h3> 
+          <span className="categories__arrow"  onClick={handleToggleCategoriesVisibility} > 
+            {isCategoriesVisible ? <img src={arrowBefore2} alt="arrow" /> : <img src={arrowAfter2} alt="arrow" />}
+            </span>
+          </div>
+
+          <div className="filter__categories" style={{ display: isCategoriesVisible ? "block" : "none" }}>
+            
+            <label className="checkbox__container">
               <input type="checkbox" name="category" value="all" />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
               All categories
             </label>
 
-            <label class="checkbox-container">
+            <label className="checkbox__container">
               <input type="checkbox" name="category" value="gadgets" />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
               Gadgets
             </label>
             
-            <label class="checkbox-container">
+            <label className="checkbox__container">
               <input type="checkbox" name="category" value="electronics" />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
               Electronics
             </label>
           </div>
 
 
-          <div className="filter-brands">
-            <h3>Brand:</h3>
+          <div className="brand">
+            
+            <h3 className="brand__title">Brand</h3> 
+            <span className="brand__arrow"  onClick={handleToggleBrandVisibility} > 
+            {isBrandVisible ? <img src={arrowBefore2} alt="arrow" /> : <img src={arrowAfter2} alt="arrow" />}
+            </span>
+            </div>
+
+          <div className="filter__brands" style={{ display: isBrandVisible ? "block" : "none" }}>
+    
             <input type="text" placeholder="Search" />
 
-            <label class="checkbox-container">
-              <input type="checkbox" name="category" value="electronics" />
-              <span class="checkmark"></span>
+            <label className="checkbox__container">
+              <input type="checkbox" name="brand" value="apple" />
+              <span className="checkmark"></span>
               Apple
             </label>
 
-            <label class="checkbox-container">
-              <input type="checkbox" name="category" value="electronics" />
-              <span class="checkmark"></span>
+            <label className="checkbox__container">
+              <input type="checkbox" name="brand" value="samsung" />
+              <span className="checkmark"></span>
               Samsung
             </label>
-            <label class="checkbox-container">
-              <input type="checkbox" name="category" value="electronics" />
-              <span class="checkmark"></span>
-              Xiomi
+            <label className="checkbox__container">
+              <input type="checkbox" name="brand" value="Xiaomi" />
+              <span className="checkmark"></span>
+              Xiaomi
             </label>
 
           </div>
