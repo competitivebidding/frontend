@@ -40,7 +40,7 @@ const App = () => {
           <Route path='/tokens' element={<TokensPage title={'Tokens'}/>} />
           <Route path='/winnerList' element={<WinnersListPage title={'WinnerList'}/>} />
         </Route>
-        </Routes>
+        </Routes> 
       </div>
       
 
