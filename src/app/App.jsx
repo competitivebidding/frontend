@@ -14,7 +14,7 @@ import SupportPage from "../pages/pageSupport/SupportPage.jsx";
 import TokensPage from "../pages/pageTokens/TokensPage.jsx";
 import WinnersListPage from "../pages/pageWinnersList/WinnersListPage.jsx";
 
-import MainSection from '../components/MainSection/MainSection.jsx';
+import MainSection from '../Components/MainSection/MainSection.jsx';
 
 
 import './App.scss'
@@ -23,11 +23,14 @@ import './App.scss'
 const App = () => {
 
   return (
+
       <div className='app'>
         <Routes>
+
+        <Route element={<MainSection />}> 
           <Route path='/auctions' element={<AuctionsPage title={'Auction'}/>} />
           <Route path='/cabinet' element={<CabinetPage title={'Cabinet'}/>} />
-          <Route path='/' element={<MainPage title={'Main'}/>} index />
+          <Route path='/*' element={<MainPage title={'Main'}/>} index />
           <Route path='/myauctions' element={<MyAuctionsPage title={'My Auctions'}/>} />
           <Route path='/news' element={<NewsPage title={'News'}/>} />
           <Route path='/notifications' element={<NotificationsPage title={'Notifications'}/>} />
@@ -36,8 +39,11 @@ const App = () => {
           <Route path='/support' element={<SupportPage title={'Support'}/>} />
           <Route path='/tokens' element={<TokensPage title={'Tokens'}/>} />
           <Route path='/winnerList' element={<WinnersListPage title={'WinnerList'}/>} />
+        </Route>
         </Routes>
       </div>
+      
+
   );
 }
 

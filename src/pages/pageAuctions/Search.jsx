@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyAuctionsPage = () => {
+const Search = () => {
   return (
     <div>
       
@@ -8,5 +8,4 @@ const MyAuctionsPage = () => {
   );
 }
 
-export default MyAuctionsPage;
-
+export default Search;
