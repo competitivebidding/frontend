@@ -11,47 +11,61 @@ const Filter = () => {
     setIsVisible(!isVisible);
   };
 
+
   return (
     <div className="filter-panel">
       <div className="filter-header">
         <h2>Filtering</h2>
         <span className="hide-filter" onClick={handleToggleVisibility}>
-          {isVisible ? <img src={arrow2} alt="arrow"/> : <img src={arrow2} alt="arrow2"/>}
+          {isVisible ? <img src={arrow2} alt="arrow" /> : <img src={arrow2} alt="arrow2" />}
         </span>
       </div>
       {isVisible && (
         <>
+          <h3>Selected Categories:</h3>
           <div className="filter-categories">
-            <h3>Selected Categories:</h3>
-            
-            <label>
-              <input type="checkbox" name="category" value="all" checked />
+            <h3>Categories:</h3>
+            <label class="checkbox-container">
+              <input type="checkbox" name="category" value="all" />
+              <span class="checkmark"></span>
               All categories
             </label>
-            <label>
+
+            <label class="checkbox-container">
               <input type="checkbox" name="category" value="gadgets" />
+              <span class="checkmark"></span>
               Gadgets
             </label>
-            <label>
+            
+            <label class="checkbox-container">
               <input type="checkbox" name="category" value="electronics" />
+              <span class="checkmark"></span>
               Electronics
             </label>
           </div>
+
+
           <div className="filter-brands">
             <h3>Brand:</h3>
-            <input type="text" placeholder="Поиск" />
-            <label>
-              <input type="checkbox" name="brand" value="apple" />
+            <input type="text" placeholder="Search" />
+
+            <label class="checkbox-container">
+              <input type="checkbox" name="category" value="electronics" />
+              <span class="checkmark"></span>
               Apple
             </label>
-            <label>
-              <input type="checkbox" name="brand" value="samsung" />
+
+            <label class="checkbox-container">
+              <input type="checkbox" name="category" value="electronics" />
+              <span class="checkmark"></span>
               Samsung
             </label>
-            <label>
-              <input type="checkbox" name="brand" value="xiaomi" />
+            <label class="checkbox-container">
+              <input type="checkbox" name="category" value="electronics" />
+              <span class="checkmark"></span>
               Xiomi
             </label>
+
           </div>
         </>
       )}

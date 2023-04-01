@@ -2,12 +2,19 @@
   background-color: #171A1E;
   padding: 20px;
   font-family: Arial, sans-serif;
-  border: 1px solid #ccc;
   width: fit-content;
   margin-left: auto;
-  color: #fff;
+  border-radius: 17px;
 
-  
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1rem;
+
+
+  color: rgba(255, 255, 255, 0.6);
+
   &.closed {
     width: 0;
     padding: 0;
@@ -16,73 +23,132 @@
 
   .filter-header {
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
     margin-bottom: 20px;
+
+
     h2 {
-      margin: 0;
+      margin-right: 100px;
     }
-    
+
     .hide-filter {
       background: none;
       border: none;
       color: #0070c0;
       cursor: pointer;
       font-size: 16px;
-    
-      
+
+
       &:hover {
         text-decoration: underline;
       }
     }
   }
-  
+
   .filter-categories {
     margin-top: 20px;
-    
+
     h3 {
       margin: 0 0 10px;
     }
-    
+
     label {
       display: block;
-      margin-bottom: 5px;
-      
-      input {
-        margin-right: 5px;
-      }
+      margin-bottom: 3%;
+
+      // input {
+      //   margin-right: 5px;
+      // }
     }
   }
-  
+
   .filter-brands {
-
-    
-
     margin-bottom: 20px;
     margin-top: 20px;
-    
+
     h3 {
       margin: 0 0 10px;
     }
-    
 
-    
+
     input[type="text"] {
       width: 100%;
-      padding: 5px;
-      margin-bottom: 10px;
+      padding: 7px;
+      margin: 3px 0 14px 0;
       box-sizing: border-box;
-      border: 1px solid #ccc;
+      background: #171A1E;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
     }
-    
+
     label {
       display: block;
-      margin-bottom: 5px;
-      
-      input {
-        margin-right: 5px;
-      }
+      margin-bottom: 3%;
+
+
+      // input {
+      //   margin-right: 5px;
+      // }
     }
   }
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  // margin-bottom: 12px;
+  cursor: pointer;
+
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background: #171A1E;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 5px;
+}
+
+.checkbox-container:hover input~.checkmark {
+  background-color: rgb(68, 66, 66);
+}
+
+.checkbox-container input:checked~.checkmark {
+  background: rgba(47, 83, 255, 0.1);
+  border: 1px solid #2F53FF;
+  border-radius: 5px;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked~.checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #2F53FF;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
 
 }
