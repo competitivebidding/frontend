@@ -18,7 +18,6 @@ const MyAuctionsPage = ({ title }) => {
       </div>
       <Category />
       <CardAuctions />
-
     </>
   );
 }
