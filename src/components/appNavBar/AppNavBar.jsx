@@ -68,7 +68,7 @@ const AppNavBar = () => {
           alt="star"
         />
         <h3>
-          <Link to='/auctions'>My auctions</Link>
+          <Link to='/myauctions'>My auctions</Link>
           </h3>
       </div>
       <div href='' className="menu__item">
@@ -86,7 +86,7 @@ const AppNavBar = () => {
           alt="emoji"
         />
         <h3>
-          <Link to = '/partnerProgram'> Partner program </Link> 
+          <Link to='/partnerProgram'> Partner program </Link> 
           </h3>
       </div>
     </div>
