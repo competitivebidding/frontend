@@ -1,0 +1,53 @@
+.user {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  &__name {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 85.5%;
+    /* or 21px */
+
+
+    color: #FFFFFF;
+  }
+
+  &__subname {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 85.5%;
+    /* or 21px */
+
+
+    color: #FFFFFF;
+  }
+
+  &__contribution {
+    flex-grow: 1;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 140%;
+    /* identical to box height, or 34px */
+
+    text-align: right;
+
+    color: #FFFFFF;
+
+    >p {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 140%;
+      /* identical to box height, or 17px */
+
+      text-align: right;
+
+      color: #FFFFFF;
+
+    }
+  }
+}

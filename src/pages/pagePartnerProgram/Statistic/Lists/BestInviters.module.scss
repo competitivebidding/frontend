@@ -1,0 +1,30 @@
+.invites {
+  display: flex;
+  flex-direction: column;
+  gap: 47px;
+  padding: 26px 28px 49px 28px;
+
+  background: #171A1E;
+  border-radius: 17px;
+
+  &__title {
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 105%;
+    /* identical to box height, or 23px */
+
+
+    color: #FFFFFF;
+  }
+
+  &__users_list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-left: 38px;
+    padding-right: 40px;
+  }
+}

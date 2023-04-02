@@ -1,7 +1,7 @@
 import {useState} from "react";
-import "./Statistic.scss";
-import PieChart from "./Charts/PieChart.jsx";
-import {UserData} from "./Charts/Data.js";
+import "../Statistic.module.scss";
+import PieChart from "./PieChart.jsx";
+import {UserData} from "./Data.js";
 
 function ChartsContainer() {
     const [registrations, setRegistrations] = useState({
@@ -75,14 +75,16 @@ function ChartsContainer() {
                     options={options}
                 />
             </div>
-            {/*<div style={{ width: "fit-content" }}>*/}
-            {/*    <BarChart chartData={incomeRoto} />*/}
-            {/*</div>*/}
-            {/*<div style={{ width: "fit-content" }}>*/}
-            {/*    <BarChart chartData={incomeRubles} />*/}
-            {/*</div>*/}
+            <div style={{ width: "fit-content" }}>
+                <BarChart chartData={incomeRoto} />
+            </div>
+            <div style={{ width: "fit-content" }}>
+                <BarChart chartData={incomeRubles} />
+            </div>
         </div>
     );
 }
+
+//вертел на хуе того кто эти графики делал
 
 export default ChartsContainer;

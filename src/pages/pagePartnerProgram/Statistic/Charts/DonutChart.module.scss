@@ -1,0 +1,20 @@
+.donut {
+  width: fit-content;
+  position: relative;
+
+  &__amount {
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 23px);
+
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 105%;
+    /* or 29px */
+
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+}

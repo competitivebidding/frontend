@@ -1,9 +1,12 @@
-import React from "react";
-import { Bar } from "react-chartjs-2";
-import { Chart as ChartJS } from "chart.js/auto";
+import React from 'react';
 
-function BarChart({ chartData }) {
-    return <Bar data={chartData} />;
+function BarChart({chart}) {
+    return (
+        <div className="chart">
+            <h3 className="chart__title">Мои игроки</h3>
+            <p>Всего: 112</p>
+        </div>
+    );
 }
 
 export default BarChart;
