@@ -8,18 +8,18 @@ import CardAuctions from '../pageAuctions/CardAuctions.jsx';
 
 import './AuctionsPage.scss'
 
-const MyAuctionsPage = ({ title }) => {
-  return (
-    <>
-      <AppHeader title={title} />
-      <div className='search__filter'>
-      <Search />
-      <Filter />
-      </div>
-      <Category />
-      <CardAuctions />
-    </>
-  );
+const MyAuctionsPage = ({title}) => {
+    return (
+        <>
+            <AppHeader title={title}/>
+            <div className='search__filter'>
+                <Search/>
+                <Filter/>
+            </div>
+            <Category/>
+            <CardAuctions/>
+        </>
+    );
 }
 
 export default MyAuctionsPage;

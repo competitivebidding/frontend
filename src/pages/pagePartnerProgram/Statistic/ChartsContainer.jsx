@@ -1,11 +1,17 @@
-import { useState } from "react";
+import {useState} from "react";
 import "./Statistic.scss";
 import PieChart from "./Charts/PieChart.jsx";
-import { UserData } from "./Charts/Data.js";
+import {UserData} from "./Charts/Data.js";
 
 function ChartsContainer() {
     const [registrations, setRegistrations] = useState({
-        labels: UserData.map((data) => data.label),
+        labels: UserData.map((data) => {
+            if (data.label === 'Total amount') {
+                return data.label
+            }
+
+            return data.label
+        }),
         datasets: [
             {
                 type: 'doughnut',
@@ -19,7 +25,7 @@ function ChartsContainer() {
                 borderColor: "transparent",
                 borderWidth: 2,
                 borderRadius: 19.5506,
-                cutout: 65,
+                cutout: '70%',
             },
         ],
     });
@@ -27,12 +33,13 @@ function ChartsContainer() {
     const textCenter = {
         id: 'textCenter',
         beforeDatasetDraw(chart, args, options) {
-            const { ctx, data } = chart;
+            const {ctx, data} = chart;
 
             ctx.save();
-            ctx.font = 'normal 28px sans-serif';
+            ctx.font = '28px sans-serif';
             ctx.fillStyle = 'white';
             ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
             ctx.fillText(
                 data.datasets[0].data[data.datasets[0].data.length - 1],
                 chart.getDatasetMeta(0).data[0].x,
@@ -49,7 +56,7 @@ function ChartsContainer() {
                     usePointStyle: true,
                     pointStyle: 'circle',
                 }
-            }
+            },
         }
 
     }
@@ -58,11 +65,10 @@ function ChartsContainer() {
 
     //const [incomeRubles, setIncomeRubles] = useState(0);
 
-    // IF YOU SEE THIS COMMENT: I HAVE GOOD EYESIGHT
 
     return (
         <div className="container">
-            <div style={{ width: "400px", height: "400px" }}>
+            <div style={{width: "400px", height: "333px"}}>
                 <PieChart
                     chartData={registrations}
                     plugins={[textCenter]}
