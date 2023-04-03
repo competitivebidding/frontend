@@ -1,3 +1,155 @@
-.royalAction__crown {
+.main {
+	// max-width: 1600px;
+	display: grid;
+	grid-template-areas:
+		"royalAction . howItWorks"
+		"mission mission howItWorks"
+		"stats . howItWorks";
 
+	color: #ffffff;
+
+	.main__royalAction {
+		grid-area: royalAction;
+		position: relative;
+		width: 801px;
+		height: 233px;
+		padding: 31px 0 38px 36px;
+
+		background: rgb(23, 26, 30);
+		background: linear-gradient(264deg, rgba(23, 26, 30, 1) 3.93%, rgba(47, 83, 255, 1) 88.81%);
+		border-radius: 17px;
+
+		.royalAction__title {
+			font-weight: 600;
+			font-size: 28px;
+			line-height: 105%;
+			/* or 29px */
+		}
+
+		.royalAction__text {
+			margin-top: 30px;
+			width: 383px;
+			height: 105px;
+
+			font-weight: 300;
+			font-size: 15px;
+			line-height: 140%;
+			/* or 21px */
+		}
+
+		.royalAction__crown {
+			position: absolute;
+			width: 359.51px;
+			height: 221.37px;
+			right: 125px;
+			top: 0.3px;
+			mix-blend-mode: soft-light;
+		}
+	}
+
+	.main__howItWorks {
+		grid-area: howItWorks;
+
+		max-width: 392px;
+		max-height: 841px;
+
+		background: #171a1e;
+
+		& > * {
+			font-weight: 300;
+		}
+
+		border: 1px solid #2f53ff;
+		border-radius: 17px;
+
+		padding: 29px 18px 0 22px;
+
+		.howItWorks__title {
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 105%;
+			margin-bottom: 30px;
+		}
+
+		.howItWorks__subtitle {
+			u {
+				font-weight: bold;
+			}
+		}
+
+		.progress__list {
+			.item {
+				margin-top: 30px;
+				list-style-type: ellipse;
+
+				&::marker {
+					position: relative;
+					z-index: 1;
+				}
+			}
+
+			.item:last-child {
+				margin-bottom: 39px;
+			}
+		}
+	}
+
+	.main__mission {
+		margin-top: 25px;
+
+		max-width: 801px;
+
+		grid-area: mission;
+
+		.mission__title {
+			font-weight: 600;
+			font-size: 24px;
+			line-height: 105%;
+		}
+
+		.mission__subtitle {
+			margin-top: 14px;
+
+			font-weight: 300;
+			font-size: 15px;
+
+			line-height: 140%;
+
+			display: flex;
+			justify-content: space-between;
+
+			span {
+				display: inline;
+				font-weight: 600;
+				font-size: 28px;
+				line-height: 105%;
+			}
+		}
+
+		.mission__progressBar {
+			margin: 33px 0 64px 0;
+			progress {
+				min-width: 100%;
+			}
+		}
+	}
+
+	.main__stats {
+		max-width: 801px;
+		width: 100%;
+		grid-area: stats;
+
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.stats__item {
+		min-width: 200px;
+
+		margin: 14px 14px 0 0;
+	}
+
+	.big {
+		flex: 2 0 auto;
+	}
 }
