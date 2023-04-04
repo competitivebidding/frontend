@@ -6,19 +6,14 @@ import { Outlet } from 'react-router-dom';
 
 import './MainSection.scss'
 
-function MainSection() {
-  return (
-    <>
-      <AppNavBar />
-      <div className='main-section'>
-        <AppHeader />
-
-        <Outlet />
-        <AppFooter />
-
-      </div>
-    </>
-  );
+function MainSection({PageContent, title}) {
+    return (
+        <div className='main-section'>
+            <AppHeader title={title}/>
+            <PageContent/>
+            <AppFooter/>
+        </div>
+    );
 }
 
 export default MainSection;
