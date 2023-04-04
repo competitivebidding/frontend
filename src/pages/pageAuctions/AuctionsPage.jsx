@@ -1,16 +1,26 @@
 import React from 'react';
-import AppNavBar from "../../components/appNavBar/AppNavBar.jsx";
-import MainSection from "../../components/MainSection/MainSection.jsx";
+import AppHeader from '../../components/appHeader/AppHeader.jsx';
 
+import Category from '../pageAuctions/Category.jsx';
+import Filter from '../pageAuctions/Filter.jsx';
+import Search from '../pageAuctions/Search.jsx';
+import CardAuctions from '../pageAuctions/CardAuctions.jsx';
 
+import './AuctionsPage.scss'
 
-const AuctionsPage = ({title}) => {
+const MyAuctionsPage = ({ title }) => {
   return (
-      <>
-          <AppNavBar/>
-          <MainSection PageContent={'a'} title={title}/> {/*Вставить свой контент в Page content*/}
-      </>
+    <>
+      <AppHeader title={title} />
+      <div className='search__filter'>
+      <Search />
+      <Filter />
+      </div>
+      <Category />
+      <CardAuctions />
+
+    </>
   );
 }
 
-export default AuctionsPage;
+export default MyAuctionsPage;

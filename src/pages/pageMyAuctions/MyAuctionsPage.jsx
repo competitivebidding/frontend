@@ -1,14 +1,20 @@
 import React from 'react';
-import AppNavBar from "../../components/appNavBar/AppNavBar.jsx";
-import MainSection from "../../components/MainSection/MainSection.jsx";
 
-const MyAuctionsPage = ({title}) => {
+import AppHeader from '../../components/appHeader/AppHeader.jsx';
+import Filter from '../pageAuctions/Filter.jsx';
+import Search from '../pageAuctions/Search.jsx';
+
+const MyAuctionsPage = () => {
   return (
-      <>
-          <AppNavBar/>
-          <MainSection PageContent={'a'} title={title}/> {/*Вставить свой контент в Page content*/}
-      </>
+    <>
+      <AppHeader title={title} />
+      <div className='search__filter' style={{display: 'flex', justifyContent: 'space-between'}}>
+      <Search /> 
+      <Filter />
+      </div>
+    </>
   );
 }
 
 export default MyAuctionsPage;
+

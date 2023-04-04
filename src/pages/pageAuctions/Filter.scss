@@ -1,0 +1,149 @@
+h3 {
+  margin: 0 0 10px;
+}
+
+h2 {
+  margin-right: 120px;
+}
+
+
+
+.filter {
+  background-color: #171A1E;
+  color: rgba(255, 255, 255, 0.6);
+  width: fit-content;
+  margin-left: auto;
+  border-radius: 17px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1rem;
+
+  padding: 20px;
+  margin-bottom: 20px;
+
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__selected {
+    margin-bottom: 7%;
+  }
+
+  .categories {
+    display: flex;
+    margin-bottom: 15px;
+
+    &__title {
+      margin-right: 110px;
+    }
+  }
+
+  &__categories {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+
+
+    label {
+      display: block;
+      margin-bottom: 3%;
+    }
+  }
+
+  .brand {
+    display: flex;
+
+    &__title {
+      margin-right: 153px;
+    }
+
+    &__arrow {
+      margin-bottom: 20px;
+    }
+  }
+
+  .filter__brands {
+    margin-bottom: 20px;
+
+    input[type="text"] {
+      width: 100%;
+      padding: 7px;
+      margin: 3px 0 14px 0;
+      box-sizing: border-box;
+      background: #171A1E;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 3%;
+    }
+  }
+
+
+
+
+  .checkbox__container {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    & .checkmark:after {
+      left: 5px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid #2F53FF;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background: #171A1E;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 5px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
+
+  .checkbox__container:hover input~.checkmark {
+    background-color: rgb(68, 66, 66);
+  }
+
+  .checkbox__container input:checked~.checkmark {
+    background: rgba(47, 83, 255, 0.1);
+    border: 1px solid #2F53FF;
+    border-radius: 5px;
+  }
+
+  .checkbox__container input:checked~.checkmark:after {
+    display: block;
+  }
+}
