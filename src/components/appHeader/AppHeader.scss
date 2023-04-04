@@ -3,7 +3,7 @@
   width: 100%;
   justify-content: space-between;
   height: fit-content;
-  padding: 26px 0 35px 0;
+  padding: 10px 0 35px 0;
 
   &__title {
     font-style: normal;
@@ -23,6 +23,20 @@
     &__balance {
       position: relative;
     }
+
+    &__log {
+      color: #fff;
+      margin-left: 10px;
+    }
+
+    &__sign {
+      padding: 10px;
+      background-color: blue;
+      border-radius: 20px;
+      color: #fff;
+      margin-left: 22px;
+    }
+
 
     &__balanceSum {
       color: #fff;
