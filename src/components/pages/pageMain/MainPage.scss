@@ -11,7 +11,7 @@
 	.main__royalAction {
 		grid-area: royalAction;
 		position: relative;
-		width: 801px;
+		max-width: 801px;
 		height: 233px;
 		padding: 31px 0 38px 36px;
 
@@ -50,7 +50,7 @@
 	.main__howItWorks {
 		grid-area: howItWorks;
 		margin-left: 17px;
-		
+
 		max-width: 392px;
 
 		background: #171a1e;
@@ -135,21 +135,29 @@
 	}
 
 	.main__stats {
-		max-width: 801px;
 		width: 100%;
+		max-width: 805px;
+		// min-width: 66.666%;
 		grid-area: stats;
-
+		margin-right: -14px;
 		display: flex;
 		flex-wrap: wrap;
-	}
 
-	.stats__item {
-		min-width: 200px;
+		.stats__item {
+			min-width: 200px;
+			margin: 0 14px 14px 0;
 
-		margin: 14px 14px 0 0;
-	}
+			&:nth-child(2) {
+				margin-right: 0px;
+			}
 
-	.big {
-		flex: 2 0 auto;
+			&:nth-child(5) {
+				margin-right: 0px;
+			}
+
+			&:last-child {
+				margin-right: 0px;
+			}
+		}
 	}
 }

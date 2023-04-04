@@ -71,41 +71,37 @@ const AuctionsPage = () => {
 
 			<div className="main__stats">
 				<Stats
-					className="stats__item"
+					property="big"
 					title="Sum winnings"
 					text="1 300 300 r."
 				/>
 				<Stats
-					className="stats__item"
 					title="Number of participants"
 					text="1345"
 				/>
 				<Stats
-					className="stats__item"
 					title="Number of participating countries"
 					text="7 "
 				/>
 				<Stats
-					className="stats__item"
 					title="Auctions daily"
 					text="112"
 				/>
 				<Stats
-					className="stats__item"
+					// property="image"
+					title="Number of winners"
+					text="132"
+				// image="src\assets\pageMain\trophy-front-premium.png"
+				/>
+				<Stats
 					title="Withdrawn to partners big"
 					text="944 567 r."
 				/>
 				<Stats
-					className="stats__item"
 					title="Number of partners"
 					text="234"
 				/>
-				<Stats
-					className="stats__item"
-					title="Number of winners"
-					text="132"
-					image="src\assets\pageMain\trophy-front-premium.png"
-				/>
+
 
 			</div>
 		</div>
