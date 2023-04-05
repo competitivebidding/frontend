@@ -1,0 +1,32 @@
+.user {
+  display: grid;
+  grid-template-columns: 25% 37% 37%;
+  &__circle-img {
+    width: 39px;
+    height: 39px;
+    background: #F2AE14;
+    border-radius: 50%;
+    margin: 7px 7px 7px 10px;
+    transform: translate(0, 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+  }
+  &__info,
+  &__time {
+    display: flex;
+    flex-direction: column;
+    margin: 7px;
+  }
+  &__info_name,
+  &__time_data {
+    color: #ffffff;
+    padding: 5px;
+  }
+  &__info_id,
+  &__time_time {
+    padding: 5px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+}

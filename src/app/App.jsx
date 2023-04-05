@@ -16,7 +16,7 @@ import WinnersListPage from "../pages/pageWinnersList/WinnersListPage.jsx";
 
 import MainSection from '../Components/MainSection/MainSection.jsx';
 
-import LogIn from "../pagesAuthorization/LogIn.jsx";
+// import LogIn from "../pagesAuthorization/LogIn.jsx";
 
 
 import './App.scss'
@@ -43,7 +43,7 @@ const App = () => {
           <Route path='/winnerList' element={<WinnersListPage title={'WinnerList'}/>} />
         </Route>
 
-        <Route path='/LogIn' element={<LogIn/>} />
+        {/* <Route path='/LogIn' element={<LogIn/>} /> */}
 
         </Routes>
       </div>

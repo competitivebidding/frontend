@@ -1,0 +1,231 @@
+.main {
+	// max-width: 1600px;
+	display: grid;
+	grid-template-areas:
+		"royalAction royalAction howItWorks"
+		"mission mission howItWorks"
+		"stats stats howItWorks";
+
+	color: #ffffff;
+
+	// .main__royalAction {
+	// 	grid-area: royalAction;
+	// 	position: relative;
+	// 	width: 801px;
+	// 	height: 233px;
+	// 	padding: 31px 0 38px 36px;
+
+	// 	background: rgb(23, 26, 30);
+	// 	background: linear-gradient(264deg, rgba(23, 26, 30, 1) 3.93%, rgba(47, 83, 255, 1) 88.81%);
+	// 	border-radius: 17px;
+
+	// 	.royalAction__title {
+	// 		font-weight: 600;
+	// 		font-size: 28px;
+	// 		line-height: 105%;
+	// 		/* or 29px */
+	// 	}
+
+	// 	.royalAction__text {
+	// 		margin-top: 30px;
+	// 		width: 383px;
+	// 		height: 105px;
+
+	// 		font-weight: 300;
+	// 		font-size: 15px;
+	// 		line-height: 140%;
+	// 		/* or 21px */
+	// 	}
+
+	// 	.royalAction__crown {
+	// 		position: absolute;
+	// 		width: 359.51px;
+	// 		height: 221.37px;
+	// 		right: 125px;
+	// 		top: 0.3px;
+	// 		mix-blend-mode: soft-light;
+	// 	}
+	// }
+
+	// .main__howItWorks {
+	// 	grid-area: howItWorks;
+
+	// 	max-width: 392px;
+	// 	max-height: 841px;
+
+	// 	background: #171a1e;
+
+	// 	& > * {
+	// 		font-weight: 300;
+	// 	}
+
+	// 	border: 1px solid #2f53ff;
+	// 	border-radius: 17px;
+
+	// 	padding: 29px 18px 0 22px;
+
+	// 	.howItWorks__title {
+	// 		font-weight: 400;
+	// 		font-size: 24px;
+	// 		line-height: 105%;
+	// 		margin-bottom: 30px;
+	// 	}
+
+	// 	.howItWorks__subtitle {
+	// 		u {
+	// 			font-weight: bold;
+	// 		}
+	// 	}
+
+	// 	.progress__list {
+	// 		.item {
+	// 			margin-top: 30px;
+	// 			list-style-type: ellipse;
+
+	// 			&::marker {
+	// 				position: relative;
+	// 				z-index: 1;
+	// 			}
+	// 		}
+
+	// 		.item:last-child {
+	// 			margin-bottom: 39px;
+	// 		}
+	// 	}
+	// }
+
+	// .main__mission {
+	// 	margin-top: 25px;
+
+	// 	max-width: 801px;
+
+	// 	grid-area: mission;
+
+	// 	.mission__title {
+	// 		font-weight: 600;
+	// 		font-size: 24px;
+	// 		line-height: 105%;
+	// 	}
+
+	// 	.mission__subtitle {
+	// 		margin-top: 14px;
+
+	// 		font-weight: 300;
+	// 		font-size: 15px;
+
+	// 		line-height: 140%;
+
+	// 		display: flex;
+	// 		justify-content: space-between;
+
+	// 		span {
+	// 			display: inline;
+	// 			font-weight: 600;
+	// 			font-size: 28px;
+	// 			line-height: 105%;
+	// 		}
+	// 	}
+
+	// 	.mission__progressBar {
+	// 		margin: 33px 0 64px 0;
+	// 		progress {
+	// 			min-width: 100%;
+	// 		}
+	// 	}
+	// }
+	
+}
+.main-bottom {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 15px;
+		margin-bottom: 35px;
+	&__left {
+		gap: 19px;
+    display: grid;
+	}
+	.social {
+		gap: 15px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr) );
+		&__item {
+			background: #171A1E;
+			border-radius: 12px;
+			padding: 20px 10px;
+			text-align: center;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-around;
+			flex-grow: 1;
+			gap: 6px;
+			&_wrap {
+				width: 43px;
+				min-width: 43px;
+				height: 43px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(47, 83, 255, 0.2);
+				border-radius: 12px;
+				margin-right: 5px;
+			}
+			& a {
+				font-size: 15px;
+				color: #ffffff;
+			}
+		}
+	}
+	.chats {
+		display: flex;
+		gap: 15px;
+		.chat {
+			position: relative;
+			width: 50%;
+			height: 375px;
+			overflow: auto;
+			background: #171A1E;
+			border-radius: 12px;
+			&__title {
+				position: relative;
+				z-index: 55;
+				color: #ffffff;
+				font-size: 15px;
+				text-transform: uppercase;
+				text-align: center;
+				margin-top: 20px;
+			}
+			& img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				object-fit: cover;
+  			object-position: top;
+			}
+		}
+	}
+	.last-users {
+		background: #171A1E;
+		border-radius: 17px;
+		padding: 15px;
+		&__title {
+			text-align: center;
+			font-size: 24px;
+			color: #ffffff;
+			margin-right: 0;
+		}
+		&__top {
+			margin-top: 22px;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+			display: grid;
+			grid-template-columns: 25% 37% 37%;
+			&_text {
+				padding: 10px;
+				text-align: left;
+				color: rgba(255, 255, 255, 0.4);
+			}
+		}
+	}
+}
