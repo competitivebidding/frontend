@@ -2,9 +2,6 @@ import React from 'react';
 import AppHeader from '../../components/appHeader/AppHeader.jsx';
 import NewsList from './NewsList/NewsList';
 
-
-
-
 const NewsPage = ({ title }) => {
   // Эмитация базы данных. Данные будут приходить с бэка
   const data = [{ img1: '/src/pages/pageNews/img/quare.png', date: '16/02/2023   22:32', alt: 'News Image', title: 'Lorem ipsum', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, quasi labore provident, corrupti neque doloribus facere voluptates dolores aperiam consequatur architecto, dolor voluptatem! Necessitatibus, dolor aliquam enim eius eos nulla.', id: 1 },
