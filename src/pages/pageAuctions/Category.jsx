@@ -1,11 +1,10 @@
 import React from 'react';
 
-const SupportPage = () => {
+const Category = () => {
   return (
     <div>
-      
     </div>
   );
 }
 
-export default SupportPage;
+export default Category;

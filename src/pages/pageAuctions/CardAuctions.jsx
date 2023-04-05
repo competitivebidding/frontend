@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NotificationsPage = () => {
+const CardAuctions = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const NotificationsPage = () => {
   );
 }
 
-export default NotificationsPage;
+export default CardAuctions;
