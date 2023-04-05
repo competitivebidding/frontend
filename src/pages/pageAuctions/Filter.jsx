@@ -26,7 +26,7 @@ const Filter = () => {
   return (
     <div className="filter">
       <div className="filter__header">
-        <h2>Filtering</h2>
+        <h2 className="filter__title">Filtering</h2>
         <span className="filter__hide" onClick={handleToggleVisibility}>
           {isVisible ? <img src={arrowBefore} alt="arrow" /> : <img src={arrowAfter} alt="arrow2" />}
         </span>

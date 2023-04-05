@@ -1,8 +1,10 @@
-h3 {
+.categories__title,
+.filter__selected,
+.brand__title {
   margin: 0 0 10px;
 }
 
-h2 {
+.filter__title {
   margin-right: 120px;
 }
 
@@ -13,6 +15,7 @@ h2 {
   color: rgba(255, 255, 255, 0.6);
   width: fit-content;
   margin-left: auto;
+  max-height: 60vh;
   border-radius: 17px;
 
   font-family: 'Roboto';
@@ -22,6 +25,7 @@ h2 {
   line-height: 1rem;
 
   padding: 20px;
+  margin-top: -80px;
   margin-bottom: 20px;
 
 

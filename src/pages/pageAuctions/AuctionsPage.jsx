@@ -1,7 +1,7 @@
 import React from 'react';
 import AppHeader from '../../components/appHeader/AppHeader.jsx';
 
-import Category from '../pageAuctions/Category.jsx';
+
 import Filter from '../pageAuctions/Filter.jsx';
 import Search from '../pageAuctions/Search.jsx';
 import CardsAuctions from '../pageAuctions/CardAuctions.jsx';
@@ -22,12 +22,15 @@ const MyAuctionsPage = ({ title }) => {
   return (
     <>
       <AppHeader title={title} />
-      <div className='search__filter'>
+      {/* <div className='search__filter'> */}
+      
         <Search />
-        <Filter />
-      </div>
-      <Category />
+        <div className='filter__cards'>
+        
+      {/* </div> */}
       <CardsAuctions data={data} />
+      <Filter />
+      </div>
     </>
   );
 }
