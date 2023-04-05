@@ -14,9 +14,11 @@ const AppHeader = ({title}) => {
       <h1 className='header__title'>{title}</h1>
       <div className='header__group group'>
         <div className='group__log'>
-          <Link to='LogIn'>Log in</Link> 
+          <Link to='/LogIn'>Log in</Link> 
           </div>
-        <div className='group__sign'>Sign in</div>
+        <div className='group__sign'>
+        <Link to='/SignIn'>Sign in</Link> 
+          </div>
         {/* <img className='group__balance' src={blueBalance} alt="blueBalance" />
         <div className='group__balanceSum'>20</div>
         <img className='group__notifications' src={iconNotification} alt="iconNotification" />
