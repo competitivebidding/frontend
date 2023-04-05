@@ -26,28 +26,28 @@ const Filter = () => {
   return (
     <div className="filter">
       <div className="filter__header">
-        <h2>Filtering</h2>
+        <h2 className="filter__title">Filtering</h2>
         <span className="filter__hide" onClick={handleToggleVisibility}>
           {isVisible ? <img src={arrowBefore} alt="arrow" /> : <img src={arrowAfter} alt="arrow2" />}
         </span>
-    
+
       </div>
       {isVisible && (
         <>
           <div>
-          <h3 className="filter__selected">Selected Categories:</h3>
+          <h3 className="filter__selected filter__title2">Selected Categories:</h3>
           </div>
 
           <div className="categories">
-            
-          <h3 className="categories__title">Categories:</h3> 
-          <span className="categories__arrow"  onClick={handleToggleCategoriesVisibility} > 
+
+          <h3 className="categories__title filter__title2">Categories:</h3>
+          <span className="categories__arrow"  onClick={handleToggleCategoriesVisibility} >
             {isCategoriesVisible ? <img src={arrowBefore2} alt="arrow" /> : <img src={arrowAfter2} alt="arrow" />}
             </span>
           </div>
 
           <div className="filter__categories" style={{ display: isCategoriesVisible ? "block" : "none" }}>
-            
+
             <label className="checkbox__container">
               <input type="checkbox" name="category" value="all" />
               <span className="checkmark"></span>
@@ -59,7 +59,7 @@ const Filter = () => {
               <span className="checkmark"></span>
               Gadgets
             </label>
-            
+
             <label className="checkbox__container">
               <input type="checkbox" name="category" value="electronics" />
               <span className="checkmark"></span>
@@ -69,15 +69,15 @@ const Filter = () => {
 
 
           <div className="brand">
-            
-            <h3 className="brand__title">Brand</h3> 
-            <span className="brand__arrow"  onClick={handleToggleBrandVisibility} > 
+
+            <h3 className="brand__title filter__title2">Brand</h3>
+            <span className="brand__arrow"  onClick={handleToggleBrandVisibility} >
             {isBrandVisible ? <img src={arrowBefore2} alt="arrow" /> : <img src={arrowAfter2} alt="arrow" />}
             </span>
             </div>
 
           <div className="filter__brands" style={{ display: isBrandVisible ? "block" : "none" }}>
-    
+
             <input type="text" placeholder="Search" />
 
             <label className="checkbox__container">

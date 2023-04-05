@@ -1,0 +1,85 @@
+.chart {
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    padding-bottom: 18px;
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 105%;
+    /* identical to box height, or 23px */
+
+
+    color: #FFFFFF;
+  }
+
+  .filter {
+    margin-right: 15px;
+    position: relative;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #CACACA;
+
+    .arrow {
+      position: absolute;
+      top: calc(50% - 8px);
+      right: -5px;
+      cursor: pointer;
+
+      &_visible {
+        transform: rotate(180deg);
+      }
+    }
+
+    &__current {
+      transition: all 0.3s ease-in;
+      width: 100px;
+      background: #171A1E;
+      border-radius: 17px;
+      padding: 5px;
+      text-align: center;
+    }
+
+    &__dropdown {
+      z-index: 10;
+      margin-top: 10px;
+      background: #171A1E;
+      border-radius: 17px;
+      padding: 5px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.1s ease-in-out, opacity 0.3s ease-in-out;
+      transform: translateY(20px);
+
+      &_visible {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-100px);
+      }
+    }
+
+    &__item {
+      white-space: nowrap;
+      cursor: pointer;
+      padding-bottom: 5px;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #CACACA;;
+      }
+    }
+  }
+}

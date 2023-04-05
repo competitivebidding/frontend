@@ -6,10 +6,6 @@ import {UserData} from "./Data.js";
 function ChartsContainer() {
     const [registrations, setRegistrations] = useState({
         labels: UserData.map((data) => {
-            if (data.label === 'Total amount') {
-                return data.label
-            }
-
             return data.label
         }),
         datasets: [

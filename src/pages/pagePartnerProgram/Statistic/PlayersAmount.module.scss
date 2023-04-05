@@ -2,7 +2,6 @@
   padding: 25px 28px 0 28px;
   background: #171A1E;
   border-radius: 17px;
-  width: fit-content;
 
   &__header {
     display: flex;
@@ -38,7 +37,8 @@
     display: flex;
     align-items: center;
     gap: 9px;
-    padding: 36px 78px 49px 56px;
+    padding: 36px 38px 49px 40px;
+    justify-content: space-between;
 
     .statistic {
       display: flex;

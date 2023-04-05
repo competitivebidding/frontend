@@ -1,11 +1,13 @@
 import React from 'react';
-import BarChart from "@/pages/pagePartnerProgram/Statistic/Charts/BarChart";
 import PlayersAmount from "@/pages/pagePartnerProgram/Statistic/PlayersAmount";
+import styles from "./Charts.module.scss"
+import Income from "@/pages/pagePartnerProgram/Statistic/Income";
 
 function Charts() {
     return (
-        <div>
+        <div className={styles.charts_list}>
             <PlayersAmount/>
+            <Income/>
         </div>
     );
 }
