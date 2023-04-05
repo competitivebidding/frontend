@@ -1,0 +1,148 @@
+@mixin button ($width, $pdwidth, $bg) {
+    padding: .7em $pdwidth;
+    border-radius: .7em;
+    width: $width;
+    background: $bg;
+}
+
+
+//mixin, variables
+
+.block__template {
+    display: grid;
+    grid-template-areas:
+        "item-info item-info item-partner"
+        "item-phone item-email item-card";
+    gap: 1em;
+    grid-template-rows: 2fr 2fr;
+}
+
+.block__item {
+    border-radius: 1em;
+    padding: 2em;
+    background-color: rgba(23, 26, 30, 1);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: #fff;
+
+    //!item-info
+
+    &.item-info {
+        grid-area: item-info;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .item-info__user {
+            display: grid;
+            grid-template-areas:
+                'img verify'
+                'img id';
+            column-gap: 2em;
+            row-gap: 1em;
+        }
+
+        .item-info__img {
+            border-radius: 100%;
+            grid-area: img;
+        }
+
+        .item-info__verify {
+            grid-area: verify;
+            @include button(10em, 0, rgba(242, 174, 20, 0.1));
+            font-size: 11px;
+            color: rgba(247, 158, 27, 1);
+            text-align: center;
+
+        }
+
+        .green-mode {
+            background: rgba(0, 128, 20, 0.1);
+            color: rgba(0, 190, 27, 1);
+        }
+
+        .item-info__id {
+            grid-area: id;
+            font-size: 1.3em;
+            text-transform: uppercase;
+        }
+
+        .item-info__button {
+            button {
+                @include button(inherit, 4.25em, rgba(255, 255, 255, 0.07))
+            }
+        }
+    }
+
+    //!item-partner
+
+    &.item-partner {
+        grid-area: item-partner;
+        border: 1px solid rgba(47, 83, 255, 1);
+    }
+
+    //!item-phone
+
+    &.item-phone {
+        grid-area: item-phone;
+        display: grid;
+        font-size: 8px;
+        grid-template-areas:
+            'img name confirmed'
+            'img phone confirmed'
+            'button button button';
+        // justify-items: center;
+        // align-items: center;
+        grid-template-columns: .5fr 1fr 1fr;
+        grid-template-rows: 2fr 1fr 3fr;
+
+        .item-phone__img {
+            background-color: rgba(47, 83, 255, 0.2);
+            border-radius: .8em;
+            grid-area: img;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-self: center;
+            align-self: center;
+            width: 48px;
+            height: 48px;
+
+        }
+
+        .item-phone__name {
+            grid-area: name;
+
+
+        }
+
+        .item-phone__phone {
+            grid-area: phone;
+
+
+        }
+
+        .item-phone__confirmed {
+            grid-area: confirmed;
+
+
+        }
+
+        .item-phone__button {
+            grid-area: button;
+
+        }
+
+
+
+    }
+
+
+
+    &.item-email {
+        grid-area: item-email;
+    }
+
+    .item-card {
+        grid-area: item-card;
+    }
+}
