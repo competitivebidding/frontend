@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AuctionCard.scss';
 
 const AuctionCard = ({ img, alt, name, date, price }) => {
+
+    // let clazz = 'card';
+    const [clazz, getClass] = useState('card');
+
+
+    const onJoin = ()=>{
+        if(clazz === 'card'){
+            getClass(clazz + ' active')
+        }
+    }
+
     return (
-        <div className='card'>
+        <div className={clazz}>
             <div className="card__imgbox">
                 <div className="deposit">
                     <div className="deposit__price">
@@ -28,7 +39,8 @@ const AuctionCard = ({ img, alt, name, date, price }) => {
                 <div className="card__start">
                     <span>Start in:</span><span>{date}</span>
                 </div>
-                <button className='card__btn'>
+                <button className='card__btn'
+                    onClick={onJoin}>
                     <span>Join</span>
                 </button>
             </div>
