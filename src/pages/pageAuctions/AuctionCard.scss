@@ -14,21 +14,21 @@
         }
 
         .card__btn {
-                background: #00A76B;
+            background: #00A76B;
 
-                &::after {
-                    content: '';
-                    position: absolute;
-                    width: 22px;
-                    height: 22px;
-                    background: url('/src/assets/imgAuctions/check.svg');
-                    top: 50%;
-                    left: 57%;
-                    transform: translateY(-50%);
-                }
+            &::after {
+                content: '';
+                position: absolute;
+                width: 22px;
+                height: 22px;
+                background: url('/src/assets/imgAuctions/check.svg');
+                top: 50%;
+                left: 57%;
+                transform: translateY(-50%);
             }
         }
     }
+}
 
 
 .card__imgbox {
@@ -142,5 +142,17 @@
     color: #FFFFFF;
     position: relative;
     transition: all .3s;
+}
 
+.timer {
+    display: flex;
+    justify-content: space-between;
+    background: #13161A;
+    border-radius: 8px;
+    padding: 7px 20px 7px 13px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 105%;
+    color: #fff;
+    margin-bottom: 9px;
 }

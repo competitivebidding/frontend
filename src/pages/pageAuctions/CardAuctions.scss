@@ -6,15 +6,22 @@
     width: 70%;
 }
 
-@media(max-width: 1300px){
-    .auctionList{
+.title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 105%;
+    color: #fff;
+}
+
+@media(max-width: 1300px) {
+    .auctionList {
         grid-template: repeat(2, auto) / repeat(2, 1fr);
 
     }
 }
 
-@media(max-width: 1000px){
-    .auctionList{
+@media(max-width: 1000px) {
+    .auctionList {
         grid-template: repeat(2, auto) / repeat(1, 1fr);
     }
 }
