@@ -3,19 +3,18 @@ import React, { useState } from 'react';
 import userImg from '@assets/imgPartnerProgram/user.svg';
 import phone from '@assets/imgPartnerProgram/phone.svg';
 
-
 import './UserInfoAccount.scss';
 
 const UserInfoAccount = () => {
   const [userInfo, setUserInfo] = useState({
     mainCard: {
       picture: userImg,
-      verify: true,
+      verify: false,
       id: '78950430',
     },
     phoneCard: {
-      phoneNumber: '+18143511353',
-      verify: false,
+      phoneNumber: '+181435113212',
+      verify: true,
       condition: false,
     },
     emailCard: {
@@ -51,21 +50,31 @@ const UserInfoAccount = () => {
       </div>
       <div className="block__item item-partner">partner</div>
       <div className="block__item item-phone">
-        <div className="item-phone__img">
-          <img
-            src={phone}
-            alt=""
-          />
+        <div className="item-phone__main main-phone">
+          <div className="main-phone__img">
+            <img
+              src={phone}
+              alt=""
+            />
+          </div>
+          <div className="main-phone__info">
+            <div className="main-phone__phone-info">
+              <div className="main-phone__name">Phone</div>
+              <div className="main-phone__phone">
+                {userInfo.phoneCard.phoneNumber}
+              </div>
+            </div>
+            <div
+              className={`main-phone__status ${
+                userInfo.phoneCard.verify ? 'green-mode' : ''
+              }`}
+            >
+              {userInfo.phoneCard.verify ? 'Confirmed' : 'Uncomfirmed'}
+            </div>
+          </div>
         </div>
-        <div className="item-phone__name">
-          Phone
-        </div>
-        <div className="item-phone__phone">
-            {userInfo.phoneCard.phoneNumber}
-        </div>
-        <div className="item-phone__confirmed">Unconfirmed</div>
         <div className="item-phone__button">
-          <button>Confirm</button>
+          <button>Submit</button>
         </div>
       </div>
       <div className="block__item item-email">email</div>
