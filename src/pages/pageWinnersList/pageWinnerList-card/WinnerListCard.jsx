@@ -2,9 +2,9 @@ import React from 'react'
 import WinnersListPage from '../WinnersListPage'
 import '../WinnerListPage.scss'
 
-const WinnerListCard = ({key,acc,cardData,cardTime,winnerImg,prizeImg,prizeTitle, text}) => {
+const WinnerListCard = ({acc,cardData,cardTime,winnerImg,prizeImg,prizeTitle, text}) => {
   return (
-    <div className='card'>
+    <div className='winnerlist_card'>
        <div className='card-header'>
         <div className='card-header__card-info'>
           <img className='card-header__card-info__card-image' src="src/pages/pageWinnersList/img/green.png" alt="greencircle" />

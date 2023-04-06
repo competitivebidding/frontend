@@ -1,19 +1,24 @@
-.cards{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.winnerlist_cards{
+    display: grid;
+    grid-template: auto / repeat(3, 1fr);
+    gap: 30px;
+
+    @media (max-width: 1300px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
 }
 
-.card{
+.winnerlist_card{
     display: flex;
-    width: 392px;
-    height: 713px;
+    //width: 392px;
+    //height: 713px;
     flex-direction: column;
     background: #171A1E;
     border-radius: 17px;
-    overflow: hidden;
-    margin: 20px;
-   
 }
 
 .card-header{
@@ -21,7 +26,7 @@
     justify-content: space-between;
     padding: 20px;
     margin-top: 10px;
-    
+
 
     &__card-info{
         display: flex;
@@ -107,7 +112,7 @@
 
         }
     }
-    
+
     &__card-text{
         font-weight: 300;
         font-size: 10px;
