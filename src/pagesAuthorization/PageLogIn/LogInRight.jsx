@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import validator from 'validator';
 import './LoginRight.scss';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
 
 const LogInRight = () => {
   const {
@@ -10,6 +13,10 @@ const LogInRight = () => {
     handleSubmit,
     formState: { errors }
   } = useForm();
+
+
+  const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false);
+
 
   const onSubmit = (data) => {
     if (validator.isEmail(data.email)) {
@@ -29,8 +36,9 @@ const LogInRight = () => {
             </span>
           </p>
         </div>
-        <div className={`form__group ${errors.email ? 'has-error' : ''}`}>
-          <label htmlFor="email">Email</label>
+        <div className={`form__group  ${errors.email ? 'has-error' : ''}`}>
+          <label htmlFor="email">E-mail</label>
+          <div className='email__input'>
           <input
             type="email"
             id="email"
@@ -41,6 +49,7 @@ const LogInRight = () => {
               pattern: /^\S+@\S+$/i
             })}
           />
+          </div>
           {errors.email?.type === 'required' && (
             <div className="error-message">Please enter your email address</div>
           )}
@@ -50,24 +59,33 @@ const LogInRight = () => {
         </div>
         <div className={`form__group ${errors.password ? 'has-error' : ''}`}>
           <label htmlFor="password">Password</label>
+          <div className="password__input">
           <input
-            type="password"
+            type={ isRepeatPasswordVisible ? 'text' : 'password'}
             id="password"
             name="password"
             required
             {...register('password', { required: true })}
           />
+            <FontAwesomeIcon
+              icon={ isRepeatPasswordVisible ? faEyeSlash : faEye}
+              onClick={() => setIsRepeatPasswordVisible(!isRepeatPasswordVisible)}
+              className="password__icon"
+            />
+          </div>
           {errors.password?.type === 'required' && (
             <div className="error-message">Please enter your password</div>
           )}
         </div>
 
-        <div className="form__group">
-          <button type="submit" className="btn">
+        <div className=" wrap__btn">
+          <button type="submit" className="btn__form">
             Log in
           </button>
         </div>
-        <div className="form__group form__forgot">Forgot password?</div>
+        <div className="form__group">
+          <Link to='/ResetPassword' className='form__forgot'>Forgot password?</Link>
+          </div>
       </form>
     </>
   );

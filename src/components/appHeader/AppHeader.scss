@@ -27,6 +27,10 @@
     &__log {
       color: #fff;
       margin-left: 10px;
+
+      &:hover {
+        color: rgb(149, 148, 148)
+      }
     }
 
     &__sign {
@@ -35,6 +39,10 @@
       border-radius: 20px;
       color: #fff;
       margin-left: 22px;
+
+      &:hover {
+        color: rgb(149, 148, 148)
+      }
     }
 
 

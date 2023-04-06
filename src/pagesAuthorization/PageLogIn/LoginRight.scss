@@ -8,6 +8,8 @@
   border-radius: 5px;
   min-height: 100vh;
 
+
+
   &__title {
     font-family: 'Roboto';
     color: white;
@@ -16,6 +18,7 @@
     font-size: 2.2rem;
     line-height: 130%;
   }
+
 
   &__descr {
     font-family: 'Roboto';
@@ -37,11 +40,15 @@
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
+    margin-top: 10px;
 
     color: #2F53FF;
   }
 
   &__group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-bottom: 20px;
     color: #BBBBBB;
 
@@ -52,8 +59,7 @@
     }
 
     input {
-      display: block;
-      width: 470px;
+      width: 25em;
       padding: 10px;
       background: #191D25;
       border-radius: 8px;
@@ -65,11 +71,15 @@
     }
   }
 
-.btn {
+  .email__input {
+    display: flex;
+  }
+
+.btn__form {
     display: block;
     background: rgba(47, 83, 255, 0.2);
     border-radius: 8px;
-    width: 470px;
+    width: 25em;
     height: 48px;
     color: rgba(255, 255, 255, 0.4);
     padding: 10px 20px;
@@ -80,9 +90,16 @@
       background-color: #2556b8;
     }
   }
+
+  .wrap__btn {
+    display: flex;
+    // width: 25em;
+  }
   
   .error-message {
     margin-top: 10px;
     color: rgb(170, 9, 9);
   }
 }
+
+
