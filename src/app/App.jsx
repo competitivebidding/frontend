@@ -18,6 +18,8 @@ import MainSection from '../Components/MainSection/MainSection.jsx';
 
 import LogIn from "../pagesAuthorization/PageLogIn/LogIn.jsx";
 import SignIn from "../pagesAuthorization/PageSignIn/SignIn.jsx";
+import ResetPassword from "../pagesAuthorization/PageResetPassword/ResetPassword.jsx";
+import NewPassword from "../pagesAuthorization/PageNewPassword/NewPassword.jsx";
 
 
 import './App.scss'
@@ -46,6 +48,8 @@ const App = () => {
 
         <Route path='/LogIn' element={<LogIn />} />
         <Route path='/SignIn' element={<SignIn />} />
+        <Route path='/ResetPassword' element={<ResetPassword />} />
+        <Route path='/NewPassword' element={<NewPassword />} />
 
       </Routes>
     </div>
