@@ -89,7 +89,7 @@ const ResetPasswordRight = () => {
                 required
                 {...register('code', {
                   required: true,
-                  pattern: /^[0-9]+$/
+                  pattern: /^[a-zA-Z0-9]+$/
                 })}
               />
               </div>
