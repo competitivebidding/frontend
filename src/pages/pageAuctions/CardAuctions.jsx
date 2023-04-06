@@ -1,19 +1,42 @@
 import React from 'react';
 import AuctionCard from './AuctionCard';
-import './CardAuctions.scss'
+import './CardAuctions.scss';
 
-const CardsAuctions = ({ data }) => {
+const CardsAuctions = ({ data, all, cardStatus }) => {
 
   const auctionCards = data.map(item => {
-    const { id, ...itemProps } = item;
-    return (
-      <AuctionCard key={id} {...itemProps} />
-    )
+    const { id, status, ...itemProps } = item;
+    if (all) {
+      return (
+        <AuctionCard key={id} {...itemProps} />
+      )
+    } else if (cardStatus == 'active') {
+      if (status == 'active') {
+        return (
+          <AuctionCard key={id} {...itemProps} />
+        )
+      }
+    } else if (cardStatus == 'wait') {
+      if (status == 'wait') {
+        return (
+          <AuctionCard key={id} {...itemProps} />
+        )
+      }
+    } else if (cardStatus == 'end') {
+      if (status == 'end') {
+        return (
+          <AuctionCard key={id} {...itemProps} />
+        )
+      }
+    }
   });
 
   return (
-    <div className='auctionList'>
-      {auctionCards}
+    <div>
+      <div className='title'>Upcoming announcements </div>
+      <div className='auctionList'>
+        {auctionCards}
+      </div>
     </div>
   );
 }
