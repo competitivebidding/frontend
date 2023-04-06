@@ -1,0 +1,88 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  max-width: 35%;
+  padding: 20px;
+  border-radius: 5px;
+  min-height: 100vh;
+
+  &__title {
+    font-family: 'Roboto';
+    color: white;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.2rem;
+    line-height: 130%;
+  }
+
+  &__descr {
+    font-family: 'Roboto';
+    color: white;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+
+    & a {
+      color: #2F53FF;
+    margin-left: 10px;
+    }
+  }
+
+  &__forgot {
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+
+    color: #2F53FF;
+  }
+
+  &__group {
+    margin-bottom: 20px;
+    color: #BBBBBB;
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input {
+      display: block;
+      width: 470px;
+      padding: 10px;
+      background: #191D25;
+      border-radius: 8px;
+
+      &:focus {
+        outline: none;
+        border-color: #6e9ef5;
+      }
+    }
+  }
+
+.btn {
+    display: block;
+    background: rgba(47, 83, 255, 0.2);
+    border-radius: 8px;
+    width: 470px;
+    height: 48px;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 10px 20px;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+      background-color: #2556b8;
+    }
+  }
+  
+  .error-message {
+    margin-top: 10px;
+    color: rgb(170, 9, 9);
+  }
+}
