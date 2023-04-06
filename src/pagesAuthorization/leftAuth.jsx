@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import iconAuth from '../assets/imgAuth/iconAuth.svg'
 import rocket from '../assets/imgAuth/rocket.png'
@@ -10,8 +11,9 @@ const LeftAuth = () => {
     <div className='left'>
       <div className='left__icon'>
         <img src={iconAuth} alt='icon' />
-        <div className='icon__title'>
-          COMPETITIVE<br /> BIDDIN
+        <div >
+          <Link to='/' className='icon__title' >COMPETITIVE<br /> BIDDIN</Link>
+          
         </div>
       </div>
 
