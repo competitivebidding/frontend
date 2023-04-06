@@ -50,7 +50,8 @@ const SignInRight = () => {
                 digit: (value) => /\d/.test(value) || 'At least 1 digit required',
                 upperCase: (value) => /[A-Z]+/.test(value) || 'At least 1 uppercase character required'
               }
-            })} />
+            })} 
+            />
             <FontAwesomeIcon
               icon={isRepeatPasswordVisible ? faEyeSlash : faEye}
               onClick={() => setIsRepeatPasswordVisible(!isRepeatPasswordVisible)}
