@@ -3,10 +3,10 @@
     grid-template: repeat(2, auto) / repeat(3, 1fr);
     gap: 23px 16px;
     margin: 0px 20px 47px 0px;
-    width: 70%;
 }
 
 .title {
+    margin-bottom: 23px;
     font-weight: 400;
     font-size: 20px;
     line-height: 105%;

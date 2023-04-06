@@ -1,53 +1,24 @@
 import React, { useState } from 'react';
+import AuctionCardTimer from './AuctionCardTimer';
 import './AuctionCard.scss';
 
 const AuctionCard = ({ img, alt, name, date, price, places }) => {
 
     const [clazz, getClass] = useState('card');
-    const [place, addPlace] = useState(places)
-    const [timer, setTimer] = useState('off');
-
-    const Timer = () => {
-
-        const t = Date.parse(date) - new Date();
-        let years = Math.floor(Date.parse(date) / (1000 * 60 * 60 * 24 * 30 * 12)),
-            mounth = Math.floor(Date.parse(date)  / (1000 * 60 * 60 * 24 * 30) % 12),
-            days = Math.floor(Date.parse(date)  / (1000 * 60 * 60 * 24)),
-            hours = Math.floor((t / (1000 * 60 * 60)) % 24),
-            minutes = Math.floor((t / (1000 * 60)) % 60),
-            seconds = Math.floor((t / 1000) % 60);
-        console.log(Date.parse)
-
-
-        if (timer === 'off') {
-            return (
-                <div className='card__start'>
-                    <span>Start in:</span><span>{days}/{mounth}/{years}</span>
-                </div>
-            )
-        }
-        if (timer === 'on') {
-            return (
-                <div className='timer'>
-                    <div>Start in:</div>
-                    <div className='timer__timeRemaning'>
-                        <span>{hours}</span>:
-                        <span>{minutes}</span>:
-                        <span>{seconds}</span>
-                    </div>
-                </div>
-            )
-        }
-    }
+    const [place, addPlace] = useState(places);
+    const [timer, setTimer] = useState(false);
+    const [join, addJoin] = useState('Join')
 
     const onJoin = () => {
-        if (clazz === 'card') {
-            getClass(clazz + ' active')
+        if (places < 30) {
+            if (clazz === 'card') {
+                getClass(clazz + ' active')
+                addPlace(place + 1);
+                setTimer(true);
+                addJoin('You Join')
+            }
         }
-        addPlace(place + 1);
-        setTimer('on')
     }
-
 
     return (
         <div className={clazz}>
@@ -67,15 +38,17 @@ const AuctionCard = ({ img, alt, name, date, price, places }) => {
             <div className='cardContent'>
                 <div className="cardHeader">
                     <span className="card__name">{name}</span>
-                    <span className="card__price">{price}</span>
+                    <span className="card__price">{'$' + price}</span>
                 </div>
                 <div className="card__places">
                     <span>Vacant places:</span><span>{place} from 30</span>
                 </div>
-                {Timer()}
+                <AuctionCardTimer
+                    date={date}
+                    timer={timer} />
                 <button className='card__btn'
                     onClick={onJoin}>
-                    <span>Join</span>
+                    <span>{join}</span>
                 </button>
             </div>
         </div>

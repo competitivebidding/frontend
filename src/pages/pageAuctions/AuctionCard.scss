@@ -23,7 +23,7 @@
                 height: 22px;
                 background: url('/src/assets/imgAuctions/check.svg');
                 top: 50%;
-                left: 57%;
+                left: 62%;
                 transform: translateY(-50%);
             }
         }
@@ -155,4 +155,12 @@
     line-height: 105%;
     color: #fff;
     margin-bottom: 9px;
+
+    .time {
+        margin-right: 12.5px;
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
 }
