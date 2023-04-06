@@ -1,0 +1,63 @@
+.item {
+	position: relative;
+	padding-left: 45px;
+
+	margin: 30px 0 0 0;
+	list-style-type: none;
+
+	&::marker {
+		position: absolute;
+		z-index: 3;
+		// left: -40px;
+	}
+
+	&.active {
+		.item__marker::before {
+			background: #2f53ff;
+			border: none;
+		}
+
+		.item__value {
+			color: #fff;
+		}
+	}
+
+	.item__value {
+		position: absolute;
+		left: 10px;
+		top: 6px;
+		z-index: 3;
+
+		font-size: 12px;
+		font-weight: 800;
+
+		color: #637592;
+	}
+
+	.item__marker {
+		display: block;
+		font-size: 12px;
+		line-height: 140%;
+		max-width: 290px;
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0px;
+
+			border-radius: 50%;
+			border: 2px solid #637592;
+			width: 28px;
+			height: 28px;
+
+			background: #171a1e;
+			z-index: 2;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&:not(:last-child) &:after {
+			border-left: 2px solid #637592;
+		}
+	}
+}

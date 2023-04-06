@@ -10,7 +10,8 @@ import './AuctionsPage.scss'
 
 const MyAuctionsPage = ({ title }) => {
 
-  // эмитация данных с бэка
+  //! эмитация данных с бэка
+  
   const data = [
     { img: '/src/pages/pageAuctions/img/quare.png', alt: 'img', name: 'Apple Watch SE 44mm', date: '2023-06-22', price: '11111', places: 0, id: 1 },
     { img: '/src/pages/pageAuctions/img/quare.png', alt: 'img', name: 'Apple Watch SE 44mm', date: '2023-06-22T12:30:00.000Z', price: '11111', places: 1, id: 2 },
