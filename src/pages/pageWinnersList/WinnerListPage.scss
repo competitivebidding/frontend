@@ -1,0 +1,123 @@
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card{
+    display: flex;
+    width: 392px;
+    height: 713px;
+    flex-direction: column;
+    background: #171A1E;
+    border-radius: 17px;
+    overflow: hidden;
+    margin: 20px;
+   
+}
+
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 10px;
+    
+
+    &__card-info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-right: 50px;
+        padding-right: 104px;
+
+        &__card-image{
+            position: absolute;
+        }
+        &__card-acc{
+            padding-left: 30px;
+            font-family: Roboto;
+            font-size: 16px;
+            line-height: 16.8px;
+            color: #FFFFFF;
+        }
+    }
+
+    &__card-date{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: -5px;
+
+        &__card-data{
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 18.6px;
+            color: grey;
+            padding-right: 10px;
+
+        }
+
+        &__card-time{
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 18.6px;
+            color: grey;
+        }
+    }
+}
+
+.card-information{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+   &__card-winner{
+        position: relative;
+        width: 348px;
+        left: 21px;
+        height: 400px;
+        border-radius: 10px;
+        overflow: hidden;
+
+   }
+
+   &__card-texts{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 20px;
+
+    &__card-subtitle{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+
+        img{
+            border-radius: 10px;
+            position: relative;
+        }
+
+        h2{
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 25px;
+            color: #FFFFFF;
+            margin-right: 14px;
+            padding-left: 15px;
+
+        }
+    }
+    
+    &__card-text{
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 15.5px;
+        color: #FFFFFF;
+        padding-left: 20px;
+
+        }
+   }
+}
+
+
+
