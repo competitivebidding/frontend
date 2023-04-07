@@ -1,16 +1,15 @@
-import React from 'react';
+import React from 'react'
 
 import LeftAuth from '../leftAuth.jsx'
-import ResetPasswordRight from './ResetPasswordRight.jsx';
-
+import ResetPasswordRight from './ResetPasswordRight.jsx'
 
 const ResetPassword = () => {
   return (
     <>
-      <LeftAuth/>
-      <ResetPasswordRight/>
+      <LeftAuth />
+      <ResetPasswordRight />
     </>
-  );
+  )
 }
 
-export default ResetPassword;
+export default ResetPassword

@@ -1,21 +1,19 @@
-import "./User.scss"
+import './User.scss'
 
 const data = [
   {
-    country: "U",
-    Name: "User User",
-    id: "4545435",
-    data: "22.01.2023",
-    time: "22:43"
+    country: 'U',
+    Name: 'User User',
+    id: '4545435',
+    data: '22.01.2023',
+    time: '22:43',
   },
 ]
 
-const User = ({data}) => {
+const User = ({ data }) => {
   return (
     <div className="user">
-      <div className="user__circle-img">
-        U
-      </div>
+      <div className="user__circle-img">U</div>
       <div className="user__info">
         <p className="user__info_name">User User</p>
         <p className="user__info_id">ID: 56789085</p>
@@ -28,4 +26,4 @@ const User = ({data}) => {
   )
 }
 
-export default User;
+export default User

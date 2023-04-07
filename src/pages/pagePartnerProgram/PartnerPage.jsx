@@ -1,12 +1,12 @@
-import React from 'react';
-import AppHeader from '../../components/appHeader/AppHeader.jsx';
+import React from 'react'
+import AppHeader from '../../components/appHeader/AppHeader.jsx'
 
-const PartnerPage = ({title}) => {
+const PartnerPage = ({ title }) => {
   return (
     <div>
-      <AppHeader title={title}/>
+      <AppHeader title={title} />
     </div>
-  );
+  )
 }
 
-export default PartnerPage;
+export default PartnerPage

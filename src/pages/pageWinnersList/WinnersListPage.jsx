@@ -1,13 +1,12 @@
-import React from 'react';
-import AppHeader from '../../components/appHeader/AppHeader.jsx';
+import React from 'react'
+import AppHeader from '../../components/appHeader/AppHeader.jsx'
 
-const WinnersListPage = ({title}) => {
+const WinnersListPage = ({ title }) => {
   return (
-      <>
-      <AppHeader title={title}/>
-
-      </>
-  );
+    <>
+      <AppHeader title={title} />
+    </>
+  )
 }
 
-export default WinnersListPage;
+export default WinnersListPage
