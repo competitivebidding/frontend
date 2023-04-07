@@ -1,16 +1,15 @@
 import React from 'react';
 
 import './MainPage.scss';
-// import AppNavBar from '../../appNavBar/AppNavBar.jsx';
-// import MainSection from "../../MainSection/MainSection.jsx";
 import User from './user/User.jsx';
-import AppNavBar from '../../components/appNavBar/AppNavBar.jsx';
-import MainSection from '../../components/MainSection/MainSection.jsx';
+import AppHeader from '../../components/appHeader/AppHeader.jsx';
 import Stats from './stats/Stats.jsx';
 import ListItem from './listItem/ListItem';
 
-const AuctionsPage = () => {
+const AuctionsPage = ({title}) => {
   return (
+    <>
+    <AppHeader title={title} />
     <div className="">
       <div className={'main'}>
         <div className={'main__royalAction'}>
@@ -186,6 +185,7 @@ const AuctionsPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
