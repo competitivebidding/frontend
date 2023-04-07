@@ -1,10 +1,50 @@
 .chart {
+  background: #171A1E;
+  border-radius: 17px;
+  padding: 25px 28px 10px 28px;
 
   &__header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     padding-bottom: 18px;
+    gap: 22px;
+  }
+
+  &__subheader {
+    padding-top: 22px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  &__total {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #F2AE14;
+  }
+
+  &__currency {
+    display: flex;
+    gap: 8px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 105%;
+
+    color: #FFFFFF;
+
+    > span {
+      display: block;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
   }
 
   &__title {
@@ -19,7 +59,6 @@
   }
 
   .filter {
-    margin-right: 15px;
     position: relative;
     font-style: normal;
     font-weight: 400;
@@ -28,10 +67,8 @@
 
     color: #CACACA;
 
+
     .arrow {
-      position: absolute;
-      top: calc(50% - 8px);
-      right: -5px;
       cursor: pointer;
 
       &_visible {
@@ -40,12 +77,16 @@
     }
 
     &__current {
+      display: flex;
+      justify-content: space-between;
       transition: all 0.3s ease-in;
       width: 100px;
-      background: #171A1E;
-      border-radius: 17px;
       padding: 5px;
       text-align: center;
+
+      ~ span {
+        white-space: nowrap;
+      }
     }
 
     &__dropdown {
@@ -54,11 +95,10 @@
       background: #171A1E;
       border-radius: 17px;
       padding: 5px;
-      text-align: center;
       display: flex;
       flex-direction: column;
       gap: 5px;
-      width: 100px;
+      width: 100%;
       position: absolute;
       top: 0;
       left: 0;
@@ -76,10 +116,6 @@
       white-space: nowrap;
       cursor: pointer;
       padding-bottom: 5px;
-
-      &:not(:last-child) {
-        border-bottom: 1px solid #CACACA;;
-      }
     }
   }
 }
