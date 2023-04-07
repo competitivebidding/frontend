@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
+import AuctionActiveTimer from './AuctionActiveTimer';
 
-const AuctionCardTimer = ({ date, timer }) => {
+const AuctionCardTimer = ({ date, timer, changeStatus, id }) => {
     function getZero(num) {
         if (num >= 0 && num < 10) {
             return `0${num}`;
@@ -12,6 +13,7 @@ const AuctionCardTimer = ({ date, timer }) => {
     const [timeHours, setTimerHours] = useState('00');
     const [timeMinutes, setTimerMinutes] = useState('00');
     const [timeSeconds, setTimerSeconds] = useState('00');
+    const [active, activeTimer] = useState(false)
 
     let interval = useRef();
 
@@ -28,6 +30,9 @@ const AuctionCardTimer = ({ date, timer }) => {
 
             if (distance < 0) {
                 clearInterval(interval.current)
+                changeStatus(id, 'active')
+                activeTimer(true)
+
 
             } else {
                 setTimerHours(hours);
@@ -64,18 +69,24 @@ const AuctionCardTimer = ({ date, timer }) => {
     }
 
     if (timer) {
-        return (
-            <div className='timer'>
-                <div>Start in:</div>
-                <div className='timer__timeRemaning'>
-                    <span className='time'>{timeHours}</span>
-                    <span className='time'>:</span>
-                    <span className='time'>{timeMinutes}</span>
-                    <span className='time'>:</span>
-                    <span className='time'>{timeSeconds}</span>
+        if (!active) {
+            return (
+                <div className='timer'>
+                    <div>Start in:</div>
+                    <div className='timer__timeRemaning'>
+                        <span className='time'>{timeHours}</span>
+                        <span className='time'>:</span>
+                        <span className='time'>{timeMinutes}</span>
+                        <span className='time'>:</span>
+                        <span className='time'>{timeSeconds}</span>
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <AuctionActiveTimer id={id} active={active} changeStatus={changeStatus} />
+            )
+        }
     }
 }
 

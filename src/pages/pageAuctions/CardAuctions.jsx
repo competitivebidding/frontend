@@ -2,13 +2,13 @@ import React from 'react';
 import AuctionCard from './AuctionCard';
 import './CardAuctions.scss';
 
-const CardsAuctions = ({ data, all, cardStatus }) => {
+const CardsAuctions = ({ data, all, cardStatus, changeStatus }) => {
 
   const auctionCards = data.map(item => {
     const { id, status, ...itemProps } = item;
     if (all) {
       return (
-        <AuctionCard key={id} {...itemProps} />
+        <AuctionCard key={id} id={id} changeStatus={changeStatus} {...itemProps} />
       )
     } else if (cardStatus == 'active') {
       if (status == 'active') {
@@ -33,7 +33,6 @@ const CardsAuctions = ({ data, all, cardStatus }) => {
 
   return (
     <div>
-      <div className='title'>Upcoming announcements </div>
       <div className='auctionList'>
         {auctionCards}
       </div>

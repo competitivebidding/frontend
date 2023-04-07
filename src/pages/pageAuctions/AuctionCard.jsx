@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AuctionCardTimer from './AuctionCardTimer';
 import './AuctionCard.scss';
 
-const AuctionCard = ({ img, alt, name, date, price, places }) => {
+const AuctionCard = ({ img, id, alt, name, date, price, places, changeStatus }) => {
 
     const [clazz, getClass] = useState('card');
     const [place, addPlace] = useState(places);
@@ -16,6 +16,7 @@ const AuctionCard = ({ img, alt, name, date, price, places }) => {
                 addPlace(place + 1);
                 setTimer(true);
                 addJoin('You Join')
+                changeStatus(id, 'wait')
             }
         }
     }
@@ -45,7 +46,9 @@ const AuctionCard = ({ img, alt, name, date, price, places }) => {
                 </div>
                 <AuctionCardTimer
                     date={date}
-                    timer={timer} />
+                    timer={timer}
+                    changeStatus={changeStatus}
+                    id={id} />
                 <button className='card__btn'
                     onClick={onJoin}>
                     <span>{join}</span>
