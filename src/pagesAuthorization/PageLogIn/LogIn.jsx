@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 import LeftAuth from '../leftAuth.jsx'
-import LogInRight from './LogInRight.jsx';
+import LogInRight from './LogInRight.jsx'
 
 const LogIn = () => {
   return (
@@ -9,7 +9,7 @@ const LogIn = () => {
       <LeftAuth />
       <LogInRight />
     </>
-  );
+  )
 }
 
-export default LogIn;
+export default LogIn

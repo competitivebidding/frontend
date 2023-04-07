@@ -1,10 +1,10 @@
-import React from 'react';
-import AppHeader from '../../components/appHeader/AppHeader.jsx';
+import React from 'react'
+import AppHeader from '../../components/appHeader/AppHeader.jsx'
 import './WinnerListPage.scss'
 import WinnerListCard from './pageWinnerList-card/WinnerListCard.jsx';
 
 
-const WinnersListPage = ({title}) => {
+const WinnersListPage = ({ title }) => {
 
     const data = [{
         acc: '@mur.mur',
@@ -38,8 +38,8 @@ const WinnersListPage = ({title}) => {
         }
     ]
     return (
-        <>
-            <AppHeader title={title}/>
+      <>
+            <AppHeader title={title} />
             <div className='winnerlist_cards'>
                 {data.map((obj) =>
                     <WinnerListCard
@@ -53,9 +53,8 @@ const WinnersListPage = ({title}) => {
                         text={obj.text}
                     />
                 )}
-            </div>
-        </>
-    );
+            </div>      </>
+    )
 }
 
-export default WinnersListPage;
+export default WinnersListPage

@@ -1,12 +1,12 @@
-import React from 'react';
-import AppHeader from '../../components/appHeader/AppHeader.jsx';
+import React from 'react'
+import AppHeader from '../../components/appHeader/AppHeader.jsx'
 
-const NotificationsPage = ({title}) => {
+const NotificationsPage = ({ title }) => {
   return (
-      <>
-          <AppHeader title={title}/>
-      </>
-  );
+    <>
+      <AppHeader title={title} />
+    </>
+  )
 }
 
-export default NotificationsPage;
+export default NotificationsPage
