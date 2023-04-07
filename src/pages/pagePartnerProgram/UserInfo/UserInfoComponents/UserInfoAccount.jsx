@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import userImg from '@assets/imgPartnerProgram/user.svg';
+import userImg from '@assets/imgPartnerProgram/logo.svg';
 import phone from '@assets/imgPartnerProgram/phone.svg';
+import email from '@assets/imgPartnerProgram/sms.svg';
 
 import './UserInfoAccount.scss';
 
@@ -49,6 +50,7 @@ const UserInfoAccount = () => {
         </div>
       </div>
       <div className="block__item item-partner">partner</div>
+
       <div className="block__item item-phone">
         <div className="item-phone__main main-phone">
           <div className="main-phone__img">
@@ -77,7 +79,41 @@ const UserInfoAccount = () => {
           <button>Submit</button>
         </div>
       </div>
-      <div className="block__item item-email">email</div>
+
+      <div className="block__item item-email">
+        <div className="item-email__upperSection upperSection">
+          <div className="upperSection__block-emailImg">
+          <img
+            src={email}
+            alt=""
+            className="upperSection__emailImg"
+          />
+          </div>
+
+
+
+          <div className="upperSection__block-info">
+
+            <div className="upperSection__block-email">
+              <div className="upperSection__title">E-mail</div>
+              <div className="upperSection__email">viktory.mrs@icloud.com</div>
+            </div>
+            
+            <div className="upperSection__status">
+            Confirmed 
+            </div>
+
+          </div>
+
+
+
+        </div>
+        <div className="item__email__line"></div>
+        <div className="item-email__bottomSection bottomSection">
+        Письмо для подтверждения было направлено на почту
+        </div>
+      </div>
+      
       <div className="block__item item-card">card</div>
     </article>
   );

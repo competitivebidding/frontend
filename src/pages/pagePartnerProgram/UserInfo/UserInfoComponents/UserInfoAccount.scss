@@ -1,167 +1,186 @@
-@mixin button ($width, $pdwidth, $bg) {
-    padding: .7em $pdwidth;
-    border-radius: .7em;
-    width: $width;
-    background: $bg;
+@mixin button($width, $pdwidth, $bg) {
+  padding: 0.7em $pdwidth;
+  border-radius: 0.7em;
+  width: $width;
+  background: $bg;
 }
-
 
 //mixin, variables
 
 .block__template {
-    display: grid;
-    grid-template-areas:
-        "item-info item-info item-partner"
-        "item-phone item-email item-card";
-    gap: 1em;
-    grid-template-columns: 2fr 2fr 2fr;
+  display: grid;
+  grid-template-areas:
+    'item-info item-info item-partner'
+    'item-phone item-email item-card';
+  gap: 1em;
+  grid-template-columns: 2fr 2fr 2fr;
 }
 
 .block__item {
-    border-radius: 1em;
-    padding: 2em;
-    background-color: rgba(23, 26, 30, 1);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    color: #fff;
+  border-radius: 1em;
+  padding: 2em;
+  background-color: rgba(23, 26, 30, 1);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: #fff;
 
-    //!item-info
+  //!item-info
 
-    &.item-info {
-        grid-area: item-info;
+  &.item-info {
+    grid-area: item-info;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .item-info__user {
+      display: grid;
+      grid-template-areas:
+        'img verify'
+        'img id';
+      column-gap: 2em;
+      row-gap: 1em;
+    }
+
+    .item-info__img {
+      border-radius: 100%;
+      grid-area: img;
+      border: 1px solid #fff;
+    }
+
+    .item-info__verify {
+      grid-area: verify;
+      @include button(10em, 0, rgba(242, 174, 20, 0.1));
+      font-size: 11px;
+      color: rgba(247, 158, 27, 1);
+      text-align: center;
+      align-self: center;
+    }
+
+    .green-mode {
+      background: rgba(0, 128, 20, 0.1);
+      color: rgba(0, 190, 27, 1);
+    }
+
+    .item-info__id {
+      grid-area: id;
+      font-size: 1.3em;
+      text-transform: uppercase;
+    }
+
+    .item-info__button {
+      button {
+        @include button(inherit, 4.25em, rgba(255, 255, 255, 0.07));
+      }
+    }
+  }
+
+  //!item-partner
+
+  &.item-partner {
+    grid-area: item-partner;
+    border: 1px solid rgba(47, 83, 255, 1);
+  }
+
+  //!item-phone
+
+  &.item-phone {
+    grid-area: item-phone;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 2em;
+    gap: 1em;
+    .item-phone__main {
+      display: flex;
+      gap: 1.2em;
+    }
+    .main-phone__info {
+      display: flex;
+      gap: 1em;
+      width: 100%;
+      justify-content: space-between;
+      padding-top: 0.2em;
+    }
+    .main-phone__phone-info {
+      display: flex;
+      gap: 0.5em;
+      flex-direction: column;
+    }
+    .main-phone__status {
+      @include button(10em, 0, rgba(242, 174, 20, 0.1));
+      font-size: 11px;
+      color: rgba(247, 158, 27, 1);
+      text-align: center;
+      align-self: self-start;
+    }
+    .green-mode {
+      background: rgba(0, 128, 20, 0.1);
+      color: rgba(0, 190, 27, 1);
+    }
+    .main-phone {
+    }
+    .main-phone__img {
+      background: rgba(47, 83, 255, 0.2);
+      padding: 0.8em;
+      border-radius: 12px;
+    }
+    .main-phone__img > img {
+      width: 24px;
+      height: 24px;
+    }
+    .main-phone__name {
+    }
+    .main-phone__phone {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.8em;
+    }
+    .item-phone__button {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.07);
+      padding: 0.8em;
+      border-radius: 0.7em;
+    }
+  }
+
+  &.item-email {
+    grid-area: item-email;
+    padding: 1em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .item-email__upperSection {
         display: flex;
+      .upperSection__block-emailImg {
+        .upperSection__emailImg {
+        }
+      }
+
+
+      .upperSection__block-info {
+        display: flex;
+        width: 100%;
         justify-content: space-between;
-        align-items: center;
+        .upperSection__block-email {
 
-        .item-info__user {
-            display: grid;
-            grid-template-areas:
-                'img verify'
-                'img id';
-            column-gap: 2em;
-            row-gap: 1em;
-        }
-
-        .item-info__img {
-            border-radius: 100%;
-            grid-area: img;
-            border: 1px solid #fff;
-        }
-
-        .item-info__verify {
-            grid-area: verify;
-            @include button(10em, 0, rgba(242, 174, 20, 0.1));
-            font-size: 11px;
-            color: rgba(247, 158, 27, 1);
-            text-align: center;
-            align-self: center;
+          .upperSection__title {
+          }
+          .upperSection__email {
+          }
 
         }
-
-        .green-mode {
-            background: rgba(0, 128, 20, 0.1);
-            color: rgba(0, 190, 27, 1);
-        }
-
-        .item-info__id {
-            grid-area: id;
-            font-size: 1.3em;
-            text-transform: uppercase;
-        }
-
-        .item-info__button {
-            button {
-                @include button(inherit, 4.25em, rgba(255, 255, 255, 0.07))
-            }
-        }
-    }
-
-    //!item-partner
-
-    &.item-partner {
-        grid-area: item-partner;
-        border: 1px solid rgba(47, 83, 255, 1);
-    }
-
-    //!item-phone
-
-    &.item-phone {
-        grid-area: item-phone;
-        display: flex;
-        flex-direction: column;
-        padding: 1em 2em;
-        gap: 1em;
-        .item-phone__main {
-            display: flex;
-            gap: 1.2em;
+        .upperSection__status {
 
         }
-        .main-phone__info{
-            display: flex;
-            gap: 1em;
-            width: 100%;
-            justify-content: space-between;
-            padding-top: .2em;
+      }
 
-            
-        }
-        .main-phone__phone-info{
-            display: flex;
-            gap: .5em;
-            flex-direction: column;
-
-            
-        }
-        .main-phone__status{
-            @include button(10em, 0, rgba(242, 174, 20, 0.1));
-            font-size: 11px;
-            color: rgba(247, 158, 27, 1);
-            text-align: center;
-            align-self: self-start;
-
-        }
-        .green-mode {
-            background: rgba(0, 128, 20, 0.1);
-            color: rgba(0, 190, 27, 1);
-        }
-        .main-phone {
-
-        }
-        .main-phone__img {
-            background: rgba(47, 83, 255, 0.2);
-            padding: .8em;
-            border-radius: 12px
-
-
-            
-        }
-        .main-phone__img > img {
-            width: 24px;
-            height: 24px;
-            
-        }
-        .main-phone__name {
-        }
-        .main-phone__phone {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: .8em;
-        }
-        .item-phone__button {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.07);
-            padding: .8em;
-            border-radius: .7em;
-
-        }
 
     }
-
-
-
-    &.item-email {
-        grid-area: item-email;
+    .item__email__line {
     }
-
-    .item-card {
-        grid-area: item-card;
+    .item-email__bottomSection {
     }
+  }
+
+  .item-card {
+    grid-area: item-card;
+  }
 }
