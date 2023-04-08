@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CardsAuctions from '../../pageAuctions/CardAuctions.jsx'
+import CardsAuctions from '../../pageAuctions/auctionCards/CardAuctions.jsx'
 import './MyAuctionContent.scss'
 
 const MyAuctionContent = ({ data }) => {

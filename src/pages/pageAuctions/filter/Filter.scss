@@ -9,9 +9,10 @@
   color: rgba(255, 255, 255, 0.6);
   width: fit-content;
   min-width: 270px;
-  margin-left: auto;
+
   max-height: 80vh;
   border-radius: 17px;
+  margin-right: -2em;
 
   font-family: 'Roboto';
   font-style: normal;
@@ -20,8 +21,7 @@
   line-height: 1rem;
 
   padding: 20px;
-  margin-top: -80px;
-  margin-bottom: 20px;
+  margin-top: -7em;
 
   &__title {
     margin-right: auto;
@@ -43,6 +43,25 @@
     line-height: 1.5rem;
   }
 
+  &__block-arrowImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 21px;
+    background: #171A1E;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 5px;
+  }
+
+  &__arrow {
+    transition: transform 0.3s ease;
+
+    &.rotate {
+      transform: rotate(180deg);
+    }
+  }
+
   .categories {
     display: flex;
     margin-bottom: 15px;
@@ -51,7 +70,7 @@
       margin-right: auto;
     }
 
-    
+
   }
 
   &__categories {
@@ -100,6 +119,8 @@
       margin-bottom: 3%;
     }
   }
+
+
 
 
 

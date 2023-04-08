@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import AuctionCardTimer from './AuctionCardTimer'
 import './AuctionCard.scss'
+import AuctionCardTimer from './AuctionCardTimer'
 
 const AuctionCard = ({ img, id, alt, name, date, price, places, changeStatus }) => {
   const [clazz, getClass] = useState('card')
