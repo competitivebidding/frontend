@@ -1,5 +1,5 @@
 import React from 'react';
-import DonutChart from "@/pages/pagePartnerProgram/Statistic/Charts/DonutChart.jsx";
+import DonutChart from "@/components/Charts/DonutChart.jsx";
 import donut from "@assets/Partners/donut.svg";
 import styles from './PlayersAmount.module.scss';
 

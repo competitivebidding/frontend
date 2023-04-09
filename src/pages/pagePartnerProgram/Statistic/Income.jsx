@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from "@/pages/pagePartnerProgram/Statistic/Income.module.scss";
 import arrow from "@assets/Partners/arrow.svg"
-import BarChart from "@/pages/pagePartnerProgram/Statistic/Charts/BarChart";
+import BarChart from "@/components/Charts/BarChart";
 
 function Income({currency, color, data}) {
     const [filterValue, setFilterValue] = useState('Last week');
