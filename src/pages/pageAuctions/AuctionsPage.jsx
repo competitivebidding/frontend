@@ -89,7 +89,6 @@ const MyAuctionsPage = ({ title }) => {
       {/* <div className='search__filter'> */}
 
       <Search />
-      <div className="title">Upcoming announcements </div>
       <div className="filter__cards">
         {/* </div> */}
         <CardsAuctions data={data} all={true} changeStatus={changeStatus} />

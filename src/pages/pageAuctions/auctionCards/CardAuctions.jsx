@@ -6,7 +6,8 @@ const CardsAuctions = ({ data, all, cardStatus, changeStatus }) => {
   const auctionCards = data.map((item) => {
     const { id, status, ...itemProps } = item
     if (all) {
-      return <AuctionCard key={id} id={id} changeStatus={changeStatus} {...itemProps} />
+      return (
+        <AuctionCard key={id} id={id} changeStatus={changeStatus} {...itemProps} />)
     } else if (cardStatus == 'active') {
       if (status == 'active') {
         return <AuctionCard key={id} {...itemProps} />
@@ -24,6 +25,8 @@ const CardsAuctions = ({ data, all, cardStatus, changeStatus }) => {
 
   return (
     <div>
+      <div className="title">Upcoming announcements </div>
+
       <div className="auctionList">{auctionCards}</div>
     </div>
   )
