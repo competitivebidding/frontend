@@ -9,6 +9,10 @@
   border-color: transparent;
   box-shadow: 10px 0px 20px 4px rgba(0,0,0,0.75);
   width: fit-content;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 }
 
 .navBar__logo {
