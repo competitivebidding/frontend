@@ -72,7 +72,7 @@ const ResetPasswordRight = () => {
         )}
         {emailSubmitted && (
           <>
-            <div className="success-message">Code sent! Check your email.</div>
+            <div className="success__message">Code sent! Check your email.</div>
             <div className={`form__group ${errors.code || !codeVerified ? 'has-error' : ''}`}>
               <label htmlFor="code">Code</label>
               <div className="code__input">

@@ -13,9 +13,7 @@ const SignInRight = () => {
     formState: { errors, isDirty },
     reset,
     watch
-  } = useForm({
-    mode: 'onBlur',
-  })
+  } = useForm()
 
   const password = watch('password')
   const repeatPassword = watch('repeatPassword')
@@ -58,10 +56,10 @@ const SignInRight = () => {
             />
           </div>
           {errors.username && errors.username.type === 'required' && (
-            <div className="error-message">Please enter your username</div>
+            <div className="error__message">Please enter your username</div>
           )}
           {errors.username && errors.username.type === 'maxLength' && (
-            <div className="error-message">Your username can't exceed 16 characters</div>
+            <div className="error__message">Your username can't exceed 16 characters</div>
           )}
         </div>
 
@@ -90,6 +88,9 @@ const SignInRight = () => {
               type={isPasswordVisible ? 'text' : 'password'}
               id="password"
               name="password"
+              {...register('password', {
+                required: true,
+              })}
             />
             <FontAwesomeIcon
               icon={isPasswordVisible ? faEyeSlash : faEye}
@@ -97,7 +98,7 @@ const SignInRight = () => {
               className="password__icon"
             />
           </div>
-          {errors.password?.type === 'required' && <div className="error-message">Please enter your password</div>}
+          {errors.password?.type === 'required' && <div className="error__message">Please enter your password</div>}
         </div>
         <div className={`form__group ${errors.repeatPassword ? 'has-error' : ''}`}>
           <label htmlFor="repeat__password">Repeat password</label>
@@ -106,6 +107,9 @@ const SignInRight = () => {
               type={isRepeatPasswordVisible ? 'text' : 'password'}
               id="repeat__password"
               name="repeatPassword"
+              {...register('repeatPassword', {
+                required: true,
+              })}
             />
             <FontAwesomeIcon
               icon={isRepeatPasswordVisible ? faEyeSlash : faEye}
@@ -114,10 +118,10 @@ const SignInRight = () => {
             />
           </div>
           {errors.repeatPassword?.type === 'required' && (
-            <div className="error-message">Please enter your password</div>
+            <div className="error__message">Please enter your password</div>
           )}
           {password && repeatPassword && password !== repeatPassword && (
-            <div className="error-message">Passwords don't match</div>
+            <div className="error__message">Passwords don't match</div>
           )}
         </div>
 

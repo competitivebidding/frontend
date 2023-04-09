@@ -64,27 +64,19 @@
 
   .categories {
     display: flex;
-    margin-bottom: 15px;
 
     &__title {
       margin-right: auto;
     }
 
-
+    &__arrow {
+      margin-right: 1em;
+    }
   }
 
   &__categories {
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-
-
-
-
-    label {
-      display: block;
-      margin-bottom: 3%;
-    }
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
   }
 
   .brand {
@@ -95,15 +87,13 @@
     }
 
     &__arrow {
-      margin-bottom: 20px;
-      // width: 20px;
-
+      margin-bottom: 0.8em;
+      margin-right: 1em;
     }
   }
 
-  .filter__brands {
-    margin-bottom: 20px;
-
+  &__brands {
+    
     input[type="text"] {
       width: 100%;
       padding: 7px;
@@ -113,17 +103,7 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 10px;
     }
-
-    label {
-      display: block;
-      margin-bottom: 3%;
-    }
   }
-
-
-
-
-
 
   .checkbox__container {
     display: block;
@@ -181,4 +161,10 @@
   .checkbox__container input:checked~.checkmark:after {
     display: block;
   }
+
+  label {
+    display: block;
+    margin-bottom: 0.2em;
+  }
+
 }

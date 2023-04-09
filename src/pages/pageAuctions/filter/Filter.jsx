@@ -14,7 +14,6 @@ const Filter = () => {
       <div className="filter__header">
         <h2 className="filter__title">Filtering</h2>
         <span className="filter__hide" onClick={() => setIsVisible(!isVisible)}>
-          {/* {isVisible ? <img src={arrowBefore} alt="arrow" className='filter__arrow'/> : <img src={arrowAfter} alt="arrow2" />} */}
           <div className="filter__block-arrowImg">
             <img
               src={arrowGrey}
