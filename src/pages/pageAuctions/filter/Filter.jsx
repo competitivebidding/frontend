@@ -10,7 +10,7 @@ const Filter = () => {
   const [isBrandVisible, setIsBrandVisible] = useState(true)
 
   return (
-    <div className="filter" style={{ height: !isVisible ? '60px' : 'auto' }}>
+    <div className="filter">
       <div className="filter__header">
         <h2 className="filter__title">Filtering</h2>
         <span className="filter__hide" onClick={() => setIsVisible(!isVisible)}>
