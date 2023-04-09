@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import AppHeader from '../../components/appHeader/AppHeader.jsx'
 
-import Filter from '../pageAuctions/Filter.jsx'
-import Search from '../pageAuctions/Search.jsx'
-import CardsAuctions from '../pageAuctions/CardAuctions.jsx'
+import CardsAuctions from './auctionCards/CardAuctions.jsx'
+import Filter from './filter/Filter.jsx'
+import Search from './search/Search.jsx'
 
 import './AuctionsPage.scss'
 

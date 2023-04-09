@@ -1,7 +1,7 @@
 import React from 'react'
 import AppHeader from '../../components/appHeader/AppHeader.jsx'
-import Filter from '../pageAuctions/Filter.jsx'
-import Search from '../pageAuctions/Search.jsx'
+import Filter from '../pageAuctions/filter/Filter.jsx'
+import Search from '../pageAuctions/search/Search.jsx'
 import MyAuctionContent from './MyAuctionContent/MyAuctionContent.jsx'
 
 const data = [

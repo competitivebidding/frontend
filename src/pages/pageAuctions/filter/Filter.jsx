@@ -1,34 +1,26 @@
 import React, { useState } from 'react'
 import './Filter.scss'
 
-import arrowAfter2 from '../../assets/imgAuctions/arrow.svg'
-import arrowBefore from '../../assets/imgAuctions/arrow2.svg'
-import arrowAfter from '../../assets/imgAuctions/arrowAfter2.svg'
-import arrowBefore2 from '../../assets/imgAuctions/arrowAfter.svg'
+import arrowGrey from '../../../assets/imgAuctions/arrowGrey.svg'
+import arrowFilter from '../../../assets/imgAuctions/arrowFilter.svg'
 
 const Filter = () => {
   const [isVisible, setIsVisible] = useState(true)
   const [isCategoriesVisible, setIsCategoriesVisible] = useState(true)
   const [isBrandVisible, setIsBrandVisible] = useState(true)
 
-  const handleToggleVisibility = () => {
-    setIsVisible(!isVisible)
-  }
-
-  const handleToggleCategoriesVisibility = () => {
-    setIsCategoriesVisible(!isCategoriesVisible)
-  }
-
-  const handleToggleBrandVisibility = () => {
-    setIsBrandVisible(!isBrandVisible)
-  }
-
   return (
     <div className="filter" style={{ height: !isVisible ? '60px' : 'auto' }}>
       <div className="filter__header">
         <h2 className="filter__title">Filtering</h2>
-        <span className="filter__hide" onClick={handleToggleVisibility}>
-          {isVisible ? <img src={arrowBefore} alt="arrow" /> : <img src={arrowAfter} alt="arrow2" />}
+        <span className="filter__hide" onClick={() => setIsVisible(!isVisible)}>
+          <div className="filter__block-arrowImg">
+            <img
+              src={arrowGrey}
+              alt="arrow"
+              className={`filter__arrow ${isVisible ? 'rotate' : ''}`}
+            />
+          </div>
         </span>
       </div>
       {isVisible && (
@@ -39,8 +31,12 @@ const Filter = () => {
 
           <div className="categories">
             <h3 className="categories__title">Categories:</h3>
-            <span className="categories__arrow" onClick={handleToggleCategoriesVisibility}>
-              {isCategoriesVisible ? <img src={arrowBefore2} alt="arrow" /> : <img src={arrowAfter2} alt="arrow" />}
+            <span className="categories__arrow" onClick={() => setIsCategoriesVisible(!isCategoriesVisible)}>
+              <img
+                src={arrowFilter}
+                alt="arrow"
+                className={`filter__arrow ${isCategoriesVisible ? 'rotate' : ''}`}
+              />
             </span>
           </div>
 
@@ -66,8 +62,12 @@ const Filter = () => {
 
           <div className="brand">
             <h3 className="brand__title">Brand</h3>
-            <span className="brand__arrow" onClick={handleToggleBrandVisibility}>
-              {isBrandVisible ? <img src={arrowBefore2} alt="arrow" /> : <img src={arrowAfter2} alt="arrow" />}
+            <span className="brand__arrow " onClick={() => setIsBrandVisible(!isBrandVisible)}>
+              <img
+                src={arrowFilter}
+                alt="arrow"
+                className={`filter__arrow ${isBrandVisible ? 'rotate' : ''}`}
+              />
             </span>
           </div>
 
