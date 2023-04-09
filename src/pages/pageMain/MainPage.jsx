@@ -3,7 +3,7 @@ import React from 'react';
 import './MainPage.scss';
 import User from './User/User.jsx';
 import AppHeader from '../../components/appHeader/AppHeader.jsx';
-import Stats from './Stats/StatsItem/StatsItem.jsx';
+import Stats from './Stats/Stats.jsx';
 import RoyalAction from './RoyalAction/RoyalAction';
 import ProgressList from './ProgressList/ProgressList';
 import Mission from './Mission/Mission';
@@ -13,6 +13,7 @@ const AuctionsPage = ({ title }) => {
 		<>
 			<AppHeader title={title} />
 			<div className="">
+
 				<div className={'main'}>
 
 					<RoyalAction />
@@ -26,6 +27,7 @@ const AuctionsPage = ({ title }) => {
 					<Stats />
 
 				</div>
+
 				<div className="main-bottom">
 					<div className="main-bottom__left">
 						<div className="social">

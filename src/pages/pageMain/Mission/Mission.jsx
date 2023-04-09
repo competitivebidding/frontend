@@ -8,7 +8,7 @@ const Mission = (props) => {
 		<div className={'main__mission'}>
 			<div className={'mission__title'}>Mission</div>
 			<div className={'mission__subtitle'}>
-				{props.value}lucky people who won the auction
+				{props.value} lucky people who won the auction
 				<span>{props.value}</span>
 			</div>
 			<div className={'mission__progressBar'}>
