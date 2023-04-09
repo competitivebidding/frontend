@@ -32,8 +32,14 @@ function BarChart({color, data}) {
                 min: 0,
                 max: 50000,
                 ticks: {
-                    stepSize: 10000
-                }
+                    stepSize: 10000,
+                    color: "rgba(255, 255, 255, 0.2)"
+                },
+            },
+            x: {
+                ticks: {
+                    color: "rgba(255, 255, 255, 0.2)"
+                },
             }
         },
         backgroundColor: `${color}`,

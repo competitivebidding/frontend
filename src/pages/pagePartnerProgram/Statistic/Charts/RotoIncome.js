@@ -10,7 +10,7 @@ export const rotoIncome = {
             anchor: 'end',
             align: 'top',
             offset: 16,
-        }
+        },
     }]
 };
 
