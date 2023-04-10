@@ -3,20 +3,39 @@ import './AuctionCard.scss'
 import AuctionCardTimer from './AuctionCardTimer'
 
 const AuctionCard = ({ img, id, alt, name, date, price, places, changeStatus }) => {
-  const [clazz, getClass] = useState('card')
-  const [place, addPlace] = useState(places)
-  const [timer, setTimer] = useState(false)
-  const [join, addJoin] = useState('Join')
+  const [clazz, setClass] = useState('card');
+  const [place, setPlace] = useState(places);
+  const [timer, setTimer] = useState(false);
+  const [join, setJoin] = useState(false);
 
   const onJoin = () => {
-    if (places < 30) {
-      if (clazz === 'card') {
-        getClass(clazz + ' active')
-        addPlace(place + 1)
-        setTimer(true)
-        addJoin('You Join')
-        changeStatus(id, 'wait')
-      }
+    setJoin(!join)
+    setClass(clazz === 'card' ? clazz + ' active' : 'card')
+    setTimer(!timer)
+    setPlace(place + 1)
+    // changeStatus(id, 'wait')
+  }
+
+
+  const auctionDate = new Intl.DateTimeFormat('ru', {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(Date.parse(date))
+
+
+  const StartDate = () => {
+    if (!timer) {
+      return (
+        <div className="card__start">
+          <span>Start in:</span>
+          <span>{auctionDate.split(',')}</span>
+        </div>
+      )
+    } else {
+      return null
     }
   }
 
@@ -44,13 +63,14 @@ const AuctionCard = ({ img, id, alt, name, date, price, places, changeStatus }) 
           <span>Vacant places:</span>
           <span>{place} from 30</span>
         </div>
+        <StartDate />
         <AuctionCardTimer date={date} timer={timer} changeStatus={changeStatus} id={id} />
         <button className="card__btn" onClick={onJoin}>
-          <span>{join}</span>
+          <span>{join ? 'You joined' : 'Join'}</span>
         </button>
       </div>
     </div>
   )
 }
 
-export default AuctionCard
+export default AuctionCard;

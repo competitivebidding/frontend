@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import AuctionActiveTimer from './AuctionActiveTimer'
 
 const AuctionCardTimer = ({ date, timer, changeStatus, id }) => {
   function getZero(num) {
@@ -13,7 +12,6 @@ const AuctionCardTimer = ({ date, timer, changeStatus, id }) => {
   const [timeHours, setTimerHours] = useState('00')
   const [timeMinutes, setTimerMinutes] = useState('00')
   const [timeSeconds, setTimerSeconds] = useState('00')
-  const [active, activeTimer] = useState(false)
 
   let interval = useRef()
 
@@ -31,7 +29,6 @@ const AuctionCardTimer = ({ date, timer, changeStatus, id }) => {
       if (distance < 0) {
         clearInterval(interval.current)
         changeStatus(id, 'active')
-        activeTimer(true)
       } else {
         setTimerHours(hours)
         setTimerMinutes(minutes)
@@ -49,41 +46,21 @@ const AuctionCardTimer = ({ date, timer, changeStatus, id }) => {
     }
   })
 
-  const auctionDate = new Intl.DateTimeFormat('ru', {
-    day: 'numeric',
-    month: 'numeric',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  }).format(Date.parse(date))
 
-  if (!timer) {
+  if (timer) {
     return (
-      <div className="card__start">
-        <span>Start in:</span>
-        <span>{auctionDate.split(',')}</span>
+      <div className="timer">
+        <div>Start in:</div>
+        <div className="timer__timeRemaning">
+          <span className="time">{timeHours}</span>
+          <span className="time">:</span>
+          <span className="time">{timeMinutes}</span>
+          <span className="time">:</span>
+          <span className="time">{timeSeconds}</span>
+        </div>
       </div>
     )
   }
-
-  if (timer) {
-    if (!active) {
-      return (
-        <div className="timer">
-          <div>Start in:</div>
-          <div className="timer__timeRemaning">
-            <span className="time">{timeHours}</span>
-            <span className="time">:</span>
-            <span className="time">{timeMinutes}</span>
-            <span className="time">:</span>
-            <span className="time">{timeSeconds}</span>
-          </div>
-        </div>
-      )
-    } else {
-      return <AuctionActiveTimer id={id} active={active} changeStatus={changeStatus} />
-    }
-  }
 }
 
-export default AuctionCardTimer
+export default AuctionCardTimer;
