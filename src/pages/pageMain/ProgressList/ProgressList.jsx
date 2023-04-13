@@ -1,12 +1,12 @@
 import React from "react"
 
-import ListItem from './ListItem/ListItem';
+import { ListItem } from './ListItem/ListItem';
 
 import "./ProgressList.scss"
 
 import ProgressListData from "./Data/ProgressListData.js"
 
-const ProgressList = (props) => {
+export const ProgressList = (props) => {
 
 	const getData = ProgressListData.map((list) => {
 		return <ListItem styles={list.styles}
@@ -31,5 +31,3 @@ const ProgressList = (props) => {
 		</div>
 	)
 }
-
-export default ProgressList

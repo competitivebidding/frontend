@@ -3,7 +3,7 @@ import React from "react";
 
 import "./Mission.scss"
 
-const Mission = (props) => {
+export const Mission = (props) => {
 	return (
 		<div className={'main__mission'}>
 			<div className={'mission__title'}>Mission</div>
@@ -17,5 +17,3 @@ const Mission = (props) => {
 		</div>
 	)
 }
-
-export default Mission

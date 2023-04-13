@@ -1,0 +1,13 @@
+.main-bottom {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 15px;
+	margin-bottom: 35px;
+	margin-top: 38px;
+
+	&__left {
+		gap: 19px;
+		display: grid;
+	}
+
+}

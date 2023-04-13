@@ -2,7 +2,7 @@ import React from "react";
 
 import "./RoyalAction.scss"
 
-const RoyalAction = (props) => {
+export const RoyalAction = (props) => {
 	return (
 		<div className={'main__royalAction'}>
 			<div className={'royalAction__title'}>Royal Auction</div>
@@ -17,5 +17,3 @@ const RoyalAction = (props) => {
 		</div>
 	)
 }
-
-export default RoyalAction

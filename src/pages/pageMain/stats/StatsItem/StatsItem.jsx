@@ -2,7 +2,7 @@ import React from "react";
 
 import "./StatsItem.scss"
 
-const StatsItem = (props) => {
+export const StatsItem = (props) => {
 	return (
 		<div className={`stats__item ${props.styles || ""}`}>
 			<div className="stats__title">{props.title}</div>
@@ -14,5 +14,3 @@ const StatsItem = (props) => {
 	)
 }
 
-
-export default StatsItem

@@ -1,12 +1,12 @@
 import React from "react";
 
-import StatsItem from "./StatsItem/StatsItem";
+import { StatsItem } from "./StatsItem/StatsItem";
 
 import "./Stats.scss"
 
 import StatsData from "./Data/StatsData.js"
 
-const Stats = (props) => {
+export const Stats = (props) => {
 
 	const getData = StatsData.map((stat) => {
 		return <StatsItem styles={stat.styles}
@@ -22,5 +22,3 @@ const Stats = (props) => {
 		</div>
 	)
 }
-
-export default Stats

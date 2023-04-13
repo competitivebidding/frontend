@@ -2,7 +2,7 @@ import React from "react";
 
 import './ListItem.scss'
 
-const ListItem = (props) => {
+export const ListItem = (props) => {
 	return (
 		<li className={`item ${props.styles}`}>
 			<div className="item__value">{props.value}</div>
@@ -13,4 +13,3 @@ const ListItem = (props) => {
 	)
 }
 
-export default ListItem
