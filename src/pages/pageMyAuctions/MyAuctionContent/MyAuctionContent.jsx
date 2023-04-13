@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CardsAuctions from '../../pageAuctions/auctionCards/CardAuctions.jsx'
+import AuctionList from '../../pageAuctions/auctionCards/AuctionList.jsx'
 import './MyAuctionContent.scss'
 
 const MyAuctionContent = ({ data }) => {
@@ -37,7 +37,7 @@ const MyAuctionContent = ({ data }) => {
   return (
     <div className="myAuctions__content">
       <div className="myAuctions__btnsgroup">{btns}</div>
-      <CardsAuctions data={data.filter(card => (card.status == category))} />
+      <AuctionList data={data.filter(card => (card.status == category))} />
     </div>
   )
 }

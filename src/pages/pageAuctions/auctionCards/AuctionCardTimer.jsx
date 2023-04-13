@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-const AuctionCardTimer = ({ date, timer, changeStatus, id }) => {
+const AuctionCardTimer = ({ date, timer, id }) => {
   function getZero(num) {
     if (num >= 0 && num < 10) {
       return `0${num}`
@@ -28,7 +28,7 @@ const AuctionCardTimer = ({ date, timer, changeStatus, id }) => {
 
       if (distance < 0) {
         clearInterval(interval.current)
-        changeStatus(id, 'active')
+        // changeStatus(id, 'active')
       } else {
         setTimerHours(hours)
         setTimerMinutes(minutes)

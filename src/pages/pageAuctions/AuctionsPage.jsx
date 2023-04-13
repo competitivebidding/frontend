@@ -17,7 +17,7 @@ const MyAuctionsPage = ({ title }) => {
       date: '2023-04-11T23:00',
       price: '50',
       places: 12,
-      status: 'none',
+      status: 'active',
       id: 1,
     },
     {
@@ -27,7 +27,7 @@ const MyAuctionsPage = ({ title }) => {
       date: '2023-04-20T23:00',
       price: '86',
       places: 12,
-      status: 'none',
+      status: 'wait',
       id: 2,
     },
     {
@@ -37,7 +37,7 @@ const MyAuctionsPage = ({ title }) => {
       date: '2023-04-15T23:00',
       price: '2458',
       places: 3,
-      status: 'none',
+      status: 'wait',
       id: 3,
     },
     {
@@ -47,7 +47,7 @@ const MyAuctionsPage = ({ title }) => {
       date: '2023-04-30T23:00',
       price: '98.3',
       places: 15,
-      status: 'none',
+      status: 'active',
       id: 4,
     },
     {
@@ -57,7 +57,7 @@ const MyAuctionsPage = ({ title }) => {
       date: '2023-04-26T23:00',
       price: '85.9',
       places: 30,
-      status: 'none',
+      status: 'wait',
       id: 5,
     },
     {
@@ -67,8 +67,68 @@ const MyAuctionsPage = ({ title }) => {
       date: '2023-04-15T23:00',
       price: '183.9',
       places: 0,
-      status: 'none',
+      status: 'wait',
       id: 6,
+    },
+    {
+      img: '/src/pages/pageAuctions/img/quare.png',
+      alt: 'img',
+      name: 'MacBook Pro M1 256 Gb',
+      date: '2023-04-15T23:00',
+      price: '183.9',
+      places: 0,
+      status: 'wait',
+      id: 7,
+    },
+    {
+      img: '/src/pages/pageAuctions/img/quare.png',
+      alt: 'img',
+      name: 'MacBook Pro M1 256 Gb',
+      date: '2023-04-15T23:00',
+      price: '183.9',
+      places: 0,
+      status: 'wait',
+      id: 8,
+    },
+    {
+      img: '/src/pages/pageAuctions/img/quare.png',
+      alt: 'img',
+      name: 'MacBook Pro M1 256 Gb',
+      date: '2023-04-15T23:00',
+      price: '183.9',
+      places: 0,
+      status: 'wait',
+      id: 9,
+    },
+    {
+      img: '/src/pages/pageAuctions/img/quare.png',
+      alt: 'img',
+      name: 'MacBook Pro M1 256 Gb',
+      date: '2023-04-15T23:00',
+      price: '183.9',
+      places: 0,
+      status: 'wait',
+      id: 10,
+    },
+    {
+      img: '/src/pages/pageAuctions/img/quare.png',
+      alt: 'img',
+      name: 'MacBook Pro M1 256 Gb',
+      date: '2023-04-15T23:00',
+      price: '183.9',
+      places: 0,
+      status: 'wait',
+      id: 11,
+    },
+    {
+      img: '/src/pages/pageAuctions/img/quare.png',
+      alt: 'img',
+      name: 'MacBook Pro M1 256 Gb',
+      date: '2023-04-15T23:00',
+      price: '183.9',
+      places: 0,
+      status: 'active',
+      id: 11,
     },
   ])
 
@@ -92,7 +152,6 @@ const MyAuctionsPage = ({ title }) => {
       <div className="filter__cards">
         {/* </div> */}
         <div>
-          <div className="title">Upcoming announcements </div>
           <CardsAuctions data={data} />
         </div>
         <Filter />
