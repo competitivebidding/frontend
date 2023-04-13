@@ -1,12 +1,12 @@
-import React from 'react';
-import AppHeader from '../../components/appHeader/AppHeader.jsx';
+import React from 'react'
+import AppHeader from '../../components/appHeader/AppHeader.jsx'
 
-const CabinetPage = ({title}) => {
+const CabinetPage = ({ title }) => {
   return (
-      <>
-          <AppHeader title={title}/>
-      </>
-  );
+    <>
+      <AppHeader title={title} />
+    </>
+  )
 }
 
-export default CabinetPage;
+export default CabinetPage

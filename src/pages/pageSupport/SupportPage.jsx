@@ -1,12 +1,14 @@
-import React from 'react';
-import AppHeader from '../../components/appHeader/AppHeader.jsx';
+import React from 'react'
+import AppHeader from '../../components/appHeader/AppHeader.jsx'
+import Support from './Support.jsx'
 
-const SupportPage = ({title}) => {
+const SupportPage = ({ title }) => {
   return (
-      <>
-        <AppHeader title={title}/>
-      </>
-  );
+    <>
+      <AppHeader title={title} />
+      <Support />
+    </>
+  )
 }
 
-export default SupportPage;
+export default SupportPage

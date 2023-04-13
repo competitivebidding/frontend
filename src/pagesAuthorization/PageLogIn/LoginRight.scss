@@ -48,7 +48,6 @@
   &__group {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     margin-bottom: 20px;
     color: #BBBBBB;
 
@@ -72,6 +71,10 @@
   }
 
   .email__input {
+    display: flex;
+  }
+
+  .username__input {
     display: flex;
   }
 

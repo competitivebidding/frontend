@@ -1,0 +1,40 @@
+
+.search__filter {
+  display: flex;
+  width: 75%;
+  padding-left: 30px;
+  height: 40px;
+  margin: 3px 0 40px 0;
+  background: #171A1E;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+
+  color: white;
+}
+
+
+@media (max-width: 1270px) { 
+  .search__filter {
+  width: 65%;
+  }
+}
+
+@media (max-width: 980px) { 
+  .search__filter {
+  width: 55%;
+  }
+}
+
+@media (max-width: 850px) { 
+  .search__filter {
+  width: 45%;
+  }
+}
+
+@media (max-width: 750px) { 
+  .search__filter {
+  width: 35%;
+  }
+}
+
+

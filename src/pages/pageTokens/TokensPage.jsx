@@ -1,12 +1,12 @@
-import React from 'react';
-import AppHeader from '../../components/appHeader/AppHeader.jsx';
+import React from 'react'
+import AppHeader from '../../components/appHeader/AppHeader.jsx'
 
-const TokensPage = ({title}) => {
+const TokensPage = ({ title }) => {
   return (
-      <>
-<AppHeader title={title}/>
-      </>
-  );
+    <>
+      <AppHeader title={title} />
+    </>
+  )
 }
 
-export default TokensPage;
+export default TokensPage

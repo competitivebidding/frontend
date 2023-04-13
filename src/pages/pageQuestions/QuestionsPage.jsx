@@ -1,12 +1,14 @@
-import React from 'react';
-import AppHeader from '../../components/appHeader/AppHeader.jsx';
+import React from 'react'
+import AppHeader from '../../components/appHeader/AppHeader.jsx'
+import Questions from './Questions.jsx'
 
-const QuestionsPage = ({title}) => {
+const QuestionsPage = ({ title }) => {
   return (
-      <>
-          <AppHeader title={title}/>
-      </>
-  );
+    <>
+      <AppHeader title={title} />
+      <Questions/>
+    </>
+  )
 }
 
-export default QuestionsPage;
+export default QuestionsPage

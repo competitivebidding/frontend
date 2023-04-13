@@ -4,19 +4,15 @@
   margin: 0 0 10px;
 }
 
-.filter__title {
-  margin-right: 120px;
-}
-
-
-
 .filter {
   background-color: #171A1E;
   color: rgba(255, 255, 255, 0.6);
   width: fit-content;
-  margin-left: auto;
-  max-height: 60vh;
+  min-width: 270px;
+
+  height: fit-content;
   border-radius: 17px;
+  margin-right: -2em;
 
   font-family: 'Roboto';
   font-style: normal;
@@ -25,8 +21,15 @@
   line-height: 1rem;
 
   padding: 20px;
-  margin-top: -80px;
-  margin-bottom: 20px;
+  margin-top: -5.2rem;
+
+  &__title {
+    margin-right: auto;
+  }
+
+  &__hide {
+    width: 52px;
+  }
 
 
   &__header {
@@ -37,44 +40,60 @@
 
   &__selected {
     margin-bottom: 7%;
+    line-height: 1.5rem;
+  }
+
+  &__block-arrowImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 21px;
+    background: #171A1E;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 5px;
+  }
+
+  &__arrow {
+    transition: transform 0.3s ease;
+
+    &.rotate {
+      transform: rotate(180deg);
+    }
   }
 
   .categories {
     display: flex;
-    margin-bottom: 15px;
 
     &__title {
-      margin-right: 110px;
+      margin-right: auto;
+    }
+
+    &__arrow {
+      margin-right: 1em;
     }
   }
 
   &__categories {
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-
-
-    label {
-      display: block;
-      margin-bottom: 3%;
-    }
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
   }
 
   .brand {
     display: flex;
 
     &__title {
-      margin-right: 153px;
+      margin-right: auto;
     }
 
     &__arrow {
-      margin-bottom: 20px;
+      margin-bottom: 0.8em;
+      margin-right: 1em;
     }
   }
 
-  .filter__brands {
-    margin-bottom: 20px;
-
+  &__brands {
+    
     input[type="text"] {
       width: 100%;
       padding: 7px;
@@ -84,15 +103,7 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 10px;
     }
-
-    label {
-      display: block;
-      margin-bottom: 3%;
-    }
   }
-
-
-
 
   .checkbox__container {
     display: block;
@@ -150,4 +161,10 @@
   .checkbox__container input:checked~.checkmark:after {
     display: block;
   }
+
+  label {
+    display: block;
+    margin-bottom: 0.2em;
+  }
+
 }

@@ -1,0 +1,76 @@
+.accordion {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.8em;
+  line-height: 1.4em;
+  color: #FFFFFF;
+
+  background: #171A1E;
+  border-radius: 12px;
+  padding: 2em;
+
+  &__item {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+
+
+  &__title {
+    font-size: 1.2em;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &__title--button {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+  }
+
+  &__content {
+    padding-top: 1em;
+  }
+
+  &__button {
+    min-width: 28px;
+    min-height: 28px;
+    // max-width: 28px;
+    // max-height: 28px;
+    border-radius: 50%;
+    background: #2f53ff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-90deg);
+    transition: transform 0.3s ease-in-out;
+    
+    &:hover {
+      background-color: #163bf2;
+    }
+
+    &:before {
+      content: "";
+      position: relative;
+      width: 1px;
+      height: 8px;
+      border: 1px solid #000;
+      transform: rotate(-45deg);
+      transition: 0.3s ease;
+    }
+
+    &:after {
+      content: "";
+      margin-left: 3px;
+      position: relative;
+      width: 1px;
+      height: 8px;
+      border: 1px solid #000;
+      transform: rotate(45deg);
+      transition: 0.3s ease;
+    }
+  }
+}

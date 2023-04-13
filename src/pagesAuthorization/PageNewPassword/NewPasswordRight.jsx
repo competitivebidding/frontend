@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import validator from 'validator';
-import './NewPasswordRight.scss';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import validator from 'validator'
+import './NewPasswordRight.scss'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 const NewPasswordRight = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch
-  } = useForm();
+    watch,
+  } = useForm()
 
-  const password = watch('password');
-  const repeatPassword = watch('repeatPassword');
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false);
+  const password = watch('password')
+  const repeatPassword = watch('repeatPassword')
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+  const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false)
 
   const onSubmit = (data) => {
     if (password !== repeatPassword) {
@@ -25,7 +25,7 @@ const NewPasswordRight = () => {
     } else {
       console.log(data)
     }
-  };
+  }
 
   return (
     <>
@@ -49,7 +49,7 @@ const NewPasswordRight = () => {
               required
               {...register('password', {
                 required: true,
-                pattern: /^\S+@\S+$/i
+                pattern: /^\S+@\S+$/i,
               })}
             />
             <FontAwesomeIcon
@@ -58,9 +58,7 @@ const NewPasswordRight = () => {
               className="password__icon"
             />
           </div>
-          {errors.password?.type === 'required' && (
-            <div className="error-message">Please enter your password</div>
-          )}
+          {errors.password?.type === 'required' && <div className="error-message">Please enter your password</div>}
         </div>
         <div className={`form__group ${errors.repeatPassword ? 'has-error' : ''}`}>
           <label htmlFor="repeat__password">Repeat password</label>
@@ -92,7 +90,7 @@ const NewPasswordRight = () => {
         </div>
       </form>
     </>
-  );
-};
+  )
+}
 
 export default NewPasswordRight

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 import LeftAuth from '../leftAuth.jsx'
-import NewPasswordRight from './NewPasswordRight.jsx';
+import NewPasswordRight from './NewPasswordRight.jsx'
 
 const NewPassword = () => {
   return (
@@ -9,7 +9,7 @@ const NewPassword = () => {
       <LeftAuth />
       <NewPasswordRight />
     </>
-  );
+  )
 }
 
-export default NewPassword;
+export default NewPassword
