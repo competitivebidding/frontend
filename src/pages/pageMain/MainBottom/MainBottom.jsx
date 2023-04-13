@@ -2,9 +2,9 @@ import React from 'react';
 
 import "./MainBottom.scss"
 
-import { Social } from '../Social/Social'
-import { Chats } from '../Chats/Chats';
-import { LastUsers } from '../LastUsers/LastUsers';
+import { Social } from './Social/Social'
+import { Chats } from './Chats/Chats';
+import { LastUsers } from './LastUsers/LastUsers';
 
 export const MainBottom = (props) => {
 	return (
