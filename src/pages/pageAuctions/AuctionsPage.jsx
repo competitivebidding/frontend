@@ -132,26 +132,14 @@ const MyAuctionsPage = ({ title }) => {
     },
   ])
 
-  // const changeStatus = (id, change) => {
-  //   changeCard(
-  //     data.map((card) => {
-  //       if (card.id == id) {
-  //         return { ...card, status: change }
-  //       }
-  //       return card
-  //     }),
-  //   )
-  // }
-
   return (
     <>
       <AppHeader title={title} />
-      {/* <div className='search__filter'> */}
 
-      <Search />
-      <div className="filter__cards">
-        {/* </div> */}
-        <div>
+      <div className='auctions__components'>
+        <div className='actions__search--card'>
+          <Search />
+
           <CardsAuctions data={data} />
         </div>
         <Filter />

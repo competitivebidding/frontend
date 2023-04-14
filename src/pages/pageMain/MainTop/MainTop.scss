@@ -1,0 +1,10 @@
+.main-top {
+	// max-width: 1600px;
+	display: grid;
+	grid-template-areas:
+		"royalAction . howItWorks"
+		"mission mission howItWorks"
+		"stats . howItWorks";
+
+	color: #ffffff;
+}
