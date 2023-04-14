@@ -137,7 +137,7 @@ const MyAuctionsPage = ({ title }) => {
       <AppHeader title={title} />
 
       <div className='auctions__components'>
-        <div className='actions__search--card'>
+        <div className='auctions__search--card'>
           <Search />
 
           <CardsAuctions data={data} />
