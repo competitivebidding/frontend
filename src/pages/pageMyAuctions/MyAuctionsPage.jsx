@@ -71,14 +71,17 @@ const MyAuctionsPage = ({ title }) => {
   return (
     <>
       <AppHeader title={title} />
-      {/* <div className='search__filter' style={{ display: 'flex', justifyContent: 'space-between' }}> */}
-      <Search />
-      <div className="filter__cards">
-        <MyAuctionContent data={data} />
+
+      <div className='auctions__components'>
+        <div className='actions__search--card'>
+          <Search />
+
+          <MyAuctionContent data={data} />
+        </div>
         <Filter />
-      </div>
-    </>
-  )
+        </div>
+      </>
+      )
 }
 
-export default MyAuctionsPage
+      export default MyAuctionsPage
