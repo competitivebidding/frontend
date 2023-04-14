@@ -5,3 +5,15 @@
     margin-bottom: 55px;
     
 }
+
+@media(max-width: 1200px) {
+    .newsList{
+        grid-template: repeat(3, auto) / repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    .newsList{
+        grid-template: repeat(3, auto) / repeat(1, 1fr);
+    }
+}
