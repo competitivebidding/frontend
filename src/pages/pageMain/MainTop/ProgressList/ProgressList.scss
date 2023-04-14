@@ -1,0 +1,32 @@
+.main__howItWorks {
+	grid-area: howItWorks;
+	margin-left: 17px;
+
+	max-width: 392px;
+
+	background: #171a1e;
+
+	& > * {
+		font-weight: 300;
+	}
+
+	border: 1px solid #2f53ff;
+	border-radius: 17px;
+
+	padding: 29px 18px 0 22px;
+
+	.howItWorks__title {
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 105%;
+		margin-bottom: 30px;
+		padding-bottom: 30px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+	}
+
+	.howItWorks__subtitle {
+		u {
+			font-weight: bold;
+		}
+	}
+}

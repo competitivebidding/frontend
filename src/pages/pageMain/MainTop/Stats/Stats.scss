@@ -1,0 +1,26 @@
+.main__stats {
+	width: 100%;
+	max-width: 805px;
+	// min-width: 66.666%;
+	grid-area: stats;
+	margin: 64px -14px 0 0;
+	display: flex;
+	flex-wrap: wrap;
+
+	.stats__item {
+		min-width: 200px;
+		margin: 0 14px 14px 0;
+
+		&:nth-child(2) {
+			margin-right: 0px;
+		}
+
+		&:nth-child(5) {
+			margin-right: 0px;
+		}
+
+		&:last-child {
+			margin-right: 0px;
+		}
+	}
+}

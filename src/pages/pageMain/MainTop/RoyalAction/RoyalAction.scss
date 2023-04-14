@@ -1,0 +1,38 @@
+.main__royalAction {
+	grid-area: royalAction;
+	position: relative;
+	max-width: 801px;
+	height: 233px;
+	padding: 31px 0 38px 36px;
+
+	background: rgb(23, 26, 30);
+	background: linear-gradient(264deg, rgba(23, 26, 30, 1) 3.93%, rgba(47, 83, 255, 1) 88.81%);
+	border-radius: 17px;
+
+	.royalAction__title {
+		font-weight: 600;
+		font-size: 28px;
+		line-height: 105%;
+		/* or 29px */
+	}
+
+	.royalAction__text {
+		margin-top: 30px;
+		width: 383px;
+		height: 105px;
+
+		font-weight: 300;
+		font-size: 15px;
+		line-height: 140%;
+		/* or 21px */
+	}
+
+	.royalAction__crown {
+		position: absolute;
+		width: 359.51px;
+		height: 221.37px;
+		right: 125px;
+		top: 0.3px;
+		mix-blend-mode: soft-light;
+	}
+}
