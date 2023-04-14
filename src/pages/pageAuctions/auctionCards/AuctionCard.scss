@@ -1,3 +1,8 @@
+$fz14: 0.875rem;
+$fz12: 0.75rem;
+$fz8: 0.5rem;
+$fz15: 0.9375rem;
+
 .card {
     background: #171A1E;
     border-radius: 17px;
@@ -30,7 +35,6 @@
     }
 }
 
-
 .card__imgbox {
     width: 100%;
     max-height: 270px;
@@ -55,13 +59,13 @@
 
         span {
             font-weight: 300;
-            font-size: 8px;
+            font-size: $fz8;
             line-height: 105%;
         }
 
         .price__title {
             font-weight: 400;
-            font-size: 14px;
+            font-size: $fz14;
             line-height: 105%;
         }
 
@@ -90,7 +94,7 @@
 
         span {
             font-weight: 300;
-            font-size: 12px;
+            font-size: $fz12;
             line-height: 105%;
         }
     }
@@ -105,7 +109,7 @@
     justify-content: space-between;
     margin-bottom: 12px;
     font-weight: 400;
-    font-size: 15px;
+    font-size: $fz15;
     line-height: 105%;
     color: #fff;
 }
@@ -115,7 +119,7 @@
     justify-content: space-between;
     margin-bottom: 15px;
     font-weight: 300;
-    font-size: 12px;
+    font-size: $fz12;
     line-height: 105%;
     color: rgba(255, 255, 255, 0.4);
 }
@@ -125,9 +129,10 @@
     justify-content: space-between;
     margin-bottom: 14px;
     font-weight: 300;
-    font-size: 14px;
+    font-size: $fz14;
     line-height: 105%;
     color: #fff;
+    padding: 7px 0px 7px 0px;
 }
 
 .card__btn {
@@ -136,7 +141,7 @@
     background: #2F53FF;
     border-radius: 10px;
     font-weight: 400;
-    font-size: 12px;
+    font-size: $fz12;
     line-height: 14px;
     text-align: center;
     color: #FFFFFF;
@@ -151,10 +156,10 @@
     border-radius: 8px;
     padding: 7px 20px 7px 13px;
     font-weight: 300;
-    font-size: 14px;
+    font-size: $fz14;
     line-height: 105%;
     color: #fff;
-    margin-bottom: 9px;
+    margin-bottom: 14px;
 
     .time {
         margin-right: 12.5px;

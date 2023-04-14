@@ -3,7 +3,7 @@
 
     .myAuction__btn {
         font-weight: 400;
-        font-size: 14px;
+        font-size: 0.875rem;
         line-height: 105%;
         color: #fff;
         padding: 15px 40px 15px 40px;
@@ -11,10 +11,12 @@
         border-radius: 10px;
         margin-right: 14px;
         margin-bottom: 38px;
-        &:last-child{
+
+        &:last-child {
             margin-right: 0px;
         }
-        &.btn-active{
+
+        &.btn-active {
             background: #2F53FF;
             border: none;
         }

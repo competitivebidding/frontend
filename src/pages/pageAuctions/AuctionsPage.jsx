@@ -14,7 +14,7 @@ const MyAuctionsPage = ({ title }) => {
       img: '/src/pages/pageAuctions/img/quare.png',
       alt: 'img',
       name: 'Apple Watch SE 44mm',
-      date: '2023-04-07T13:17',
+      date: '2023-04-11T23:00',
       price: '50',
       places: 12,
       status: 'none',
@@ -24,7 +24,7 @@ const MyAuctionsPage = ({ title }) => {
       img: '/src/pages/pageAuctions/img/quare.png',
       alt: 'img',
       name: 'iPhone 12 Pro 128 Gb',
-      date: '2023-04-06T23:00',
+      date: '2023-04-20T23:00',
       price: '86',
       places: 12,
       status: 'none',
@@ -34,7 +34,7 @@ const MyAuctionsPage = ({ title }) => {
       img: '/src/pages/pageAuctions/img/quare.png',
       alt: 'img',
       name: '1 Bitcoin',
-      date: '2023-04-06T23:00',
+      date: '2023-04-15T23:00',
       price: '2458',
       places: 3,
       status: 'none',
@@ -44,7 +44,7 @@ const MyAuctionsPage = ({ title }) => {
       img: '/src/pages/pageAuctions/img/quare.png',
       alt: 'img',
       name: 'Vacuum Dyson',
-      date: '2023-04-06T23:00',
+      date: '2023-04-30T23:00',
       price: '98.3',
       places: 15,
       status: 'none',
@@ -54,7 +54,7 @@ const MyAuctionsPage = ({ title }) => {
       img: '/src/pages/pageAuctions/img/quare.png',
       alt: 'img',
       name: 'Hair Dryer Dyson',
-      date: '2023-04-06T23:00',
+      date: '2023-04-26T23:00',
       price: '85.9',
       places: 30,
       status: 'none',
@@ -64,7 +64,7 @@ const MyAuctionsPage = ({ title }) => {
       img: '/src/pages/pageAuctions/img/quare.png',
       alt: 'img',
       name: 'MacBook Pro M1 256 Gb',
-      date: '2023-04-06T23:00',
+      date: '2023-04-15T23:00',
       price: '183.9',
       places: 0,
       status: 'none',
@@ -72,16 +72,16 @@ const MyAuctionsPage = ({ title }) => {
     },
   ])
 
-  const changeStatus = (id, change) => {
-    changeCard(
-      data.map((card) => {
-        if (card.id == id) {
-          return { ...card, status: change }
-        }
-        return card
-      }),
-    )
-  }
+  // const changeStatus = (id, change) => {
+  //   changeCard(
+  //     data.map((card) => {
+  //       if (card.id == id) {
+  //         return { ...card, status: change }
+  //       }
+  //       return card
+  //     }),
+  //   )
+  // }
 
   return (
     <>
@@ -91,7 +91,10 @@ const MyAuctionsPage = ({ title }) => {
       <Search />
       <div className="filter__cards">
         {/* </div> */}
-        <CardsAuctions data={data} all={true} changeStatus={changeStatus} />
+        <div>
+          <div className="title">Upcoming announcements </div>
+          <CardsAuctions data={data} />
+        </div>
         <Filter />
       </div>
     </>

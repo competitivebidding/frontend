@@ -7,6 +7,7 @@ const NewsPage = ({ title }) => {
   const data = [
     {
       img1: '/src/pages/pageNews/img/quare.png',
+      img2: '/src/pages/pageNews/img/quare.png',
       date: '16/02/2023   22:32',
       alt: 'News Image',
       title: 'Lorem ipsum',
@@ -14,6 +15,7 @@ const NewsPage = ({ title }) => {
       id: 1,
     },
     {
+      img1: '/src/pages/pageNews/img/quare.png',
       date: '16/02/2023   22:32',
       alt: 'News Image',
       title: 'Lorem ipsum',
@@ -21,6 +23,7 @@ const NewsPage = ({ title }) => {
       id: 2,
     },
     {
+      img1: '/src/pages/pageNews/img/quare.png',
       date: '16/02/2023   22:32',
       alt: 'News Image',
       title: 'Lorem ipsum',
@@ -28,6 +31,8 @@ const NewsPage = ({ title }) => {
       id: 3,
     },
     {
+      img1: '/src/pages/pageNews/img/quare.png',
+      img2: '/src/pages/pageNews/img/quare.png',
       date: '16/02/2023   22:32',
       alt: 'News Image',
       title: 'Lorem ipsum',
@@ -35,6 +40,7 @@ const NewsPage = ({ title }) => {
       id: 4,
     },
     {
+      img1: '/src/pages/pageNews/img/quare.png',
       date: '16/02/2023   22:32',
       alt: 'News Image',
       title: 'Lorem ipsum',
@@ -42,6 +48,8 @@ const NewsPage = ({ title }) => {
       id: 5,
     },
     {
+      img1: '/src/pages/pageNews/img/quare.png',
+      img2: '/src/pages/pageNews/img/quare.png',
       date: '16/02/2023   22:32',
       alt: 'News Image',
       title: 'Lorem ipsum',
@@ -49,6 +57,7 @@ const NewsPage = ({ title }) => {
       id: 10,
     },
     {
+      img1: '/src/pages/pageNews/img/quare.png',
       date: '16/02/2023   22:32',
       alt: 'News Image',
       title: 'Lorem ipsum',
@@ -99,4 +108,4 @@ const NewsPage = ({ title }) => {
   )
 }
 
-export default NewsPage
+export default NewsPage;

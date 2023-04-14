@@ -37,9 +37,9 @@ const MyAuctionContent = ({ data }) => {
   return (
     <div className="myAuctions__content">
       <div className="myAuctions__btnsgroup">{btns}</div>
-      <CardsAuctions data={data} all={false} cardStatus={category} />
+      <CardsAuctions data={data.filter(card => (card.status == category))} />
     </div>
   )
 }
 
-export default MyAuctionContent
+export default MyAuctionContent;
