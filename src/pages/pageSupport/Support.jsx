@@ -9,16 +9,21 @@ const Support = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm()
 
-  const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false)
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
 
   const onSubmit = (data) => {
     if (validator.isEmail(data.email)) {
       setIsFormSubmitted(true)
       console.log('Logged in successfully')
+      reset()
     }
+  }
+
+  const handleInputChange = () => {
+    setIsFormSubmitted(false)
   }
 
   return (
@@ -39,6 +44,7 @@ const Support = () => {
                   required: true,
                   pattern: /^\S+@\S+$/i,
                 })}
+                onChange={handleInputChange}
               />
             </div>
             {errors.email?.type === 'required' && <div className="error-message">Please enter your email address</div>}
@@ -57,6 +63,7 @@ const Support = () => {
                   required: true,
                   minLength: 10,
                 })}
+                onChange={handleInputChange}
               ></textarea>
             </div>
             {errors.problem?.type === 'required' && <div className="error-message">Please describe your problem</div>}

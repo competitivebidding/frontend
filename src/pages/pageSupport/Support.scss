@@ -2,13 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 5em;
-  // justify-content: center;
-
-
   border-radius: 5px;
-  min-height: 100vh;
-
-
 
   &--title {
     font-family: 'Roboto';
@@ -17,8 +11,7 @@
     font-weight: 600;
     font-size: 2.2rem;
     line-height: 130%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 1em auto;
   }
 
 
@@ -28,7 +21,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    margin-bottom: 1em;
 
     & a {
       color: #2F53FF;
@@ -45,7 +38,7 @@
   &--item {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 1em;
     color: #BBBBBB;
 
     label {

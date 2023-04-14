@@ -15,6 +15,7 @@ import TokensPage from '../pages/pageTokens/TokensPage.jsx'
 import WinnersListPage from '../pages/pageWinnersList/WinnersListPage.jsx'
 
 import MainSection from '../Components/MainSection/MainSection.jsx'
+import NavHeader from '../Components/NavHeaderSection/NavHeader.jsx'
 
 import LogIn from '../pagesAuthorization/PageLogIn/LogIn.jsx'
 import SignIn from '../pagesAuthorization/PageSignIn/SignIn.jsx'
@@ -29,16 +30,19 @@ const App = () => {
       <Routes>
         <Route element={<MainSection />}>
           <Route path="/auctions" element={<AuctionsPage title={'Auction'} />} />
-          <Route path="/cabinet" element={<CabinetPage title={'Cabinet'} />} />
           <Route path="/*" element={<MainPage title={'Main'} />} index />
           <Route path="/myauctions" element={<MyAuctionsPage title={'My Auctions'} />} />
           <Route path="/news" element={<NewsPage title={'News'} />} />
-          <Route path="/notifications" element={<NotificationsPage title={'Notifications'} />} />
           <Route path="/partnerProgram" element={<PartnerPage title={'Partner Program'} />} />
-          <Route path="/questions" element={<QuestionsPage title={'Questions'} />} />
-          <Route path="/support" element={<SupportPage title={'Support'} />} />
           <Route path="/tokens" element={<TokensPage title={'Tokens'} />} />
           <Route path="/winnerList" element={<WinnersListPage title={'WinnerList'} />} />
+        </Route>
+
+        <Route element={<NavHeader />}>
+          <Route path="/cabinet" element={<CabinetPage title={'Cabinet'} />} />
+          <Route path="/notifications" element={<NotificationsPage title={'Notifications'} />} />
+          <Route path="/questions" element={<QuestionsPage title={'Questions'} />} />
+          <Route path="/support" element={<SupportPage title={'Support'} />} />
         </Route>
 
         <Route path="/LogIn" element={<LogIn />} />
