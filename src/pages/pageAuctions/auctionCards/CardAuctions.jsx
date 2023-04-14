@@ -11,6 +11,7 @@ const CardsAuctions = ({ data }) => {
 
   return (
     <div>
+      <div className="title">Upcoming announcements </div>
       <div className="auctionList">{auctionCards}</div>
     </div>
   )

@@ -1,9 +1,20 @@
-.search__filter {
-  display: flex;
-  justify-content: space-between;
-}
-
 .filter__cards {
   display: flex;
 }
 
+.auctions__components {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+
+  @media (max-width: 1000px) {
+    justify-content: unset;
+    flex-wrap: wrap-reverse;
+  }
+
+
+  // &__search--card {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+}

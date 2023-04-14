@@ -1,19 +1,32 @@
-import React, { useState } from 'react'
-import './Filter.scss'
+import React, { useState, useEffect } from 'react';
+import './Filter.scss';
 
-import arrowGrey from '../../../assets/imgAuctions/arrowGrey.svg'
-import arrowFilter from '../../../assets/imgAuctions/arrowFilter.svg'
+import arrowGrey from '../../../assets/imgAuctions/arrowGrey.svg';
+import arrowFilter from '../../../assets/imgAuctions/arrowFilter.svg';
+import cross from '../../../assets/imgAuctions/cross.svg';
 
 const Filter = () => {
-  const [isVisible, setIsVisible] = useState(true)
-  const [isCategoriesVisible, setIsCategoriesVisible] = useState(true)
-  const [isBrandVisible, setIsBrandVisible] = useState(true)
+  const [isVisible, setIsVisible] = useState(true);
+  const [isCategoriesVisible, setIsCategoriesVisible] = useState(true);
+  const [isBrandVisible, setIsBrandVisible] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1000);
+      
+      window.innerWidth < 1000 ? setIsVisible(false) : ''
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="filter">
       <div className="filter__header">
         <h2 className="filter__title">Filtering</h2>
-        <span className="filter__hide" onClick={() => setIsVisible(!isVisible)}>
+        <span className={`filter__hide ${isMobile ? '' : 'hidden'}`} onClick={() => setIsVisible(!isVisible)} >
           <div className="filter__block-arrowImg">
             <img
               src={arrowGrey}
@@ -27,6 +40,13 @@ const Filter = () => {
         <>
           <div>
             <h3 className="filter__selected">Selected Categories:</h3>
+              <div className='select__categories'>Brand
+
+                <div className='select__img'>
+                  <img src={cross} alt="cross" />
+                </div>
+              </div>
+        
           </div>
 
           <div className="categories">
