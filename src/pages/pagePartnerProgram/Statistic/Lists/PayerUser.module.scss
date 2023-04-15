@@ -7,6 +7,12 @@
     margin-top: 10px;
   }
 
+  & > img {
+    @media (max-width: 400px) {
+      display: none;
+    }
+  }
+
   &__name {
     font-style: normal;
     font-weight: 300;
