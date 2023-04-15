@@ -10,6 +10,7 @@ export const Chats = (props) => {
 
 	const getData = ChatsData.map(chat => {
 		return <ChatsItem
+			key={chat.id}
 			styles={chat.styles}
 			title={chat.title}
 			imageSrc={chat.imageSrc}

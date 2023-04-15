@@ -10,6 +10,7 @@ export const LastUsers = (props) => {
 
 	const getData = LastUsersData.map(user => {
 		return <LastUsersItem
+			key={user.id}
 			country={user.country}
 			username={user.username}
 			id={user.id}
