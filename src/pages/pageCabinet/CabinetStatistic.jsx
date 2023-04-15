@@ -6,7 +6,7 @@ import PartnersLists from "@/pages/pagePartnerProgram/Statistic/PartnersLists";
 function CabinetStatistic() {
     return (
         <div className={styles.statistic}>
-            <Charts/>
+            {/*<Charts/>*/}
         </div>
     );
 }

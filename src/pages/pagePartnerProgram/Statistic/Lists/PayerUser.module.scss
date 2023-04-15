@@ -3,6 +3,10 @@
   align-items: center;
   gap: 30px;
 
+  &:first-of-type {
+    margin-top: 10px;
+  }
+
   &__name {
     font-style: normal;
     font-weight: 300;

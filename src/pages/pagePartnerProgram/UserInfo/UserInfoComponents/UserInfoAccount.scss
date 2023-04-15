@@ -14,6 +14,26 @@
     'item-phone item-email item-card';
   gap: 1em;
   grid-template-columns: 2fr 2fr 2fr;
+
+  @media (max-width: 1500px) {
+    grid-template-areas:
+    'item-info item-info'
+    'item-phone item-partner'
+    'item-email item-card';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-areas:
+    'item-info'
+    'item-phone'
+    'item-partner'
+    'item-email'
+    'item-card';
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
 }
 
 .block__item {

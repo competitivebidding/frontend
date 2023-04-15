@@ -8,9 +8,9 @@ function Income({currency, color, data}) {
     const [dropdownVisibility, setDropdownVisibility] = useState(false);
 
     return (
-        <div className={styles.chart}>
-            <div className={styles.chart__header}>
-                <h3 className={styles.chart__title}>Income</h3>
+        <div className={styles.income_chart}>
+            <div className={styles.income_chart__header}>
+                <h3 className={styles.income_chart__title}>Income</h3>
                 <div className={styles.filter}>
                     <p className={styles.filter__current}>
                         <span>{filterValue}</span>
@@ -45,12 +45,12 @@ function Income({currency, color, data}) {
                         </div>
                     </div>
                 </div>
-                <div className={styles.chart__subheader}>
-                    <div className={styles.chart__currency}><span style={{background: color}}></span>{currency}</div>
-                    <div className={styles.chart__total}>Total earnings: {data.datasets[0].data.reduce((acc, v) => acc + v, 0)} {currency}</div>
+                <div className={styles.income_chart__subheader}>
+                    <div className={styles.income_chart__currency}><span style={{background: color}}></span>{currency}</div>
+                    <div className={styles.income_chart__total}>Total earnings: {data.datasets[0].data.reduce((acc, v) => acc + v, 0)} {currency}</div>
                 </div>
             </div>
-            <div className={styles.chart__body}>
+            <div className={styles.income_chart__body}>
                 <BarChart data={data} color={color}/>
             </div>
         </div>

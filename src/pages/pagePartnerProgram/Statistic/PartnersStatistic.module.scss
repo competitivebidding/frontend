@@ -2,6 +2,11 @@
   display: grid;
   grid-template: 1fr / 1fr 1fr;
   column-gap: 16px;
+
+  @media (max-width: 1300px) {
+    grid-template: 1fr / 1fr;
+    gap: 16px;
+  }
 }
 
 
