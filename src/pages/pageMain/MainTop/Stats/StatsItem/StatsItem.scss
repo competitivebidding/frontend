@@ -1,27 +1,31 @@
 .stats__item {
-	background: #171a1e;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-between;
+	background: #171a1e radial-gradient(circle, rgba(75, 115, 255, 0.05) 30%, rgba(0, 0, 0, 0) 100%);
 	border-radius: 12px;
-	padding: 12px 35px 0 35px;
-	margin-right: 14px;
-	width: 257.5px;
-	height: 120px;
+	padding: 15px 30px;
+	text-align: center;
 }
 
 .stats__title {
 	word-wrap: break-word;
 	font-size: 12px;
-	line-height: 120%;
+	font-weight: 300;
+	line-height: 1.4;
 	letter-spacing: 0.215em;
-	text-align: center;
-	max-width: 169px;
 }
 
 .stats__content {
+	position: relative;
+	white-space: nowrap;
+
 	margin-top: 18px;
+
 	font-weight: 600;
 	font-size: 32px;
 	line-height: 120%;
-	text-align: center;
 
 	background: radial-gradient(96.25% 1434.41% at 50% 50%, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
 	-webkit-background-clip: text;
@@ -32,12 +36,25 @@
 	text-shadow: 0px 4px 20px #000000;
 }
 
+.stats__content::after {
+	content: "";
+	position: absolute;
+	bottom: -30px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+	width: 100%;
+	min-width: 100px;
+	height: 15px;
+}
+
 .big {
-	display: flex;
-	width: 529px;
-	justify-content: space-between;
-	align-items: center;
-	margin-right: 14px;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	text-align: left;
+	background: #171a1e radial-gradient(at right 50%, rgba(75, 115, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+	flex-direction: row;
 	& > * {
 		margin: 0;
 	}
@@ -46,12 +63,39 @@
 		line-height: 144%;
 		text-align: left;
 	}
+	.stats__content {
+		margin: 5px 0 5px 15px;
+	}
 }
 
 .image {
-	height: 249px;
-	.stats__img img {
-		display: block;
-		margin: 0 auto;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	background: #171a1e radial-gradient(circle, rgba(75, 115, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+
+	.stats__content {
+		margin: 0;
+	}
+	.stats__content::after {
+		content: none;
+	}
+
+	.stats__image {
+		position: relative;
+	}
+
+	.stats__image::after {
+		content: "";
+		position: absolute;
+		bottom: -30px;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+		background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+		width: 100%;
+		min-width: 100px;
+		height: 15px;
 	}
 }

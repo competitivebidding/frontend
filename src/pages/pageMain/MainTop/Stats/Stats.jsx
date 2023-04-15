@@ -9,7 +9,8 @@ import StatsData from "./Data/StatsData.js"
 export const Stats = (props) => {
 
 	const getData = StatsData.map((stat) => {
-		return <StatsItem styles={stat.styles}
+		return <StatsItem
+			styles={stat.styles}
 			title={stat.title}
 			text={stat.text}
 			image={stat.image}
