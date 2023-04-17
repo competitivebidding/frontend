@@ -1,0 +1,46 @@
+.tokens{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.token{
+    display: flex;
+    flex-direction: column;
+    background: #171A1E;
+    border-radius: 17px;
+    width: 290px;
+    height: 372px;
+    align-items: center;
+    padding: 30px;
+
+    &__header{
+        color:  #FFFFFF;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 19px;
+        margin-bottom: 200px;
+    }
+
+    &__prize{
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 23px;
+        color: #2F53FF;
+        margin-bottom: 25px;
+    }
+
+    &__button{
+        width: 242px;
+        height: 45px;
+        color: #2F53FF;
+        border: 1px solid #2F53FF;
+        border-radius: 8px;
+
+        &:hover{
+            background-color: #2F53FF;
+            color: white;
+        }
+    }
+}
+
