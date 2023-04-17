@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./CabinteStatitic.module.scss";
 import Charts from "@/pages/pagePartnerProgram/Statistic/Charts";
-import PartnersLists from "@/pages/pagePartnerProgram/Statistic/PartnersLists";
+import PartnersLists from "@/pages/pagePartnerProgram/Statistic/Lists/PartnersLists";
 
 function CabinetStatistic() {
     return (

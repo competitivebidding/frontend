@@ -3,10 +3,6 @@
   align-items: center;
   gap: 30px;
 
-  &:first-of-type {
-    margin-top: 10px;
-  }
-
   & > img {
     @media (max-width: 400px) {
       display: none;
