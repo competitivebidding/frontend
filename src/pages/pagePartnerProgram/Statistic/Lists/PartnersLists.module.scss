@@ -28,23 +28,6 @@
         color: rgba(255, 255, 255, 0.4);
       }
 
-      .icon {
-        position: relative;
-        cursor: pointer;
-
-        &::before {
-          content: url("@assets/imgPartnerProgram/triangle.svg");
-          position: absolute;
-          bottom: 4px;
-        }
-
-        &::after {
-          content: url("@assets/imgPartnerProgram/Rectangle 713.png");
-          position: absolute;
-          top: -2px;
-        }
-      }
-
       &_partner {
 
       }
