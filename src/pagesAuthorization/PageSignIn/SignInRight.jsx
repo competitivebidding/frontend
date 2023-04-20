@@ -5,6 +5,9 @@ import './SignInRight.scss'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { useQuery, useMutation } from '@apollo/client'
+
+import SIGNUP_MUTATION from '../../Components/server/signup.js'
 
 const SignInRight = () => {
   const {
@@ -22,17 +25,35 @@ const SignInRight = () => {
   const [submitted, setSubmitted] = useState(false)
 
 
+  const [signupMutation, { loading, error }] = useMutation(SIGNUP_MUTATION, {
+    onCompleted: (data) => {
+      console.log(data)
+      setSubmitted(true)
+      reset()
+    },
+    onError: (error) => {
+      console.error(error)
+    },
+  })
+
   const onSubmit = (data) => {
     console.log(data)
-    setSubmitted(true)
-    reset()
+    // Call the mutation with the form data
+    signupMutation({
+      variables: {
+        signUpInput: {
+          username: data.username,
+          email: data.email,
+          password: data.password,
+        },
+      },
+    })
   }
-
 
   return (
     <>
       <form className="form form__sign" onSubmit={handleSubmit(onSubmit)} noValidate>
-        <h2 className="form__title">Sign in</h2>
+        <h2 className="form__title">Sign up</h2>
         <div className="form__descr">
           <p>
             Already have an account?
@@ -70,7 +91,6 @@ const SignInRight = () => {
               type="email"
               id="email"
               name="email"
-              autoComplete='off'
               required
               {...register('email', {
                 validate: (value) => validator.isEmail(value) || 'Please enter a valid email address',
