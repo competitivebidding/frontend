@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import './AuctionCard.scss'
 import AuctionCardTimer from './AuctionCardTimer'
 
@@ -66,7 +67,7 @@ const AuctionCard = ({ img, id, alt, name, date, price, places, changeStatus }) 
         <StartDate />
         <AuctionCardTimer date={date} timer={timer} changeStatus={changeStatus} id={id} />
         <button className="card__btn" onClick={onJoin}>
-          <span>{join ? 'You joined' : 'Join'}</span>
+          <span><Link to='/Lot'> Read More </Link></span>
         </button>
       </div>
     </div>
