@@ -1,9 +1,7 @@
 .main__stats {
 	width: 100%;
-	// min-width: 66.666%;
-	grid-area: stats;
 
-	margin: 64px -14px 0 0;
+	margin: 64px 0 0 0;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 1em;
