@@ -1,0 +1,26 @@
+.icon {
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: url("@assets/imgPartnerProgram/triangle.svg");
+    position: absolute;
+    bottom: 4px;
+  }
+
+  &::after {
+    content: url("@assets/imgPartnerProgram/triangle1.svg");
+    position: absolute;
+    top: -2px;
+    transition: all .3s ease-in-out;
+  }
+
+  &_clicked {
+    &::before {
+      display: none;
+    }
+    &::after {
+      top: -5px;
+    }
+  }
+}

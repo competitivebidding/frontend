@@ -11,6 +11,7 @@ export const Social = (props) => {
 
 	const getData = SocialData.map(item => {
 		return <SocialItem
+			key={item.id}
 			imageSrc={item.imageSrc}
 			link={item.link}
 		/>

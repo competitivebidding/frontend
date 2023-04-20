@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import userImg from '@assets/imgPartnerProgram/logo.svg';
 import phone from '@assets/imgPartnerProgram/phone.svg';
 import email from '@assets/imgPartnerProgram/sms.svg';
+import hat from '@assets/imgPartnerProgram/magic-trick-dynamic-premium.png';
+import card from '@assets/imgPartnerProgram/card.svg';
 
 import './UserInfoAccount.scss';
 
@@ -49,7 +51,19 @@ const UserInfoAccount = () => {
           <button>Settings</button>
         </div>
       </div>
-      <div className="block__item item-partner">partner</div>
+      <div className="block__item item-partner">
+        <img src={hat} alt={'hat'}/>
+        <div className={'item-partner__content item'}>
+          <button className={'item-content__button'}>Status</button>
+          <div className={'item-content__text'}>
+            <div>
+              Partner
+              <button className={'more-info'}>?</button>
+            </div>
+            <p>20% from personally invited</p>
+          </div>
+        </div>
+      </div>
 
       <div className="block__item item-phone">
         <div className="item-phone__main main-phone">
@@ -98,9 +112,9 @@ const UserInfoAccount = () => {
               <div className="upperSection__title">E-mail</div>
               <div className="upperSection__email">viktory.mrs@icloud.com</div>
             </div>
-            
+
             <div className="upperSection__status">
-            Confirmed 
+            Confirmed
             </div>
 
           </div>
@@ -108,13 +122,24 @@ const UserInfoAccount = () => {
 
 
         </div>
-        <div className="item__email__line"></div>
         <div className="item-email__bottomSection bottomSection">
-        Письмо для подтверждения было направлено на почту
+          Verification letter has been sent to your email
+          <button className={'more-info'}>?</button>
         </div>
       </div>
-      
-      <div className="block__item item-card">card</div>
+
+      <div className="block__item item-card">
+        <div className={'item-card__content content'}>
+          <div className={'content__img'}>
+            <img src={card} alt="card"/>
+          </div>
+          <h3 className={'content__title'}>Withdrawal card</h3>
+          <div className={'content__status'}>
+            Not set
+          </div>
+        </div>
+        <button className={'item-card__button'}>Connect</button>
+      </div>
     </article>
   );
 };

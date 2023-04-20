@@ -9,7 +9,9 @@ import ProgressListData from "./Data/ProgressListData.js"
 export const ProgressList = (props) => {
 
 	const getData = ProgressListData.map((list) => {
-		return <ListItem styles={list.styles}
+		return <ListItem
+			key={list.value}
+			styles={list.styles}
 			text={list.text}
 			value={list.value}
 		/>
