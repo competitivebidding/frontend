@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AppHeader from '../../../components/appHeader/AppHeader.jsx'
 import Lot from './Lot'
 
-const LotPage = () => {
+const LotPage = ({ title }) => {
     return (
         <>
             <AppHeader title={title} />

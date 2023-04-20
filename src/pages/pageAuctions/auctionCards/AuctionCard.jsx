@@ -66,9 +66,11 @@ const AuctionCard = ({ img, id, alt, name, date, price, places, changeStatus }) 
         </div>
         <StartDate />
         <AuctionCardTimer date={date} timer={timer} changeStatus={changeStatus} id={id} />
-        <button className="card__btn" onClick={onJoin}>
-          <span><Link to='/Lot'> Read More </Link></span>
-        </button>
+        <Link to='/Lot' >
+          <button className="card__btn" onClick={onJoin}>
+            <span> Read More </span>
+          </button>
+        </Link>
       </div>
     </div>
   )
