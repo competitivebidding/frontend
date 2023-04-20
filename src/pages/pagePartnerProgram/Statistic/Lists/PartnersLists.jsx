@@ -1,10 +1,65 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import styles from "./PartnersLists.module.scss"
 import PartnersListFilter from "@/pages/pagePartnerProgram/Statistic/Lists/PartnersListFilter";
+import FullUser from "@/pages/pagePartnerProgram/Statistic/Lists/FullUser";
+import avatar from "@assets/Partners/User.svg"
 
 
 function PartnersLists() {
     const [isClicked, setIsClicked] = useState(false);
+
+    const users = [
+        {
+            avatar: avatar,
+            ign: 'User User',
+            id: 56789085,
+            startDate: '22.01.2023',
+            earnedThisMonth: 22,
+            spentThisMonth: 4,
+            earned: 22,
+            spent: 4
+        },
+        {
+            avatar: avatar,
+            ign: 'User User',
+            id: 56789086,
+            startDate: '22.01.2023',
+            earnedThisMonth: 22,
+            spentThisMonth: 4,
+            earned: 22,
+            spent: 4
+        },
+        {
+            avatar: avatar,
+            ign: 'User User',
+            id: 56789087,
+            startDate: '22.01.2023',
+            earnedThisMonth: 22,
+            spentThisMonth: 4,
+            earned: 22,
+            spent: 4
+        },
+        {
+            avatar: avatar,
+            ign: 'User User',
+            id: 56789088,
+            startDate: '22.01.2023',
+            earnedThisMonth: 22,
+            spentThisMonth: 4,
+            earned: 22,
+            spent: 4
+        },
+        {
+            avatar: avatar,
+            ign: 'User User',
+            id: 56789089,
+            startDate: '22.01.2023',
+            earnedThisMonth: 22,
+            spentThisMonth: 4,
+            earned: 22,
+            spent: 4
+        }
+    ]
 
     return (
         <div className={styles.lists}>
@@ -33,6 +88,13 @@ function PartnersLists() {
                     <h4>Total spends</h4>
                     <PartnersListFilter isClicked={isClicked}/>
                 </div>
+            </div>
+            <div className={styles.users_list}>
+                {
+                    users.map(user => {
+                        return <FullUser userData={user} key={user.id}/>
+                    })
+                }
             </div>
         </div>
     );
