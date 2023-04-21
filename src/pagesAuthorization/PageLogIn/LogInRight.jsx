@@ -30,7 +30,7 @@ const LogInRight = () => {
     })
       .then((response) => {
         console.log('Logged in successfully', response.data);
-        localStorage.setItem('login', 'true')
+        localStorage.setItem('accesstoken', response.data.signin.accessToken)
       })
       .catch((error) => {
         console.error('Login failed', error);

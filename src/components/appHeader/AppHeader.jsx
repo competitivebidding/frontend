@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import blueBalance from '../../assets/imgHeader/blueBalance.svg'
@@ -12,22 +12,12 @@ const AppHeader = ({ title }) => {
   const [isLogged, setIsLogged] = useState(false)
 
   useEffect(() => {
-    localStorage.getItem('login')
+    // localStorage.getItem('login')
 
-    if (localStorage.getItem('login') == 'true') {
+    if (localStorage.getItem('accesstoken')) {
       setIsLogged(true)
     }
-
-    console.log('test console log')
   }, []);
-
-  // const login = localStorage.getItem('login');
-  // if (login) {
-  //   console.log(login);
-  // } else {
-  //   console.log('Login value is null or undefined');
-  // }
-
 
   return (
     <header className="header">
@@ -39,7 +29,7 @@ const AppHeader = ({ title }) => {
             <img className='group__balance' src={blueBalance} alt="blueBalance" />
             <div className='group__balanceSum'>20</div>
             <img className='group__notifications' src={iconNotification} alt="iconNotification" />
-            <p className='group__name'>NickName</p>
+            <p className='group__name'>userName</p>
             <img className='group__profile' src={imgHeader} alt="imgHeader" />
             <img className='group__exit' src={iconExit} alt="iconExit" />
           </>
