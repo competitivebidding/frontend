@@ -2,12 +2,12 @@ import React from "react";
 
 import './ListItem.scss'
 
-export const ListItem = (props) => {
+export const ListItem = ({styles, value, text}) => {
 	return (
-		<li className={`item ${props.styles}`}>
-			<div className="item__value">{props.value}</div>
+		<li className={`listItem-item ${styles}`}>
+			<div className="item__value">{value}</div>
 			<span className="item__marker">
-				{props.text}
+				{text}
 			</span>
 		</li>
 	)
