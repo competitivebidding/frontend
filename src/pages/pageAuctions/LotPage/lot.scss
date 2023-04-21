@@ -1,0 +1,123 @@
+$fz28: 1.75rem;
+$fz18: 1.125rem;
+$fz16: 1rem;
+$fz15: 0.9375rem;
+$fz14: 0.875rem;
+$fz8: 0.5rem;
+
+.return--btn {
+    width: 142px;
+    height: 48px;
+    background: #171A1E;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: $fz15;
+    line-height: 105%;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 23px;
+}
+
+.lot {
+    background: #171A1E;
+    border-radius: 17px;
+    display: flex;
+    padding: 25px 25px 35px 25px;
+
+    &__imgbox {
+        border-radius: 17px;
+        overflow: hidden;
+        position: relative;
+        width: 296px;
+        height: 447px;
+        margin-right: 22px;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .deposit {
+            position: absolute;
+            border-radius: 20px;
+            margin: 11px;
+            padding: 5px 10px 5px 36px;
+            background: #2F53FF;
+            color: #fff;
+
+            span {
+                font-weight: 300;
+                font-size: $fz8;
+                line-height: 105%;
+            }
+
+            .price__title {
+                font-weight: 400;
+                font-size: $fz14;
+                line-height: 105%;
+            }
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 6px;
+                width: 25px;
+                height: 25px;
+                border-radius: 100%;
+                background: #fff;
+            }
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
+
+        &__col__left {
+            font-weight: 400;
+            font-size: $fz28;
+            line-height: 105%;
+            color: #FFFFFF;
+            text-align: left;
+            margin-right: 30px;
+
+            .lot__title {
+                margin-bottom: 24px;
+            }
+        }
+
+        &__col__right {
+            font-weight: 300;
+            font-size: $fz18;
+            line-height: 105%;
+            text-align: right;
+            color: rgba(255, 255, 255, 0.4);
+
+            .lot__places {
+                margin-bottom: 14px;
+            }
+        }
+    }
+
+    &__discription {
+        font-weight: 400;
+        font-size: $fz14;
+        line-height: 155%;
+        color: #FFFFFF;
+        margin-bottom: 23px;
+    }
+
+    &__more {
+        font-weight: 300;
+        font-size: $fz15;
+        line-height: 100%;
+        text-decoration-line: underline;
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+
+}

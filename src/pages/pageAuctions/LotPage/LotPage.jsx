@@ -6,7 +6,6 @@ const LotPage = ({ title }) => {
     return (
         <>
             <AppHeader title={title} />
-
             <Lot />
         </>
     )
