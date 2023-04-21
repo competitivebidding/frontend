@@ -2,7 +2,7 @@
   display: grid;
   padding: 0 15px;
   column-gap: 10px;
-  grid-template: auto / minmax(150px, 1.3fr) repeat(5, minmax(113px, 1fr));
+  grid-template: auto / minmax(150px, 1.3fr) repeat(4, minmax(113px, 1fr)) minmax(80px, 0.7fr);
 
   font-style: normal;
   font-weight: 300;

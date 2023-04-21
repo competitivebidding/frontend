@@ -58,6 +58,16 @@ function PartnersLists() {
             spentThisMonth: 4,
             earned: 22,
             spent: 4
+        },
+        {
+            avatar: avatar,
+            ign: 'User User',
+            id: 56789090,
+            startDate: '22.01.2023',
+            earnedThisMonth: 22,
+            spentThisMonth: 4,
+            earned: 22,
+            spent: 4
         }
     ]
 
