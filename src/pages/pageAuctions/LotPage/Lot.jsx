@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './lot.scss';
 
@@ -18,7 +19,9 @@ const Lot = () => {
 
     return (
         <>
-            <button className='return--btn'>Auctions</button>
+            <Link to='/auctions'>
+                <button className='return--btn'>Auctions</button>
+            </Link>
             <div className='lot'>
                 <div className='lot__imgbox'>
                     <img src={data.img} alt={data.name} />
@@ -28,12 +31,20 @@ const Lot = () => {
                             <span>Deposite</span>
                         </div>
                     </div>
+                    <div className='lot__auction'>
+                        <div className='lot__auction__names'>
+                            <span>Viktory.mrs</span>
+                        </div>
+                        <div className='lot__auction__timer'>
+                            <span>00</span>: <span>00</span>
+                        </div>
+                    </div>
                 </div>
-                <div>
+                <div className='lot__content'>
                     <div className='lot__header'>
                         <div className='lot__header__col__left'>
                             <div className='lot__title'>{data.name}</div>
-                            <div className='lot__price'>{data.price + '$'}</div>
+                            <div className='lot__price'>{'$' + data.price}</div>
                         </div>
                         <div className='lot__header__col__right'>
                             <div className='lot__places'>Free places:</div>
@@ -41,10 +52,12 @@ const Lot = () => {
                         </div>
                     </div>
                     <div className='lot__discription'>{data.discription}</div>
-                    <a href='#' className='lot__more'>Read more</a>
-                <button className="card__btn">
-                    <span> +++ </span>
-                </button>
+                    <a href='#' className='lot__more'>
+                        <span>Read more</span>
+                    </a>
+                    <button className="lot__btn" >
+                        <span> outbid</span> <span> 20 ROTO</span>
+                    </button>
                 </div>
             </div>
         </>
