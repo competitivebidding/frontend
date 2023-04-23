@@ -36,6 +36,7 @@ const App = () => {
           <Route path="/partnerProgram" element={<PartnerPage title={'Partner Program'} />} />
           <Route path="/tokens" element={<TokensPage title={'Tokens'} />} />
           <Route path="/winnerList" element={<WinnersListPage title={'WinnerList'} />} />
+          <Route path="/cabinet" element={<CabinetPage title={'Cabinet'} />} />
         </Route>
 
         <Route element={<NavHeader />}>

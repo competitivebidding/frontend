@@ -4,12 +4,28 @@
   padding: 25px 28px 12px 28px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
+  &__body {
+    height: 100%;
+  }
+
+  &__currencyPick {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+  }
+
   &__header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding-bottom: 18px;
     gap: 22px;
+    flex-grow: 1;
+
+    .header__container {
+      display: flex;
+      gap: 40px;
+    }
   }
 
   &__subheader {
@@ -40,7 +56,7 @@
 
     color: #FFFFFF;
 
-    > span {
+    & > span {
       display: block;
       width: 15px;
       height: 15px;
@@ -117,6 +133,70 @@
       white-space: nowrap;
       cursor: pointer;
       padding-bottom: 5px;
+    }
+  }
+}
+
+/* Customize the label (the container) */
+.currencyPick {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 22px;
+  cursor: pointer;
+  user-select: none;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #CACACA;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .checkmark {
+      background-color: transparent;
+    }
+
+    &:checked ~ .checkmark:after {
+      display: block;
+    }
+  }
+
+  &:hover input ~ .checkmark {
+    background-color: transparent;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: transparent;
+    border: 1.5px solid #00FFA3;
+    border-radius: 5px;
+    text-align: center;
+
+    &:after {
+      content: url(@assets/cabinet/check_green.svg);
+      position: absolute;
+      display: none;
+      width: 100%;
+    }
+
+    &_roto {
+      border: 1px solid #2F53FF;
+
+      &:after {
+        content: url(@assets/cabinet/check_blue.svg);
+      }
     }
   }
 }

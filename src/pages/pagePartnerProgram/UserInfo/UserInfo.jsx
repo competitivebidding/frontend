@@ -4,7 +4,6 @@ import './UserInfo.scss'
 
 import UserInfoButtons from './UserInfoComponents/UserInfoButtons';
 import UserInfoAccount from './UserInfoComponents/UserInfoAccount';
-import UserInfoIDK from './UserInfoComponents/UserInfoIDK';
 import ForPartners from "@/pages/pagePartnerProgram/UserInfo/UserInfoComponents/ForPartners";
 
 const UserInfo = () => {
@@ -12,7 +11,6 @@ const UserInfo = () => {
         <section className='block'>
             <UserInfoButtons/>
             <UserInfoAccount/>
-            {/*<UserInfoIDK/>*/}
             <ForPartners/>
         </section>
     );

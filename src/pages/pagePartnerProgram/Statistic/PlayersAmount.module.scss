@@ -1,5 +1,5 @@
 .players {
-  padding: 25px 28px 0 28px;
+  padding: 25px 28px 49px 28px;
   background: #171A1E;
   border-radius: 17px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -38,13 +38,22 @@
     display: flex;
     align-items: center;
     gap: 9px;
-    padding: 36px 38px 49px 40px;
+    padding: 36px 38px 0 40px;
     justify-content: space-between;
+    height: 100%;
+
+    & > * {
+      flex: 1;
+      height: 100%;
+    }
 
     .statistic {
       display: flex;
       flex-direction: column;
       gap: 24px;
+      flex: 1;
+
+      justify-content: space-evenly;
 
       &__item {
         list-style: disc;
