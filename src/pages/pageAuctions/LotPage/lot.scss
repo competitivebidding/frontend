@@ -162,7 +162,7 @@ $fz8: 0.5rem;
     }
 
     &__btn {
-        position:absolute;
+        position: absolute;
         width: 272px;
         font-weight: 400;
         font-size: 16px;
@@ -223,4 +223,90 @@ $fz8: 0.5rem;
             color: #fff;
         }
     }
+}
+
+.page {
+    &__content {
+        display: flex;
+        margin-bottom: 27px;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.clicks__history {
+    background: #171A1E;
+    border-radius: 17px;
+    color: #fff;
+    font-weight: 400;
+    font-size: $fz16;
+    line-height: 105%;
+    margin-left: 21px;
+    padding: 17px 15px 21px 21px;
+    min-width: 270px;
+
+    &__users {
+        margin-top: 42px;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 1px;
+            width: 239px;
+            background-color: rgba(255, 255, 255, 0.07);
+        }
+
+        &__item {
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 105%;
+            }
+
+            .time {
+                font-weight: 400;
+                font-size: 10px;
+                line-height: 105%;
+                text-align: right;
+                color: rgba(255, 255, 255, 0.4);
+            }
+        }
+    }
+}
+
+.category {
+    font-weight: 400;
+    font-size: $fz15;
+    line-height: 105%;
+    color: rgba(255, 255, 255, 0.4);
+
+    &__name {
+        padding: 12px 40px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        margin-top: 21px;
+        border-radius: 8px;
+        max-width: 142px;
+    }
+}
+
+.autoClick {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 17px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    color: #FFFFFF;
+    width: 270px;
+    height: 44px;
 }
