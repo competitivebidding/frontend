@@ -35,6 +35,7 @@ const LogInRight = () => {
         // localStorage.setItem('userId', response.data.signin.user.id)
         const user = JSON.stringify(response.data.signin.user)
         localStorage.setItem('user', user)
+        window.location.href = '/';
       })
       .catch((error) => {
         console.error('Login failed', error);

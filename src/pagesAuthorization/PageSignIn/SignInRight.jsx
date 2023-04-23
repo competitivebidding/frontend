@@ -29,7 +29,8 @@ const SignInRight = () => {
     onCompleted: (data) => {
       console.log(data)
       setSubmitted(true)
-      localStorage.setItem('userId', data.data.signup.user.id)
+      // localStorage.setItem('userId', data.data.signup.user.id)
+      window.location.href = '/LogIn';
       reset()
     },
     onError: (error) => {
@@ -39,7 +40,6 @@ const SignInRight = () => {
 
   const onSubmit = (data) => {
     console.log(data)
-    // Call the mutation with the form data
     signupMutation({
       variables: {
         signUpInput: {
