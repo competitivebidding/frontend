@@ -92,7 +92,7 @@ $fz8: 0.5rem;
 
     &__content {
         margin-left: 22px;
-
+        position: relative;
     }
 
     &__header {
@@ -132,11 +132,11 @@ $fz8: 0.5rem;
         line-height: 155%;
         color: #FFFFFF;
         margin-bottom: 23px;
+        overflow: hidden;
     }
 
     &__more {
         display: block;
-        margin-bottom: 194px;
         font-weight: 300;
         font-size: $fz15;
         line-height: 100%;
@@ -162,15 +162,16 @@ $fz8: 0.5rem;
     }
 
     &__btn {
+        position:absolute;
         width: 272px;
         font-weight: 400;
         font-size: 16px;
         line-height: 19px;
         color: #FFFFFF;
-        position: relative;
         padding: 12px 45px 14px 45px;
         background: #2F53FF;
         border-radius: 10px;
+        bottom: 0;
 
         span {
             margin-right: 36px;
@@ -198,13 +199,13 @@ $fz8: 0.5rem;
         bottom: 0;
         left: 0;
         background-color: #000;
-        width: 100%;
+        width: 94%;
         margin: 0px 13px 17px 13px;
         display: flex;
         border-radius: 8px;
         align-items: center;
         justify-content: space-between;
-        padding: 5px 0 5px 43px;
+        padding: 5px 14px 5px 43px;
 
         &__timer {
             color: #F79E1B;

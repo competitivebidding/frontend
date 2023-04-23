@@ -5,6 +5,14 @@ import './lot.scss';
 
 const Lot = () => {
 
+    const [toggle, setToggle] = useState(false);
+    const [height, setHeight] = useState({height: 44 + 'px'});
+
+    const onShowMore = ()=> {
+        setToggle(()=> !toggle)
+        setHeight({height: 100 + 'px'})
+    }
+
     const [data, setData] = useState({
         img: '/src/pages/pageAuctions/img/quare.png',
         alt: 'img',
@@ -36,7 +44,7 @@ const Lot = () => {
                             <span>Viktory.mrs</span>
                         </div>
                         <div className='lot__auction__timer'>
-                            <span>00</span>: <span>00</span>
+                            <span>00</span> : <span>00</span>
                         </div>
                     </div>
                 </div>
@@ -51,12 +59,17 @@ const Lot = () => {
                             <span>{data.places} from 30</span>
                         </div>
                     </div>
-                    <div className='lot__discription'>{data.discription}</div>
-                    <a href='#' className='lot__more'>
+                    <div className='lot__discription' 
+                        style={height}>
+                        {data.discription}
+                    </div>
+                    <a href='#' 
+                    className='lot__more'
+                    onClick={onShowMore}>
                         <span>Read more</span>
                     </a>
                     <button className="lot__btn" >
-                        <span> outbid</span> <span> 20 ROTO</span>
+                        <span>outbid</span> <span> 20 ROTO</span>
                     </button>
                 </div>
             </div>
