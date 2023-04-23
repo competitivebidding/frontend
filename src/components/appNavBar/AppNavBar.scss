@@ -9,66 +9,88 @@
   padding: 20px 17px;
   border-right: none;
   border-color: transparent;
-  box-shadow: 10px 0px 20px 4px rgba(0,0,0,0.75);
+  box-shadow: 10px 0px 20px 4px rgba(0, 0, 0, 0.75);
   width: fit-content;
 
   @media (max-width: 1000px) {
     display: none;
   }
-}
 
-.navBar__logo {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
-.navBar__title a {
-  color: #fff;
-}
+  &__title {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+    margin-left: 1rem;
+  }
 
-.navBar__title {
+  &__title a {
+    color: #fff;
+  }
 
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 1.3rem;
-  text-transform: uppercase;
-  letter-spacing: 0.075em;
-  margin-left: 1rem;
-}
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-left: 22px;
+    margin-right: 22px;
+  }
 
-.navBar__menu {
-  display: flex;
-  flex-direction: column;
-  gap: 51px;
-  margin-left: 22px;
-  margin-right: 22px;
-}
+  &__button {
+    color: #fff;
+    border: 1px solid;
+    width: 100%;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5rem;
+    max-width: 273px;
+  }
 
-.menu__group {
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-}
+  &__name {
+    color: #2f53ff !important;
+    background: #191d25;
+    border-radius: 5px;
+    min-width: 150px;
+  }
 
-.menu__group a {
-  text-decoration: none;
-  color:#fff;
-}
+  .menu {
+    &__group {
+      display: flex;
+      flex-direction: column;
+      // gap: 26px;
+      gap: 10px;
 
-.menu__item {
-  display: flex;
-  gap: 1.3em;
-}
+    }
 
-.navBar__button {
-  color: #fff;
-  border: 1px solid;
-  width: 100%;
-  font-weight: 600;
-  text-align: center;
-  padding: 0.5rem;
-  max-width: 273px;
+    &__group a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: 1.3em;
+      border-radius: 7px;
+
+    
+      min-height: 50px;
+      padding-left: 5px;
+
+      &:hover {
+        background: #2f53ff;
+        min-width: 150px;
+        color:#fff;
+      }
+    }
+  }
 }

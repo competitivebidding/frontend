@@ -5,6 +5,7 @@ mutation Signin($signInInput: SignInInput!) {
   signin(signInInput: $signInInput) {
     user {
       username
+      id
       email
     }
     refreshToken

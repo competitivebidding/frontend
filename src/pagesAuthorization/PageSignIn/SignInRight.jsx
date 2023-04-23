@@ -29,6 +29,7 @@ const SignInRight = () => {
     onCompleted: (data) => {
       console.log(data)
       setSubmitted(true)
+      localStorage.setItem('userId', data.data.signup.user.id)
       reset()
     },
     onError: (error) => {

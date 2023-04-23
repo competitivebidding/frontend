@@ -61,6 +61,7 @@ const Question = () => {
 
       {accordionData.map(item => (
         <AccordionItem
+          key = {item.title}
           title={item.title}
           describe={item.description}
           isClicked={item.isClicked}
