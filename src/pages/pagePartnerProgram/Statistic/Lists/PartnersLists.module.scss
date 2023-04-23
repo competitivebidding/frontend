@@ -6,21 +6,48 @@
   border-radius: 17px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
+  box-sizing: content-box;
+
   @media (max-width: 1300px) {
       grid-column: 1/2;
   }
 
   .users_list {
+    margin-top: 16px;
     display: flex;
     flex-direction: column;
     gap: 26px;
+
+    max-height: 326px;
+    overflow-y: overlay;
+
+    &::-webkit-scrollbar {
+      //position: absolute;
+      //top: 0;
+      //left: 0;
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
   }
 
   .header {
     display: grid;
     padding: 0 15px 28px;
     column-gap: 10px;
-    grid-template: auto / minmax(113px, 1.3fr) repeat(5, minmax(113px, 1fr));
+    grid-template: auto / minmax(150px, 1.3fr) repeat(4, minmax(113px, 1fr)) minmax(80px, 0.7fr);
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 
     &__filter {

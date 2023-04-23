@@ -1,0 +1,11 @@
+.cabinet {
+
+  &__charts {
+    display: flex;
+    gap: 16px;
+
+    & > div {
+      flex: 1;
+    }
+  }
+}
