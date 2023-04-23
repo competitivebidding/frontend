@@ -12,10 +12,10 @@ import LOGOUT_MUTATION from '../server/logout';
 
 const AppHeader = ({ title }) => {
   const [isLogged, setIsLogged] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [logout] = useMutation(LOGOUT_MUTATION);
 
-
+  const userAuth = JSON.parse(localStorage.getItem('user'))
 
   useEffect(() => {
     if (localStorage.getItem('accesstoken')) {
@@ -25,11 +25,9 @@ const AppHeader = ({ title }) => {
 
   const handleLogout = async () => {
 
-    const user = JSON.parse(localStorage.getItem('user'))
-
     try {
       const response = await logout({
-        variables: { logoutId: user.id },
+        variables: { logoutId: userAuth.id },
       });
       localStorage.removeItem('accesstoken');
       localStorage.removeItem('refreshtoken');
@@ -41,9 +39,9 @@ const AppHeader = ({ title }) => {
     }
   };
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+  // const toggleModal = () => {
+  //   setIsModalOpen(!isModalOpen);
+  // };
 
   return (
     <header className="header">
@@ -54,14 +52,11 @@ const AppHeader = ({ title }) => {
             <img className='group__balance' src={blueBalance} alt="blueBalance" />
             <div className='group__balanceSum'>20</div>
             <img className='group__notifications' src={iconNotification} alt="iconNotification" />
-            <p className='group__name'>userName</p>
+            <p className='group__name'>{userAuth.username}</p>
             <img className='group__profile' src={imgHeader} alt="imgHeader" />
-            <img
-              className='group__exit'
-              src={iconExit}
-              alt="iconExit"
-              onClick={toggleModal}
-            />
+            <Link>
+            <img className='group__exit' src={iconExit} alt="iconExit" onClick={handleLogout} />
+            </Link>
           </>
         ) : (
           <>
@@ -74,12 +69,12 @@ const AppHeader = ({ title }) => {
           </>
         )}
       </div>
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <div className="modal">
-         <button onClick={handleLogout}>OK</button>
+              <button onClick={handleLogout}>OK</button>
               <button onClick={toggleModal}>Cancel</button> 
         </div>
-      )}
+      )} */}
 
     </header>
   )

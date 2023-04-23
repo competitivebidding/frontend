@@ -13,7 +13,7 @@ const SignInRight = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty },
+    formState: { errors },
     reset,
     watch
   } = useForm()
@@ -30,7 +30,7 @@ const SignInRight = () => {
       console.log(data)
       setSubmitted(true)
       // localStorage.setItem('userId', data.data.signup.user.id)
-      window.location.href = '/LogIn';
+      // window.location.href = '/LogIn';
       reset()
     },
     onError: (error) => {
@@ -154,7 +154,7 @@ const SignInRight = () => {
         {errors.isChecked && <div className="error__message">You need to accept our terms and conditions </div>}
 
         <div className="wrap__btn">
-          <button type="submit" className="btn__form" disabled={!isDirty}>
+          <button type="submit" className="btn__form">
             Sign in
           </button>
         </div>
