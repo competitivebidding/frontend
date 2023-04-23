@@ -1,5 +1,4 @@
 .main__howItWorks {
-	grid-area: howItWorks;
 	margin-left: 17px;
 
 	max-width: 392px;
@@ -13,7 +12,7 @@
 	border: 1px solid #2f53ff;
 	border-radius: 17px;
 
-	padding: 29px 18px 0 22px;
+	padding: 25px;
 
 	.howItWorks__title {
 		font-weight: 400;
@@ -28,5 +27,10 @@
 		u {
 			font-weight: bold;
 		}
+	}
+
+	@media (max-width:1150px) {
+		margin: 2em 0 0 0;
+		max-width: 100%;
 	}
 }

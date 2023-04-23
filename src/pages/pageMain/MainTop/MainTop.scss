@@ -1,10 +1,29 @@
 .main-top {
-	// max-width: 1600px;
-	display: grid;
-	grid-template-areas:
-		"royalAction . howItWorks"
-		"mission mission howItWorks"
-		"stats . howItWorks";
-
+	display: flex;
+	flex-wrap: wrap;
 	color: #ffffff;
+
+	.top__column1 {
+		flex: 1 1 60%;
+
+		@media (max-width: 1340px) {
+			flex: 1 1 50%;
+	  }
+	}
+
+	.top__column2 {
+		flex: 1 1 40%;
+
+		@media (max-width: 1340px) {
+			flex: 1 1 35%;
+	  }
+
+		@media (max-width: 1150px) {
+			flex: 1 1 100%;
+	  }
+	}
+
+	@media screen {
+		
+	}
 }

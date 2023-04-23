@@ -30,24 +30,25 @@ const StatsData = [
 	{
 		id: 5,
 		styles: "",
-		title: "Number of winners",
-		text: "132",
-		image: ""
+		title: "Withdrawn to partners big",
+		text: "944 567 r.",
+		image: ''
 	},
 	{
 		id: 6,
 		styles: "",
-		title: "Withdrawn to partners big",
-		text: "944 567 r.",
-		image: ""
-	},
-	{
-		id: 7,
-		styles: "",
 		title: "Number of partners",
 		text: "234",
 		image: ""
-	}
+
+	},
+	{
+		id: 7,
+		styles: "image",
+		title: "Number of winners",
+		text: "132",
+		image: "src/assets/pageMain/trophy-front-premium.png"
+	},
 ]
 
 export default StatsData

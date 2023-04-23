@@ -11,16 +11,19 @@ export const MainTop = (props) => {
 	return (
 		<div className={'main-top'}>
 
-			<RoyalAction />
+			<div className="top__column1">
+				<RoyalAction />
 
-			<ProgressList />
+				<Mission
+					value={"100 000"}
+				/>
 
-			<Mission
-				value={"100000"}
-			/>
+				<Stats />
+			</div>
 
-			<Stats />
-
+			<div className="top__column2">
+				<ProgressList />
+			</div>
 		</div>
 	)
 }
