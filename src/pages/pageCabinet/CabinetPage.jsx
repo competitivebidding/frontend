@@ -18,6 +18,7 @@ const CabinetPage = ({title}) => {
         <div className={styles.cabinet}>
             <AppHeader title={title}/>
             <UserInfo/>
+            {/*тут пока юзеринфо из партнерской программы, надо переделать чтобы норм было*/}
             <AuctionsInfo amount={12} rotoSpent={10} winsSum={400000} wins={5} auctions={auctions}/>
             <div className={styles.cabinet__charts}>
                 <PlayersAmount/>
