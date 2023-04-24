@@ -24,8 +24,8 @@
 
 	.item__value {
 		position: absolute;
-		left: 10px;
-		top: 6px;
+		left: 11px;
+		top: 7px;
 		z-index: 3;
 
 		font-size: 12px;
@@ -53,10 +53,20 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-		}
 
-		&:not(:last-child) &:after {
-			border-left: 2px solid #637592;
 		}
+		
+	}
+
+	&:not(&:last-child) .item__marker:after {
+		content: "";
+		position: absolute;
+		left: 13px;
+		top: 10px;
+		width: 2px;
+		height: 200%;
+		border-left: 2px solid #637592;
 	}
 }
+
+

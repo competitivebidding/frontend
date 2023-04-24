@@ -2,7 +2,7 @@ import React from "react";
 
 import './ListItem.scss'
 
-export const ListItem = ({styles, value, text}) => {
+export const ListItem = ({ styles, value, text }) => {
 	return (
 		<li className={`listItem-item ${styles}`}>
 			<div className="item__value">{value}</div>
