@@ -1,0 +1,116 @@
+.auctions__info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1.3fr;
+  grid-gap: 21px 18px;
+  margin: 42px 0;
+  &-item {
+    background-color: #171a1e;
+    border-radius: 17px;
+    padding: 20px 24px 26px;
+    color: #FFFFFF;
+    .item__count {
+      font-size: 32px;
+    }
+    .item__link {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+    .item__text {
+      font-size: 15px;
+    }
+    .item__card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 17px;
+      padding: 12px 4px;
+      background-color: #1F2D3E;
+      &-title {
+        font-size: 8px;
+        text-align: center;
+        padding: 0 8px;
+        margin-bottom: 8px;
+      }
+      &-image {
+        margin: auto;
+      }
+    }
+  }
+
+  .amount {
+    grid-row: 1 / -1;
+
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    &__body {
+      padding: 30px 0 22px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: 1fr 1.4fr;
+      gap: 12px;
+      .item__card:first-child{
+        grid-row: 1/3;
+      }
+      .item__card:last-child{
+        grid-column: 2/4;
+      }
+
+    }
+  }
+
+  .winsCount {
+    grid-column: 2 / 4;
+    display: flex;
+    justify-content: space-between;
+
+    &__description {
+      display: flex;
+      flex: 1 0 auto;
+      margin-right: 24px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    &__awards {
+      display: flex;
+      column-gap: 14px;
+
+      .item__card:nth-child(1){
+        background-color: #1F2D3E;
+      }
+      .item__card:nth-child(2){
+        background-color: #1F2D3E;
+      }
+      .item__card:nth-child(3){
+        background-color: #1F2D3E;
+      }
+      .item__card:nth-child(4){
+        background-color: #1F2D3E;
+      }
+    }
+  }
+
+  .rotoSpent {
+    &__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+  }
+
+  .winsSum {
+    &__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+  }
+}
