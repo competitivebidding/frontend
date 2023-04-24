@@ -49,13 +49,20 @@ function DoubleIncome({currency, color, data}) {
                     </div>
                     <div className={styles.income_chart__currencyPick}>
                         <label className={styles.currencyPick}>
-                            <input type="checkbox"/>
+                            <input
+                                type="checkbox"
+                                checked={isROTO}
+                                onChange={(e) => {e.target.checked = isROTO}}
+                            />
                             <p>ROTO</p>
                             <span className={styles.checkmark + ' ' + styles.checkmark_roto} onClick={() => setIsROTO(true)}></span>
                         </label>
-                        TODO: хуйню с чекбоксами убрать и норм будет, сделать управляемыми, чтобы только один мог переключаться
                         <label className={styles.currencyPick}>
-                            <input type="checkbox"/>
+                            <input
+                                type="checkbox"
+                                checked={!isROTO}
+                                onChange={(e) => {e.target.checked = !isROTO}}
+                            />
                             <p>Rubles</p>
                             <span className={styles.checkmark} onClick={() => setIsROTO(false)}></span>
                         </label>
