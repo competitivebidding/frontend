@@ -1,7 +1,7 @@
 import React from 'react';
 import PlayersAmount from "@/pages/pagePartnerProgram/Statistic/PlayersAmount";
 import styles from "./Charts.module.scss"
-import Income from "@/pages/pagePartnerProgram/Statistic/Income";
+import Income from "@/components/Charts/Income";
 import rotoIncome from "@/pages/pagePartnerProgram/Statistic/ChartsData/RotoIncome.js";
 import rublesIncome from "@/pages/pagePartnerProgram/Statistic/ChartsData/RublesIncome.js";
 

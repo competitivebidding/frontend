@@ -13,7 +13,7 @@
 
   background: #171A1E;
   border-radius: 12px;
-  padding: 2em;
+  padding: 30px;
 
   .accordion {
     &__item {
@@ -48,6 +48,7 @@
       font-weight: 300;
       font-size: 0.8em;
       line-height: 1.4em;
+      max-width: 100%;
 
       padding-top: 1em;
       opacity: 0;

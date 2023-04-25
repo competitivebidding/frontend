@@ -1,12 +1,13 @@
 .slider {
     margin-bottom: 43px;
     width: 920px;
+    overflow: hidden;
     &__track{
         width: 100%;
         height: 100%;
         display: flex;
-        overflow: hidden;
         margin-bottom: 24px;
+        transition: all .3s;
         .slide{
             display: flex;
             .card{
@@ -25,13 +26,14 @@
         list-style: none;
         &__item {
             display: inline-block;
-            width: 6px;
-            height: 6px;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
             background-color: #fff;
             margin-right: 12px;
+            transition: all .3s;
             &.active {
-                width: 35px;
+                width: 38px;
                 border-radius: 4px;
             }
             &:last-child{

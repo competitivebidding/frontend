@@ -11,8 +11,8 @@ function FullUser({userData}) {
         <div className={styles.user}>
             <div className={styles.user__identificators}>
                 <img className={styles.user__avatar} src={avatar} alt={'avatar'}/>
-                <div className={styles.user__ign}>{ign}</div>
-                <div className={styles.user__id}>{`ID: ${id}`}</div>
+                <p className={styles.user__ign}>{ign}</p>
+                <p className={styles.user__id}>{`ID: ${id}`}</p>
             </div>
             <div className={styles.user__startDate}>
                 {startDate}
@@ -29,7 +29,7 @@ function FullUser({userData}) {
                 {earned}
                 <span>ROTO</span>
             </div>
-            <div className={styles.user__spent}>{spent}</div>
+            <span className={styles.user__spent}>{spent}</span>
         </div>
     );
 }
