@@ -7,7 +7,7 @@ import iphone from '../../../assets/cabinet/image 51.png';
 function AuctionsInfo({ amount, wins, winsSum, rotoSpent, auctions }) {
   return (
       <div className="auctions__info ">
-        <div className="auctions__info-item amount">
+        <div className="cabinet-block amount">
           <div className="amount__header">
             <h3 className="item__text">Auctions amount</h3>
             <span className="item__count">{amount}</span>
@@ -48,14 +48,14 @@ function AuctionsInfo({ amount, wins, winsSum, rotoSpent, auctions }) {
 
           </div>
           <div className="amount__footer">
-            <a href="src/pages/pageCabinet/AuctionsInfo/AuctionsInfo#" className="item__link">See everything ></a>
+            <a href="src/pages/pageCabinet/AuctionsInfo/AuctionsInfo" className="item__link">See everything </a>
           </div>
         </div>
-        <div className="auctions__info-item winsCount">
+        <div className="cabinet-block winsCount">
           <div className="winsCount__description">
             <p className="item__count">5</p>
             <h3 className="item__text">Auctions won</h3>
-            <a href="src/pages/pageCabinet/AuctionsInfo/AuctionsInfo#" className="item__link">See everything ></a>
+            <a href="src/pages/pageCabinet/AuctionsInfo/AuctionsInfo#" className="item__link">See everything </a>
           </div>
           <div className="winsCount__awards">
             <div className="item__card">
@@ -92,13 +92,13 @@ function AuctionsInfo({ amount, wins, winsSum, rotoSpent, auctions }) {
             </div>
           </div>
         </div>
-        <div className="auctions__info-item rotoSpent">
+        <div className="cabinet-block rotoSpent">
           <div className="rotoSpent__body">
             <span className="item__count">10</span>
             <h3 className="item__text">Spent ROTO</h3>
           </div>
         </div>
-        <div className="auctions__info-item winsSum">
+        <div className="cabinet-block winsSum">
           <div className="winsSum__body">
             <span className="item__count">400 000 р.</span>
             <h3 className="item__text">The amount of winnings</h3>

@@ -4,36 +4,30 @@
   grid-template-rows: 1fr 1.3fr;
   grid-gap: 21px 18px;
   margin: 42px 0;
-  &-item {
-    background-color: #171a1e;
+  .item__count {
+    font-size: 32px;
+  }
+  .item__link {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .item__text {
+    font-size: 15px;
+  }
+  .item__card {
+    display: flex;
+    flex-direction: column;
     border-radius: 17px;
-    padding: 20px 24px 26px;
-    color: #FFFFFF;
-    .item__count {
-      font-size: 32px;
+    padding: 12px 4px;
+    background-color: #1F2D3E;
+    &-title {
+      font-size: 8px;
+      text-align: center;
+      padding: 0 8px;
+      margin-bottom: 8px;
     }
-    .item__link {
-      font-size: 15px;
-      color: rgba(255, 255, 255, 0.4);
-    }
-    .item__text {
-      font-size: 15px;
-    }
-    .item__card {
-      display: flex;
-      flex-direction: column;
-      border-radius: 17px;
-      padding: 12px 4px;
-      background-color: #1F2D3E;
-      &-title {
-        font-size: 8px;
-        text-align: center;
-        padding: 0 8px;
-        margin-bottom: 8px;
-      }
-      &-image {
-        margin: auto;
-      }
+    &-image {
+      margin: auto;
     }
   }
 
