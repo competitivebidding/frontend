@@ -1,8 +1,8 @@
 import React from 'react'
 import './AuctionsInfo.scss'
 
-import macbook from '../../../assets/cabinet/macbook_menu 1.png';
-import iphone from '../../../assets/cabinet/image 51.png';
+import macbook from '@assets/cabinet/macbook_menu 1.png';
+import iphone from '@assets/cabinet/image 51.png';
 
 function AuctionsInfo({ amount, wins, winsSum, rotoSpent, auctions }) {
   return (
