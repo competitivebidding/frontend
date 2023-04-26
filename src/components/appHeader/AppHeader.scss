@@ -67,6 +67,10 @@
 
     &__exit {
       margin-left: 19px;
+
+      &:hover {
+        fill: #eee;
+      }
     }
   }
 }

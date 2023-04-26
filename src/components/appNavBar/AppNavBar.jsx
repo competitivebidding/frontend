@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import logo from '../../assets/imgNavBar/LogoCircle.svg'
 import hammerIco from '../../assets/imgNavBar/judge.svg'
@@ -25,75 +25,113 @@ const AppNavBar = () => {
           <Link to="/"> Competitive bidding </Link>
         </h1>
       </div>
+
       <div className="navBar__menu menu">
+
         <div className="menu__group">
-          <div className="menu__item">
-            <img src={templates} alt="templates" />
-            <h3>
-              <Link to="/cabinet"> Profile </Link>
-            </h3>
-          </div>
-          <div className="menu__item">
-            <img src={hammerIco} alt="hammerIco" />
-            <h3>
-              <Link to="/auctions">Auctions</Link>
-            </h3>
-          </div>
-          <div href="" className="menu__item">
-            <img src={token} alt="token" />
-            <h3>
-              <Link to="/tokens">Tokens</Link>
-            </h3>
-          </div>
+
+          <NavLink to="/cabinet" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
+            <div className="menu__item">
+              <img src={templates} alt="templates" />
+              <h3>
+                Profile
+              </h3>
+            </div>
+          </NavLink>
+
+          <NavLink to="/auctions" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
+            <div className="menu__item">
+              <img src={hammerIco} alt="hammerIco" />
+              <h3>
+                Auctions
+              </h3>
+            </div>
+          </NavLink>
+
+          <NavLink to="/tokens" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
+            <div className="menu__item">
+              <img src={token} alt="token" />
+              <h3>
+                Tokens
+              </h3>
+            </div>
+          </NavLink>
+
         </div>
 
         <div className="menu__group">
-          <div className="menu__item">
-            <img src={star} alt="star" />
-            <h3>
-              <Link to="/myauctions">My auctions</Link>
-            </h3>
-          </div>
-          <div href="" className="menu__item">
-            <img src={cup} alt="cup" />
-            <h3>
-              <Link to="/winnerList"> Winners </Link>
-            </h3>
-          </div>
-          <div href="" className="menu__item">
-            <img src={emoji} alt="emoji" />
-            <h3>
-              <Link to="/partnerProgram"> Partner program </Link>
-            </h3>
-          </div>
+
+          <NavLink to="/myauctions" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
+            <div className="menu__item">
+              <img src={star} alt="star" />
+              <h3>
+                My auctions
+              </h3>
+            </div>
+          </NavLink>
+
+          <NavLink to="/winnerList" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
+            <div className="menu__item">
+              <img src={cup} alt="cup" />
+              <h3>
+                Winners 
+              </h3>
+            </div>
+          </NavLink>
+
+          <NavLink to="/partnerProgram" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
+            <div href="" className="menu__item">
+              <img src={emoji} alt="emoji" />
+              <h3>
+                Partner program 
+              </h3>
+            </div>
+          </NavLink>
+
         </div>
+
         <div className="menu__group">
-          <div className="menu__item">
-            <img src={calendar} alt="news" />
-            <h3>
-              <Link to="/news">News</Link>
-            </h3>
-          </div>
-          <div className="menu__item">
-            <img src={bell} alt="bell" />
-            <h3>
-              <Link to="/notifications">Notifications</Link>
-            </h3>
-          </div>
+
+          <NavLink to="/news" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
+            <div className="menu__item">
+              <img src={calendar} alt="news" />
+              <h3>
+                News
+              </h3>
+            </div>
+          </NavLink>
+
+          <NavLink to="/notifications" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
+            <div className="menu__item">
+              <img src={bell} alt="bell" />
+              <h3>
+                Notifications
+              </h3>
+            </div>
+          </NavLink>
+
         </div>
+
         <div className="menu__group">
+
+        <NavLink to="/questions" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
           <div className="menu__item">
             <img src={flash} alt="flash" />
             <h3>
-              <Link to="/questions"> Frequent questions </Link>
+              Frequent questions 
             </h3>
           </div>
+          </NavLink>
+
+          <NavLink to="/support" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
           <div className="menu__item">
             <img src={heart} alt="heart" />
             <h3>
-              <Link to="support">TechSupport</Link>
+              TechSupport
             </h3>
           </div>
+          </NavLink>
+
         </div>
       </div>
       <button className="navBar__button">Partner Link</button>

@@ -13,6 +13,7 @@ import QuestionsPage from '../pages/pageQuestions/QuestionsPage.jsx'
 import SupportPage from '../pages/pageSupport/SupportPage.jsx'
 import TokensPage from '../pages/pageTokens/TokensPage.jsx'
 import WinnersListPage from '../pages/pageWinnersList/WinnersListPage.jsx'
+import LotPage from '../pages/pageAuctions/LotPage/LotPage.jsx'
 
 import MainSection from '../Components/MainSection/MainSection.jsx'
 import NavHeader from '../Components/NavHeaderSection/NavHeader.jsx'
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/partnerProgram" element={<PartnerPage title={'Partner Program'} />} />
           <Route path="/tokens" element={<TokensPage title={'Tokens'} />} />
           <Route path="/winnerList" element={<WinnersListPage title={'WinnerList'} />} />
+          <Route path="/Lot" element={<LotPage title={'Lot №1'} />} />
           <Route path="/cabinet" element={<CabinetPage title={'Cabinet'} />} />
         </Route>
 
