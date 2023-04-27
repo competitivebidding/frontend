@@ -1,11 +1,21 @@
 import React, {useState} from 'react';
-import './UserInfo.scss'
+import {DropDown} from "../DropDown/DropDown";
 
 import info from '@/assets/cabinet/info.svg'
 import logo from '@/assets/cabinet/logo.svg'
 import user from '@/assets/cabinet/user.svg'
+import flag from '@/assets/cabinet/flag.svg'
+
+import './UserInfo.scss'
+
+const dropDownData = [
+    {title: <img src={flag} key={'a'} />, val: 'Russian Federation'},
+    {title: <img src={flag} key={'b'} />, val: 'United Kingdom'},
+    {title: <img src={flag} key={'c'} />, val: 'Kazakhstan'},
+]
 
 const UserInfo = () => {
+    const [dropDownValue, setDropDownValue] = React.useState(dropDownData[0]);
 
     return (
         <article className="user-info">
@@ -74,7 +84,6 @@ const UserInfo = () => {
                    </div>
                </div>
            </div>
-
             <div className="cabinet-block user-info__item">
                 <div className="item-top">
                     <div className="item-top__image">
@@ -135,9 +144,10 @@ const UserInfo = () => {
                     <div className="item-top__info">
                         <div className="item-top__content">
                             <p className="item-top__content-title">Country</p>
-                            <span className="item-top__content-subtitle">Russian Federation</span>
+                            <span className="item-top__content-subtitle">{dropDownValue.val}</span>
                         </div>
-                        1
+                       <div>
+                           <DropDown data={dropDownData} current={dropDownValue} onChange={setDropDownValue}/></div>
                     </div>
                 </div>
                 <div className="item-bottom">
