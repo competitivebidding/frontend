@@ -7,6 +7,9 @@ import user from '@/assets/cabinet/user.svg'
 import flag from '@/assets/cabinet/flag.svg'
 
 import './UserInfo.scss'
+import {useQuery} from "@apollo/client";
+import {GET_PROFILE_QUERY} from "../../../components/server/getProfile";
+import {UserInfoLoader} from "../UserInfoLoader/UserInfoLoader";
 
 const dropDownData = [
     {title: <img src={flag} key={'a'} />, val: 'Russian Federation'},
@@ -17,150 +20,179 @@ const dropDownData = [
 const UserInfo = () => {
     const [dropDownValue, setDropDownValue] = React.useState(dropDownData[0]);
 
-    return (
-        <article className="user-info">
-           <div className="cabinet-block user-info__settings">
-              <div className="item-top">
-                  <img src={logo} alt="" className="item-top__avatar"/>
-                  <div className="item-top__info">
-                          <div className="item-top__status">Unconfirmed</div>
-                          <span className="item-top__title">ID: 78950430</span>
-                  </div>
-              </div>
-               <div className="item-bottom">
-                   <button className="user-info__button">Settings</button>
-               </div>
-           </div>
-           <div className="cabinet-block user-info__level">
-               <img src={logo} alt=""/>
-               <div className="level-content">
-                   <div className="level-content__title">
-                       <p>
-                           Уровень авторизации
-                       </p>
-                       <i>
-                           <img src={info} alt=""/>
-                       </i>
-                   </div>
-                   <span className="level-content__status not-verified">Не верифицирован!</span>
-               </div>
-           </div>
-           <div className="cabinet-block user-info__item">
-               <div className="item-top">
-                   <div className="item-top__image">
-                       <img src={user} alt=""/>
-                   </div>
-                   <div className="item-top__info">
-                       <div className="item-top__content">
-                           <p className="item-top__content-title">Name</p>
-                           <span className="item-top__content-subtitle"></span>
-                       </div>
-                       <div className="item-top__status">Enter a name</div>
-                   </div>
-               </div>
-               <div className="item-bottom">
-                    <button className="user-info__button">Set</button>
-               </div>
-           </div>
-           <div className="cabinet-block user-info__item">
-               <div className="item-top">
-                   <div className="item-top__image">
-                       <img src={user} alt=""/>
-                   </div>
-                   <div className="item-top__info">
-                       <div className="item-top__content">
-                           <p className="item-top__content-title">E-mail</p>
-                           <span className="item-top__content-subtitle">viktory.mrs@icloud.com</span>
-                       </div>
-                       <div className="item-top__status">Not Confirmed</div>
-                   </div>
-               </div>
-               <div className="item-bottom">
-                   <div className="item-bottom__content">
-                       <p>The confirmation letter was sent to the post office</p>
-                       <i>
-                           <img src={info} alt=""/>
-                       </i>
-                   </div>
-               </div>
-           </div>
-            <div className="cabinet-block user-info__item">
-                <div className="item-top">
-                    <div className="item-top__image">
-                        <img src={user} alt=""/>
-                    </div>
-                    <div className="item-top__info">
-                        <div className="item-top__content">
-                            <p className="item-top__content-title">Phone</p>
-                            <span className="item-top__content-subtitle">+7 912 609 79 07</span>
-                        </div>
-                        <div className="item-top__status confirmed">Confirmed</div>
-                    </div>
-                </div>
-                <div className="item-bottom">
-                    <button className="user-info__button">Confirm</button>
-                </div>
-            </div>
-            <div className="cabinet-block user-info__item">
-                <div className="item-top">
-                    <div className="item-top__image">
-                        <img src={user} alt=""/>
-                    </div>
-                    <div className="item-top__info">
-                        <div className="item-top__content">
-                            <p className="item-top__content-title">Instagram</p>
-                            <span className="item-top__content-subtitle"></span>
-                        </div>
-                        <div className="item-top__status">Not Confirmed
-                        </div>
-                    </div>
-                </div>
-                <div className="item-bottom">
-                    <button className="user-info__button">Set</button>
-                </div>
-            </div>
-            <div className="cabinet-block user-info__item">
-                <div className="item-top">
-                    <div className="item-top__image">
-                        <img src={user} alt=""/>
-                    </div>
-                    <div className="item-top__info">
-                        <div className="item-top__content">
-                            <p className="item-top__content-title">Payment information</p>
-                            <span className="item-top__content-subtitle">Not connected</span>
-                        </div>
+    const {data, error, loading} = useQuery(GET_PROFILE_QUERY)
 
-                    </div>
-                </div>
-                <div className="item-bottom">
-                    <button className="user-info__button">Connect</button>
-                </div>
-            </div>
-            <div className="cabinet-block user-info__item">
-                <div className="item-top">
-                    <div className="item-top__image">
-                        <img src={user} alt=""/>
-                    </div>
-                    <div className="item-top__info">
-                        <div className="item-top__content">
-                            <p className="item-top__content-title">Country</p>
-                            <span className="item-top__content-subtitle">{dropDownValue.val}</span>
+    const [userState, setUserState] = React.useState(null)
+    const [isEditable, setIsEditable] = React.useState(false)
+    const [name, setName] = React.useState(null)
+
+    React.useEffect(() => {
+        if (data) {
+            setUserState(data.getProfile)
+        }
+    }, [data])
+
+    const changeUserData = (value) => {
+        setUserState((v) => ({...v, ...value}))
+        setIsEditable(false)
+    }
+
+    console.log(userState)
+
+    return (
+
+        <>{loading ? <UserInfoLoader /> :
+            <article className="user-info">
+                <div className="cabinet-block user-info__settings">
+                    <div className="item-top">
+                        <img src={logo} alt="" className="item-top__avatar"/>
+                        <div className="item-top__info">
+                            <div className="item-top__status">Unconfirmed</div>
+                            <span className="item-top__title">ID: 78950430</span>
                         </div>
-                       <div>
-                           <DropDown data={dropDownData} current={dropDownValue} onChange={setDropDownValue}/></div>
+                    </div>
+                    <div className="item-bottom">
+                        <button className="user-info__button">Settings</button>
                     </div>
                 </div>
-                <div className="item-bottom">
-                    <div className="item-bottom__content">
-                        <p>The country was set automatically
-                        </p>
-                        <i>
-                            <img src={info} alt=""/>
-                        </i>
+                <div className="cabinet-block user-info__level">
+                    <img src={logo} alt=""/>
+                    <div className="level-content">
+                        <div className="level-content__title">
+                            <p>
+                                Уровень авторизации
+                            </p>
+                            <i>
+                                <img src={info} alt=""/>
+                            </i>
+                        </div>
+                        <span className="level-content__status not-verified">Не верифицирован!</span>
                     </div>
                 </div>
-            </div>
-        </article>
+
+                <div className="cabinet-block user-info__item">
+                    <div className="item-top">
+                        <div className="item-top__image">
+                            <img src={user} alt=""/>
+                        </div>
+                        <div className="item-top__info">
+                            <div className="item-top__content">
+                                {isEditable ?
+                                    <input type="text" onChange={(e) => setName(e.target.value)}/> :
+                                    <p className="item-top__content-title">{name}</p>}
+                                <span className="item-top__content-subtitle">{data.getProfile.firstname}</span>
+                            </div>
+                            <div className="item-top__status">Enter a name</div>
+                        </div>
+                    </div>
+                    <div className="item-bottom">
+                        {isEditable ? <button className="user-info__button" disabled={!name} onClick={() => changeUserData({
+                                'username': name
+                            })}>Change</button> :
+                        <button className="user-info__button" onClick={() => setIsEditable(!isEditable)}>Set</button>}
+                    </div>
+                </div>
+
+                <div className="cabinet-block user-info__item">
+                    <div className="item-top">
+                        <div className="item-top__image">
+                            <img src={user} alt=""/>
+                        </div>
+                        <div className="item-top__info">
+                            <div className="item-top__content">
+                                <p className="item-top__content-title">E-mail</p>
+                                <span className="item-top__content-subtitle">{data.getProfile.email}</span>
+                            </div>
+                            <div className="item-top__status">Not Confirmed</div>
+                        </div>
+                    </div>
+                    <div className="item-bottom">
+                        <div className="item-bottom__content">
+                            <p>The confirmation letter was sent to the post office</p>
+                            <i>
+                                <img src={info} alt=""/>
+                            </i>
+                        </div>
+                    </div>
+                </div>
+                <div className="cabinet-block user-info__item">
+                    <div className="item-top">
+                        <div className="item-top__image">
+                            <img src={user} alt=""/>
+                        </div>
+                        <div className="item-top__info">
+                            <div className="item-top__content">
+                                <p className="item-top__content-title">Phone</p>
+                                <span className="item-top__content-subtitle">+7 912 609 79 07</span>
+                            </div>
+                            <div className="item-top__status confirmed">Confirmed</div>
+                        </div>
+                    </div>
+                    <div className="item-bottom">
+                        <button className="user-info__button">Confirm</button>
+                    </div>
+                </div>
+                <div className="cabinet-block user-info__item">
+                    <div className="item-top">
+                        <div className="item-top__image">
+                            <img src={user} alt=""/>
+                        </div>
+                        <div className="item-top__info">
+                            <div className="item-top__content">
+                                <p className="item-top__content-title">Instagram</p>
+                                <span className="item-top__content-subtitle">{data.getProfile.instagram}</span>
+                            </div>
+                            <div className="item-top__status">Not Confirmed
+                            </div>
+                        </div>
+                    </div>
+                    <div className="item-bottom">
+                        <button className="user-info__button">Set</button>
+                    </div>
+                </div>
+                <div className="cabinet-block user-info__item">
+                    <div className="item-top">
+                        <div className="item-top__image">
+                            <img src={user} alt=""/>
+                        </div>
+                        <div className="item-top__info">
+                            <div className="item-top__content">
+                                <p className="item-top__content-title">Payment information</p>
+                                <span className="item-top__content-subtitle">Not connected</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div className="item-bottom">
+                        <button className="user-info__button">Connect</button>
+                    </div>
+                </div>
+                <div className="cabinet-block user-info__item">
+                    <div className="item-top">
+                        <div className="item-top__image">
+                            <img src={user} alt=""/>
+                        </div>
+                        <div className="item-top__info">
+                            <div className="item-top__content">
+                                <p className="item-top__content-title">Country</p>
+                                <span className="item-top__content-subtitle">{dropDownValue.val}</span>
+                            </div>
+                            <div>
+                                <DropDown data={dropDownData} current={dropDownValue} onChange={setDropDownValue}/></div>
+                        </div>
+                    </div>
+                    <div className="item-bottom">
+                        <div className="item-bottom__content">
+                            <p>The country was set automatically
+                            </p>
+                            <i>
+                                <img src={info} alt=""/>
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        }</>
     );
 };
 

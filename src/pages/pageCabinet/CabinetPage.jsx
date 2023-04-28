@@ -11,8 +11,10 @@ import UserInfo from "./UserInfo/UserInfo";
 import './CabinetPage.scss'
 
 
+
 const CabinetPage = ({ title }) => {
   const auctions = {}
+
 
   //TODO: тут как-то аукционы хуйнуть
 
