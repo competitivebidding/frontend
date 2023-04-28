@@ -41,8 +41,8 @@ const UserInfo = () => {
 
     return (
 
-        <>{loading ? <UserInfoLoader /> :
-            <article className="user-info">
+        <>{loading && <UserInfoLoader />}
+            {data && userState && <article className="user-info">
                 <div className="cabinet-block user-info__settings">
                     <div className="item-top">
                         <img src={logo} alt="" className="item-top__avatar"/>
@@ -79,7 +79,7 @@ const UserInfo = () => {
                             <div className="item-top__content">
                                 {isEditable ?
                                     <input type="text" onChange={(e) => setName(e.target.value)}/> :
-                                    <p className="item-top__content-title">{name}</p>}
+                                    <p className="item-top__content-title">{userState.username}</p>}
                                 <span className="item-top__content-subtitle">{data.getProfile.firstname}</span>
                             </div>
                             <div className="item-top__status">Enter a name</div>
@@ -89,7 +89,7 @@ const UserInfo = () => {
                         {isEditable ? <button className="user-info__button" disabled={!name} onClick={() => changeUserData({
                                 'username': name
                             })}>Change</button> :
-                        <button className="user-info__button" onClick={() => setIsEditable(!isEditable)}>Set</button>}
+                            <button className="user-info__button" onClick={() => setIsEditable(!isEditable)}>Set</button>}
                     </div>
                 </div>
 
@@ -191,8 +191,8 @@ const UserInfo = () => {
                         </div>
                     </div>
                 </div>
-            </article>
-        }</>
+            </article>}
+        </>
     );
 };
 
