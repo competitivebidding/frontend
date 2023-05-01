@@ -78,7 +78,7 @@ const UserInfo = () => {
                         <div className="item-top__info">
                             <div className="item-top__content">
                                 {isEditable ?
-                                    <input type="text" onChange={(e) => setName(e.target.value)}/> :
+                                    <input type="text" defaultValue={userState.username} onChange={(e) => setName(e.target.value)}/> :
                                     <p className="item-top__content-title">{userState.username}</p>}
                                 <span className="item-top__content-subtitle">{data.getProfile.firstname}</span>
                             </div>
