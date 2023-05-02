@@ -10,6 +10,7 @@ import './UserInfo.scss'
 import {useQuery} from "@apollo/client";
 import {GET_PROFILE_QUERY} from "../../../components/server/getProfile";
 import {UserInfoLoader} from "../UserInfoLoader/UserInfoLoader";
+import DonutChart from "../../../components/Charts/DonutChart";
 
 const dropDownData = [
     {title: <img src={flag} key={'a'} />, val: 'Russian Federation'},
@@ -29,6 +30,7 @@ const UserInfo = () => {
     React.useEffect(() => {
         if (data) {
             setUserState(data.getProfile)
+            setName(data.getProfile.username)
         }
     }, [data])
 
@@ -38,6 +40,19 @@ const UserInfo = () => {
     }
 
     console.log(userState)
+
+    const chartData = {
+        labels: [],
+        datasets: [{
+            label: '',
+            data: [100, 10],
+            borderWidth: 0,
+            backgroundColor: ['rgba(255, 255, 255, 0.12)','#2F53FF'],
+            datalabels: {
+                display: false
+            }
+        }]
+    }
 
     return (
 
@@ -56,7 +71,7 @@ const UserInfo = () => {
                     </div>
                 </div>
                 <div className="cabinet-block user-info__level">
-                    <img src={logo} alt=""/>
+                    <DonutChart data={chartData} width={90} height={90}/>
                     <div className="level-content">
                         <div className="level-content__title">
                             <p>
@@ -80,7 +95,7 @@ const UserInfo = () => {
                                 {isEditable ?
                                     <input type="text" defaultValue={userState.username} onChange={(e) => setName(e.target.value)}/> :
                                     <p className="item-top__content-title">{userState.username}</p>}
-                                <span className="item-top__content-subtitle">{data.getProfile.firstname}</span>
+                                <span className="item-top__content-subtitle">{userState.firstname}</span>
                             </div>
                             <div className="item-top__status">Enter a name</div>
                         </div>
@@ -101,7 +116,7 @@ const UserInfo = () => {
                         <div className="item-top__info">
                             <div className="item-top__content">
                                 <p className="item-top__content-title">E-mail</p>
-                                <span className="item-top__content-subtitle">{data.getProfile.email}</span>
+                                <span className="item-top__content-subtitle">{userState.email}</span>
                             </div>
                             <div className="item-top__status">Not Confirmed</div>
                         </div>
@@ -140,7 +155,7 @@ const UserInfo = () => {
                         <div className="item-top__info">
                             <div className="item-top__content">
                                 <p className="item-top__content-title">Instagram</p>
-                                <span className="item-top__content-subtitle">{data.getProfile.instagram}</span>
+                                <span className="item-top__content-subtitle">{userState.instagram}</span>
                             </div>
                             <div className="item-top__status">Not Confirmed
                             </div>

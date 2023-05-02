@@ -1,0 +1,99 @@
+.players {
+  padding: 25px 28px 49px 28px;
+  background: #171A1E;
+  border-radius: 17px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    padding-bottom: 18px;
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 105%;
+    /* identical to box height, or 23px */
+
+
+    color: #FFFFFF;
+  }
+
+  &__amount {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 105%;
+    /* identical to box height, or 16px */
+
+
+    color: #FFFFFF;
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 36px 38px 0 40px;
+    justify-content: space-between;
+    height: 100%;
+
+    & > * {
+      flex: 1;
+      height: 100%;
+    }
+
+    .statistic {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      flex: 1;
+
+      justify-content: space-evenly;
+
+      &__item {
+        list-style: disc;
+        font-style: normal;
+        color: rgba(255, 255, 255, 0.4);
+
+        &_green {
+          color: #00FFA3;
+        }
+
+        &_blue {
+          color: #2F53FF;
+        }
+
+        &_white {
+          color: #ffffff;
+        }
+
+        &>span {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 23px;
+
+          color: #FFFFFF;
+        }
+
+        &>p {
+          font-style: normal;
+          font-weight: 300;
+          font-size: 12px;
+          line-height: 14px;
+          /* identical to box height */
+
+
+          color: rgba(255, 255, 255, 0.4);
+
+          margin-top: 7px;
+        }
+      }
+    }
+  }
+}
