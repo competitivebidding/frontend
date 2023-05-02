@@ -11,6 +11,9 @@
       display: flex;
       gap: 20px;
       margin-bottom: 1.5rem;
+      &__input {
+        font-size: 12px;
+      }
       &__avatar {
         border-radius: 100%;
         border: 1px solid #fff;
@@ -107,6 +110,7 @@
       &__title {
         font-size: 20px;
       }
+
     }
   }
   &__level {

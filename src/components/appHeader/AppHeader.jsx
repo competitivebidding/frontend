@@ -24,7 +24,7 @@ const AppHeader = ({ title }) => {
   }, []);
 
   const handleLogout = async () => {
-
+    console.log(userAuth)
     try {
       const response = await logout({
         variables: { logoutId: userAuth.id },

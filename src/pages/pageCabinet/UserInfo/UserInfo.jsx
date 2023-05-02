@@ -7,10 +7,15 @@ import user from '@/assets/cabinet/user.svg'
 import flag from '@/assets/cabinet/flag.svg'
 
 import './UserInfo.scss'
-import {useQuery} from "@apollo/client";
+import {useMutation, useQuery} from "@apollo/client";
 import {GET_PROFILE_QUERY} from "../../../components/server/getProfile";
 import {UserInfoLoader} from "../UserInfoLoader/UserInfoLoader";
 import DonutChart from "../../../components/Charts/DonutChart";
+import {UPDATE_PROFILE} from "../../../components/server/updateProfile";
+import {UserName} from "./UserName";
+import {UserEmail} from "./UserEmail";
+import {UserPhone} from "./UserPhone";
+import {UserInst} from "./UserInst";
 
 const dropDownData = [
     {title: <img src={flag} key={'a'} />, val: 'Russian Federation'},
@@ -20,26 +25,16 @@ const dropDownData = [
 
 const UserInfo = () => {
     const [dropDownValue, setDropDownValue] = React.useState(dropDownData[0]);
+    const [userState, setUserState] = React.useState(null)
 
     const {data, error, loading} = useQuery(GET_PROFILE_QUERY)
-
-    const [userState, setUserState] = React.useState(null)
-    const [isEditable, setIsEditable] = React.useState(false)
-    const [name, setName] = React.useState(null)
+    const [update, {loading: l, error: e, data: d}] = useMutation(UPDATE_PROFILE)
 
     React.useEffect(() => {
         if (data) {
             setUserState(data.getProfile)
-            setName(data.getProfile.username)
         }
     }, [data])
-
-    const changeUserData = (value) => {
-        setUserState((v) => ({...v, ...value}))
-        setIsEditable(false)
-    }
-
-    console.log(userState)
 
     const chartData = {
         labels: [],
@@ -53,6 +48,17 @@ const UserInfo = () => {
             }
         }]
     }
+
+    const handleUpdate = (data) => {
+        console.log(data)
+        update({
+            variables: {
+                updateUserInput: {...data}
+            }
+        })
+    }
+
+    console.log(123)
 
     return (
 
@@ -85,86 +91,11 @@ const UserInfo = () => {
                     </div>
                 </div>
 
-                <div className="cabinet-block user-info__item">
-                    <div className="item-top">
-                        <div className="item-top__image">
-                            <img src={user} alt=""/>
-                        </div>
-                        <div className="item-top__info">
-                            <div className="item-top__content">
-                                {isEditable ?
-                                    <input type="text" defaultValue={userState.username} onChange={(e) => setName(e.target.value)}/> :
-                                    <p className="item-top__content-title">{userState.username}</p>}
-                                <span className="item-top__content-subtitle">{userState.firstname}</span>
-                            </div>
-                            <div className="item-top__status">Enter a name</div>
-                        </div>
-                    </div>
-                    <div className="item-bottom">
-                        {isEditable ? <button className="user-info__button" disabled={!name} onClick={() => changeUserData({
-                                'username': name
-                            })}>Change</button> :
-                            <button className="user-info__button" onClick={() => setIsEditable(!isEditable)}>Set</button>}
-                    </div>
-                </div>
+                <UserName field={userState.username} handleUpdate={handleUpdate}/>
+                <UserEmail field={userState.email} handleUpdate={handleUpdate} />
+                <UserPhone field={userState.phone} handleUpdate={handleUpdate} />
+                <UserInst field={userState.instagram} handleUpdate={handleUpdate} />
 
-                <div className="cabinet-block user-info__item">
-                    <div className="item-top">
-                        <div className="item-top__image">
-                            <img src={user} alt=""/>
-                        </div>
-                        <div className="item-top__info">
-                            <div className="item-top__content">
-                                <p className="item-top__content-title">E-mail</p>
-                                <span className="item-top__content-subtitle">{userState.email}</span>
-                            </div>
-                            <div className="item-top__status">Not Confirmed</div>
-                        </div>
-                    </div>
-                    <div className="item-bottom">
-                        <div className="item-bottom__content">
-                            <p>The confirmation letter was sent to the post office</p>
-                            <i>
-                                <img src={info} alt=""/>
-                            </i>
-                        </div>
-                    </div>
-                </div>
-                <div className="cabinet-block user-info__item">
-                    <div className="item-top">
-                        <div className="item-top__image">
-                            <img src={user} alt=""/>
-                        </div>
-                        <div className="item-top__info">
-                            <div className="item-top__content">
-                                <p className="item-top__content-title">Phone</p>
-                                <span className="item-top__content-subtitle">+7 912 609 79 07</span>
-                            </div>
-                            <div className="item-top__status confirmed">Confirmed</div>
-                        </div>
-                    </div>
-                    <div className="item-bottom">
-                        <button className="user-info__button">Confirm</button>
-                    </div>
-                </div>
-                <div className="cabinet-block user-info__item">
-                    <div className="item-top">
-                        <div className="item-top__image">
-                            <img src={user} alt=""/>
-                        </div>
-                        <div className="item-top__info">
-                            <div className="item-top__content">
-                                <p className="item-top__content-title">Instagram</p>
-                                <span className="item-top__content-subtitle">{userState.instagram}</span>
-                            </div>
-                            <div className="item-top__status">Not Confirmed
-                            </div>
-                        </div>
-                    </div>
-                    <div className="item-bottom">
-                        <button className="user-info__button">Set</button>
-                    </div>
-                </div>
                 <div className="cabinet-block user-info__item">
                     <div className="item-top">
                         <div className="item-top__image">
@@ -182,6 +113,7 @@ const UserInfo = () => {
                         <button className="user-info__button">Connect</button>
                     </div>
                 </div>
+
                 <div className="cabinet-block user-info__item">
                     <div className="item-top">
                         <div className="item-top__image">
