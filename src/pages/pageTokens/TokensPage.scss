@@ -13,6 +13,8 @@
     height: 372px;
     align-items: center;
     padding: 30px;
+    flex-grow:1;
+  
 
     &__header{
         color:  #FFFFFF;
@@ -43,4 +45,21 @@
         }
     }
 }
+
+@media(max-width: 1581px){
+    .token{
+        width: 33.33%;
+
+    }
+
+}
+
+@media(max-width: 760px){
+    .token{
+        flex-wrap: wrap;
+        width: 100%;
+
+    }
+}
+
 
