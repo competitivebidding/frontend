@@ -6,17 +6,17 @@ import TokenCard from './TokenCard.jsx'
 const TokensPage = ({ title }) => {
    const data=[{
     tokens:'1 000 ROTO',
-    prize:'1 000 ₽'
+    prize:'12 $'
     },{
       tokens:'2 500 ROTO',
-      prize:'1 999 ₽'
+      prize:'25 $'
       },
       {
         tokens:'7 500 ROTO',
-        prize:'5 499 ₽'
+        prize:'70 $'
         },{
           tokens:'15 000 ROTO',
-          prize:'9 999 ₽'
+          prize:'125 $'
           }]
   return (
     <>
