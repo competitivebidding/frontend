@@ -58,8 +58,6 @@ const UserInfo = () => {
         })
     }
 
-    console.log(123)
-
     return (
 
         <>{loading && <UserInfoLoader />}
@@ -113,6 +111,7 @@ const UserInfo = () => {
                         <button className="user-info__button">Connect</button>
                     </div>
                 </div>
+
 
                 <div className="cabinet-block user-info__item">
                     <div className="item-top">
