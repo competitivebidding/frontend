@@ -14,20 +14,6 @@ import {PaymentModal} from "./PaymentModal/PaymentModal";
 
 
 
-<<<<<<< HEAD
-    return (
-        <div className={styles.cabinet}>
-            <AppHeader title={title}/>
-            <UserInfo/>
-            {/*тут пока юзеринфо из партнерской программы, надо переделать чтобы норм было*/}
-            <AuctionsInfo amount={12} rotoSpent={10} winsSum={400000} wins={5} auctions={auctions}/>
-            {/*<div className={styles.cabinet__charts}>*/}
-            {/*    <PlayersAmount/>*/}
-            {/*    <DoubleIncome currency={['ROTO', 'Rubles']} data={[RotoIncome, RublesIncome]} color={['#2F53FF', '#00FFA3']}/>*/}
-            {/*</div>*/}
-        </div>
-    );
-=======
 const CabinetPage = ({ title }) => {
   const auctions = {}
 
@@ -45,7 +31,6 @@ const CabinetPage = ({ title }) => {
       </div>
     </div>
   )
->>>>>>> origin/profile
 }
 
 export default CabinetPage
