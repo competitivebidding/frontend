@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   opacity: 1;
-  max-width: 307px;
+  min-width: 250px;
+  max-width: 250px;
   gap: 2.6em;
   padding: 20px 17px;
   border-right: none;
