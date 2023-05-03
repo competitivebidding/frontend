@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { ListItem } from './ListItem/ListItem';
 
@@ -17,8 +17,10 @@ export const ProgressList = (props) => {
 		/>
 	})
 
+	const [isOpen, setIsOpen] = useState(false)
+
 	return (
-		<div className={'main__howItWorks'}>
+		<div className={`main__howItWorks ${isOpen ? "open" : ""}`}>
 			<div className={'howItWorks__title'}>How it works?</div>
 			<div className={'howItWorks__subtitle'}>
 				In the <u>auction</u> section, various offers in demand on the
@@ -30,6 +32,8 @@ export const ProgressList = (props) => {
 					{getData}
 				</ul>
 			</div>
+			<button className="accordion-btn" onClick={() => setIsOpen(!isOpen)}>Развернуть<span></span></button>
+
 		</div>
 	)
 }

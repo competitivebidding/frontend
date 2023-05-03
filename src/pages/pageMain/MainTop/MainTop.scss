@@ -4,7 +4,7 @@
 	color: #ffffff;
 
 	.top__column1 {
-		flex: 1 1 60%;
+		flex: 1 1 70%;
 
 		@media (max-width: 1340px) {
 			flex: 1 1 50%;
@@ -12,7 +12,7 @@
 	}
 
 	.top__column2 {
-		flex: 1 1 40%;
+		flex: 1 1 30%;
 
 		@media (max-width: 1340px) {
 			flex: 1 1 35%;
@@ -23,7 +23,4 @@
 	  }
 	}
 
-	@media screen {
-		
-	}
 }
