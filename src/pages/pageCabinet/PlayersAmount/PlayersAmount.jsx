@@ -1,6 +1,5 @@
 import React from 'react';
 import DonutChart from "@/components/Charts/DonutChart.jsx";
-import donut from "@assets/Partners/donut.svg";
 import styles from './PlayersAmount.module.scss';
 
 function PlayersAmount(props) {
@@ -8,15 +7,23 @@ function PlayersAmount(props) {
         labels: ['Amount of players', 'Amount of partners', 'Amount of active partners per week'],
         datasets: [{
             label: '',
-            data: [6, 3, 1, 112],
+            data: [10, 6, 3, 1, ],
             borderWidth: 0,
             backgroundColor: [
+                'rgba(255, 255, 255, 0.12)',
                 '#00FFA3',
                 '#2F53FF',
                 '#ffffff',
-            ]
+
+            ],
+            circumference: 360,
+            datalabels: {
+                display: false
+            },
+
         }]
     }
+
     return (
         <div className={styles.players}>
             <div className={styles.players__header}>
@@ -30,7 +37,7 @@ function PlayersAmount(props) {
                     <li className={styles.statistic__item  + ' ' + styles.statistic__item_blue}><span>3</span><br/><p>Amount of partners</p></li>
                     <li className={styles.statistic__item  + ' ' + styles.statistic__item_white}><span>1</span><br/><p>Amount of active partners per week</p></li>
                 </ul>
-                <DonutChart chart={donut} data={data}/>
+                <DonutChart data={data}/>
             </div>
         </div>
     );
