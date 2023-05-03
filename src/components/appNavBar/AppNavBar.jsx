@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import { Link, NavLink } from 'react-router-dom'
 
@@ -17,6 +17,8 @@ import heart from '../../assets/imgNavBar/heart.svg'
 import './AppNavBar.scss'
 
 const AppNavBar = () => {
+
+
   return (
     <nav className="navBar">
       <div className="navBar__logo">
@@ -74,16 +76,16 @@ const AppNavBar = () => {
             <div className="menu__item">
               <img src={cup} alt="cup" />
               <h3>
-                Winners 
+                Winners
               </h3>
             </div>
           </NavLink>
 
           <NavLink to="/partnerProgram" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
-            <div href="" className="menu__item">
+            <div className="menu__item">
               <img src={emoji} alt="emoji" />
               <h3>
-                Partner program 
+                Partner program
               </h3>
             </div>
           </NavLink>
@@ -118,7 +120,7 @@ const AppNavBar = () => {
           <div className="menu__item">
             <img src={flash} alt="flash" />
             <h3>
-              Frequent questions 
+              Frequent questions
             </h3>
           </div>
           </NavLink>

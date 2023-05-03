@@ -9,6 +9,7 @@ import imgHeader from '../../assets/imgHeader/imgHeader.svg'
 
 import './AppHeader.scss'
 import LOGOUT_MUTATION from '../server/logout';
+import HeaderBurger from "@/components/Burger/HeaderBurger";
 
 const AppHeader = ({ title }) => {
   const [isLogged, setIsLogged] = useState(false);
@@ -39,10 +40,6 @@ const AppHeader = ({ title }) => {
     }
   };
 
-  // const toggleModal = () => {
-  //   setIsModalOpen(!isModalOpen);
-  // };
-
   return (
     <header className="header">
       <h1 className="header__title">{title}</h1>
@@ -59,20 +56,21 @@ const AppHeader = ({ title }) => {
             </Link>
           </>
         ) : (
-          <>
+          <div className="group__container">
             <Link to="/LogIn" className="group__log">
               Log in
             </Link>
             <Link to="/SignIn" className="group__sign">
               Sign in
             </Link>
-          </>
+            <HeaderBurger/>
+          </div>
         )}
       </div>
       {/* {isModalOpen && (
         <div className="modal">
               <button onClick={handleLogout}>OK</button>
-              <button onClick={toggleModal}>Cancel</button> 
+              <button onClick={toggleModal}>Cancel</button>
         </div>
       )} */}
 
