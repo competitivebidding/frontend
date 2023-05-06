@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import AuctionCard from './AuctionCard';
 
 import './Slider.scss';
@@ -7,11 +7,29 @@ const Slider = ({ data }) => {
 
     const [activeSlide, setActiveSlide] = useState(0);
 
-    // разбитие массива карточек на подмассивы по три карточки
-    let subarray = [];
-    for (let i = 0; i < Math.ceil(data.length / 3); i++) {
-        subarray[i] = data.slice((i * 3), (i * 3) + 3);
+    const sliderContainer = useRef(null)
+
+    const [width, setWidth] = useState(0);
+
+    useEffect(() => {
+        setWidth(sliderContainer.current.clientWidth)
+    }, []);
+
+
+    const slidesPerSlide = () => {
+        if (width > 800) {
+            return 3
+        }
+
+        return width <= 600 ? 3 : 1;
     }
+
+    // разбитие массива карточек на подмассивы по три (или сколько надо) карточек
+    let subarray = [];
+    for (let i = 0; i < Math.ceil(data.length / slidesPerSlide()); i++) {
+        subarray[i] = data.slice((i * slidesPerSlide()), (i * slidesPerSlide()) + slidesPerSlide());
+    }
+    console.log(subarray)
 
     // формирование слайдов
     const Slide = ({ slideData }) => {
@@ -46,8 +64,8 @@ const Slider = ({ data }) => {
     })
 
     return (
-        <div className='slider'>
-            <div style={{ transform: `translateX(${-920 * activeSlide}px)` }} className='slider__track'>
+        <div className='slider' ref={sliderContainer}>
+            <div style={{ transform: `translateX(${-width * activeSlide + 16}px)` }} className='slider__track'>
                 {slides}
             </div>
             <ol className='slider__dots'>
