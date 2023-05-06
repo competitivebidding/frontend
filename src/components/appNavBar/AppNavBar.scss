@@ -11,6 +11,7 @@
   border-color: transparent;
   box-shadow: 10px 0 20px 4px rgba(0, 0, 0, 0.75);
   width: fit-content;
+  overflow-x: scroll;
 
   @media (max-width: 1000px) {
     height: 100%;
@@ -44,6 +45,10 @@
     gap: 28px;
     margin-left: 22px;
     margin-right: 22px;
+
+    @media (max-width: 1000px) {
+      gap: 10px;
+    }
   }
 
   &__button {
