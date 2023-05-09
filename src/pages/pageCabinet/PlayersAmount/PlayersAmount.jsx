@@ -4,24 +4,23 @@ import styles from './PlayersAmount.module.scss';
 
 function PlayersAmount(props) {
     const data = {
-        labels: ['Amount of players', 'Amount of partners', 'Amount of active partners per week'],
+        labels: ['Amount of players', 'Amount of partners', 'Amount of active partners per week', 'Total'],
         datasets: [{
             label: '',
-            data: [10, 6, 3, 1, ],
+            data: [10, 60, 42, 112],
             borderWidth: 0,
             backgroundColor: [
-                'rgba(255, 255, 255, 0.12)',
                 '#00FFA3',
                 '#2F53FF',
                 '#ffffff',
-
+                'rgba(255, 255, 255, 0.2)',
             ],
             circumference: 360,
             datalabels: {
                 display: false
             },
-
-        }]
+        },
+            ]
     }
 
     return (

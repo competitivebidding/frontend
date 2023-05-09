@@ -3,9 +3,7 @@ import arrow from '@/assets/cabinet/arrow.svg'
 import './DropDown.scss'
 
 export const DropDown = ({data, current, onChange}) => {
-
     const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
-
     return (
         <>
             {data &&
