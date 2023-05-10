@@ -1,5 +1,5 @@
 import * as React from 'react';
-import user from '@/assets/cabinet/user.svg'
+import user from '@/assets/cabinet/icons/sms.svg'
 
 export const UserEmail = ({field, handleUpdate}) => {
     const [isEditable, setIsEditable] = React.useState(false)
@@ -10,7 +10,7 @@ export const UserEmail = ({field, handleUpdate}) => {
     }
 
     const update = (data) => {
-        handleUpdate({email: data})
+        handleUpdate(data)
         setIsEditable(false)
     }
 
@@ -31,7 +31,7 @@ export const UserEmail = ({field, handleUpdate}) => {
                 </div>
             </div>
             <div className="item-bottom">
-                {isEditable ? <button className="user-info__button" disabled={!value} onClick={() => update(value)}>Change</button> :
+                {isEditable ? <button className="user-info__button" disabled={!value} onClick={() => update({email: value})}>Change</button> :
                     <button className="user-info__button" onClick={changeState}>Set</button>}
                 {/*<div className="item-bottom__content">*/}
                 {/*    <p>The confirmation letter was sent to the post office</p>*/}

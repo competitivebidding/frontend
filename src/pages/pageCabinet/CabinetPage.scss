@@ -20,3 +20,19 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
 }
+
+.cabinet {
+
+  &__charts {
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: 1300px) {
+      flex-direction: column;
+    }
+
+    & > div {
+      flex: 1;
+    }
+  }
+}
