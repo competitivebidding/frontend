@@ -27,13 +27,14 @@ const AppHeader = ({ title }) => {
   const handleLogout = async () => {
     console.log(userAuth)
     try {
-      const response = await logout({
-        variables: { logoutId: userAuth.id },
-      });
       localStorage.removeItem('accesstoken');
       localStorage.removeItem('refreshtoken');
       localStorage.removeItem('user');
       setIsLogged(false);
+      const response = await logout({
+        variables: { logoutId: userAuth.id },
+      });
+
 
     } catch (error) {
       console.error(error);

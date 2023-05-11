@@ -133,7 +133,8 @@
         align-items: center;
         font-size: 15px;
         p {
-          padding: 12px 12px 12px 0 ;
+          padding: 12px 12px 12px 0;
+          white-space: nowrap;
         }
       }
       &__status {

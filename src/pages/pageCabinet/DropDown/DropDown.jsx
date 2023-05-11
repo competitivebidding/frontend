@@ -1,9 +1,11 @@
 import * as React from 'react';
 import arrow from '@/assets/cabinet/arrow.svg'
 import './DropDown.scss'
+import {memo} from "react";
 
 export const DropDown = ({data, current, onChange}) => {
     const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
+
     return (
         <>
             {data &&
@@ -30,4 +32,4 @@ export const DropDown = ({data, current, onChange}) => {
                 </div>
             }</>
     );
-};
+}

@@ -40,13 +40,13 @@ export const UserInfoLevel = ({field}) => {
             <div className="level-content">
                 <div className="level-content__title">
                     <p>
-                        Уровень авторизации
+                        Authorization level
                     </p>
                     <i>
                         <img src={info} alt=""/>
                     </i>
                 </div>
-                <span className="level-content__status not-verified">Не верифицирован!</span>
+                <span className="level-content__status not-verified">Not verified!</span>
             </div>
         </div>
     );

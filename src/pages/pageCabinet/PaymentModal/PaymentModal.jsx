@@ -41,12 +41,12 @@ export const PaymentModal = ({onClose}) => {
             <div className="modal-overlay" onClick={() => onClose(false)}></div>
             <div className="modal-window">
                 <div className="modal-window__title">
-                    Платёжные данные
+                    Payment details
                 </div>
                 <div className="modal-window__body">
                     <form onSubmit={handlePaymentsUpdate} className="payment-card">
                         <div className="payment-card__label">
-                            <span>Номер банковской карты</span>
+                            <span>Bank card number</span>
                             <InputMask
                                 mask="9999 9999 9999 9999"
                                 placeholder="XXXX XXXX XXXX XXXX"
@@ -84,7 +84,7 @@ export const PaymentModal = ({onClose}) => {
                             </InputMask>
                         </div>
                         <div className="payment-card__label">
-                            <span>Имя владельца</span>
+                            <span>Cardholder name</span>
                                 <input
                                    required
                                    type='text'
@@ -95,7 +95,7 @@ export const PaymentModal = ({onClose}) => {
                                 />
                         </div>
                         <div className="payment-card__label">
-                            <button type='submit' className="modal-window__button">Сохранить</button>
+                            <button type='submit' className="modal-window__button">Save</button>
                         </div>
                     </form>
                 </div>

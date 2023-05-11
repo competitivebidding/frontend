@@ -9,20 +9,22 @@ import icon from '@/assets/cabinet/icons/global-search.svg'
 import {useMutation, useQuery} from "@apollo/client";
 import {GET_USER_ADDRESS, UPDATE_USER_ADDRESS} from "../../../components/server/userProfile";
 
-const dropDownData = [
-    {title: <img src={JP} key={'a'} />, val: 'Japan'},
-    {title: <img src={UA} key={'b'} />, val: 'Ukraine'},
-    {title: <img src={RU} key={'c'} />, val: 'Russian Federation'},
-    {title: <img src={US} key={'d'} />, val: 'United States of America'},
-]
+
 
 export const UserCountry = () => {
     const [country, setCountry] = React.useState(null)
     const {data, loading, refetch} = useQuery(GET_USER_ADDRESS)
     const [update] = useMutation(UPDATE_USER_ADDRESS)
 
+    const dropDownData = [
+        {title: <img src={JP} key={'a'} />, val: 'Japan'},
+        {title: <img src={UA} key={'b'} />, val: 'Ukraine'},
+        {title: <img src={RU} key={'c'} />, val: 'Russian Federation'},
+        {title: <img src={US} key={'d'} />, val: 'United States of America'},
+    ]
+
     const findFlag = (address) => {
-        const c = dropDownData.find(obj => obj.val === address.country)
+        const c = dropDownData.find(obj => obj.val === address)
         return c ? c.title : ''
     }
 
@@ -30,18 +32,20 @@ export const UserCountry = () => {
         setCountry(data)
         update({
             variables: {
-               input: {
-                   country: data.val
-               }
+                input: {
+                    country: data.val
+                }
             }
-        }).then(() => refetch())
+        })
     }
 
     React.useEffect(() => {
         if (!loading) {
-            setCountry({title: findFlag(data.getUserAddress), val: data.getUserAddress.country})
+            setCountry({title: findFlag(data.getUserAddress.country), val: data.getUserAddress.country})
         }
     }, [data])
+
+    console.log(country)
 
     return (
         <div className="cabinet-block user-info__item">

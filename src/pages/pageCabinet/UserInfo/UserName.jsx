@@ -12,6 +12,7 @@ export const UserName = ({field, handleUpdate}) => {
     const update = (data) => {
         handleUpdate(data)
         setIsEditable(false)
+        setName(localStorage.setItem())
     }
 
     return (
