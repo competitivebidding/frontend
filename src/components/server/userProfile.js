@@ -19,7 +19,6 @@ export const GET_PROFILE_QUERY = gql(`
 export const GET_USER_ADDRESS = gql`
     query GetUserAddress {
       getUserAddress {
-        
         country
         city
         address

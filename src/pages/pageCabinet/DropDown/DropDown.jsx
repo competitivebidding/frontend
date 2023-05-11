@@ -12,7 +12,7 @@ export const DropDown = ({data, current, onChange}) => {
                         <img src={arrow}
                             className={!dropdownVisibility ? 'arrow' : 'arrow' + ' ' + 'arrow--visible'}
                             alt='arrow'/>
-                        <span>{current.title}</span>
+                        <span>{current && current.title}</span>
                     </div>
                     <div
                         className={dropdownVisibility ? 'dropdown__dropdown' : 'dropdown__dropdown' + ' ' + 'dropdown__dropdown--visible'}>

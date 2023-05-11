@@ -27,7 +27,7 @@ export const UserCountry = () => {
     }
 
     const updateAddress = (data) => {
-        setValue(data)
+        setCountry(data)
         update({
             variables: {
                input: {
@@ -39,10 +39,9 @@ export const UserCountry = () => {
 
     React.useEffect(() => {
         if (!loading) {
-            console.log(data)
             setCountry({title: findFlag(data.getUserAddress), val: data.getUserAddress.country})
         }
-    }, [])
+    }, [data])
 
     return (
         <div className="cabinet-block user-info__item">
@@ -56,7 +55,7 @@ export const UserCountry = () => {
                         <span className="item-top__content-subtitle">{country && country.val}</span>
                     </div>
                     <div>
-                        {country && <DropDown data={dropDownData} current={country} onChange={updateAddress}/>}
+                        <DropDown data={dropDownData} current={country} onChange={updateAddress}/>
                     </div>
                 </div>
             </div>

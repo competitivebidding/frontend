@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './DonutChart.module.scss'
+import './DonutChart.scss'
 import {
     Chart as ChartJS,
     Tooltip,
@@ -7,8 +7,7 @@ import {
 } from "chart.js";
 import { Doughnut } from 'react-chartjs-2';
 
-
-function DonutChart({data, count, width = 300, height = 300}) {
+ function DonutChart({data, count, width = 300, height = 300}) {
 
     ChartJS.register(ArcElement, Tooltip)
     ChartJS.defaults.elements.arc.borderWidth = 0;
@@ -34,7 +33,7 @@ function DonutChart({data, count, width = 300, height = 300}) {
             } = chart;
             // ctx.globalCompositeOperation='multiply';
             const arcs = chart.getDatasetMeta(0).data
-            for (let i = 0; i < arcs.length; i++) {
+            for (let i = 0; i < arcs.length - 1; i++) {
                 let arc = arcs[0]
 
                 const startAngle = Math.PI - arc.startAngle - Math.PI / 2;
@@ -66,14 +65,12 @@ function DonutChart({data, count, width = 300, height = 300}) {
                 ctx.arc(arcEl.round.radius * Math.sin(angleEndEl), arcEl.round.radius * Math.cos(angleEndEl), arcEl.round.thickness, 0, 2 * Math.PI);
                 ctx.closePath();
                 ctx.fill();
-
                 ctx.restore();
+
             }
 
         },
-        },
-
-    ]
+        }]
     const options = {
         legend: {
             position: 'left',
@@ -105,15 +102,16 @@ function DonutChart({data, count, width = 300, height = 300}) {
     }
 
     return (
-        <div className={styles.donut} style={{width: `${width}px`, height:`${height}px`}}>
+        <div className='donut' style={{width: `${width}px`, height:`${height}px`}}>
                 <Doughnut
                     options={options}
                     data={data}
                     plugins={plugins}
                 />
-                <p className={styles.donut__amount}>{count}</p>
+                <p className='donut__amount'>{count}</p>
         </div>
     );
 }
 
-export default DonutChart;
+export default DonutChart
+

@@ -30,7 +30,7 @@ export const UserSettings = ({id, avatarUrl, handleUpdate}) => {
                 </div>
                 <div className="item-top__info">
                     <div className="item-top__status">Unconfirmed</div>
-                    <span className="item-top__title">{`ID: ${id}`}</span>
+                    <span className="item-top__title">{`ID: ${id && id}`}</span>
                 </div>
             </div>
             <div className="item-bottom">

@@ -25,13 +25,10 @@ const UserInfo = () => {
     const [userData, setUserData] = React.useState(null)
 
     const {data, error, loading, refetch} = useQuery(GET_PROFILE_QUERY)
-    const {data: payments} = useQuery(GET_USER_PAYMENT)
-    const {data: address} = useQuery(GET_USER_ADDRESS)
 
     const [update] = useMutation(UPDATE_PROFILE)
 
     const updateProfile = (data) => {
-        console.log(data)
         update({
             variables: {
                 updateUserInput: {...data}
@@ -47,24 +44,19 @@ const UserInfo = () => {
 
     return (
         <>{loading && <UserInfoLoader />}
-
-                <>
-                    <article className="user-info">
-                        { userData &&
-                            <>
-                                <UserSettings id={userData.id} avatarUrl={userData.avatarUrl}/>
-                                <UserInfoLevel />
-                                <UserName field={userData.username} handleUpdate={updateProfile}/>
-                                <UserEmail field={userData.email} handleUpdate={updateProfile}/>
-                                <UserPhone field={userData.phone} handleUpdate={updateProfile}/>
-                                <UserInst field={userData.instagram} handleUpdate={updateProfile}/>
-                            </>
-                        }
-                        <UserPaymentsInfo onOpen={setModalIsOpen}/>
-                        <UserCountry />
-                    </article>
-                    {modalIsOpen && createPortal(<PaymentModal onClose={setModalIsOpen}/>, document.body)}
-                </>
+            <>
+                <article className="user-info">
+                    <UserSettings id={userData && userData.id} avatarUrl={userData && userData.avatarUrl}/>
+                    <UserInfoLevel field={userData && userData}/>
+                    <UserName field={userData && userData.username} handleUpdate={updateProfile}/>
+                    <UserEmail field={userData && userData.email} handleUpdate={updateProfile}/>
+                    <UserPhone field={userData && userData.phone} handleUpdate={updateProfile}/>
+                    <UserInst field={userData && userData.instagram} handleUpdate={updateProfile}/>
+                    <UserPaymentsInfo onOpen={setModalIsOpen}/>
+                    <UserCountry/>
+                </article>
+                {modalIsOpen && createPortal(<PaymentModal onClose={setModalIsOpen}/>, document.body)}
+            </>
 
         </>
     );
