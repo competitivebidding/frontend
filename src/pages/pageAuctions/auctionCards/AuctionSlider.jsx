@@ -17,8 +17,6 @@ import AuctionCard from "@/pages/pageAuctions/auctionCards/AuctionCard";
 export default function AuctionSlider({data}) {
     const {width} = useWindowSize()
 
-    console.log(data)
-
     const configureSlider = () => {
         if (width <= 600) {
             return 1
@@ -49,8 +47,8 @@ export default function AuctionSlider({data}) {
                     data.map(item => {
                         const {id, ...itemProps} = item;
                         return (
-                            <SwiperSlide>
-                              <AuctionCard className="slider__card" key={id} {...itemProps} />
+                            <SwiperSlide key={id}>
+                              <AuctionCard className="slider__card" {...itemProps} />
                             </SwiperSlide>
                         )
                     })
