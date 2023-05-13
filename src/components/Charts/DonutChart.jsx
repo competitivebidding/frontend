@@ -1,22 +1,21 @@
 import React from 'react';
-import styles from './DonutChart.module.scss'
-import { Chart } from 'react-chartjs-2';
-import {BarElement, CategoryScale, Chart as ChartJS, LinearScale, Tooltip, ArcElement} from "chart.js";
-import ChartDataLabels from "chartjs-plugin-datalabels";
-import { Doughnut,  } from 'react-chartjs-2';
+import './DonutChart.scss'
+import {
+    Chart as ChartJS,
+    Tooltip,
+    ArcElement,
+} from "chart.js";
+import { Doughnut } from 'react-chartjs-2';
 
+ function DonutChart({data, count, width = 300, height = 300}) {
 
-
-function DonutChart({data, width = 300, height = 300}) {
-
-    ChartJS.register(ArcElement)
+    ChartJS.register(ArcElement, Tooltip)
     ChartJS.defaults.elements.arc.borderWidth = 0;
     ChartJS.defaults.datasets.doughnut.cutout = '80%'
 
     const plugins = [{
         afterUpdate: function(chart) {
             const arcs = chart.getDatasetMeta(0).data;
-
             arcs.forEach(function(arc) {
                 arc.round = {
                     x: (chart.chartArea.left + chart.chartArea.right) / 2,
@@ -32,49 +31,87 @@ function DonutChart({data, width = 300, height = 300}) {
                 ctx,
                 canvas
             } = chart;
-            const arcs = chart.getDatasetMeta(0).data;
+            // ctx.globalCompositeOperation='multiply';
+            const arcs = chart.getDatasetMeta(0).data
+            for (let i = 0; i < arcs.length - 1; i++) {
+                let arc = arcs[0]
 
-            chart.getDatasetMeta(0).data.forEach((arc, i) => {
-
-                const startAngle = Math.PI / 2 - arc.startAngle;
-                const endAngle = Math.PI / 2 - arc.endAngle;
-
+                const startAngle = Math.PI - arc.startAngle - Math.PI / 2;
+                const angleEnd = Math.PI - arc.endAngle - Math.PI / 2;
                 ctx.save();
                 ctx.translate(arc.round.x, arc.round.y);
+                ctx.fillStyle = arc.options.backgroundColor;
+                ctx.beginPath();
+                ctx.arc(arc.round.radius * Math.sin(startAngle), arc.round.radius * Math.cos(startAngle), arc.round.thickness, 0, 2 * Math.PI);
+                ctx.closePath();
+                ctx.fill();
 
                 ctx.fillStyle = arc.options.backgroundColor;
                 ctx.beginPath();
-                ctx.arc(arc.round.radius * Math.sin(endAngle), arc.round.radius * Math.cos(endAngle), arc.round.thickness, 0, 2 * Math.PI);
-                ctx.arc(arc.round.radius * Math.sin(Math.PI), arc.round.radius * Math.cos(Math.PI), arc.round.thickness, 0, 2 * Math.PI)
+                ctx.arc(arc.round.radius * Math.sin(angleEnd), arc.round.radius * Math.cos(angleEnd), arc.round.thickness, 0, 2 * Math.PI);
                 ctx.closePath();
                 ctx.fill();
 
                 ctx.restore();
-            });
-        }
-        }]
 
+                let arcEl = arcs[i]
+
+                const angleEndEl = Math.PI - arcEl.endAngle - Math.PI / 2;
+                ctx.save();
+                ctx.translate(arcEl.round.x, arcEl.round.y);
+
+                ctx.fillStyle = arcEl.options.backgroundColor;
+                ctx.beginPath();
+                ctx.arc(arcEl.round.radius * Math.sin(angleEndEl), arcEl.round.radius * Math.cos(angleEndEl), arcEl.round.thickness, 0, 2 * Math.PI);
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+
+            }
+
+        },
+        }]
     const options = {
-        domain: [0, 100],
-        trackColor: '#f0f8ff',
-        backdropColor: '#ffffff',
         legend: {
             position: 'left',
             display: false,
         },
+        plugins: {
+            tooltip: {
+                position: 'nearest',
+                enabled: false,
+                callbacks: {
+                    title: function(tooltipItem) {
+                        return tooltipItem.title;
+                    },
+                    label: function(tooltipItem) {
+                        return tooltipItem.dataset.label;
+                    },
+
+                },
+                backgroundColor: '#24384a',
+                titleFontSize: 16,
+                titleFontColor: '#0066ff',
+                bodyFontColor: '#000',
+                bodyFontSize: 14,
+                displayColors: false,
+                zIndex: 999
+            }
+        }
 
     }
 
     return (
-        <div className={styles.donut} style={{width: `${width}px`, height:`${height}px`}}>
-            <Doughnut
-                options={options}
-                data={data}
-                plugins={plugins}
-            />
-            <p className={styles.donut__amount}>112</p>
+        <div className='donut' style={{width: `${width}px`, height:`${height}px`}}>
+                <Doughnut
+                    options={options}
+                    data={data}
+                    plugins={plugins}
+                />
+                <p className='donut__amount'>{count}</p>
         </div>
     );
 }
 
-export default DonutChart;
+export default DonutChart
+

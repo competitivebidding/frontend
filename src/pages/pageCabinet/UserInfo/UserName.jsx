@@ -1,5 +1,5 @@
 import * as React from 'react';
-import user from '@/assets/cabinet/user.svg'
+import icon from '@/assets/cabinet/icons/user.svg'
 
 export const UserName = ({field, handleUpdate}) => {
     const [isEditable, setIsEditable] = React.useState(false)
@@ -18,7 +18,7 @@ export const UserName = ({field, handleUpdate}) => {
         <div className="cabinet-block user-info__item">
                 <div className="item-top">
                     <div className="item-top__image">
-                        <img src={user} alt=""/>
+                        <img src={icon} alt=""/>
                     </div>
                     <div className="item-top__info">
                         <div className="item-top__content">

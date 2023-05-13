@@ -1,5 +1,5 @@
 import * as React from 'react';
-import user from '@/assets/cabinet/user.svg'
+import icon from '@/assets/cabinet/icons/instagram.svg'
 
 export const UserInst = ({field, handleUpdate}) => {
     const [isEditable, setIsEditable] = React.useState(false)
@@ -18,7 +18,7 @@ export const UserInst = ({field, handleUpdate}) => {
         <div className="cabinet-block user-info__item">
             <div className="item-top">
                 <div className="item-top__image">
-                    <img src={user} alt=""/>
+                    <img src={icon} alt=""/>
                 </div>
                 <div className="item-top__info">
                     <div className="item-top__content">
@@ -27,8 +27,7 @@ export const UserInst = ({field, handleUpdate}) => {
                             <input autoFocus type="text" className="item-top__input" defaultValue={field} onChange={(e) => setValue( e.target.value)}/> :
                             <span className="item-top__content-subtitle">{field}</span>}
                     </div>
-                    <div className="item-top__status">Not Confirmed
-                    </div>
+                    <div className="item-top__status">Not Confirmed</div>
                 </div>
             </div>
             <div className="item-bottom">

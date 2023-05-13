@@ -46,14 +46,16 @@ const AppHeader = ({ title }) => {
       <div className="header__group group">
         {isLogged ? (
           <>
+
             <img className='group__balance' src={blueBalance} alt="blueBalance" />
             <div className='group__balanceSum'>20</div>
             <img className='group__notifications' src={iconNotification} alt="iconNotification" />
             <p className='group__name'>{userAuth.username}</p>
             <img className='group__profile' src={imgHeader} alt="imgHeader" />
             <Link>
-            <img className='group__exit' src={iconExit} alt="iconExit" onClick={handleLogout} />
+              <img className='group__exit' src={iconExit} alt="iconExit" onClick={handleLogout} />
             </Link>
+            <HeaderBurger />
           </>
         ) : (
           <div className="group__container">
@@ -63,7 +65,7 @@ const AppHeader = ({ title }) => {
             <Link to="/SignIn" className="group__sign">
               Sign in
             </Link>
-            <HeaderBurger/>
+            <HeaderBurger />
           </div>
         )}
       </div>
