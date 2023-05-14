@@ -1,3 +1,5 @@
+//старое, на всякий случай не удалил пока
+
 import React, { useState, useRef, useEffect } from 'react';
 import AuctionCard from './AuctionCard';
 
@@ -21,7 +23,11 @@ const Slider = ({ data }) => {
             return 3
         }
 
-        return width <= 600 ? 3 : 1;
+        if (width <= 400) {
+            return 1
+        }
+
+        return width > 600 &&  width <= 800 ? 2 : 1;
     }
 
     // разбитие массива карточек на подмассивы по три (или сколько надо) карточек
