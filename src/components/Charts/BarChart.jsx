@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import styles from '../../pages/pagePartnerProgram/Statistic/Income.module.scss';
+import styles from './Income.module.scss';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Bar } from 'react-chartjs-2';
 import {
@@ -26,6 +26,7 @@ function BarChart({color, data}) {
     }
 
     const options = {
+        responsive: true,
         scales: {
             y: {
                 min: 0,

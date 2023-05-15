@@ -3,12 +3,13 @@ import NewsListItem from '../NewsList-item/NewsList-item'
 import './NewsList.scss'
 
 const NewsList = ({ data }) => {
-  const listItem = data.map((item) => {
-    const { id, ...itemProps } = item
-    return <NewsListItem key={id} {...itemProps} />
-  })
+	const listItem = data.items.map((item) => {
+		// const listItem = data.map((item) => {
+		const { id, ...itemProps } = item
+		return <NewsListItem key={id} {...itemProps} />
+	})
 
-  return <div className="newsList">{listItem}</div>
+	return <div className="newsList">{listItem}</div>
 }
 
 export default NewsList

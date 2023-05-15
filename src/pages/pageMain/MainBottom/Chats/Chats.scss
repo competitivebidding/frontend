@@ -30,4 +30,12 @@
 			object-position: top;
 		}
 	}
+
+	@media (max-width: 600px) {
+		flex-wrap: wrap;
+
+		.chat {
+			width: 100%;
+		}
+	}
 }

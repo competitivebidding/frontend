@@ -1,72 +1,102 @@
 .navBar {
   background-color: #121416;
-  z-index: 100;
   display: flex;
   flex-direction: column;
+  opacity: 1;
+  min-width: 250px;
+  max-width: 250px;
   gap: 2.6em;
   padding: 20px 17px;
   border-right: none;
   border-color: transparent;
-  box-shadow: 10px 0px 20px 4px rgba(0,0,0,0.75);
+  box-shadow: 10px 0 20px 4px rgba(0, 0, 0, 0.75);
   width: fit-content;
+  overflow-x: scroll;
 
   @media (max-width: 1000px) {
-    display: none;
+    height: 100%;
   }
-}
 
-.navBar__logo {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
 
-.navBar__title a {
-  color: #fff;
-}
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
-.navBar__title {
+  &__title {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+    margin-left: 1rem;
+  }
 
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 1.3rem;
-  text-transform: uppercase;
-  letter-spacing: 0.075em;
-  margin-left: 1rem;
-}
+  &__title a {
+    color: #fff;
+  }
 
-.navBar__menu {
-  display: flex;
-  flex-direction: column;
-  gap: 51px;
-  margin-left: 22px;
-  margin-right: 22px;
-}
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-left: 22px;
+    margin-right: 22px;
 
-.menu__group {
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-}
+    @media (max-width: 1000px) {
+      gap: 10px;
+    }
+  }
 
-.menu__group a {
-  text-decoration: none;
-  color:#fff;
-}
+  &__button {
+    color: #fff;
+    border: 1px solid;
+    width: 100%;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5rem;
+    max-width: 273px;
+  }
 
-.menu__item {
-  display: flex;
-  gap: 1.3em;
-}
+  &__name {
+    color: #2f53ff !important;
+    background: #191d25;
+    border-radius: 5px;
+    min-width: 150px;
+  }
 
-.navBar__button {
-  color: #fff;
-  border: 1px solid;
-  width: 100%;
-  font-weight: 600;
-  text-align: center;
-  padding: 0.5rem;
-  max-width: 273px;
+  .menu {
+    &__group {
+      display: flex;
+      flex-direction: column;
+      // gap: 26px;
+      gap: 10px;
+
+    }
+
+    &__group a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: 1.3em;
+      border-radius: 7px;
+      font-size: 15px;
+
+      min-height: 50px;
+      padding-left: 5px;
+
+      &:hover {
+        background: #2f53ff;
+        min-width: 150px;
+        color:#fff;
+      }
+    }
+  }
 }

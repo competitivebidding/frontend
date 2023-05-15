@@ -1,0 +1,52 @@
+.for_partners {
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+
+  &__item {
+    background: #171A1E;
+    border-radius: 17px;
+    padding: 26px 38px 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+    overflow: hidden;
+
+    & > h3 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 155%;
+      /* identical to box height, or 28px */
+
+      text-align: center;
+
+      color: #FFFFFF;
+    }
+
+    & > img {
+      margin-top: 30px;
+    }
+
+    .circle {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      top: calc(50% - 110px);
+      left: calc(50% - 110px);
+      background: rgba(75, 115, 255, 0.2);
+      filter: blur(100px);
+      z-index: 1;
+      border-radius: 50%;
+    }
+
+    .rectangle {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 33%;
+      background: linear-gradient(0deg, #171A1E 0%, rgba(23, 26, 30, 0) 100%);
+      border-radius: 17px;
+    }
+  }
+}

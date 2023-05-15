@@ -1,8 +1,9 @@
 .payers {
   display: flex;
   flex-direction: column;
-  gap: 23px;
+  justify-content: space-between;
   padding: 25px 28px 30px 28px;
+  height: 100%;
 
   background: #171A1E;
   border-radius: 17px;

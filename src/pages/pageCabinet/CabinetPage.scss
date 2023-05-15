@@ -1,0 +1,38 @@
+.cabinet-block {
+  border-radius: 1em;
+  padding: 1rem 1.5rem;
+  background-color: rgb(23, 26, 30);
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  color: #fff;
+  transition: all .250s ease;
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.user-info__button {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 12px 68px;
+  transition: all .250s ease;
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.cabinet {
+
+  &__charts {
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: 1300px) {
+      flex-direction: column;
+    }
+
+    & > div {
+      flex: 1;
+    }
+  }
+}

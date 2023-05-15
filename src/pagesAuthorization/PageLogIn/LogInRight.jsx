@@ -1,25 +1,49 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import validator from 'validator'
-import './LoginRight.scss'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
+import {useMutation } from '@apollo/client'
+import LOGIN_MUTATION from '../../Components/server/login.js'
+
+import './LoginRight.scss'
 const LogInRight = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm();
 
-  const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false)
+  const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false);
 
-  const onSubmit = (data) => {
-    if (validator.isEmail(data.email)) {
-      console.log('Logged in successfully')
-    }
-  }
+  const [login, { loading, error }] = useMutation(LOGIN_MUTATION);
+
+  const handleLogin = (data) => {
+    login({
+      variables: {
+        signInInput: {
+          email: data.email,
+          password: data.password,
+        },
+      },
+    })
+      .then((response) => {
+        console.log('Logged in successfully', response.data);
+        localStorage.setItem('accesstoken', response.data.signin.accessToken)
+        localStorage.setItem('refreshtoken', response.data.signin.refreshToken)
+        // localStorage.setItem('userId', response.data.signin.user.id)
+        const user = JSON.stringify(response.data.signin.user)
+        localStorage.setItem('user', user)
+        window.location.href = '/';
+      })
+      .catch((error) => {
+        console.error('Login failed', error);
+      });
+  };
+
+  const onSubmit = handleSubmit(handleLogin);
+
 
   return (
     <>

@@ -1,5 +1,10 @@
 .main-section {
-  background-color: #121416;
+  background-color: unset;
   padding: 0 51px 39px 44px;
   min-height: 100vh;
+  flex-grow: 1;
+
+  @media (max-width: 1000px) {
+    background-color: #121416;
+  }
 }

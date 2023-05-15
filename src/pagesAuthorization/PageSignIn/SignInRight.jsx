@@ -5,12 +5,15 @@ import './SignInRight.scss'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { useQuery, useMutation } from '@apollo/client'
+
+import SIGNUP_MUTATION from '../../Components/server/signup.js'
 
 const SignInRight = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty },
+    formState: { errors },
     reset,
     watch
   } = useForm()
@@ -22,17 +25,38 @@ const SignInRight = () => {
   const [submitted, setSubmitted] = useState(false)
 
 
+  const [signupMutation, { loading, error }] = useMutation(SIGNUP_MUTATION, {
+    onCompleted: (data) => {
+      console.log(data)
+      setSubmitted(true)
+      // localStorage.setItem('userId', data.data.signup.user.id)
+      
+      window.location.href = '/LogIn';
+      reset()
+    },
+    onError: (error) => {
+      console.error(error)
+      console.log()
+    },
+  })
+
   const onSubmit = (data) => {
     console.log(data)
-    setSubmitted(true)
-    reset()
+    signupMutation({
+      variables: {
+        signUpInput: {
+          username: data.username,
+          email: data.email,
+          password: data.password,
+        },
+      },
+    })
   }
-
 
   return (
     <>
       <form className="form form__sign" onSubmit={handleSubmit(onSubmit)} noValidate>
-        <h2 className="form__title">Sign in</h2>
+        <h2 className="form__title">Sign up</h2>
         <div className="form__descr">
           <p>
             Already have an account?
@@ -70,7 +94,6 @@ const SignInRight = () => {
               type="email"
               id="email"
               name="email"
-              autoComplete='off'
               required
               {...register('email', {
                 validate: (value) => validator.isEmail(value) || 'Please enter a valid email address',
@@ -133,7 +156,7 @@ const SignInRight = () => {
         {errors.isChecked && <div className="error__message">You need to accept our terms and conditions </div>}
 
         <div className="wrap__btn">
-          <button type="submit" className="btn__form" disabled={!isDirty}>
+          <button type="submit" className="btn__form">
             Sign in
           </button>
         </div>

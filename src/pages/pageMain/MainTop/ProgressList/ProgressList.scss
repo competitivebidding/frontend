@@ -1,8 +1,6 @@
 .main__howItWorks {
-	grid-area: howItWorks;
-	margin-left: 17px;
-
-	max-width: 392px;
+	position: relative;
+	margin-left: 17px;	
 
 	background: #171a1e;
 
@@ -13,7 +11,7 @@
 	border: 1px solid #2f53ff;
 	border-radius: 17px;
 
-	padding: 29px 18px 0 22px;
+	padding: 25px;
 
 	.howItWorks__title {
 		font-weight: 400;
@@ -29,4 +27,95 @@
 			font-weight: bold;
 		}
 	}
+
+	.accordion-btn {
+	 display: none;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    -webkit-text-decoration-line: underline;
+    text-decoration-line: underline;
+    color: rgba(255, 255, 255, 0.4);
+    padding-right: 20px;
+
+	span {
+		position: relative;
+		top: 6px;
+	}
+
+	 span::before {
+		content: "";
+		position: absolute;
+		right: -15px;
+		width: 1px;
+		height: 8px;
+		border: 1px solid #6d6f74;
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+		transition: 0.3s ease;
+	 }
+
+	 span::after {
+		content: "";
+
+		margin-left: 3px;
+		position: absolute;
+		right: -20px;
+		width: 1px;
+		height: 8px;
+		border: 1px solid #6d6f74;
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+		transition: 0.3s ease;
+	 }
+
+	}
+
+	@media (max-width:1150px) {
+		margin: 2em 0 0 0;
+		max-width: 100%;
+	}
+
+	@media (max-width: 767px) {
+		& {
+		height: 400px;
+		overflow: hidden;
+		padding-bottom: 50px;
+		transition: .4s ease;	
+
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 150px;
+				z-index: 10;
+				background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(23, 26, 30) 60%);
+				transition: 0.4s ease;
+			}
+			.accordion-btn {
+				display: block;
+				z-index: 11;
+			}
+		}
+		&.open {
+			height: 100%;
+			overflow: visible;
+		
+			transition: .4s ease;	
+			
+			&::before {
+				content: none;
+			}
+
+			.accordion-btn span::before {
+				rotate: (-90deg);
+			}
+			.accordion-btn span::after {
+				rotate: (-90deg);
+			}
+		}
+	}
+
 }

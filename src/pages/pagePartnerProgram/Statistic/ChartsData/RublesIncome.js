@@ -10,7 +10,7 @@ const rublesIncome = {
             anchor: 'end',
             align: 'top',
             offset: 16,
-        }
+        },
     }]
 };
 

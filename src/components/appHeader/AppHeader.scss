@@ -24,6 +24,12 @@
       position: relative;
     }
 
+    &__container {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
     &__log {
       color: #fff;
       margin-left: 10px;
@@ -38,7 +44,6 @@
       background-color: blue;
       border-radius: 20px;
       color: #fff;
-      margin-left: 22px;
 
       &:hover {
         color: rgb(149, 148, 148)
@@ -67,6 +72,10 @@
 
     &__exit {
       margin-left: 19px;
+
+      &:hover {
+        fill: #eee;
+      }
     }
   }
 }

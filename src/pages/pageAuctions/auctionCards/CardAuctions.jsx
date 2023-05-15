@@ -8,8 +8,10 @@ const CardsAuctions = ({data}) => {
     <div>
       {/* <div className="title">Upcoming announcements </div>
       <Slider data={data.filter(card => (card.status == 'wait'))}/> */}
+      <div className='title'>Anouncment Auctions</div>
+      <Slider data={data.filter(card => (card.status === 'wait'))} />
       <div className="title">Active Auctions</div>
-      <AuctionList data={data.filter(card => (card.status == 'active'))} />
+      <AuctionList data={data.filter(card => (card.status === 'active'))} />
     </div>
   )
 }

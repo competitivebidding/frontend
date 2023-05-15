@@ -10,4 +10,14 @@
 		display: grid;
 	}
 
+	@media (max-width:900px) {
+		grid-template-columns: 1fr;
+
+		&__right {
+			grid-row-start: 1;
+		}
+	}
+
+
+
 }

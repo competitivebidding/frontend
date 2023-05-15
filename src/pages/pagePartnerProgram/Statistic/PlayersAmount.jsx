@@ -4,6 +4,19 @@ import donut from "@assets/Partners/donut.svg";
 import styles from './PlayersAmount.module.scss';
 
 function PlayersAmount(props) {
+    const data = {
+        labels: ['Amount of players', 'Amount of partners', 'Amount of active partners per week'],
+        datasets: [{
+            label: '',
+            data: [6, 3, 1, 112],
+            borderWidth: 0,
+            backgroundColor: [
+                '#00FFA3',
+                '#2F53FF',
+                '#ffffff',
+            ]
+        }]
+    }
     return (
         <div className={styles.players}>
             <div className={styles.players__header}>
@@ -17,7 +30,7 @@ function PlayersAmount(props) {
                     <li className={styles.statistic__item  + ' ' + styles.statistic__item_blue}><span>3</span><br/><p>Amount of partners</p></li>
                     <li className={styles.statistic__item  + ' ' + styles.statistic__item_white}><span>1</span><br/><p>Amount of active partners per week</p></li>
                 </ul>
-                <DonutChart chart={donut}/>
+                <DonutChart chart={donut} data={data}/>
             </div>
         </div>
     );
