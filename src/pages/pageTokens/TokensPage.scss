@@ -1,7 +1,9 @@
 .tokens{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 16px;
+    margin-bottom: 300px;
 }
 
 .token{
@@ -13,6 +15,8 @@
     height: 372px;
     align-items: center;
     padding: 30px;
+    
+  
 
     &__header{
         color:  #FFFFFF;
@@ -31,16 +35,147 @@
     }
 
     &__button{
-        width: 242px;
+        width: 100%;
         height: 45px;
         color: #2F53FF;
         border: 1px solid #2F53FF;
         border-radius: 8px;
-
+    
         &:hover{
             background-color: #2F53FF;
             color: white;
         }
+    }
+}
+
+.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:rgba(0,0,0,0.7);
+    z-index: 1000;
+
+    &__content{
+        width: 50%;
+        height: 609px;
+        background-color:#121416;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+        position: fixed;
+        top:calc(50% - 305px);
+        left:calc(50% - 25%);
+        z-index: 1500;
+       background: radial-gradient(circle closest-side, rgba(75, 115, 255, 0.2),#121416 );
+    }
+
+   &__header{
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 29.4px;
+    color: #FFFFFF;
+   }
+   &__tokens{
+    color: #2F53FF;
+    font-size: 28px;
+    width: 250px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-top: 15px;
+   }
+
+   &__text{
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 29px;
+    color: #FFFFFF;
+    text-align: center;
+   }
+   &__button{
+    width: 35%;
+    height: 45px;
+    background-color: #2F53FF;
+    color: white;
+    border-radius: 8px;
+   }
+}
+
+@media screen and (max-width:1620px){
+    .tokens{
+        gap: 50px;
+    }
+    .token{width: 25%;
+      &__button{
+        width: 200px;
+      }
+    }
+}
+
+@media screen and (max-width:1403px){
+    .tokens{
+        gap: 60px;
+        justify-content: center;
+    }
+    .token{width: 30%;
+    }
+}
+
+@media screen and (max-width:1250px){
+    .tokens{
+        gap: 60px;
+        justify-content: center;
+    }
+    .token{width: 35%;
+        
+    }
+}
+
+@media screen and (max-width:1100px){
+   
+    .token{width: 35%;
+    }
+}
+
+
+@media  screen and (max-width:800px) {
+    .tokens{
+       justify-content: center;
+    }
+    .token{width: 60%;
+
+     &__button{
+        width: 80%;
+     }
+    }
+    
+}
+
+@media screen and (max-width:480px){
+    .token{width: 90%;   
+    }
+
+    .modal{
+
+        &__header{
+            font-size: 20px;
+        }
+
+        &__tokens{
+            font-size: 20px;
+            width: 190px;
+            height: 50px;
+        }
+
+        &__text{
+            font-size: 12px;
+        }
+       
     }
 }
 
