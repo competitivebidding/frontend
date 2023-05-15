@@ -14,26 +14,24 @@ import {UserSettings} from "./UserSettings";
 import {UserInfoLevel} from "./UserInfoLevel";
 import {
     GET_PROFILE_QUERY,
-    GET_USER_ADDRESS, GET_USER_PAYMENT,
     UPDATE_PROFILE,
 } from "../../../components/server/userProfile";
 import './UserInfo.scss'
-
 
 const UserInfo = () => {
     const [modalIsOpen, setModalIsOpen] = React.useState(false)
     const [userData, setUserData] = React.useState(null)
 
-    const {data, error, loading, refetch} = useQuery(GET_PROFILE_QUERY)
+    const {data, error, loading} = useQuery(GET_PROFILE_QUERY)
 
     const [update] = useMutation(UPDATE_PROFILE)
 
-    const updateProfile = (data) => {
+    const updateProfile =(data) => {
         update({
             variables: {
                 updateUserInput: {...data}
             }
-        }).then(() => refetch())
+        })
     }
 
     React.useEffect(() => {
@@ -41,6 +39,8 @@ const UserInfo = () => {
             setUserData(data.getProfile)
         }
     }, [data])
+
+    //TODO: нужен контекст,(State manager)
 
     return (
         <>{loading && <UserInfoLoader />}
@@ -53,7 +53,7 @@ const UserInfo = () => {
                     <UserPhone field={userData && userData.phone} handleUpdate={updateProfile}/>
                     <UserInst field={userData && userData.instagram} handleUpdate={updateProfile}/>
                     <UserPaymentsInfo onOpen={setModalIsOpen}/>
-                    <UserCountry/>
+                    <UserCountry />
                 </article>
                 {modalIsOpen && createPortal(<PaymentModal onClose={setModalIsOpen}/>, document.body)}
             </>

@@ -10,13 +10,14 @@ import imgHeader from '../../assets/imgHeader/imgHeader.svg'
 import './AppHeader.scss'
 import LOGOUT_MUTATION from '../server/logout';
 import HeaderBurger from "@/components/Burger/HeaderBurger";
+import {AuthContext} from "../../context/AuthContext";
 
 const AppHeader = ({ title }) => {
   const [isLogged, setIsLogged] = useState(false);
   // const [isModalOpen, setIsModalOpen] = useState(false);
   const [logout] = useMutation(LOGOUT_MUTATION);
 
-  const userAuth = JSON.parse(localStorage.getItem('user'))
+  const {value: user} = React.useContext(AuthContext);
 
   useEffect(() => {
     if (localStorage.getItem('accesstoken')) {
@@ -25,16 +26,14 @@ const AppHeader = ({ title }) => {
   }, []);
 
   const handleLogout = async () => {
-    console.log(userAuth)
     try {
       localStorage.removeItem('accesstoken');
       localStorage.removeItem('refreshtoken');
       localStorage.removeItem('user');
       setIsLogged(false);
       const response = await logout({
-        variables: { logoutId: userAuth.id },
-      });
-
+        variables: { logoutId: user.id },
+      })
 
     } catch (error) {
       console.error(error);
@@ -47,16 +46,14 @@ const AppHeader = ({ title }) => {
       <div className="header__group group">
         {isLogged ? (
           <>
-
             <img className='group__balance' src={blueBalance} alt="blueBalance" />
             <div className='group__balanceSum'>20</div>
             <img className='group__notifications' src={iconNotification} alt="iconNotification" />
-            <p className='group__name'>{userAuth.username}</p>
+            <p className='group__name'>{user && user.username}</p>
             <img className='group__profile' src={imgHeader} alt="imgHeader" />
             <Link>
-              <img className='group__exit' src={iconExit} alt="iconExit" onClick={handleLogout} />
+            <img className='group__exit' src={iconExit} alt="iconExit" onClick={handleLogout} />
             </Link>
-            <HeaderBurger />
           </>
         ) : (
           <div className="group__container">
@@ -66,7 +63,7 @@ const AppHeader = ({ title }) => {
             <Link to="/SignIn" className="group__sign">
               Sign in
             </Link>
-            <HeaderBurger />
+            <HeaderBurger/>
           </div>
         )}
       </div>

@@ -12,6 +12,7 @@ import {GET_USER_ADDRESS, UPDATE_USER_ADDRESS} from "../../../components/server/
 
 
 export const UserCountry = () => {
+
     const [country, setCountry] = React.useState(null)
     const {data, loading, refetch} = useQuery(GET_USER_ADDRESS)
     const [update] = useMutation(UPDATE_USER_ADDRESS)
@@ -44,8 +45,6 @@ export const UserCountry = () => {
             setCountry({title: findFlag(data.getUserAddress.country), val: data.getUserAddress.country})
         }
     }, [data])
-
-    console.log(country)
 
     return (
         <div className="cabinet-block user-info__item">

@@ -2,7 +2,7 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
-  uri: 'https://ra-backend-w.fly.dev/graphql'
+  uri: 'https://ra-backend-s.fly.dev/graphql'
   // uri: 'https://ra-backend-x.fly.dev/graphql' // OLD SERVICE URL
 });
 
