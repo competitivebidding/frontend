@@ -7,16 +7,74 @@ import {
 } from "chart.js";
 import { Doughnut } from 'react-chartjs-2';
 
+function roundRect(
+    ctx,
+    x,
+    y,
+    width,
+    height,
+    radius = 5,
+    fill = false,
+    stroke = true
+) {
+    if (typeof radius === 'number') {
+        radius = {tl: radius, tr: radius, br: radius, bl: radius};
+    } else {
+        radius = {...{tl: 0, tr: 0, br: 0, bl: 0}, ...radius};
+    }
+    ctx.beginPath();
+    ctx.moveTo(x + radius.tl, y);
+    ctx.lineTo(x + width - radius.tr, y);
+    ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
+    ctx.lineTo(x + width, y + height - radius.br);
+    ctx.quadraticCurveTo(x + width, y + height, x + width - radius.br, y + height);
+    ctx.lineTo(x + radius.bl, y + height);
+    ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
+    ctx.lineTo(x, y + radius.tl);
+    ctx.quadraticCurveTo(x, y, x + radius.tl, y);
+    ctx.closePath();
+    if (fill) {
+        ctx.fill();
+    }
+    if (stroke) {
+        ctx.stroke();
+    }
+}
+
  function DonutChart({data, count, width = 300, height = 300}) {
 
     ChartJS.register(ArcElement, Tooltip)
     ChartJS.defaults.elements.arc.borderWidth = 0;
     ChartJS.defaults.datasets.doughnut.cutout = '80%'
 
-    const plugins = [{
-        afterUpdate: function(chart) {
+     const customTooltip = {
+        id: 'customTooltip',
+
+         afterDraw(chart, args, options) {
+            const { ctx,  chartArea, tooltip, scales } = chart
+             tooltip.fillStyle = 'rgba(0, 0, 0, .4)'
+             ctx.rounded = true
+
+             if (tooltip._active[0] && tooltip.dataPoints[0]) {
+                 ctx.strokeStyle = "rgba(0, 0, 0, .5)";
+                 ctx.fillStyle = "rgba(0, 0, 0, .5)";
+                 roundRect(ctx, tooltip.x, tooltip.y, tooltip.width, tooltip.height, 8, true)
+
+                 ctx.font = 'bolder 11px Arial'
+                 ctx.fillStyle = '#fff'
+                 ctx.textAlign = 'left'
+                 ctx.fillText(tooltip.title, tooltip.x + 8, tooltip.y + 25)
+             }
+         }
+     }
+
+    const plugins = [
+        {
+            afterUpdate: function(chart) {
+
             const arcs = chart.getDatasetMeta(0).data;
             arcs.forEach(function(arc) {
+
                 arc.round = {
                     x: (chart.chartArea.left + chart.chartArea.right) / 2,
                     y: (chart.chartArea.top + chart.chartArea.bottom) / 2,
@@ -26,7 +84,7 @@ import { Doughnut } from 'react-chartjs-2';
                 }
             });
         },
-        afterDraw: (chart) => {
+            afterDraw: (chart) => {
             const {
                 ctx,
                 canvas
@@ -70,7 +128,12 @@ import { Doughnut } from 'react-chartjs-2';
             }
 
         },
-        }]
+        },
+        customTooltip
+        ]
+
+
+
     const options = {
         legend: {
             position: 'left',
@@ -78,26 +141,23 @@ import { Doughnut } from 'react-chartjs-2';
         },
         plugins: {
             tooltip: {
-                position: 'nearest',
-                enabled: false,
-                callbacks: {
-                    title: function(tooltipItem) {
-                        return tooltipItem.title;
-                    },
-                    label: function(tooltipItem) {
-                        return tooltipItem.dataset.label;
-                    },
+                position: 'average',
+                enabled: true,
+                filter: (tooltip) => tooltip.dataIndex !== 3,
 
-                },
-                backgroundColor: '#24384a',
-                titleFontSize: 16,
-                titleFontColor: '#0066ff',
-                bodyFontColor: '#000',
-                bodyFontSize: 14,
+                backgroundColor: 'transparent',
+                titleColor: 'transparent',
+                bodyColor: 'transparent',
                 displayColors: false,
-                zIndex: 999
+                boxWidth: 0,
+                // xAlign: 'left',
+                // yAlign: undefined
             }
-        }
+        },
+        // onHover: (event, chartElement) => {
+        //     console.log(chartElement)
+        // },
+
 
     }
 
@@ -114,4 +174,6 @@ import { Doughnut } from 'react-chartjs-2';
 }
 
 export default DonutChart
+
+
 

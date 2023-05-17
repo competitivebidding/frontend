@@ -16,6 +16,7 @@ function PlayersAmount(props) {
                 'rgba(255, 255, 255, 0.2)',
             ],
             circumference: 360,
+
             datalabels: {
                 display: false
             },
