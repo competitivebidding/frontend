@@ -1,25 +1,26 @@
-import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client'
+import { setContext } from '@apollo/client/link/context'
 
 const httpLink = createHttpLink({
-  uri: 'https://ra-backend-s.fly.dev/graphql'
+  uri: 'https://ra-backend-s.fly.dev/graphql',
   // uri: 'https://ra-backend-x.fly.dev/graphql' // OLD SERVICE URL
-});
+})
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('accesstoken');
+  const token = localStorage.getItem('accesstoken')
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    }
+      authorization: token ? `Bearer ${token}` : '',
+    },
   }
-});
+})
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
-});
+  cache: new InMemoryCache({
+    addTypename: false, // remove __typename in schema
+  }),
+})
 
-
-export default client;
+export default client
