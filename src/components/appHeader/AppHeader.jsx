@@ -11,6 +11,7 @@ import './AppHeader.scss'
 import LOGOUT_MUTATION from '../server/logout';
 import HeaderBurger from "@/components/Burger/HeaderBurger";
 import {AuthContext} from "../../context/AuthContext";
+import {UserAvatar} from "../UserAvatar/UserAvatar";
 
 const AppHeader = ({ title }) => {
   const [isLogged, setIsLogged] = useState(false);
@@ -20,9 +21,10 @@ const AppHeader = ({ title }) => {
   const {value: user} = React.useContext(AuthContext);
 
   useEffect(() => {
-    if (localStorage.getItem('accesstoken')) {
+    if (isLogged === false && localStorage.getItem('accesstoken')) {
       setIsLogged(true)
     }
+    console.log(123)
   }, []);
 
   const handleLogout = async () => {
@@ -50,7 +52,7 @@ const AppHeader = ({ title }) => {
             <div className='group__balanceSum'>20</div>
             <img className='group__notifications' src={iconNotification} alt="iconNotification" />
             <p className='group__name'>{user && user.username}</p>
-            <img className='group__profile' src={imgHeader} alt="imgHeader" />
+            <UserAvatar width={40} height={40} />
             <Link>
             <img className='group__exit' src={iconExit} alt="iconExit" onClick={handleLogout} />
             </Link>

@@ -25,6 +25,7 @@ import NewPassword from '../pagesAuthorization/PageNewPassword/NewPassword.jsx'
 
 import './App.scss'
 import {UserContextProvider} from "../context/AuthContext";
+import AppHeader from "../components/appHeader/AppHeader";
 
 const App = () => {
   return (
@@ -33,7 +34,7 @@ const App = () => {
           <Routes>
             <Route element={<MainSection />}>
               <Route path="/auctions" element={<AuctionsPage title={'Auction'} />} />
-              <Route path="/*" element={<MainPage title={'Main'} />} index />
+              <Route path="/" element={<MainPage title={'Main'} />} index />
               <Route path="/myauctions" element={<MyAuctionsPage title={'My Auctions'} />} />
               <Route path="/news" element={<NewsPage title={'News'} />} />
               <Route path="/partnerProgram" element={<PartnerPage title={'Partner Program'} />} />
@@ -43,12 +44,7 @@ const App = () => {
               <Route path="/cabinet" element={<CabinetPage title={'Cabinet'} />} />
             </Route>
 
-            <Route element={<NavHeader />}>
-              <Route path="/cabinet" element={<CabinetPage title={'Cabinet'} />} />
-              <Route path="/notifications" element={<NotificationsPage title={'Notifications'} />} />
-              <Route path="/questions" element={<QuestionsPage title={'Questions'} />} />
-              <Route path="/support" element={<SupportPage title={'Support'} />} />
-            </Route>
+
 
             <Route path="/LogIn" element={<LogIn />} />
             <Route path="/SignIn" element={<SignIn />} />

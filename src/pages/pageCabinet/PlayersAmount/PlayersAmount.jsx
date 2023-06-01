@@ -32,7 +32,6 @@ function PlayersAmount(props) {
             {data.datasets[0].data.map((item, i, array) => (
               <li key={i} className={styles.statistic__item} style={{ color: data.datasets[0].backgroundColor[i] }}>
                 <span>{item}</span>
-                <br />
                 <p>{data.labels[i]}</p>
               </li>
             ))}

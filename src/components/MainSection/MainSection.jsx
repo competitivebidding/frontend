@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-// import AppHeader from "../appHeader/AppHeader.jsx";
 import AppFooter from "../appFooter/AppFooter.jsx";
 import AppNavBar from '../appNavBar/AppNavBar.jsx';
+import AppHeader from "../appHeader/AppHeader";
 import {Outlet} from 'react-router-dom';
 
 import './MainSection.scss'
@@ -14,6 +14,7 @@ function MainSection() {
         <>
             {userWidth > 1000 && <AppNavBar/>}
             <div className='main-section'>
+                {/*<AppHeader title={'asd'} />*/}
                 <Outlet/>
                 <AppFooter/>
             </div>
