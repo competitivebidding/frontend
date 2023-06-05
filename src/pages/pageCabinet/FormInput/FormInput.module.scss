@@ -1,0 +1,29 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  span {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  &__input {
+    background: rgba(92, 92, 92, 0.14);
+    border-radius: 5px;
+    padding: 12px;
+    transition: all .450s ease;
+    border: 1px solid transparent;
+    &:hover {
+      box-shadow: 0 2px 12px -2px rgb(0 0 0 / 70%);
+    }
+    &:focus {
+      background: rgba(47, 83, 255, 0.1);
+    }
+    &:focus:required:invalid{
+      border: 1px solid rgba(255, 126, 126, .4);
+    }
+    &:required:valid{
+      border: 1px solid rgba(47, 83, 255, .4);
+    }
+
+  }
+}

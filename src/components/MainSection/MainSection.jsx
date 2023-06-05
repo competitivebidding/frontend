@@ -9,6 +9,7 @@ import './MainSection.scss'
 function MainSection() {
 
     const userWidth = window.innerWidth;
+    //TODO: @D9m0n4 Что бы в Header не было перерисовок при переходах по роутам, сюда вставить AppHeader, а во всех компонентах удалить
 
     return (
         <>

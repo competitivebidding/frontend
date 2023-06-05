@@ -6,8 +6,7 @@ import { UserName } from './UserName'
 import { UserEmail } from './UserEmail'
 import { UserPhone } from './UserPhone'
 import { UserInst } from './UserInst'
-import { PaymentModal } from '../PaymentModal/PaymentModal'
-import { createPortal } from 'react-dom'
+import { PaymentForm } from '../PaymentForm/PaymentForm'
 import { UserPaymentsInfo } from './UserPaymentsInfo'
 import { UserCountry } from './UserCountry'
 import { UserSettings } from './UserSettings'
@@ -37,7 +36,7 @@ const UserInfo = () => {
     }
   }, [data])
 
-  //TODO: нужен контекст,(State manager)
+
 
   return (
     <>
@@ -53,7 +52,7 @@ const UserInfo = () => {
           <UserPaymentsInfo onOpen={setModalIsOpen} />
           <UserCountry />
         </article>
-        {modalIsOpen && createPortal(<PaymentModal onClose={setModalIsOpen} />, document.body)}
+        {modalIsOpen && <PaymentForm onClose={setModalIsOpen} />}
       </>
     </>
   )

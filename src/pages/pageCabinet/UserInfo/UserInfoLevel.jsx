@@ -12,7 +12,13 @@ export const UserInfoLevel = ({ field }) => {
 
   const calculate = (obj) => {
     const l = Object.keys(obj).length
-    const v = Object.values(obj).filter((item) => item !== null).length * 100
+    const v = Object.values(obj).filter((item) => {
+      if (item === '' || item === null ) {
+        return
+      }
+      return item
+    }).length * 100
+
     return v / l
   }
 

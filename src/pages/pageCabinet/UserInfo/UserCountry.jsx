@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {DropDown} from "../DropDown/DropDown";
+import {DropDown} from "@/components/DropDown/DropDown";
 import JP from '@/assets/cabinet/dropdown/JP.svg'
 import RU from '@/assets/cabinet/dropdown/RU.svg'
 import UA from '@/assets/cabinet/dropdown/UA.svg'
@@ -7,9 +7,7 @@ import US from '@/assets/cabinet/dropdown/US.svg'
 import info from '@/assets/cabinet/info.svg'
 import icon from '@/assets/cabinet/icons/global-search.svg'
 import {useMutation, useQuery} from "@apollo/client";
-import {GET_USER_ADDRESS, UPDATE_USER_ADDRESS} from "../../../components/server/userProfile";
-
-
+import {GET_USER_ADDRESS, UPDATE_USER_ADDRESS} from "@/components/server/userProfile";
 
 export const UserCountry = () => {
 
