@@ -30,7 +30,7 @@ const SignInRight = () => {
       console.log(data)
       setSubmitted(true)
       // localStorage.setItem('userId', data.data.signup.user.id)
-      
+
       window.location.href = '/LogIn';
       reset()
     },
