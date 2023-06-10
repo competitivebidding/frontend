@@ -4,8 +4,11 @@ import {useMutation, useQuery} from "@apollo/client";
 import {GET_USER_PAYMENT, UPDATE_USER_PAYMENT} from "../../../components/server/userProfile";
 import {AppModal} from "@/components/appModal/AppModal";
 import {FormInput} from "../FormInput/FormInput";
+import {useTranslation} from "react-i18next";
 
 export const PaymentForm = ({onClose}) => {
+    const {t} = useTranslation('cabinet')
+
     const [cardNumber, setCardNumber] = React.useState("")
     const [cardDate, setCardDate] = React.useState("")
     const [cardHolder, setCardHolder] = React.useState("")
@@ -72,7 +75,7 @@ export const PaymentForm = ({onClose}) => {
                 />
 
                 <div className="payment-card__input">
-                    <button type='submit' className="form__button">Save</button>
+                    <button type='submit' className="form__button">{t('save')}</button>
                 </div>
             </form>
         </AppModal>

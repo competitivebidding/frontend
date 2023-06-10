@@ -19,9 +19,12 @@
   .group {
     display: flex;
     align-items: center;
+    gap: 16px;
 
     &__balance {
       position: relative;
+      display: flex;
+      align-items: center;
     }
 
     &__exit {
@@ -57,16 +60,15 @@
 
     &__balanceSum {
       color: #fff;
-      margin-left: 22px;
+      margin-left: 8px;
     }
 
     &__notifications {
-      margin-left: 22px;
+
     }
 
     &__name {
       color: white;
-      margin-left: 22px;
     }
 
     &__profile {
@@ -74,8 +76,6 @@
     }
 
     &__exit {
-      margin-left: 19px;
-
       &:hover {
         fill: #eee;
       }
