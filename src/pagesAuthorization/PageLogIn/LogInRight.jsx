@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,6 +9,7 @@ import {useMutation } from '@apollo/client'
 import LOGIN_MUTATION from '../../Components/server/login.js'
 
 import './LoginRight.scss'
+import { AuthContext } from '../../context/AuthContext'
 const LogInRight = () => {
   const {
     register,
@@ -17,6 +18,7 @@ const LogInRight = () => {
   } = useForm();
 
   const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false);
+  const { setValue } = useContext(AuthContext)
 
   const [login, { loading, error }] = useMutation(LOGIN_MUTATION);
 
@@ -35,6 +37,7 @@ const LogInRight = () => {
         Cookies.set('refreshtoken', response.data.signin.refreshToken);
         const user = JSON.stringify(response.data.signin.user);
         Cookies.set('user', user);
+        setValue(response.data.signin.user)
         window.location.href = '/';
       })
       .catch((error) => {

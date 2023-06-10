@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useMutation } from '@apollo/client';
-import Cookies from 'js-cookie';
+import { useMutation } from '@apollo/client'
+import Cookies from 'js-cookie'
 
 import blueBalance from '../../assets/imgHeader/blueBalance.svg'
 import iconExit from '../../assets/imgHeader/iconExit.svg'
 import iconNotification from '../../assets/imgHeader/iconNotification.svg'
-import imgHeader from '../../assets/imgHeader/imgHeader.svg'
 
+import LOGOUT_MUTATION from '../server/logout'
+import HeaderBurger from '@/components/Burger/HeaderBurger'
+import { AuthContext } from '../../context/AuthContext'
+import { UserAvatar } from '../UserAvatar/UserAvatar'
+import { LangSwitcher } from '../LangSwitcher/LangSwitcher'
 import './AppHeader.scss'
-import LOGOUT_MUTATION from '../server/logout';
-import HeaderBurger from "@/components/Burger/HeaderBurger";
-import {AuthContext} from "../../context/AuthContext";
-import {UserAvatar} from "../UserAvatar/UserAvatar";
-import {LangSwitcher} from "../LangSwitcher/LangSwitcher";
 
-import './AppHeader.scss'
 const AppHeader = ({ title }) => {
 
   const [isLogged, setIsLogged] = useState(false);
@@ -23,6 +21,7 @@ const AppHeader = ({ title }) => {
 
   const userAuthString = Cookies.get('user');
   const userAuth = userAuthString ? JSON.parse(userAuthString) : null;
+  const {value} = useContext(AuthContext)
 
   useEffect(() => {
     if (Cookies.get('refreshtoken') && userAuth && userAuth.username) {
@@ -57,10 +56,10 @@ const AppHeader = ({ title }) => {
             </div>
             <LangSwitcher />
             <img className='group__notifications' src={iconNotification} alt="iconNotification" />
+            <p className='group__name'>{userAuth && value.username}</p>
             <Link to={'/cabinet'}>
               <UserAvatar width={40} height={40} />
             </Link>
-            <p className='group__name'>{userAuth && userAuth.username}</p>
             <Link>
             <img className='group__exit' src={iconExit} alt="iconExit" onClick={handleLogout} />
             </Link>

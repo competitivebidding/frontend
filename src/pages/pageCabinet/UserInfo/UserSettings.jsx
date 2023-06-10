@@ -45,10 +45,9 @@ export const UserSettings = ({id, avatarUrl, handleUpdate}) => {
                     <button className="user-info__button" onClick={() => setIsOpenSettings(true)}>{t('Settings')}</button>
                 </div>
             </div>
-            {isOpenSettings &&
-                <AppModal title={'Settings'} onClose={setIsOpenSettings}>
-                    <CabinetSettings />
-                </AppModal>}
+            {isOpenSettings && <AppModal title={'Settings'} onClose={setIsOpenSettings} isOpen={isOpenSettings}>
+                <CabinetSettings />
+            </AppModal>}
         </>
     );
 }

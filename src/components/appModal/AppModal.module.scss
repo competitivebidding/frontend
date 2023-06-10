@@ -1,6 +1,17 @@
 .modal{
+  opacity: 0;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  &.opened{
+    animation: 250ms modal ease-in-out;
+    transition: all 250ms ease-in-out;
+    z-index: 9;
+    opacity: 1;
+  }
   .overlay {
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     top: 0;
@@ -58,6 +69,17 @@
         box-shadow: 0 4px 15px -2px rgb(47 82 255 / 74%);
       }
     }
+  }
+
+}
+
+@keyframes modal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
