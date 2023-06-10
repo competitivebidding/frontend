@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import Cookies from 'js-cookie';
 
 import {useMutation } from '@apollo/client'
 import LOGIN_MUTATION from '../../Components/server/login.js'
@@ -30,11 +31,10 @@ const LogInRight = () => {
     })
       .then((response) => {
         console.log('Logged in successfully', response.data);
-        localStorage.setItem('accesstoken', response.data.signin.accessToken)
-        localStorage.setItem('refreshtoken', response.data.signin.refreshToken)
-        // localStorage.setItem('userId', response.data.signin.user.id)
-        const user = JSON.stringify(response.data.signin.user)
-        localStorage.setItem('user', user)
+        Cookies.set('accesstoken', response.data.signin.accessToken);
+        Cookies.set('refreshtoken', response.data.signin.refreshToken);
+        const user = JSON.stringify(response.data.signin.user);
+        Cookies.set('user', user);
         window.location.href = '/';
       })
       .catch((error) => {

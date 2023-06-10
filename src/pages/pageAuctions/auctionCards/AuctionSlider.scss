@@ -35,6 +35,7 @@
     height: fit-content;
     padding-bottom: 50px;
     overflow: hidden;
+    
 
     .swiper-button-prev, .swiper-button-next {
       display: none;
@@ -68,6 +69,7 @@
     }
 
     .swiper-slide {
+      cursor: grab;
       width: 100%;
       height: 100%;
     }
