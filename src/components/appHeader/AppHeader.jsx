@@ -57,12 +57,10 @@ const AppHeader = ({ title }) => {
             </div>
             <LangSwitcher />
             <img className='group__notifications' src={iconNotification} alt="iconNotification" />
-            <p className='group__name'>{user && user.username}</p>
             <Link to={'/cabinet'}>
               <UserAvatar width={40} height={40} />
             </Link>
             <p className='group__name'>{userAuth && userAuth.username}</p>
-            <img className='group__profile' src={imgHeader} alt="imgHeader" />
             <Link>
             <img className='group__exit' src={iconExit} alt="iconExit" onClick={handleLogout} />
             </Link>
