@@ -11,15 +11,16 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    }
+      authorization: token ? `Bearer ${token}` : '',
+    },
   }
-});
+})
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
-});
+  cache: new InMemoryCache({
+    addTypename: false, // remove __typename in schema
+  }),
+})
 
-
-export default client;
+export default client

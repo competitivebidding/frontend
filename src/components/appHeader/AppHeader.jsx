@@ -10,6 +10,8 @@ import imgHeader from '../../assets/imgHeader/imgHeader.svg'
 
 import LOGOUT_MUTATION from '../server/logout';
 import HeaderBurger from "@/components/Burger/HeaderBurger";
+import {AuthContext} from "../../context/AuthContext";
+import {UserAvatar} from "../UserAvatar/UserAvatar";
 
 import './AppHeader.scss'
 const AppHeader = ({ title }) => {
@@ -23,6 +25,7 @@ const AppHeader = ({ title }) => {
     if (Cookies.get('refreshtoken') && userAuth && userAuth.username) {
       setIsLogged(true);
     }
+    console.log(123)
   }, []);
 
   const handleLogout = async () => {
@@ -44,16 +47,14 @@ const AppHeader = ({ title }) => {
       <div className="header__group group">
         {isLogged ? (
           <>
-
             <img className='group__balance' src={blueBalance} alt="blueBalance" />
             <div className='group__balanceSum'>20</div>
             <img className='group__notifications' src={iconNotification} alt="iconNotification" />
             <p className='group__name'>{userAuth && userAuth.username}</p>
             <img className='group__profile' src={imgHeader} alt="imgHeader" />
             <Link>
-              <img className='group__exit' src={iconExit} alt="iconExit" onClick={handleLogout} />
+            <img className='group__exit' src={iconExit} alt="iconExit" onClick={handleLogout} />
             </Link>
-            <HeaderBurger />
           </>
         ) : (
           <div className="group__container">
@@ -63,7 +64,7 @@ const AppHeader = ({ title }) => {
             <Link to="/SignIn" className="group__sign">
               Sign in
             </Link>
-            <HeaderBurger />
+            <HeaderBurger/>
           </div>
         )}
       </div>

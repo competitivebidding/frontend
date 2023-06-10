@@ -3,6 +3,7 @@ import React from 'react'
 import './AppFooter.scss'
 
 const AppFooter = () => {
+
   return (
     <footer className="footer">
       <nav>

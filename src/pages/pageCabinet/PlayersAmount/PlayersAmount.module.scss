@@ -97,3 +97,19 @@
     }
   }
 }
+
+
+@media (max-width: 768px) {
+  .players {
+    &__body {
+      flex-direction: column;
+      gap: 16px;
+      .statistic{
+        &__item {
+          display: flex;
+          gap: 16px
+        }
+      }
+    }
+  }
+}

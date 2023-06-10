@@ -1,5 +1,6 @@
 import * as React from 'react';
 import user from '@/assets/cabinet/icons/sms.svg'
+import info from '@/assets/cabinet/info.svg'
 
 export const UserEmail = ({field, handleUpdate}) => {
     const [isEditable, setIsEditable] = React.useState(false)
@@ -31,8 +32,14 @@ export const UserEmail = ({field, handleUpdate}) => {
                 </div>
             </div>
             <div className="item-bottom">
-                {isEditable ? <button className="user-info__button" disabled={!value} onClick={() => update({email: value})}>Change</button> :
-                    <button className="user-info__button" onClick={changeState}>Set</button>}
+                <>
+                    {field ? <button className="user-info__button" onClick={() => console.log('the confirmation letter has been sent to your e-mail')}>Confirm</button> :
+                        <>
+                            {isEditable ? <button className="user-info__button" disabled={!value} onClick={() => update({email: value})}>Change</button> :
+                                <button className="user-info__button" onClick={changeState}>Set</button>}
+                        </>
+                    }
+                </>
                 {/*<div className="item-bottom__content">*/}
                 {/*    <p>The confirmation letter was sent to the post office</p>*/}
                 {/*    <i>*/}

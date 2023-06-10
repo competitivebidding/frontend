@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
-import React from 'react'
+import React, {useContext} from 'react'
 
 import AuctionsPage from '../pages/pageAuctions/AuctionsPage.jsx'
 import CabinetPage from '../pages/pageCabinet/CabinetPage.jsx'
@@ -24,36 +24,40 @@ import ResetPassword from '../pagesAuthorization/PageResetPassword/ResetPassword
 import NewPassword from '../pagesAuthorization/PageNewPassword/NewPassword.jsx'
 
 import './App.scss'
+import {UserContextProvider} from "../context/AuthContext";
 
 const App = () => {
   return (
-    <div className="app">
-      <Routes>
-        <Route element={<MainSection />}>
-          <Route path="/auctions" element={<AuctionsPage title={'Auction'} />} />
-          <Route path="/*" element={<MainPage title={'Main'} />} index />
-          <Route path="/myauctions" element={<MyAuctionsPage title={'My Auctions'} />} />
-          <Route path="/news" element={<NewsPage title={'News'} />} />
-          <Route path="/partnerProgram" element={<PartnerPage title={'Partner Program'} />} />
-          <Route path="/tokens" element={<TokensPage title={'Tokens'} />} />
-          <Route path="/winnerList" element={<WinnersListPage title={'WinnerList'} />} />
-          <Route path="/Lot" element={<LotPage title={'Lot №1'} />} />
-          <Route path="/cabinet" element={<CabinetPage title={'Cabinet'} />} />
-        </Route>
+      <UserContextProvider>
+        <div className="app">
+          <Routes>
+            <Route element={<MainSection />}>
+              <Route path="/" element={<MainPage title={'Main'} />} index />
+              <Route path="/auctions" element={<AuctionsPage title={'Auction'} />} />
+              <Route path="/myauctions" element={<MyAuctionsPage title={'My Auctions'} />} />
+              <Route path="/news" element={<NewsPage title={'News'} />} />
+              <Route path="/partnerProgram" element={<PartnerPage title={'Partner Program'} />} />
+              <Route path="/tokens" element={<TokensPage title={'Tokens'} />} />
+              <Route path="/winnerList" element={<WinnersListPage title={'WinnerList'} />} />
+              <Route path="/Lot" element={<LotPage title={'Lot №1'} />} />
+              <Route path="/cabinet" element={<CabinetPage title={'Cabinet'} />} />
+            </Route>
 
-        <Route element={<NavHeader />}>
-          <Route path="/cabinet" element={<CabinetPage title={'Cabinet'} />} />
-          <Route path="/notifications" element={<NotificationsPage title={'Notifications'} />} />
-          <Route path="/questions" element={<QuestionsPage title={'Questions'} />} />
-          <Route path="/support" element={<SupportPage title={'Support'} />} />
-        </Route>
+            <Route element={<NavHeader />}>
+              <Route path="/cabinet" element={<CabinetPage title={'Cabinet'} />} />
+              <Route path="/notifications" element={<NotificationsPage title={'Notifications'} />} />
+              <Route path="/questions" element={<QuestionsPage title={'Questions'} />} />
+              <Route path="/support" element={<SupportPage title={'Support'} />} />
+            </Route>
 
-        <Route path="/LogIn" element={<LogIn />} />
-        <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/ResetPassword" element={<ResetPassword />} />
-        <Route path="/NewPassword" element={<NewPassword />} />
-      </Routes>
-    </div>
+            <Route path="/LogIn" element={<LogIn />} />
+            <Route path="/SignIn" element={<SignIn />} />
+            <Route path="/ResetPassword" element={<ResetPassword />} />
+            <Route path="/NewPassword" element={<NewPassword />} />
+          </Routes>
+        </div>
+      </UserContextProvider>
+
   )
 }
 

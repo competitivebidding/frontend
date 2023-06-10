@@ -1,9 +1,14 @@
 import * as React from 'react';
 import icon from '@/assets/cabinet/icons/user.svg'
+import {useContext} from "react";
+import {AuthContext} from "../../../context/AuthContext";
+import {useLocalStorage} from "../../../hooks/useLocalStorage";
 
 export const UserName = ({field, handleUpdate}) => {
     const [isEditable, setIsEditable] = React.useState(false)
     const [value, setValue] = React.useState(field)
+    const {value: user, setValue: setUserName} = useContext(AuthContext)
+    const {setValue: setLS} = useLocalStorage('user')
 
     const changeState = () => {
         setIsEditable(!isEditable)
@@ -12,6 +17,8 @@ export const UserName = ({field, handleUpdate}) => {
     const update = (data) => {
         handleUpdate(data)
         setIsEditable(false)
+        setUserName({...user, username: value})
+        setLS({...user, username: value})
     }
 
     return (
