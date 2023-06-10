@@ -1,31 +1,34 @@
 import * as React from 'react';
-import arrow from '@/assets/cabinet/arrow.svg'
+import {ReactComponent as Arrow} from '@/assets/cabinet/arrow.svg'
 import './DropDown.scss'
-//TODO: @D9m0n4 добавить SVGR в конфиг Vite для того что бы импортировать SVG как ReactComponent
 
-export const DropDown = ({data, current, onChange}) => {
+export const DropDown = ({data, current, onChange, withArrow = true}) => {
     const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
 
     const onChangeValue = (item) => {
         onChange(item)
         setDropdownVisibility(false)
     }
+
+    const findFlag = (v) => {
+        const c = data.find(obj => obj.value === v)
+        return c ? c.label : ''
+    }
+
     return (
         <>
             {data &&
                 <div className={'dropdown'}>
                     <div className={'dropdown__current'} onClick={() => setDropdownVisibility(!dropdownVisibility)}>
-                        <img src={arrow}
-                            className={`${!dropdownVisibility ? 'arrow' : 'arrow arrow--visible'} `}
-                            alt='arrow'/>
-                        <span>{current && current.title}</span>
+                        {withArrow && <Arrow className={`${!dropdownVisibility ? 'arrow' : 'arrow arrow--visible'} `}/>}
+                        <span>{current && findFlag(current)}</span>
                     </div>
                     <div
                         className={`${dropdownVisibility ? 'dropdown__dropdown' : 'dropdown__dropdown dropdown__dropdown--visible'}`}>
                         {data.map(item => (
-                            <div key={item.val} className={'dropdown__item'}
-                                 onClick={() => onChangeValue(item)}>
-                                {item.title}
+                            <div key={item.value} className={'dropdown__item'}
+                                 onClick={() => onChangeValue(item.value)}>
+                                {item.label}
                             </div>
                         ))}
                     </div>

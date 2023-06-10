@@ -3,22 +3,23 @@ import cls from './CabinetSettings.module.scss'
 import {FormInput} from "../FormInput/FormInput";
 import {useMutation, useQuery} from "@apollo/client";
 import {GET_USER_ADDRESS} from "@/components/server/userProfile";
-import {GET_PROFILE_QUERY, UPDATE_PROFILE} from "../../../components/server/userProfile";
+import {GET_PROFILE_QUERY, UPDATE_PROFILE, UPDATE_USER_ADDRESS} from "@/components/server/userProfile";
 
-export const CabinetSettings = (props) => {
+export const CabinetSettings = () => {
     const [isEditable, setIsEditable] = React.useState(false)
     const [userInfo, setUserInfo] = React.useState(null)
+    const [address, setAddress] = React.useState('')
 
-    const {data: profile, refetch} = useQuery(GET_PROFILE_QUERY)
+    const {data: profile} = useQuery(GET_PROFILE_QUERY)
+    const {data: userAddress} = useQuery(GET_USER_ADDRESS)
 
-    const [update] = useMutation(UPDATE_PROFILE)
+    const [updateProfile] = useMutation(UPDATE_PROFILE)
+    const [updateAddress] = useMutation(UPDATE_USER_ADDRESS)
 
-    const toggleEditable = () => {
-        setIsEditable(!isEditable)
-    }
     const submit = (e) => {
         e.preventDefault()
-        update({
+        setIsEditable(false)
+        Promise.all([updateProfile({
             variables: {
                 updateUserInput: {
                     firstname: userInfo.firstname,
@@ -27,29 +28,34 @@ export const CabinetSettings = (props) => {
                 },
 
             }
-        }).then(refetch)
+        }), updateAddress({
+            variables: {
+                input: {
+                    address
+                }
+            }
+        })]).then(r => console.log(r))
     }
 
     const handleChangeUserInfo = (field) => {
         setUserInfo(prev => ({...prev, ...field}))
     }
 
-
-
     useEffect(() => {
         if (profile) {
             setUserInfo(profile.getProfile)
         }
-    }, [profile])
+        if (userAddress) {
+            setAddress(userAddress.getUserAddress.address)
+        }
+    }, [profile, userAddress])
+
     return (
        <>
            {userInfo && <div className={cls.settings}>
                <div className={cls.wrapper}>
                    <form onSubmit={submit} className={cls.form}>
                        <div className={cls.wrapper}>
-                           <div className={cls.title}><h3>Personal Info</h3><i>
-                               <button onClick={toggleEditable}>EDIT</button>
-                           </i></div>
                            <div className={cls.body}>
                                <FormInput
                                    label={'Name'}
@@ -72,16 +78,24 @@ export const CabinetSettings = (props) => {
                            </div>
                        </div>
                        <div className={cls.wrapper}>
-                           <div className={cls.title}><h3>Address</h3></div>
                            <div className={cls.body}>
-                               <FormInput label={'Address'} disabled={!isEditable}/>
+                               <FormInput
+                                   label={'Address'}
+                                   disabled={!isEditable}
+                                   value={address || ''}
+                                   onChange={setAddress}
+                                   className={cls.full}/>
                            </div>
                        </div>
-                       {isEditable && <div className={cls.wrapper}>
+                       {isEditable ? <div className={cls.wrapper}>
                            <div className={cls.body}>
                                <button type='submit' className={cls.form__button}>Save</button>
                            </div>
-                       </div>}
+                       </div> :
+                           <div className={cls.body}>
+                               <button onClick={() => setIsEditable(true)} className={cls.form__button}>Edit</button>
+                           </div>
+                       }
                    </form>
                </div>
            </div>}

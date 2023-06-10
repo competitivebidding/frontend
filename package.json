@@ -20,17 +20,22 @@
     "chartjs-plugin-datalabels": "^2.2.0",
     "concurrently": "^8.0.1",
     "graphql": "^14.7.0",
+    "i18next": "^22.5.1",
+    "i18next-browser-languagedetector": "^7.0.2",
+    "i18next-http-backend": "^2.2.1",
     "json-graphql-server": "^2.3.2",
     "prettier": "^2.8.7",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
+    "react-i18next": "^12.3.1",
     "react-icons": "^4.8.0",
     "react-input-mask": "^2.0.4",
     "react-router-dom": "^6.9.0",
     "swiper": "^9.3.1",
-    "validator": "^13.9.0"
+    "validator": "^13.9.0",
+    "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

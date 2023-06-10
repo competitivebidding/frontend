@@ -3,8 +3,10 @@ import icon from '@/assets/cabinet/icons/user.svg'
 import {useContext} from "react";
 import {AuthContext} from "../../../context/AuthContext";
 import {useLocalStorage} from "../../../hooks/useLocalStorage";
+import {useTranslation} from "react-i18next";
 
 export const UserName = ({field, handleUpdate}) => {
+    const {t} = useTranslation('cabinet')
     const [isEditable, setIsEditable] = React.useState(false)
     const [value, setValue] = React.useState(field)
     const {value: user, setValue: setUserName} = useContext(AuthContext)
@@ -38,8 +40,8 @@ export const UserName = ({field, handleUpdate}) => {
                     </div>
                 </div>
                 <div className="item-bottom">
-                    {isEditable ? <button className="user-info__button" disabled={!value} onClick={() => update({username: value})}>Change</button> :
-                        <button className="user-info__button" onClick={changeState}>Set</button>}
+                    {isEditable ? <button className="user-info__button" disabled={!value} onClick={() => update({username: value})}>{t('change')}</button> :
+                        <button className="user-info__button" onClick={changeState}>{t('set')}</button>}
                 </div>
             </div>
     );

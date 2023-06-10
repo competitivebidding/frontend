@@ -1,14 +1,11 @@
 import * as React from 'react'
 import DonutChart from '@/components/Charts/DonutChart'
 import info from '@/assets/cabinet/info.svg'
+import {useTranslation} from "react-i18next";
 
 export const UserInfoLevel = ({ field }) => {
-  const [isEditable, setIsEditable] = React.useState(false)
+  const {t} = useTranslation('cabinet')
   const [value, setValue] = React.useState(field)
-
-  const changeState = () => {
-    setIsEditable(!isEditable)
-  }
 
   const calculate = (obj) => {
     const l = Object.keys(obj).length
@@ -48,12 +45,12 @@ export const UserInfoLevel = ({ field }) => {
       <DonutChart data={chartData} count={`${value}%`} width={90} height={90} />
       <div className="level-content">
         <div className="level-content__title">
-          <p>Authorization level</p>
+          <p>{t('authorizationLevel')}</p>
           <i>
             <img src={info} alt="" />
           </i>
         </div>
-        <span className="level-content__status not-verified">Not verified!</span>
+        <span className="level-content__status not-verified">{t('notVerified')}</span>
       </div>
     </div>
   )
