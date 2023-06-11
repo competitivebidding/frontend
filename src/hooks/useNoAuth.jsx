@@ -7,7 +7,7 @@ const useNoAuth = () => {
 
   useEffect(() => {
     if (!Cookies.get('accesstoken')) {
-      navigate('/LogIn');
+      navigate('/SignIn');
     }
   }, [navigate]);
 };

@@ -1,79 +1,108 @@
-.checkbox__container {
-  display: block;
-  position: relative;
-  max-width: 25em;
-  padding-left: 25px;
-  padding-bottom: 10px;
-  cursor: pointer;
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  max-width: 35%;
+  padding: 20px;
+  border-radius: 5px;
+  min-height: 100vh;
 
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
 
-  color: #666666;
 
-  input {
-    position: absolute;
-    opacity: 0;
+  &__title {
+    font-family: 'Roboto';
+    color: white;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.2rem;
+    line-height: 130%;
+  }
+
+
+  &__descr {
+    font-family: 'Roboto';
+    color: white;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+
+    & a {
+      color: #2F53FF;
+    margin-left: 10px;
+    }
+  }
+
+  &__forgot {
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 10px;
+
+    color: #2F53FF;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    color: #BBBBBB;
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 25em;
+      padding: 10px;
+      background: #191D25;
+      border-radius: 8px;
+
+      &:focus {
+        outline: none;
+        border-color: #6e9ef5;
+      }
+    }
+  }
+
+  .email__input {
+    display: flex;
+  }
+
+  .username__input {
+    display: flex;
+  }
+
+.btn__form {
+    display: block;
+    background: rgba(47, 83, 255, 0.2);
+    border-radius: 8px;
+    width: 25em;
+    height: 48px;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 10px 20px;
     cursor: pointer;
-    height: 0;
-    width: 0;
+
+    &:hover {
+      color: #fff;
+      background-color: #2556b8;
+    }
   }
 
-  & .checkmark:after {
-    left: 5px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid #2F53FF;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
+  .wrap__btn {
+    display: flex;
+    // width: 25em;
   }
-}
-
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 18px;
-  width: 18px;
-  background: #171A1E;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 5px;
-
-  &::after {
-    content: "";
-    position: absolute;
-    display: none;
+  
+  .error-message {
+    margin-top: 10px;
+    color: rgb(170, 9, 9);
   }
 }
 
-.checkbox__container:hover input~.checkmark {
-  background-color: rgb(68, 66, 66);
-}
 
-.checkbox__container input:checked~.checkmark {
-  background: rgba(47, 83, 255, 0.1);
-  border: 1px solid #2F53FF;
-  border-radius: 5px;
-}
-
-.checkbox__container input:checked~.checkmark:after {
-  display: block;
-}
-
-.text__blue {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 16px;
-
-  color: #2F53FF;
-}
-
-.error__message {
-  padding-top: 5px;
-  color: rgb(170, 9, 9);
-}

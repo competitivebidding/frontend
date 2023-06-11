@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-const LOGIN_MUTATION = gql`
+const SIGNIN_MUTATION = gql`
 mutation Signin($signInInput: SignInInput!) {
   signin(signInInput: $signInInput) {
     user {
@@ -14,4 +14,4 @@ mutation Signin($signInInput: SignInInput!) {
 }
 `;
 
-export default LOGIN_MUTATION;
+export default SIGNIN_MUTATION;

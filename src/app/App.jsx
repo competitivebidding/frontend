@@ -18,8 +18,8 @@ import LotPage from '../pages/pageAuctions/LotPage/LotPage.jsx'
 import MainSection from '../Components/MainSection/MainSection.jsx'
 import NavHeader from '../Components/NavHeaderSection/NavHeader.jsx'
 
-import LogIn from '../pagesAuthorization/PageLogIn/LogIn.jsx'
 import SignIn from '../pagesAuthorization/PageSignIn/SignIn.jsx'
+import SignUp from '../pagesAuthorization/PageSignUp/SignUp.jsx'
 import ResetPassword from '../pagesAuthorization/PageResetPassword/ResetPassword.jsx'
 import NewPassword from '../pagesAuthorization/PageNewPassword/NewPassword.jsx'
 
@@ -53,8 +53,8 @@ const App = () => {
                 <Route path="/support" element={<SupportPage title={'Support'} />} />
               </Route>
 
-              <Route path="/LogIn" element={<LogIn />} />
               <Route path="/SignIn" element={<SignIn />} />
+              <Route path="/SignUp" element={<SignUp />} />
               <Route path="/ResetPassword" element={<ResetPassword />} />
               <Route path="/NewPassword" element={<NewPassword />} />
             </Routes>

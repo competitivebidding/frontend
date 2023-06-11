@@ -1,15 +1,15 @@
 import React from 'react'
 
 import LeftAuth from '../leftAuth.jsx'
-import LogInRight from './LogInRight.jsx'
+import SignUpRight from './SignUpRight.jsx'
 
-const LogIn = () => {
+const SignUp = () => {
   return (
     <>
       <LeftAuth />
-      <LogInRight />
+      <SignUpRight />
     </>
   )
 }
 
-export default LogIn
+export default SignUp

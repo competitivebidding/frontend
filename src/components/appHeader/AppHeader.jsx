@@ -66,11 +66,11 @@ const AppHeader = ({ title }) => {
           </>
         ) : (
           <div className="group__container">
-            <Link to="/LogIn" className="group__log">
+            <Link to="/SignIn" className="group__log">
               Log in
             </Link>
-            <Link to="/SignIn" className="group__sign">
-              Sign in
+            <Link to="/SignUp" className="group__sign">
+              Sign up
             </Link>
             <HeaderBurger/>
           </div>
