@@ -10,6 +10,7 @@ import SIGNIN_MUTATION from '../../components/server/signin.js'
 
 import './SignInRight.scss'
 import { AuthContext } from '../../context/AuthContext'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 const SignInRight = () => {
   const {
     register,
@@ -18,7 +19,8 @@ const SignInRight = () => {
   } = useForm();
 
   const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false);
-  const { setValue } = useContext(AuthContext)
+
+  const {setValue} = useLocalStorage('user')
 
   const [signin, { loading, error }] = useMutation(SIGNIN_MUTATION);
 
@@ -54,9 +56,9 @@ const SignInRight = () => {
         <h2 className="form__title">Log in</h2>
         <div className="form__descr">
           <p>
-            No account?{' '}
+            No account?
             <span>
-              <Link to="/SignIn">Create an account</Link>
+              <Link to="/SignUp">Create an account</Link>
             </span>
           </p>
         </div>

@@ -12,6 +12,7 @@ import Cookies from 'js-cookie';
 import { AuthContext } from '../../context/AuthContext'
 
 import SIGNUP_MUTATION from '../../Components/server/signup.js'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 const SignUpRight = () => {
   const {
@@ -28,8 +29,7 @@ const SignUpRight = () => {
   const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
-  const { setValue } = useContext(AuthContext)
-
+  const {setValue} = useLocalStorage('user')
 
   const [signupMutation, { loading, error }] = useMutation(SIGNUP_MUTATION, {
     onCompleted: (data) => {
@@ -40,8 +40,8 @@ const SignUpRight = () => {
       Cookies.set('refreshtoken', data.signup.refreshToken)
       const user = JSON.stringify(data.signup.user)
       Cookies.set('user', user)
-      setValue(user)
-  
+      setValue(data.signup.user)
+
       window.location.href = '/';
       reset()
     },
@@ -73,7 +73,7 @@ const SignUpRight = () => {
           <p>
             Already have an account?
             <span>
-              <Link to="/LogIn">Log In</Link>
+              <Link to="/SignIn">Log In</Link>
             </span>
           </p>
         </div>
