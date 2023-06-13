@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import './AuctionCard.scss'
 import AuctionCardTimer from './AuctionCardTimer'
 
-const AuctionCard = ({ img, id, alt, name, date, price, places, changeStatus }) => {
+const AuctionCard = ({ img, id, alt, title, date, bids, places, changeStatus, startedAt, }) => {
+
   const [clazz, setClass] = useState('card');
   const [place, setPlace] = useState(places);
   const [timer, setTimer] = useState(false);
@@ -18,13 +19,16 @@ const AuctionCard = ({ img, id, alt, name, date, price, places, changeStatus }) 
   }
 
 
-  const auctionDate = new Intl.DateTimeFormat('ru', {
-    day: 'numeric',
-    month: 'numeric',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  }).format(Date.parse(date))
+  // const auctionDate = new Intl.DateTimeFormat('ru', {
+  //   day: 'numeric',
+  //   month: 'numeric',
+  //   year: 'numeric',
+  //   hour: '2-digit',
+  //   minute: '2-digit',
+  // }).format(Date.parse(date))
+
+  const formattedDate = new Date(startedAt).toLocaleString();
+
 
 
   const StartDate = () => {
@@ -32,7 +36,7 @@ const AuctionCard = ({ img, id, alt, name, date, price, places, changeStatus }) 
       return (
         <div className="card__start">
           <span>Start in:</span>
-          <span>{auctionDate.split(',')}</span>
+          <span>{formattedDate}</span>
         </div>
       )
     } else {
@@ -58,7 +62,7 @@ const AuctionCard = ({ img, id, alt, name, date, price, places, changeStatus }) 
       <div className="cardContent">
         <div className="cardHeader">
           <span className="card__name">{name}</span>
-          <span className="card__price">{'$' + price}</span>
+          <span className="card__price">{'$' + 1}</span>
         </div>
         <div className="card__places">
           <span>Vacant places:</span>
@@ -66,7 +70,7 @@ const AuctionCard = ({ img, id, alt, name, date, price, places, changeStatus }) 
         </div>
         <StartDate />
         <AuctionCardTimer date={date} timer={timer} changeStatus={changeStatus} id={id} />
-        <Link to='/Lot' >
+        <Link to={`/Lot/${id}`} >
           <button className="card__btn" onClick={onJoin}>
             <span> Read More </span>
           </button>
