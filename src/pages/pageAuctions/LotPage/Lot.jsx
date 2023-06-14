@@ -4,11 +4,11 @@ import { useQuery } from "@apollo/client";
 import { GET_LOT } from "../../../components/server/lot";
 
 import './lot.scss';
+import watch from '../img/watch.png'
 
 const Lot = () => {
 
-    const [toggle, setToggle] = useState(false);
-    const [height, setHeight] = useState({ height: 44 + 'px' });
+    const [isShowMore, setIsShowMore] = useState(false);
     const [lotData, setLotData] = useState(null)
 
     const { id } = useParams();
@@ -29,9 +29,8 @@ const Lot = () => {
     console.log(lotData)
 
 
-    const onShowMore = () => {
-        setToggle(() => !toggle)
-        setHeight({ height: 80 + 'px' })
+    const onToggleShowMore = () => {
+        setIsShowMore((t) => !t)
     }
 
     const [data, setData] = useState({
@@ -56,19 +55,21 @@ const Lot = () => {
             <div className='page__content'>
                 <div className='lot'>
                     <div className='lot__imgbox'>
-                        <img src={data.img} alt={data.name} />
-                        <div className="deposit">
-                            <div className="deposit__price">
-                                <div className="price__title">200 ROTO</div>
-                                <span>Deposite</span>
+                        <div className="lot__imgbox-body">
+                            <img src={watch} alt={'watch'} />
+                            <div className="deposit">
+                                <div className="deposit__price">
+                                    <div className="price__title">200 ROTO</div>
+                                    <span>Deposite</span>
+                                </div>
                             </div>
-                        </div>
-                        <div className='lot__auction'>
-                            <div className='lot__auction__names'>
-                                <span>Viktory.mrs</span>
-                            </div>
-                            <div className='lot__auction__timer'>
-                                <span>00</span> : <span>00</span>
+                            <div className='lot__auction'>
+                                <div className='lot__auction__names'>
+                                    <span>Viktory.mrs</span>
+                                </div>
+                                <div className='lot__auction__timer'>
+                                    <span>00</span> : <span>00</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -83,18 +84,19 @@ const Lot = () => {
                                 <span>{data.places} from 30</span>
                             </div>
                         </div>
-                        <div className='lot__description'
-                            style={height}>
+                        <div className={`lot__description ${isShowMore ? 'shown' : ''}`}>
                             {lotData.description}
                         </div>
                         <a href='#'
                             className='lot__more'
-                            onClick={onShowMore}>
+                            onClick={onToggleShowMore}>
                             <span>Read more</span>
                         </a>
-                        <button className="lot__btn" >
-                            <span>outbid</span> <span> 20 ROTO</span>
-                        </button>
+                        <div className="lot__footer">
+                            <button className="lot__footer-btn" >
+                                <span>outbid</span> <span> 20 ROTO</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className='clicks__history'>
@@ -140,9 +142,9 @@ const Lot = () => {
                     <span>Category:</span>
                     <div className='category__name' >Gadgets</div>
                 </div>
-                <div className='autoClick'>
-                    <span>Autoclick</span>
-                </div>
+                {/*<div className='autoClick'>*/}
+                {/*    <span>Autoclick</span>*/}
+                {/*</div>*/}
             </div>
         </> )
     }
