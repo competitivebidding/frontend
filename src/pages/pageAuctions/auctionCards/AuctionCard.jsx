@@ -61,7 +61,7 @@ const AuctionCard = ({ img, id, alt, title, date, bids, places, changeStatus, st
       </div>
       <div className="cardContent">
         <div className="cardHeader">
-          <span className="card__name">{name}</span>
+          <span className="card__name">{title}</span>
           <span className="card__price">{'$' + 1}</span>
         </div>
         <div className="card__places">

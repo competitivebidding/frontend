@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect , useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useQuery } from "@apollo/client";
+import { GET_LOT } from "../../../components/server/lot";
 
 import './lot.scss';
 
@@ -7,10 +9,29 @@ const Lot = () => {
 
     const [toggle, setToggle] = useState(false);
     const [height, setHeight] = useState({ height: 44 + 'px' });
+    const [lotData, setLotData] = useState(null)
+
+    const { id } = useParams();
+
+
+    const { data : datas, loading } = useQuery(GET_LOT, {
+        variables: {
+            auctionId: Number(id)
+        }
+    })
+
+    useEffect(() => {
+        if (!loading) {
+            setLotData(datas.getAuction)
+        }
+    }, [datas]);
+
+    console.log(lotData)
+
 
     const onShowMore = () => {
         setToggle(() => !toggle)
-        setHeight({ height: 100 + 'px' })
+        setHeight({ height: 80 + 'px' })
     }
 
     const [data, setData] = useState({
@@ -26,6 +47,8 @@ const Lot = () => {
     },)
 
     return (
+        <>
+        {lotData && (
         <>
             <Link to='/auctions'>
                 <button className='return--btn'>Auctions</button>
@@ -52,7 +75,7 @@ const Lot = () => {
                     <div className='lot__content'>
                         <div className='lot__header'>
                             <div className='lot__header__col__left'>
-                                <div className='lot__title'>{data.name}</div>
+                                <div className='lot__title'>{lotData.title}</div>
                                 <div className='lot__price'>{'$' + data.price}</div>
                             </div>
                             <div className='lot__header__col__right'>
@@ -60,9 +83,9 @@ const Lot = () => {
                                 <span>{data.places} from 30</span>
                             </div>
                         </div>
-                        <div className='lot__discription'
+                        <div className='lot__description'
                             style={height}>
-                            {data.discription}
+                            {lotData.description}
                         </div>
                         <a href='#'
                             className='lot__more'
@@ -121,7 +144,9 @@ const Lot = () => {
                     <span>Autoclick</span>
                 </div>
             </div>
-        </>
+        </> )
+    }
+    </>
     );
 }
 
