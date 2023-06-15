@@ -36,6 +36,8 @@ const UserInfo = () => {
     }
   }, [data])
 
+  console.log(data)
+
 
 
   return (

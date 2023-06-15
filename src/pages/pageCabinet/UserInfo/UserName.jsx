@@ -1,6 +1,6 @@
 import * as React from 'react';
 import icon from '@/assets/cabinet/icons/user.svg'
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import {AuthContext} from "../../../context/AuthContext";
 import {useLocalStorage} from "../../../hooks/useLocalStorage";
 import {useTranslation} from "react-i18next";
@@ -22,6 +22,12 @@ export const UserName = ({field, handleUpdate}) => {
         setUserName({...user, username: value})
         setLS({...user, username: value})
     }
+
+    useEffect(() => {
+        if (field) {
+            setValue(field)
+        }
+    }, [field])
 
     return (
         <div className="cabinet-block user-info__item">
