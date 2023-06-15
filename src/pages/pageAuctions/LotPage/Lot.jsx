@@ -13,21 +13,11 @@ const Lot = () => {
 
     const { id } = useParams();
 
-
     const { data : datas, loading } = useQuery(GET_LOT, {
         variables: {
             auctionId: Number(id)
         }
     })
-
-    useEffect(() => {
-        if (!loading) {
-            setLotData(datas.getAuction)
-        }
-    }, [datas]);
-
-    console.log(lotData)
-
 
     const onToggleShowMore = () => {
         setIsShowMore((t) => !t)
@@ -44,6 +34,12 @@ const Lot = () => {
         status: 'active',
         id: 1,
     },)
+
+    useEffect(() => {
+        if (!loading) {
+            setLotData(datas.getAuction)
+        }
+    }, [datas]);
 
     return (
         <>
