@@ -3,7 +3,7 @@ import { setContext } from '@apollo/client/link/context';
 import Cookies from 'js-cookie';
 
 const httpLink = createHttpLink({
-  uri: 'https://ra-backend-s.fly.dev/graphql'
+  uri: 'http://ec2-52-59-235-173.eu-central-1.compute.amazonaws.com:3000/graphql'
 });
 
 const authLink = setContext((_, { headers }) => {
