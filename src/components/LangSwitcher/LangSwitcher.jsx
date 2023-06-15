@@ -2,14 +2,14 @@ import React from 'react';
 import {DropDown} from "../DropDown/DropDown";
 import {useTranslation} from "react-i18next";
 
-import {ReactComponent as US } from '@/assets/cabinet/dropdown/US.svg'
-import {ReactComponent as RU } from '@/assets/cabinet/dropdown/RU.svg'
-import {ReactComponent as UA } from '@/assets/cabinet/dropdown/UA.svg'
+import  UsIcon from '@/assets/cabinet/dropdown/us.svg'
+import ru from '@/assets/cabinet/dropdown/RU.svg'
+import ua from '@/assets/cabinet/dropdown/UA.svg'
 
 export const langs = [
-    {label: <UA key={'ua'}/>, value: 'ua',},
-    {label: <RU key={'ru'}/>, value: 'ru',},
-    {label: <US key={'en'}/>, value: 'en',},
+    {label: <img src={ua} key={'ua'}/>, value: 'ua',},
+    {label: <img src={ru} key={'ru'}/>, value: 'ru',},
+    {label: <img src={UsIcon} key={'en'}/>, value: 'en',},
 ]
 
 export const LangSwitcher = () => {
