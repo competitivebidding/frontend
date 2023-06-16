@@ -1,0 +1,130 @@
+$primary-color: #38414f;
+$secondary-color: #ee0b0b;
+$background-color: #636363;
+$font-color: #333;
+
+.chat {
+  display: flex;
+  height: 100vh;
+  padding: 15px;
+
+  &__container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+  }
+
+  &__sidebar {
+    width: 200px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: $primary-color;
+    color: #fff;
+    padding: 20px;
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    &__group {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    &__list {
+      padding: 5px 0;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+        border-radius: 5px;
+        padding: 10px;
+      }
+    }
+  }
+
+  &__header {
+    background-color: $primary-color;
+    border-top-right-radius: 5px;
+    color: #fff;
+    padding: 20px;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  &__messages {
+    flex: 1;
+    background-color: $background-color;
+    padding: 20px;
+    overflow-y: auto;
+
+    .message {
+      margin-bottom: 10px;
+
+      &__your {
+        .your {
+          &__content {
+            background-color: #8d8080;
+            max-width: fit-content;
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            margin-left: auto;
+          }
+        }
+      }
+
+      &__answer {
+        .answer {
+          &__sender {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #352b2b;
+          }
+
+          &__content {
+            background-color: #8d8080;
+            max-width: fit-content;
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  &__time {
+    margin-top: 2%;
+    text-align: end;
+    font-size: 10px;
+  }
+
+  &__footer {
+    display: flex;
+    background-color: #171c25;
+    align-items: center;
+    padding: 10px;
+    border-bottom-right-radius: 5px;
+
+    input[type="text"] {
+      flex: 1;
+      padding: 5px;
+      color: #fff;
+    }
+  }
+
+  .chat__footer {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  &__send {
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+}

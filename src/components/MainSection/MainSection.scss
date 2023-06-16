@@ -1,10 +1,12 @@
 .main-section {
   background-color: unset;
-  padding: 0 51px 39px 44px;
-  min-height: 100vh;
-  flex-grow: 1;
+    padding: 0 51px 39px 44px;
+    min-height: 100vh;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 
-  @media (max-width: 1000px) {
-    background-color: #121416;
-  }
+  // @media (max-width: 1000px) {
+  //   background-color: #121416;
+  // }
 }
