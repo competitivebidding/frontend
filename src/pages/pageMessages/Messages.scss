@@ -157,31 +157,21 @@ $font-color: #333;
 }
 
 .modalGroup {
-  width: 35%;
-  height: 50%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 70px;
-  position: fixed;
-  top: calc(70% - 305px);
-  left: calc(70% - 25%);
-  z-index: 1500;
-  background: rgb(34, 34, 53);
-  border-radius: 5px;
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
-  transition: all .3s ease-in-out;
+  gap: 24px;
+
 
   &__title {
     color: #fff;
+    font-size: 24px;
   }
 
   &__name {
-    width: 80%;
+    width: 100%;
     height: 40px;
     padding: 5px;
     margin-bottom: 15px;
@@ -199,7 +189,7 @@ $font-color: #333;
 
 
   &__button {
-    width: 35%;
+    width: 100%;
     height: 45px;
     background-color: #2F53FF;
     color: white;

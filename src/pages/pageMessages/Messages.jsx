@@ -3,12 +3,21 @@ import './Messages.scss';
 
 import iconSend from '../../assets/Chat/iconSend.svg';
 import iconGroup from '../../assets/Chat/iconGroup.svg';
+import {AppModal} from "../../components/appModal/AppModal";
 
 const Messages = () => {
   const [modalGroup, setModal] = useState(false)
+  const [groupName, setGroupName] = useState('');
+  const [groups, setGroups] = useState([])
 
   const toggleGroup = () => {
     setModal(!modalGroup)
+  }
+
+  const addGroup = () => {
+    setGroups(g => ([...g, groupName]))
+    toggleGroup()
+    setGroupName('')
   }
 
   return (
@@ -20,9 +29,9 @@ const Messages = () => {
         <div className="chat__sidebar sidebar">
           <h2>Group</h2>
           <ul className="sidebar__group">
-            <li className="sidebar__list">Group 1</li>
-            <li className="sidebar__list">Group 2</li>
-            <li className="sidebar__list">Group 3</li>
+            {groups.map(group => (
+              <li className="sidebar__list">{group}</li>
+              )) }
           </ul>
         </div>
 
@@ -38,10 +47,6 @@ const Messages = () => {
                 <div className="chat__time">19:21</div>
               </div>
             </div>
-
-
-
-
             <div className="message__answer answer">
               <div className="answer__sender">User2:</div>
               <div className="answer__content">
@@ -58,14 +63,17 @@ const Messages = () => {
       </div>
 
 
-      <div className={modalGroup ? 'overlayGroup' : 'overlayGroup' + ' ' + 'overlayGroup__hidden'} onClick={toggleGroup}></div>
-
-      <div className={modalGroup ? 'modalGroup' : 'modalGroup' + ' ' + 'modalGroup__hidden'} onClick={e => e.stopPropagation()} >
-        <div className='modalGroup__title'>Enter your group name</div>
-      <input type="text" className='modalGroup__name'/>
-        <button className='modalGroup__button' onClick={toggleGroup}>Create Group</button>
-      </div>
+      {modalGroup &&
+          <AppModal  isOpen={modalGroup} onClose={toggleGroup}>
+        <div className='modalGroup'>
+          <div className='modalGroup__title'>Enter your group name</div>
+          <input type="text" className='modalGroup__name' value={groupName} onChange={(e) => setGroupName(e.target.value)} />
+          <button className='modalGroup__button' onClick={addGroup}>Create Group</button>
+        </div>
+      </AppModal>
+      }
     </>
+
   );
 };
 
