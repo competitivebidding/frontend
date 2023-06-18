@@ -2,37 +2,45 @@ import React, { useState } from 'react';
 import './Messages.scss';
 
 import iconSend from '../../assets/Chat/iconSend.svg';
-import iconGroup from '../../assets/Chat/iconGroup.svg';
-import {AppModal} from "../../components/appModal/AppModal";
+import iconPlus from '../../assets/Chat/iconPlus.svg';
+import { AppModal } from '../../components/appModal/AppModal';
 
 const Messages = () => {
-  const [modalGroup, setModal] = useState(false)
+  const [modalGroup, setModal] = useState(false);
   const [groupName, setGroupName] = useState('');
-  const [groups, setGroups] = useState([])
+  const [groups, setGroups] = useState([]);
+  const [rotationAngle, setRotationAngle] = useState(0);
 
   const toggleGroup = () => {
-    setModal(!modalGroup)
-  }
+    setModal(!modalGroup);
+    setRotationAngle(angle => angle + 180);
+  };
 
   const addGroup = () => {
-    setGroups(g => ([...g, groupName]))
-    toggleGroup()
-    setGroupName('')
-  }
+    setGroups(g => [...g, groupName]);
+    toggleGroup();
+    setGroupName('');
+  };
 
   return (
     <>
-      <div className="chat" >
-        <div className="chat__menu">
-          <img src={iconGroup} alt="iconGroup" onClick={toggleGroup} />
-        </div>
+      <div className="chat">
         <div className="chat__sidebar sidebar">
           <h2>Group</h2>
           <ul className="sidebar__group">
             {groups.map(group => (
               <li className="sidebar__list">{group}</li>
-              )) }
+            ))}
           </ul>
+          <div className="sidebar__menu">
+            <img
+              src={iconPlus}
+              alt="iconGroup"
+              onClick={toggleGroup}
+              style={{ transform: `rotate(${rotationAngle}deg)` }}
+              className={modalGroup ? 'group__rotate' : ''}
+            />
+          </div>
         </div>
 
         <div className="chat__container">
@@ -62,18 +70,23 @@ const Messages = () => {
         </div>
       </div>
 
-
-      {modalGroup &&
-          <AppModal  isOpen={modalGroup} onClose={toggleGroup}>
-        <div className='modalGroup'>
-          <div className='modalGroup__title'>Enter your group name</div>
-          <input type="text" className='modalGroup__name' value={groupName} onChange={(e) => setGroupName(e.target.value)} />
-          <button className='modalGroup__button' onClick={addGroup}>Create Group</button>
-        </div>
-      </AppModal>
-      }
+      {modalGroup && (
+        <AppModal isOpen={modalGroup} onClose={toggleGroup}>
+          <div className="modalGroup">
+            <div className="modalGroup__title">Enter your group name</div>
+            <input
+              type="text"
+              className="modalGroup__name"
+              value={groupName}
+              onChange={e => setGroupName(e.target.value)}
+            />
+            <button className="modalGroup__button" onClick={addGroup}>
+              Create Group
+            </button>
+          </div>
+        </AppModal>
+      )}
     </>
-
   );
 };
 
