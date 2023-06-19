@@ -7,6 +7,7 @@ import useNoAuth from '../../hooks/UsenoAuth.jsx';
 const PartnerPage = ({title}) => {
 
     useNoAuth();
+
     return (
         <div>
             <AppHeader title={title}/>

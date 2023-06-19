@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './AuctionCard.scss'
 import AuctionCardTimer from './AuctionCardTimer'
+import img from '../img/watch.png'
 
-const AuctionCard = ({ img, id, alt, title, date, bids, places, changeStatus, startedAt, }) => {
+const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, startedAt, }) => {
 
   const [clazz, setClass] = useState('card');
   const [place, setPlace] = useState(places);
@@ -29,8 +30,6 @@ const AuctionCard = ({ img, id, alt, title, date, bids, places, changeStatus, st
 
   const formattedDate = new Date(startedAt).toLocaleString();
 
-
-
   const StartDate = () => {
     if (!timer) {
       return (
@@ -53,7 +52,9 @@ const AuctionCard = ({ img, id, alt, title, date, bids, places, changeStatus, st
             <span>Deposite</span>
           </div>
         </div>
-        <img src={img} alt={alt} />
+        <div className='img__wrapper'>
+          <img src={img} alt={alt} />
+        </div>
         <div className="click__price">
           <div className="price__title">20 ROTO</div>
           <span>Click price</span>
@@ -61,7 +62,7 @@ const AuctionCard = ({ img, id, alt, title, date, bids, places, changeStatus, st
       </div>
       <div className="cardContent">
         <div className="cardHeader">
-          <span className="card__name">{name}</span>
+          <span className="card__name">{title}</span>
           <span className="card__price">{'$' + 1}</span>
         </div>
         <div className="card__places">

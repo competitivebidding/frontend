@@ -1,18 +1,16 @@
-import React, { useContext, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import React, {useState} from 'react'
+import {useForm} from 'react-hook-form'
 import validator from 'validator'
-import './SignUpRight.scss'
-import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import { useMutation } from '@apollo/client'
+import {Link} from 'react-router-dom'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons'
+import {useMutation} from '@apollo/client'
 import Cookies from 'js-cookie';
 
-
-import { AuthContext } from '../../context/AuthContext'
-
 import SIGNUP_MUTATION from '../../Components/server/signup.js'
-import { useLocalStorage } from '../../hooks/useLocalStorage'
+import {useLocalStorage} from '../../hooks/useLocalStorage'
+
+import './SignUpRight.scss'
 
 const SignUpRight = () => {
   const {
@@ -50,6 +48,8 @@ const SignUpRight = () => {
       console.log()
     },
   })
+
+  console.log(errors)
   
 
   const onSubmit = (data) => {
@@ -60,6 +60,7 @@ const SignUpRight = () => {
           username: data.username,
           email: data.email,
           password: data.password,
+          referrerUserId: Number(data.referrerUserId)
         },
       },
     })
@@ -124,7 +125,14 @@ const SignUpRight = () => {
               id="password"
               name="password"
               {...register('password', {
-                required: true,
+                required: {
+                  value: true,
+                  message: 'Please enter a password'
+                },
+                minLength: {
+                  value: 6,
+                  message: 'The password must be at least 6 characters long'
+                }
               })}
             />
             <FontAwesomeIcon
@@ -133,7 +141,7 @@ const SignUpRight = () => {
               className="password__icon"
             />
           </div>
-          {errors.password?.type === 'required' && <div className="error__message">Please enter your password</div>}
+          {errors.password && <div className="error__message">{errors.password.message}</div>}
         </div>
         <div className={`form__group ${errors.repeatPassword ? 'has-error' : ''}`}>
           <label htmlFor="repeat__password">Repeat password</label>
@@ -160,9 +168,27 @@ const SignUpRight = () => {
           )}
         </div>
 
+        <div className={`form__group ${errors.referrerUserId ? 'has-error' : ''}`}>
+          <label htmlFor="repeat__password">Referrer Id</label>
+          <div className="password__input">
+            <input
+                type="number"
+                id="referrerUserId"
+                name="referrerUserId"
+                {...register('referrerUserId', {
+                  required: false,
+                })}
+            />
+
+          </div>
+          {errors.referrerUserId?.type === 'valueAsNumber' && (
+            <div className="error__message">user id may be only as number</div>
+          )}
+        </div>
+
         <label className="checkbox__container">
           <input type="checkbox" name="text" {...register('isChecked', { required: true })} />
-          <span className="checkmark"></span>I have read and agree with{' '}
+          <span className="checkmark"></span>I have read and agree with
           <span className="text__blue">the terms and conditions of the Competitive Bidding</span>
         </label>
         {errors.isChecked && <div className="error__message">You need to accept our terms and conditions </div>}

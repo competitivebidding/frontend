@@ -10,7 +10,7 @@ const AuctionList = ({ data }) => {
     console.log(data)
     const auctionCards = data.map((card) => {
         const { id, ...cardProps } = card;
-        return <AuctionCard key={id} {...cardProps} />
+        return <AuctionCard key={id} {...cardProps} id={id} />
     })
 
     return (

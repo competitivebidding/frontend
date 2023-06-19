@@ -44,7 +44,7 @@ const App = () => {
                 <Route path="/partnerProgram" element={<PartnerPage title={'Partner Program'} />} />
                 <Route path="/tokens" element={<TokensPage title={'Tokens'} />} />
                 <Route path="/winnerList" element={<WinnersListPage title={'WinnerList'} />} />
-                <Route path="/Lot" element={<LotPage title={'Lot №1'} />} />
+                <Route path="/Lot/:id" element={<LotPage title={'Lot №1'} />} />
                 <Route path="/cabinet" element={<CabinetPage title={t('cabinet')} />} />
               </Route>
 

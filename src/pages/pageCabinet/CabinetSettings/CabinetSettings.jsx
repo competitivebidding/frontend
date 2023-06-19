@@ -10,7 +10,7 @@ export const CabinetSettings = () => {
     const [userInfo, setUserInfo] = React.useState(null)
     const [address, setAddress] = React.useState('')
 
-    const {data: profile} = useQuery(GET_PROFILE_QUERY)
+    const {data: profile, refetch} = useQuery(GET_PROFILE_QUERY)
     const {data: userAddress} = useQuery(GET_USER_ADDRESS)
 
     const [updateProfile] = useMutation(UPDATE_PROFILE)
@@ -34,7 +34,7 @@ export const CabinetSettings = () => {
                     address
                 }
             }
-        })]).then(r => console.log(r))
+        })]).then(refetch)
     }
 
     const handleChangeUserInfo = (field) => {
