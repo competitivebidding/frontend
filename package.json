@@ -20,7 +20,8 @@
     "chartjs-plugin-datalabels": "^2.2.0",
     "concurrently": "^8.0.1",
     "cookie-parser": "^1.4.6",
-    "graphql": "^14.7.0",
+    "graphql": "^16.6.0",
+    "graphql-ws": "^5.13.1",
     "i18next": "^22.5.1",
     "i18next-browser-languagedetector": "^7.0.2",
     "i18next-http-backend": "^2.2.1",
@@ -37,6 +38,7 @@
     "react-icons": "^4.8.0",
     "react-input-mask": "^2.0.4",
     "react-router-dom": "^6.9.0",
+    "subscriptions-transport-ws": "^0.11.0",
     "swiper": "^9.3.1",
     "validator": "^13.9.0",
     "vite-plugin-svgr": "^3.2.0"

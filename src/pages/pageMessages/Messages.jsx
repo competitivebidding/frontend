@@ -1,17 +1,39 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './Messages.scss';
 
 import iconSend from '../../assets/Chat/iconSend.svg';
 import iconPlus from '../../assets/Chat/iconPlus.svg';
 import { AppModal } from '../../components/appModal/AppModal';
+import {useMutation, useQuery, useSubscription} from "@apollo/client";
+import {CREATE_MY_ROOM, GET_ALL_MESSAGES_BY_ROOM, GET_ALL_MY_ROOMS} from "../../components/server/messages";
+import {useLocalStorage} from "../../hooks/useLocalStorage";
+import {NEW_MESSAGE} from "../../components/server/subscriptions";
 
 const Messages = () => {
+  const {lsValue} = useLocalStorage('user')
+
   const [modalNewGroup, setModalNewGroup] = useState(false);
   const [modalGroup, setModalGroup] = useState(false);
 
   const [groupName, setGroupName] = useState('');
-  const [Newgroups, setNewGroups] = useState([]);
+  const [newGroups, setNewGroups] = useState([]);
   const [rotationAngle, setRotationAngle] = useState(0);
+
+  const [activeChat, setActiveChat] = useState(0)
+
+  const {data: rooms, loading, refetch} = useQuery(GET_ALL_MY_ROOMS)
+  const {data: messages} = useQuery(GET_ALL_MESSAGES_BY_ROOM, {variables: {
+    input : {roomId: activeChat.id , userId: lsValue.id}
+    }})
+
+  const { data, loading: l, error } = useSubscription(
+      NEW_MESSAGE,
+      { variables: { room: 1 } }
+  );
+
+  console.log({'data': data, 'loading': l, 'error': error})
+
+  const [createRoom, {}] = useMutation(CREATE_MY_ROOM)
 
   const toggleNewGroup = () => {
     setModalNewGroup(!modalNewGroup);
@@ -23,10 +45,26 @@ const Messages = () => {
   };
 
   const addNewGroup = () => {
-    setNewGroups(g => [...g, groupName]);
+    createRoom({
+      variables: {
+        input: {
+          title: groupName
+        }
+       }
+    }).then(refetch)
     toggleNewGroup();
     setGroupName('');
   };
+
+  const changeGroup = ({title, id}) => {
+    setActiveChat({title, id})
+  }
+
+  useEffect(() => {
+   if (!loading) {
+     setNewGroups(rooms.getAllMyRooms)
+   }
+  }, [rooms])
 
   return (
     <>
@@ -34,8 +72,8 @@ const Messages = () => {
         <div className="chat__sidebar sidebar">
           <h2>Group</h2>
           <ul className="sidebar__group">
-            {Newgroups.map(group => (
-              <li className="sidebar__list">{group}</li>
+            {newGroups.map(group => (
+              <li key={group.id} className="sidebar__list" onClick={() => changeGroup({title: group.title, id: group.id})}>{group.title} </li>
             ))}
           </ul>
           <div className="sidebar__menu">
@@ -51,7 +89,7 @@ const Messages = () => {
 
         <div className="chat__container">
           <div className="chat__header" onClick={toggleGroup}>
-            <h2>Group 1</h2>
+            <h2>{activeChat.title}</h2>
             <div className='chat__subscribers'>222 subscribers</div>
           </div>
 
