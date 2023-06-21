@@ -38,3 +38,40 @@ export const GET_ALL_MESSAGES_BY_ROOM = gql`
       }
     }
 `
+
+export const SEND_MESSAGE = gql`
+    mutation Mutation($newMessage: NewMessageInput!) {
+      sendMessage(newMessage: $newMessage) {
+        id
+        userId
+        roomId
+        content
+        createdAt
+        updatedAt
+      }
+    }
+`
+
+export const JOIN_ROOM = gql`
+    mutation JoinToRoom($roomId: Float!) {
+  joinToRoom(roomId: $roomId) {
+    username
+    firstname
+    lastname
+    avatarUrl
+  }
+}
+`
+
+export const GET_ALL_ROOMS = gql`
+query GetAllRooms {
+  getAllRooms {
+    id
+    ownerId
+    title
+    description
+    createdAt
+    updatedAt
+  }
+}
+`

@@ -1,8 +1,7 @@
-import { ApolloClient, InMemoryCache, createHttpLink, split } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
-import { getMainDefinition } from '@apollo/client/utilities';
-import { createClient } from 'graphql-ws';
+import {ApolloClient, createHttpLink, InMemoryCache, split} from '@apollo/client';
+import {setContext} from '@apollo/client/link/context';
+import {WebSocketLink} from '@apollo/client/link/ws';
+import {getMainDefinition} from '@apollo/client/utilities';
 import Cookies from 'js-cookie';
 
 const token = Cookies.get('accesstoken');
@@ -11,20 +10,20 @@ const httpLink = createHttpLink({
   uri: 'http://ec2-52-59-235-173.eu-central-1.compute.amazonaws.com:3000/graphql',
 });
 
-const wsLink = new GraphQLWsLink(createClient({
-  url: 'ws://ec2-52-59-235-173.eu-central-1.compute.amazonaws.com:3000/graphql',
+const wsLink = new WebSocketLink({
+  uri: 'ws://ec2-52-59-235-173.eu-central-1.compute.amazonaws.com:3000/graphql',
   options: {
     reconnect: true,
-  },
-  connectionParams: {
-    headers: {
-      authorization: token ? `Bearer ${token}` : '',
+    connectionParams: {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     },
-  }
-}));
+  },
+});
 
 const authLink = setContext((_, { headers }) => {
-
+  const token = Cookies.get('accesstoken');
   return {
     headers: {
       ...headers,

@@ -5,7 +5,13 @@ import iconSend from '../../assets/Chat/iconSend.svg';
 import iconPlus from '../../assets/Chat/iconPlus.svg';
 import { AppModal } from '../../components/appModal/AppModal';
 import {useMutation, useQuery, useSubscription} from "@apollo/client";
-import {CREATE_MY_ROOM, GET_ALL_MESSAGES_BY_ROOM, GET_ALL_MY_ROOMS} from "../../components/server/messages";
+import {
+  CREATE_MY_ROOM,
+  GET_ALL_MESSAGES_BY_ROOM,
+  GET_ALL_MY_ROOMS,
+  GET_ALL_ROOMS,
+  JOIN_ROOM
+} from "../../components/server/messages";
 import {useLocalStorage} from "../../hooks/useLocalStorage";
 import {NEW_MESSAGE} from "../../components/server/subscriptions";
 
@@ -22,16 +28,16 @@ const Messages = () => {
   const [activeChat, setActiveChat] = useState(0)
 
   const {data: rooms, loading, refetch} = useQuery(GET_ALL_MY_ROOMS)
-  const {data: messages} = useQuery(GET_ALL_MESSAGES_BY_ROOM, {variables: {
+  const {data: messages, loading: isMessagesLoading} = useQuery(GET_ALL_MESSAGES_BY_ROOM, {variables: {
     input : {roomId: activeChat.id , userId: lsValue.id}
     }})
 
   const { data, loading: l, error } = useSubscription(
       NEW_MESSAGE,
-      { variables: { room: 1 } }
+      { variables: { room: 2 } }
   );
 
-  console.log({'data': data, 'loading': l, 'error': error})
+  // console.log({'data': data, 'loading': l, 'error': error})
 
   const [createRoom, {}] = useMutation(CREATE_MY_ROOM)
 
@@ -56,16 +62,30 @@ const Messages = () => {
     setGroupName('');
   };
 
+  const {data: allRooms, loading: ll} = useQuery(GET_ALL_ROOMS)
+
+
+  const [joinRoom, {}] = useMutation(JOIN_ROOM)
+
   const changeGroup = ({title, id}) => {
     setActiveChat({title, id})
   }
 
   useEffect(() => {
-   if (!loading) {
-     setNewGroups(rooms.getAllMyRooms)
+   if (!ll) {
+     setNewGroups(allRooms.getAllRooms)
    }
   }, [rooms])
 
+  const [groupMessages, setGroupMessages] = useState(null)
+
+  useEffect(() => {
+    if (!isMessagesLoading) {
+      setGroupMessages(messages.getAllMessagesByRoomId)
+    }
+  }, [messages]);
+
+  console.log(groupMessages)
   return (
     <>
       <div className="chat">
@@ -94,20 +114,17 @@ const Messages = () => {
           </div>
 
           <div className="chat__messages message">
-            <div className="message__your your">
-              <div className="your__content">
-                Hello!
-                <div className="chat__time">19:21</div>
-              </div>
-            </div>
-            <div className="message__answer answer">
-              <div className="answer__sender">User2:</div>
-              <div className="answer__content">
-                Hello, how are you?
-                <div className="chat__time">19:21</div>
-              </div>
-            </div>
+            {groupMessages && groupMessages.map(message => (
+                <div key={message.id} className="message__your your">
+                  <div className="your__content">
+                    {message.content}
+                    <div className="chat__time">19:21</div>
+                  </div>
+                </div>
+            ))}
+
           </div>
+
           <div className="chat__footer">
             <input type="text" placeholder="Enter your message" />
             <img src={iconSend} alt="iconSend" className="footer__send" />
