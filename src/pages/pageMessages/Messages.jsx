@@ -27,7 +27,7 @@ const Messages = () => {
 
   const [activeChat, setActiveChat] = useState(0)
 
-  const {data: rooms, loading, refetch} = useQuery(GET_ALL_MY_ROOMS)
+  // const {data: rooms, loading: roomsLoading, refetch} = useQuery(GET_ALL_MY_ROOMS)
   const {data: messages, loading: isMessagesLoading} = useQuery(GET_ALL_MESSAGES_BY_ROOM, {variables: {
     input : {roomId: activeChat.id , userId: lsValue.id}
     }})
@@ -50,20 +50,21 @@ const Messages = () => {
     setModalGroup(!modalGroup);
   };
 
+
+
+  const {data: allRooms, loading: allRoomsLoading, refetch} = useQuery(GET_ALL_ROOMS)
+
   const addNewGroup = () => {
     createRoom({
       variables: {
         input: {
           title: groupName
         }
-       }
+      }
     }).then(refetch)
     toggleNewGroup();
     setGroupName('');
   };
-
-  const {data: allRooms, loading: ll} = useQuery(GET_ALL_ROOMS)
-
 
   const [joinRoom, {}] = useMutation(JOIN_ROOM)
 
@@ -72,10 +73,10 @@ const Messages = () => {
   }
 
   useEffect(() => {
-   if (!ll) {
+   if (!allRoomsLoading) {
      setNewGroups(allRooms.getAllRooms)
    }
-  }, [rooms])
+  }, [allRooms])
 
   const [groupMessages, setGroupMessages] = useState(null)
 
@@ -85,26 +86,32 @@ const Messages = () => {
     }
   }, [messages]);
 
-  console.log(groupMessages)
+  console.log(newGroups)
+
   return (
     <>
       <div className="chat">
         <div className="chat__sidebar sidebar">
-          <h2>Group</h2>
-          <ul className="sidebar__group">
-            {newGroups.map(group => (
-              <li key={group.id} className="sidebar__list" onClick={() => changeGroup({title: group.title, id: group.id})}>{group.title} </li>
-            ))}
-          </ul>
-          <div className="sidebar__menu">
-            <img
-              src={iconPlus}
-              alt="iconGroup"
-              onClick={toggleNewGroup}
-              style={{ transform: `rotate(${rotationAngle}deg)` }}
-              className={modalNewGroup ? 'group__rotate' : ''}
-            />
+          <div className='chat__sidebar-header'>
+            <h2>Group</h2>
+            <div className="sidebar__menu">
+              <img
+                  src={iconPlus}
+                  alt="iconGroup"
+                  onClick={toggleNewGroup}
+                  style={{ transform: `rotate(${rotationAngle}deg)` }}
+                  className={modalNewGroup ? 'group__rotate' : ''}
+              />
+            </div>
           </div>
+          <div className="sidebar__group">
+            <ul >
+              {newGroups.map(group => (
+                  <li key={group.id} className="sidebar__list" onClick={() => changeGroup({title: group.title, id: group.id})}>{group.title} </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
 
         <div className="chat__container">

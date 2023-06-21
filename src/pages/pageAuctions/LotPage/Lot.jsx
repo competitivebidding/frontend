@@ -1,10 +1,11 @@
 import React, { useEffect , useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useQuery } from "@apollo/client";
+import {useMutation, useQuery} from "@apollo/client";
 import { GET_LOT } from "../../../components/server/lot";
 
 import './lot.scss';
 import watch from '../img/watch.png'
+import {CREATE_MY_BID, GET_BIDS_BY_AUCTION_ID} from "../../../components/server/auctions";
 
 const Lot = () => {
 
@@ -13,15 +14,27 @@ const Lot = () => {
 
     const { id } = useParams();
 
+    const onToggleShowMore = () => {
+        setIsShowMore((t) => !t)
+    }
+
     const { data : datas, loading } = useQuery(GET_LOT, {
         variables: {
             auctionId: Number(id)
         }
     })
 
-    const onToggleShowMore = () => {
-        setIsShowMore((t) => !t)
+    const [createBid, {data: bidData}] = useMutation(CREATE_MY_BID)
+
+    const toDate = (date) => {
+        return new Date(date).toLocaleString()
     }
+
+   const handleCreateBid = () => {
+        createBid({variables: {
+            input : {auctionId: Number(id), bitPrice: 20}
+            }}).then(e => console.log(e))
+   }
 
     const [data, setData] = useState({
         img: '/src/pages/pageAuctions/img/quare.png',
@@ -41,6 +54,10 @@ const Lot = () => {
         }
     }, [datas]);
 
+    console.log(lotData)
+
+    const {data: auctionBids} = useQuery(GET_BIDS_BY_AUCTION_ID, {variables: {auctionId: Number(id)}})
+    console.log(auctionBids)
     return (
         <>
         {lotData && (
@@ -89,7 +106,7 @@ const Lot = () => {
                             <span>Read more</span>
                         </a>
                         <div className="lot__footer">
-                            <button className="lot__footer-btn" >
+                            <button className="lot__footer-btn" onClick={handleCreateBid}>
                                 <span>outbid</span> <span> 20 ROTO</span>
                             </button>
                         </div>
@@ -98,38 +115,14 @@ const Lot = () => {
                 <div className='clicks__history'>
                     <span>Click history:</span>
                     <div className='clicks__history__users'>
-                        <div className='clicks__history__users__item'>
-                            <span>@mur.mur</span>
-                            <span className='time'>12:43</span>
-                        </div>
-                        <div className='clicks__history__users__item'>
-                            <span>@mur.mur</span>
-                            <span className='time'>12:43</span>
-                        </div>
-                        <div className='clicks__history__users__item'>
-                            <span>@mur.mur</span>
-                            <span className='time'>12:43</span>
-                        </div>
-                        <div className='clicks__history__users__item'>
-                            <span>@mur.mur</span>
-                            <span className='time'>12:43</span>
-                        </div>
-                        <div className='clicks__history__users__item'>
-                            <span>@mur.mur</span>
-                            <span className='time'>12:43</span>
-                        </div>
-                        <div className='clicks__history__users__item'>
-                            <span>@mur.mur</span>
-                            <span className='time'>12:43</span>
-                        </div>
-                        <div className='clicks__history__users__item'>
-                            <span>@mur.mur</span>
-                            <span className='time'>12:43</span>
-                        </div>
-                        <div className='clicks__history__users__item'>
-                            <span>@mur.mur</span>
-                            <span className='time'>12:43</span>
-                        </div>
+                        {auctionBids && auctionBids.getBidsByAuctionId.map(bid => (
+                            <div key={bid.id} className='clicks__history__users__item'>
+                                <span>{bid.user.username}</span>
+                                <span className='time'>{toDate(bid.createdAt)}</span>
+                            </div>
+                        ))}
+
+
                     </div>
                 </div>
             </div>

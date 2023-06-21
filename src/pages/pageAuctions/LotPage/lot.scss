@@ -290,6 +290,8 @@ $fz8: 0.5rem;
     &__users {
         margin-top: 42px;
         position: relative;
+        overflow: auto;
+        padding-right: 10px;
 
         &::before {
             content: '';
@@ -320,6 +322,23 @@ $fz8: 0.5rem;
                 text-align: right;
                 color: rgba(255, 255, 255, 0.4);
             }
+        }
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 100px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 100px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
     }
 }
