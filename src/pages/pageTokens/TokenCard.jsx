@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { AppModal } from '../../components/appModal/AppModal';
 import TokensPage from './TokensPage';
+import ReactPlayer from "react-player";
+
+import video from '../../assets/videoAd/shorts.mp4'
 
 const TokenCard = ({ tokens, prize, buttonName, id }) => {
   const [modal, setModal] = useState(false);
@@ -39,6 +42,29 @@ const TokenCard = ({ tokens, prize, buttonName, id }) => {
   };
 
 
+  // const [nextModalActive, setNextModalActive] = useState(false)
+  //
+  // const setActiveNextModal = () => {
+  //   setModal(false)
+  //   setNextModalActive(true)
+  //
+  // }
+  const [nextModalActive, setNextModalActive] = useState(false);
+  const videoRef = useRef(null);
+
+  const handleVideoEnded = () => {
+    setModal(false)
+    setNextModalActive(true);
+  };
+
+
+
+
+
+  console.log(videoRef.current)
+
+
+
   return (
     <>
       <div className='token'>
@@ -75,41 +101,44 @@ const TokenCard = ({ tokens, prize, buttonName, id }) => {
         <>
           {modal && (
 
-            <AppModal isOpen={modal} onClose={toggleButton}>
-              <div className='modalAd'>
-                <h3 className='modalAd__header'>Advertising</h3>
-                {showTimer ? (
-                  <>
-                    <h4 className='modalAd__video'>
-                      <iframe
-                        width='560'
-                        height='315'
-                        src='https://www.youtube.com/embed/XFrvFe7hKRU'
-                        title='YouTube video player'
-                        frameBorder='0'
-                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                        allowFullScreen
-                      ></iframe>
-                    </h4>
-                    <p className='modalAd__text'>
-                      Advertising can be viewed once a day. The next viewing will be available in{' '}
-                      {formatTime(remainingTime)}
-                    </p>
-                    <button className='modalAd__button' onClick={toggleButton}>
-                      Pick up ROTO
-                    </button>
-                  </>
-                ) : (
+              <AppModal isOpen={modal} onClose={toggleButton}>
+                <div className='modalAd'>
+                  <h3 className='modalAd__header'>Advertising</h3>
+                  {showTimer ? (
+                      <>
+                        <h4 className='modalAd__video'>
+                          <video
+                              ref={videoRef}
+                              width='560'
+                              height='315'
+                              autoPlay
+                              muted
+                              controls={false}
+                              playsInline
+                              onEnded={handleVideoEnded}
+                          >
+                            <source src={video} type='video/mp4' />
+                          </video>
+                        </h4>
+                      </>
+                  ) : (
                   <>
                     <h4 className='modalAd__video'>Video content will be available now</h4>
                     <button className='modalAd__button' onClick={toggleButton}>
                       Pick up ROTO
                     </button>
                   </>
-                )}
-              </div>
-            </AppModal>
+                  )}
+                </div>
+              </AppModal>
 
+          )}
+          {nextModalActive && (
+              <AppModal isOpen={nextModalActive} onClose={() => setNextModalActive(false)}>
+                <p className='modalAd__text'>
+                  Advertising can be viewed once a day. The next viewing will be available in {formatTime(remainingTime)}
+                </p>
+              </AppModal>
           )}
         </>
       ) : null}
