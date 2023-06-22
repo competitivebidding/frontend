@@ -6,32 +6,43 @@ import TokenCard from './TokenCard.jsx'
 
 
 const TokensPage = ({ title }) => {
-   const data=[{
-    tokens:'1 000 ROTO',
-    prize:'12 $',
-    id:1},
-      {
-      tokens:'2 500 ROTO',
-      prize:'25 $',
-      id:2
-      },
-      {
-        tokens:'7 500 ROTO',
-        prize:'70 $',
-        id:3
-        },{
-          tokens:'15 000 ROTO',
-          prize:'125 $',
-          id:4
-          }]
+  const data = [{
+    tokens: '1 000 ROTO',
+    prize: '12 $',
+    buttonName: 'Buy',
+    id: 1
+  },
+  {
+    tokens: '2 500 ROTO',
+    prize: '25 $',
+    buttonName: 'Buy',
+    id: 2
+  },
+  {
+    tokens: '7 500 ROTO',
+    prize: '70 $',
+    buttonName: 'Buy',
+    id: 3
+  }, {
+    tokens: '15 000 ROTO',
+    prize: '125 $',
+    buttonName: 'Buy',
+    id: 4
+  },
+  {
+    tokens: '100 ROTO',
+    prize: 'Free ROTO',
+    buttonName: 'watch advertising',
+    id: 5
+  }]
 
   return (
     <>
       <AppHeader title={title} />
       <div className='tokens'>
-        {data.map((obj,index)=>(<TokenCard tokens={obj.tokens} prize={obj.prize} key={index} />))  }
+        {data.map((obj, index) => (<TokenCard tokens={obj.tokens} prize={obj.prize} buttonName={obj.buttonName} id={obj.id} key={index} />))}
       </div>
-     
+
     </>
   )
 }
