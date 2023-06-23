@@ -75,3 +75,14 @@ query GetAllRooms {
   }
 }
 `
+
+export const GET_ALL_USERS_BY_ROOM_ID = gql`
+    query GetAllUsersByRoomId($roomId: Float!) {
+      getAllUsersByRoomId(roomId: $roomId) {
+        username
+        firstname
+        lastname
+        avatarUrl
+      }
+    }
+`

@@ -9,11 +9,12 @@ import {
   CREATE_MY_ROOM,
   GET_ALL_MESSAGES_BY_ROOM,
   GET_ALL_MY_ROOMS,
-  GET_ALL_ROOMS,
-  JOIN_ROOM
+  GET_ALL_ROOMS, GET_ALL_USERS_BY_ROOM_ID,
+  JOIN_ROOM, SEND_MESSAGE
 } from "../../components/server/messages";
 import {useLocalStorage} from "../../hooks/useLocalStorage";
 import {NEW_MESSAGE} from "../../components/server/subscriptions";
+import {MessageInput} from "./MessageInput/MessageInput";
 
 const Messages = () => {
   const {lsValue} = useLocalStorage('user')
@@ -34,7 +35,7 @@ const Messages = () => {
 
   const { data, loading: l, error } = useSubscription(
       NEW_MESSAGE,
-      { variables: { roomId: 2 } }
+      { variables: { roomId: 1 }}
   );
 
   console.log({'data': data, 'loading': l, 'error': error})
@@ -45,12 +46,11 @@ const Messages = () => {
     setModalNewGroup(!modalNewGroup);
     setRotationAngle(angle => angle + 180);
   };
+  const [joinRoom, {}] = useMutation(JOIN_ROOM)
 
   const toggleGroup = () => {
     setModalGroup(!modalGroup);
   };
-
-
 
   const {data: allRooms, loading: allRoomsLoading, refetch} = useQuery(GET_ALL_ROOMS)
 
@@ -66,10 +66,10 @@ const Messages = () => {
     setGroupName('');
   };
 
-  const [joinRoom, {}] = useMutation(JOIN_ROOM)
 
   const changeGroup = ({title, id}) => {
     setActiveChat({title, id})
+    joinRoom({variables: {roomId: Number(id)}}).then(e => console.log(e))
   }
 
   useEffect(() => {
@@ -87,6 +87,18 @@ const Messages = () => {
   }, [messages]);
 
   console.log(newGroups)
+
+
+
+  const {data: users, loading: isUsersLoading} = useQuery(GET_ALL_USERS_BY_ROOM_ID, {variables: {roomId: 1}})
+
+
+  useEffect(() => {
+    if (!isUsersLoading) {
+      console.log(users)
+    }
+  }, [])
+
 
   return (
     <>
@@ -132,10 +144,7 @@ const Messages = () => {
 
           </div>
 
-          <div className="chat__footer">
-            <input type="text" placeholder="Enter your message" />
-            <img src={iconSend} alt="iconSend" className="footer__send" />
-          </div>
+          <MessageInput />
         </div>
       </div>
 
