@@ -1,23 +1,25 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './Messages.scss';
 
-import iconSend from '../../assets/Chat/iconSend.svg';
+
 import iconPlus from '../../assets/Chat/iconPlus.svg';
+import iconAvatar from '../../assets//cabinet/icons/avatar.svg';
+
 import { AppModal } from '../../components/appModal/AppModal';
-import {useMutation, useQuery, useSubscription} from "@apollo/client";
+import { useMutation, useQuery, useSubscription } from "@apollo/client";
 import {
   CREATE_MY_ROOM,
   GET_ALL_MESSAGES_BY_ROOM,
   GET_ALL_MY_ROOMS,
   GET_ALL_ROOMS, GET_ALL_USERS_BY_ROOM_ID,
-  JOIN_ROOM, SEND_MESSAGE
+  JOIN_ROOM, SEND_MESSAGE, LEAVE_FROM_CHAT
 } from "../../components/server/messages";
-import {useLocalStorage} from "../../hooks/useLocalStorage";
-import {NEW_MESSAGE} from "../../components/server/subscriptions";
-import {MessageInput} from "./MessageInput/MessageInput";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { NEW_MESSAGE } from "../../components/server/subscriptions";
+import { MessageInput } from "./MessageInput/MessageInput";
 
 const Messages = () => {
-  const {lsValue} = useLocalStorage('user')
+  const { lsValue } = useLocalStorage('user')
 
   const [modalNewGroup, setModalNewGroup] = useState(false);
   const [modalGroup, setModalGroup] = useState(false);
@@ -25,34 +27,37 @@ const Messages = () => {
   const [groupName, setGroupName] = useState('');
   const [newGroups, setNewGroups] = useState([]);
   const [rotationAngle, setRotationAngle] = useState(0);
+  const [leaveFromChat] = useMutation(LEAVE_FROM_CHAT);
 
   const [activeChat, setActiveChat] = useState(0)
 
   // const {data: rooms, loading: roomsLoading, refetch} = useQuery(GET_ALL_MY_ROOMS)
-  const {data: messages, loading: isMessagesLoading} = useQuery(GET_ALL_MESSAGES_BY_ROOM, {variables: {
-    input : {roomId: activeChat.id , userId: 11}
-    }})
+  const { data: messages, loading: isMessagesLoading } = useQuery(GET_ALL_MESSAGES_BY_ROOM, {
+    variables: {
+      input: { roomId: activeChat.id, userId: 11 }
+    }
+  })
 
   const { data, loading: l, error } = useSubscription(
-      NEW_MESSAGE,
-      { variables: { roomId: 1 }}
+    NEW_MESSAGE,
+    { variables: { roomId: 1 } }
   );
 
-  console.log({'data': data, 'loading': l, 'error': error})
+  console.log({ 'data': data, 'loading': l, 'error': error })
 
-  const [createRoom, {}] = useMutation(CREATE_MY_ROOM)
+  const [createRoom, { }] = useMutation(CREATE_MY_ROOM)
 
   const toggleNewGroup = () => {
     setModalNewGroup(!modalNewGroup);
     setRotationAngle(angle => angle + 180);
   };
-  const [joinRoom, {}] = useMutation(JOIN_ROOM)
+  const [joinRoom, { }] = useMutation(JOIN_ROOM)
 
   const toggleGroup = () => {
     setModalGroup(!modalGroup);
   };
 
-  const {data: allRooms, loading: allRoomsLoading, refetch} = useQuery(GET_ALL_ROOMS)
+  const { data: allRooms, loading: allRoomsLoading, refetch } = useQuery(GET_ALL_ROOMS)
 
   const addNewGroup = () => {
     createRoom({
@@ -66,16 +71,23 @@ const Messages = () => {
     setGroupName('');
   };
 
-
-  const changeGroup = ({title, id}) => {
-    setActiveChat({title, id})
-    joinRoom({variables: {roomId: Number(id)}}).then(e => console.log(e))
+  const changeGroup = ({ title, id }) => {
+    setActiveChat({ title, id })
+    joinRoom({ variables: { roomId: Number(id) } }).then(e => console.log(e))
   }
 
+  const handleLeaveChat = () => {
+    leaveFromChat({
+      variables: {
+        roomId: activeChat.id
+      }
+    })
+  };
+
   useEffect(() => {
-   if (!allRoomsLoading) {
-     setNewGroups(allRooms.getAllRooms)
-   }
+    if (!allRoomsLoading) {
+      setNewGroups(allRooms.getAllRooms)
+    }
   }, [allRooms])
 
   const [groupMessages, setGroupMessages] = useState(null)
@@ -88,14 +100,14 @@ const Messages = () => {
 
   console.log(newGroups)
 
-  const {data: users, loading: isUsersLoading} = useQuery(GET_ALL_USERS_BY_ROOM_ID, {variables: {roomId: 1}})
-  const [groupUsers, setGroupUsers ] = useState([])
+  const { data: users, loading: isUsersLoading } = useQuery(GET_ALL_USERS_BY_ROOM_ID, { variables: { roomId: activeChat.id } })
+  const [groupUsers, setGroupUsers] = useState([])
 
   useEffect(() => {
     if (!isUsersLoading) {
       setGroupUsers(users.getAllUsersByRoomId)
     }
-  }, [])
+  }, [users])
 
 
   return (
@@ -106,18 +118,18 @@ const Messages = () => {
             <h2>Group</h2>
             <div className="sidebar__menu">
               <img
-                  src={iconPlus}
-                  alt="iconGroup"
-                  onClick={toggleNewGroup}
-                  style={{ transform: `rotate(${rotationAngle}deg)` }}
-                  className={modalNewGroup ? 'group__rotate' : ''}
+                src={iconPlus}
+                alt="iconGroup"
+                onClick={toggleNewGroup}
+                style={{ transform: `rotate(${rotationAngle}deg)` }}
+                className={modalNewGroup ? 'group__rotate' : ''}
               />
             </div>
           </div>
           <div className="sidebar__group">
             <ul >
               {newGroups.map(group => (
-                  <li key={group.id} className="sidebar__list" onClick={() => changeGroup({title: group.title, id: group.id})}>{group.title} </li>
+                <li key={group.id} className="sidebar__list" onClick={() => changeGroup({ title: group.title, id: group.id })}>{group.title} </li>
               ))}
             </ul>
           </div>
@@ -127,17 +139,17 @@ const Messages = () => {
         <div className="chat__container">
           <div className="chat__header" onClick={toggleGroup}>
             <h2>{activeChat.title}</h2>
-            <div className='chat__subscribers'>222 subscribers</div>
+            <div className='chat__subscribers'> {groupUsers.length} subscribers </div>
           </div>
 
           <div className="chat__messages message">
             {groupMessages && groupMessages.map(message => (
-                <div key={message.id} className="message__your your">
-                  <div className="your__content">
-                    {message.content}
-                    <div className="chat__time">19:21</div>
-                  </div>
+              <div key={message.id} className="message__your your">
+                <div className="your__content">
+                  {message.content}
+                  <div className="chat__time">19:21</div>
                 </div>
+              </div>
             ))}
 
           </div>
@@ -163,32 +175,42 @@ const Messages = () => {
         </AppModal>
       )}
 
-{modalGroup && (
-  <AppModal isOpen={modalGroup} onClose={toggleGroup}>
-    <div className="modalGroup">
-      <div className="modalGroup__header">
-        <div className="modalGroup__avatar">
-          <img src="group_avatar.png" alt="Group Avatar" />
-        </div>
-        <div className="modalGroup__info">
-          <h2>{activeChat.title}</h2>
-          <p>description chat</p>
-        </div>
-      </div>
-      {groupUsers && <div className="modalGroup__members">
-        <h3>{groupUsers.length}</h3>
-        <ul>
-          {groupUsers.map(user => (
-              <li>{user.username}</li>
-          ))}
-        </ul>
-      </div>}
-      <div className="modalGroup__auctions">
-        <button className="leaveButton">Leave chat</button>
-      </div>
-    </div>
-  </AppModal>
-)}
+      {modalGroup && (
+        <AppModal isOpen={modalGroup} title={'Group Info'} onClose={toggleGroup}>
+          <div className="modalGroup">
+            <div className="modalGroup__header">
+              <div className="modalGroup__avatarGroup">
+                <img src={iconAvatar} alt="Group Avatar" />
+              </div>
+              <div className="modalGroup__info info">
+                <div className='info__name'>{activeChat.title}</div>
+                <input
+              type="text"
+              className="modalNewGroup__name"
+              value={groupName}
+              placeholder='Description'
+              onChange={e => setGroupName(e.target.value)}
+            />
+              </div>
+            </div>
+            {groupUsers && <div className="modalGroup__members">
+              <div className='modalGroup__subscribers'> {groupUsers.length} subscribers</div>
+
+                <ul>
+                  {groupUsers.map(user => (
+
+                    <li className='modalGroup__member'>
+                      <img src={iconAvatar} alt="Group Avatar" className="modalGroup__avatar" />
+                      {user.username}</li>
+                  ))}
+                </ul>
+            </div>}
+            <div className="modalGroup__button">
+            <button className="leaveButton" onClick={() => { handleLeaveChat(); toggleGroup(); }}>Leave chat</button>
+            </div>
+          </div>
+        </AppModal>
+      )}
 
     </>
   );
