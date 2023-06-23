@@ -15,7 +15,9 @@ $font-color: #333;
   }
 
   &__subscribers {
-    font-size: 11px;
+    font-size: 12px;
+    margin-top: 8px;
+    cursor: pointer;
   }
 
   &__sidebar {
@@ -96,10 +98,19 @@ $font-color: #333;
     background-color: #182032;
     border-top-right-radius: 5px;
     color: #fff;
-    padding: 10px;
-
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     h2 {
       margin: 0;
+    }
+    &-users {
+      display: flex;
+      flex-direction: column;
+    }
+    &-join {
+      display: block;
     }
   }
 
@@ -175,6 +186,7 @@ $font-color: #333;
     align-items: center;
     padding: 10px;
     border-bottom-right-radius: 5px;
+    margin-top: auto;
 
     input[type="text"] {
       flex: 1;
@@ -263,6 +275,7 @@ $font-color: #333;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    gap: 16px;
  }
 
   &__avatar {
@@ -279,7 +292,7 @@ $font-color: #333;
       }
     }
 
-    &__modalGroup__info {
+    .modalGroup__info {
       h2 {
         font-size: 18px;
         margin-bottom: 5px;
