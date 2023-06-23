@@ -34,10 +34,10 @@ const Messages = () => {
 
   const { data, loading: l, error } = useSubscription(
       NEW_MESSAGE,
-      { variables: { room: 2 } }
+      { variables: { roomId: 2 } }
   );
 
-  // console.log({'data': data, 'loading': l, 'error': error})
+  console.log({'data': data, 'loading': l, 'error': error})
 
   const [createRoom, {}] = useMutation(CREATE_MY_ROOM)
 

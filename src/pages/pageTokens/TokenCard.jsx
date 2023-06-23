@@ -1,13 +1,12 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { AppModal } from '../../components/appModal/AppModal';
-import TokensPage from './TokensPage';
-import ReactPlayer from "react-player";
 
 import video from '../../assets/videoAd/shorts.mp4'
 
 const TokenCard = ({ tokens, prize, buttonName, id }) => {
   const [modal, setModal] = useState(false);
-  const [groupName, setGroupName] = useState('');
+  const [nextModalActive, setNextModalActive] = useState(false);
+  const videoRef = useRef(null);
   const [showTimer, setShowTimer] = useState(true);
   const [remainingTime, setRemainingTime] = useState(86400);
 
@@ -37,33 +36,17 @@ const TokenCard = ({ tokens, prize, buttonName, id }) => {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
     const remainingSeconds = seconds % 60;
-    const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-    return formattedTime;
+
+    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
   };
 
-
-  // const [nextModalActive, setNextModalActive] = useState(false)
-  //
-  // const setActiveNextModal = () => {
-  //   setModal(false)
-  //   setNextModalActive(true)
-  //
-  // }
-  const [nextModalActive, setNextModalActive] = useState(false);
-  const videoRef = useRef(null);
 
   const handleVideoEnded = () => {
     setModal(false)
     setNextModalActive(true);
   };
 
-
-
-
-
-  console.log(videoRef.current)
-
-
+  // console.log(videoRef.current)
 
   return (
     <>
@@ -101,44 +84,48 @@ const TokenCard = ({ tokens, prize, buttonName, id }) => {
         <>
           {modal && (
 
-              <AppModal isOpen={modal} onClose={toggleButton}>
-                <div className='modalAd'>
-                  <h3 className='modalAd__header'>Advertising</h3>
-                  {showTimer ? (
-                      <>
-                        <h4 className='modalAd__video'>
-                          <video
-                              ref={videoRef}
-                              width='560'
-                              height='315'
-                              autoPlay
-                              muted
-                              controls={false}
-                              playsInline
-                              onEnded={handleVideoEnded}
-                          >
-                            <source src={video} type='video/mp4' />
-                          </video>
-                        </h4>
-                      </>
-                  ) : (
+            <AppModal isOpen={modal} >
+              <div className='modalAd'>
+                <h3 className='modalAd__header'>Advertising</h3>
+                {showTimer ? (
+                  <>
+                    <h4 className='modalAd__video'>
+                      <video
+                        ref={videoRef}
+                        width='560'
+                        height='315'
+                        autoPlay
+                        muted
+                        controls={false}
+                        playsInline
+                        onEnded={handleVideoEnded}
+                      >
+                        <source src={video} type='video/mp4' />
+                      </video>
+                    </h4>
+                  </>
+                ) : (
                   <>
                     <h4 className='modalAd__video'>Video content will be available now</h4>
                     <button className='modalAd__button' onClick={toggleButton}>
                       Pick up ROTO
                     </button>
                   </>
-                  )}
-                </div>
-              </AppModal>
+                )}
+              </div>
+            </AppModal>
 
           )}
           {nextModalActive && (
-              <AppModal isOpen={nextModalActive} onClose={() => setNextModalActive(false)}>
-                <p className='modalAd__text'>
-                  Advertising can be viewed once a day. The next viewing will be available in {formatTime(remainingTime)}
-                </p>
-              </AppModal>
+            <AppModal isOpen={nextModalActive} >
+              <p className='modalAd__text'>
+                Congratulations, you have successfully watched the ad and received 100 ROTO.
+                For this currency, you can participate in auctions and win valuable prizes.
+              </p>
+              <button className='modalAd__button' onClick={() => setNextModalActive(false)}>
+                Забрать 100 ROTO
+              </button>
+            </AppModal>
           )}
         </>
       ) : null}
