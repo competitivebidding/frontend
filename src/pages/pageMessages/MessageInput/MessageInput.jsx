@@ -13,6 +13,7 @@ import {SEND_MESSAGE} from "../../../components/server/messages";
                      content: newMessage,
                      roomId: 1
                  }}})
+
      }
 
     return (

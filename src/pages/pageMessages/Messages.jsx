@@ -30,7 +30,7 @@ const Messages = () => {
 
   // const {data: rooms, loading: roomsLoading, refetch} = useQuery(GET_ALL_MY_ROOMS)
   const {data: messages, loading: isMessagesLoading} = useQuery(GET_ALL_MESSAGES_BY_ROOM, {variables: {
-    input : {roomId: activeChat.id , userId: lsValue.id}
+    input : {roomId: activeChat.id , userId: 11}
     }})
 
   const { data, loading: l, error } = useSubscription(
@@ -88,14 +88,12 @@ const Messages = () => {
 
   console.log(newGroups)
 
-
-
   const {data: users, loading: isUsersLoading} = useQuery(GET_ALL_USERS_BY_ROOM_ID, {variables: {roomId: 1}})
-
+  const [groupUsers, setGroupUsers ] = useState([])
 
   useEffect(() => {
     if (!isUsersLoading) {
-      console.log(users)
+      setGroupUsers(users.getAllUsersByRoomId)
     }
   }, [])
 
@@ -173,20 +171,18 @@ const Messages = () => {
           <img src="group_avatar.png" alt="Group Avatar" />
         </div>
         <div className="modalGroup__info">
-          <h2>Name chat</h2>
+          <h2>{activeChat.title}</h2>
           <p>description chat</p>
         </div>
       </div>
-      <div className="modalGroup__members">
-        <h3>33 members</h3>
+      {groupUsers && <div className="modalGroup__members">
+        <h3>{groupUsers.length}</h3>
         <ul>
-          <li>Oleg Ivanov</li>
-          <li>Oleg Ivanov</li>
-          <li>Oleg Ivanov</li>
-          <li>Oleg Ivanov</li>
-          <li>Oleg Ivanov</li>
+          {groupUsers.map(user => (
+              <li>{user.username}</li>
+          ))}
         </ul>
-      </div>
+      </div>}
       <div className="modalGroup__auctions">
         <button className="leaveButton">Leave chat</button>
       </div>
