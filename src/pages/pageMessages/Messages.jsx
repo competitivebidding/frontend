@@ -185,28 +185,28 @@ const Messages = () => {
               <div className="modalGroup__info info">
                 <div className='info__name'>{activeChat.title}</div>
                 <input
-              type="text"
-              className="modalNewGroup__name"
-              value={groupName}
-              placeholder='Description'
-              onChange={e => setGroupName(e.target.value)}
-            />
+                  type="text"
+                  className="modalNewGroup__name"
+                  value={groupName}
+                  placeholder='Description'
+                  onChange={e => setGroupName(e.target.value)}
+                />
               </div>
             </div>
             {groupUsers && <div className="modalGroup__members">
               <div className='modalGroup__subscribers'> {groupUsers.length} subscribers</div>
 
-                <ul>
-                  {groupUsers.map(user => (
+              <ul>
+                {groupUsers.map(user => (
 
-                    <li className='modalGroup__member'>
-                      <img src={iconAvatar} alt="Group Avatar" className="modalGroup__avatar" />
-                      {user.username}</li>
-                  ))}
-                </ul>
+                  <li className='modalGroup__member'>
+                    <img src={iconAvatar} alt="Group Avatar" className="modalGroup__avatar" />
+                    {user.username}</li>
+                ))}
+              </ul>
             </div>}
             <div className="modalGroup__button">
-            <button className="leaveButton" onClick={() => { handleLeaveChat(); toggleGroup(); }}>Leave chat</button>
+              <button className="leaveButton" onClick={() => { handleLeaveChat(); toggleGroup(); }}>Leave chat</button>
             </div>
           </div>
         </AppModal>
