@@ -1,208 +1,32 @@
-$primary-color: #38414f;
-$secondary-color: #ee0b0b;
-$background-color: RGB(18, 18, 18);
-$font-color: #333;
-
 .chat {
   display: flex;
   height: 70vh;
+
 
   &__container {
     flex: 1;
     display: flex;
     flex-direction: column;
     border-radius: 4px;
+    
   }
 
-  &__subscribers {
-    font-size: 11px;
-  }
-
-  &__sidebar {
-    width: 200px;
-    padding: 20px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-
-    background-color: #171e2c;
-    color: #fff;
-
-
-    &-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-
-    .sidebar {
-
-      &__list {
-        // padding: 5px 0;
-        cursor: pointer;
-        padding-left: 5px;
-        display: flex;
-        align-items: center;
-        min-height: 35px;
-
-        &:hover {
-          background-color: darken($primary-color, 10%);
-          border-radius: 5px;
-          max-width: 150px;
-
-        }
-      }
-
-      &__group {
-        height: 95%;
-        overflow: hidden;
-
-        ul {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          list-style: none;
-          height: 100%;
-          overflow: auto;
-
-          &::-webkit-scrollbar {
-            width: 6px;
-          }
-
-          &::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.07);
-            border-radius: 100px;
-          }
-
-          &::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 100px;
-          }
-
-          &::-webkit-scrollbar-thumb:hover {
-            background: #555;
-          }
-        }
-      }
-
-
-
-      &__menu {
-        color: #222b3d;
-
-
-        .group__rotate {
-          transition: transform 0.3s ease-in-out;
-        }
-      }
-    }
-  }
-
-
-
-  &__header {
-    background-color: #182032;
-    border-top-right-radius: 5px;
-    color: #fff;
-    padding: 10px;
-
-    h2 {
-      margin: 0;
-    }
-  }
-
-  &__messages {
-    flex: 1;
-    background-color: #141923;
-    padding: 20px;
-    overflow-y: auto;
-
-    .message {
-      margin-bottom: 10px;
-
-      &__your {
-        .your {
-          &__content {
-            background-color: rgb(53, 53, 109);
-            max-width: fit-content;
-            padding: 10px;
-            border-radius: 10px;
-            color: #fff;
-            margin-left: auto;
-            margin-bottom: 10px;
-          }
-        }
-      }
-
-      &__answer {
-        .answer {
-          &__sender {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: rgb(141, 138, 138)
-          }
-
-          &__content {
-            background-color: rgb(53, 53, 109);
-            max-width: fit-content;
-            padding: 10px;
-            border-radius: 10px;
-            color: #fff;
-          }
-        }
-      }
-    }
-
-    &::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.07);
-      border-radius: 100px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.4);
-      border-radius: 100px;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
-  }
-
-  &__time {
-    margin-top: 2%;
-    text-align: end;
-    font-size: 10px;
-  }
-
-  &__footer {
+  .empty__container {
     display: flex;
-    background-color: #171c25;
+    justify-content: center;
     align-items: center;
-    padding: 10px;
+    
+    background-color: #141923;
+    width: 100%;
+    border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-
-    input[type="text"] {
-      flex: 1;
-      padding: 5px;
-      color: #fff;
-    }
-
-
   }
 
-  .chat__footer {
-    display: flex;
-    flex-direction: row;
-  }
-
-  &__send {
-    padding: 5px 10px;
-    cursor: pointer;
+  &__empty {
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: #212a3b;
   }
 }
 
@@ -219,157 +43,5 @@ $font-color: #333;
 
   &__hidden {
     display: none;
-  }
-}
-
-.modalNewGroup {
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-
-
-  &__title {
-    color: #fff;
-    font-size: 24px;
-  }
-
-  &__name {
-    width: 100%;
-    height: 40px;
-    flex: 1;
-    border: none;
-    font-size: 16px;
-    margin-left: 8px;
-    padding: 5px;
-
-    outline: none;
-    border-bottom: 1px solid #ccc;
-
-  }
-
-  &__hidden {
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(0);
-  }
-
-
-  &__button {
-    width: 100%;
-    height: 45px;
-    background-color: #2F53FF;
-    color: white;
-    border-radius: 8px;
-  }
-}
-
-
-.modalGroup {
-  width: 300px;
-  border-radius: 8px;
-
-
-  &__header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  &__avatarGroup {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px;
-
-
-
-  }
-
-  &__avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px;
-
-
-  }
-
-  &__subscribers {
-    font-size: 16px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  &__info {
-    .info {
-      &__name {
-        margin-left: 5%;
-        font-size: 18px;
-        margin-bottom: 5px;
-      }
-    }
-  }
-
-
-
-  &__members {
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    li {
-      align-items: center;
-    }
-  }
-
-  &__member {
-    display: flex;
-    font-size: 16px;
-    margin-bottom: 7px;
-
-    &:hover {
-      background-color: rgba(88, 124, 253, 0.2);
-      border-radius: 5px;
-    }
-  }
-
-  &__button {
-    text-align: center;
-    margin-top: 20px;
-
-    .leaveButton {
-      background-color: rgba(76, 114, 248, 0.2);
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 14px;
-      border-radius: 4px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: rgba(110, 140, 250, 0.2);
-      }
-    }
-  }
-
-}
-
-.join__room {
-  width: 100%;
-  height: 45px;
-  background-color: #182032;
-  color: rgb(162 162 255);
-  border-bottom-right-radius: 5px;
-
-  &:hover {
-    background-color: #1b2741;
-    transition: all 0.2s ease;
   }
 }

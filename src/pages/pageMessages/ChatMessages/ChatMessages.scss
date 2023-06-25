@@ -1,0 +1,61 @@
+.message {
+  flex: 1;
+  background-color: #141923;
+  padding: 15px;
+  overflow-y: auto;
+
+
+  &__time {
+    margin-top: 2%;
+    text-align: end;
+    font-size: 10px;
+  }
+
+  &__content {
+    background-color: rgb(53, 53, 109);
+    max-width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    margin-left: auto;
+    margin-bottom: 10px;
+  }
+
+  // &__answer {
+  //   .answer {
+  //     &__sender {
+  //       font-weight: bold;
+  //       margin-bottom: 5px;
+  //       color: rgb(141, 138, 138)
+  //     }
+
+  //     &__content {
+  //       background-color: rgb(53, 53, 109);
+  //       max-width: fit-content;
+  //       padding: 10px;
+  //       border-radius: 10px;
+  //       color: #fff;
+  //     }
+  //   }
+  // }
+
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+}

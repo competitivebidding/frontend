@@ -19,7 +19,7 @@ const Messages = () => {
 
   const [modalNewGroup, setModalNewGroup] = useState(false);
   const [modalGroup, setModalGroup] = useState(false);
-  const [activeGroup, setActiveGroup] = useState(lsActiveGroup || {})
+  const [activeGroup, setActiveGroup] = useState(lsActiveGroup || null)
   const [groupUsers, setGroupUsers] = useState([])
 
   const isJoined = () => {
@@ -40,7 +40,7 @@ const Messages = () => {
 
   const { data: users, loading: isUsersLoading } = useQuery(GET_ALL_USERS_BY_ROOM_ID, {
     variables: {
-      roomId: Number(activeGroup.id)
+      roomId: Number(activeGroup && activeGroup.id)
     }
   })
 
@@ -53,15 +53,18 @@ const Messages = () => {
   return (
       <>
         <div className="chat">
-          <ChatSidebar onToggleNewGroupModal={setModalNewGroup} onSelectGroup={handleSelectActiveGroup} activeGroupId={activeGroup.id} />
-          <div className="chat__container">
-            <ChatHeader title={activeGroup.title} length={groupUsers.length} onToggleModal={toggleGroup} />
-            <ChatMessages groupId={activeGroup.id} />
+          <ChatSidebar onToggleNewGroupModal={setModalNewGroup} onSelectGroup={handleSelectActiveGroup} activeGroupId={activeGroup && activeGroup.id} />
+          {activeGroup ? <div className="chat__container">
+            <ChatHeader title={activeGroup && activeGroup.title} length={groupUsers.length} onToggleModal={toggleGroup} />
+            <ChatMessages groupId={activeGroup && activeGroup.id} />
             {isJoined() ?
-                <MessageInput roomId={activeGroup.id} /> :
-                <ChatJoin roomId={activeGroup.id} />
+                <MessageInput roomId={ activeGroup && activeGroup.id} /> :
+                <ChatJoin roomId={activeGroup && activeGroup.id} />
             }
-          </div>
+          </div> : 
+          <div className='empty__container'>
+            <div className='chat__empty'> Select a chat to start messaging</div>
+            </div>}
         </div>
 
         {modalNewGroup && (
@@ -72,7 +75,7 @@ const Messages = () => {
 
         {modalGroup && (
             <AppModal isOpen={modalGroup} onClose={toggleGroup}>
-              <GroupSubscribers groupTitle={activeGroup.title} groupSubs={groupUsers} roomId={activeGroup.id} onClose={toggleGroup} />
+              <GroupSubscribers groupTitle={activeGroup && activeGroup.title} groupSubs={groupUsers} roomId={activeGroup && activeGroup.id} onClose={toggleGroup} />
             </AppModal>
         )}
       </>

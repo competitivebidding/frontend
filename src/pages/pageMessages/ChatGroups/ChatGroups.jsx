@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useQuery} from "@apollo/client";
 import {GET_ALL_ROOMS} from "../../../components/server/messages";
 import {useLocalStorage} from "../../../hooks/useLocalStorage";
-
+import './ChatGroups.scss'
 
 export const ChatGroups = ({onSelectGroup}) => {
     const [groups, setGroups] = useState(null)
@@ -21,11 +21,13 @@ export const ChatGroups = ({onSelectGroup}) => {
     }
 
     return (
-        <div className="sidebar__group">
+        <div className="sidebar__group ">
             {groups && <ul>
                 {groups.map(group => (
                     <li key={group.id} className="sidebar__list"
-                        onClick={() => handleSetActiveGroup({title: group.title, id: group.id})}>{group.title} </li>
+                        onClick={() => handleSetActiveGroup({title: group.title, id: group.id})}>
+                            <p className="sidebar__list-title">{group.title}</p>
+                            </li>
                 ))}
             </ul>}
         </div>
