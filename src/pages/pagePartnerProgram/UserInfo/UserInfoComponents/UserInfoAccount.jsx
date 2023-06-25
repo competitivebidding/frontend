@@ -59,7 +59,9 @@ const UserInfoAccount = (props) => {
 					<div className={'item-content__text'}>
 						<div>
 							Partner
-							<button className={'more-info'}>?</button>
+							<button
+								data-clue="As a member of the affiliate program, you will receive a commission in the form of 20% of the spending of users who have registered using your referral link."
+								className={'more-info'}>?</button>
 						</div>
 						<p>20% from personally invited</p>
 					</div>
