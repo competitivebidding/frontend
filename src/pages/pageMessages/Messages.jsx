@@ -34,7 +34,7 @@ const Messages = () => {
   // const {data: rooms, loading: roomsLoading, refetch} = useQuery(GET_ALL_MY_ROOMS)
   const { data: messages, loading: isMessagesLoading } = useQuery(GET_ALL_MESSAGES_BY_ROOM, {
     variables: {
-      input: { roomId: activeChat.id, userId: 11 }
+      input: { roomId: activeChat.id, userId: 12 }
     }
   })
 
