@@ -16,7 +16,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(50, 47, 47, 0.8);
     z-index: 9;
   }
   .modalWindow {
@@ -41,8 +41,8 @@
       right: 0;
       left: 0;
       bottom: 0;
-      background: rgba(75, 115, 255, 0.2);
-      filter: blur(100px);
+      background: rgba(31, 55, 141, 0.2);
+      filter: blur(30px);
       z-index: 0;
     }
 

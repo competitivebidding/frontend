@@ -1,4 +1,4 @@
-import {gql} from "@apollo/client";
+import { gql } from "@apollo/client";
 
 export const CREATE_MY_ROOM = gql`
     mutation CreateMyRoom($input: RoomCreateInput!) {
@@ -86,3 +86,14 @@ export const GET_ALL_USERS_BY_ROOM_ID = gql`
       }
     }
 `
+export const LEAVE_FROM_CHAT = gql`
+mutation LeaveFromRoom($roomId: Float!) {
+  leaveFromRoom(roomId: $roomId) {
+    avatarUrl
+    lastname
+    firstname
+    username
+  }
+}
+`
+
