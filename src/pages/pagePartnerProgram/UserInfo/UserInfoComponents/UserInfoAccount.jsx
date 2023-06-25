@@ -7,7 +7,7 @@ import hat from '@assets/imgPartnerProgram/magic-trick-dynamic-premium.png';
 import card from '@assets/imgPartnerProgram/card.svg';
 
 import './UserInfoAccount.scss';
-
+import '../../../../components/clue/clue.scss'
 
 const UserInfoAccount = (props) => {
 	const [userInfo, setUserInfo] = useState({
@@ -61,7 +61,7 @@ const UserInfoAccount = (props) => {
 							Partner
 							<button
 								data-clue="As a member of the affiliate program, you will receive a commission in the form of 20% of the spending of users who have registered using your referral link."
-								className={'more-info'}>?</button>
+								className={'more-info clue'}>?</button>
 						</div>
 						<p>20% from personally invited</p>
 					</div>
@@ -126,7 +126,10 @@ const UserInfoAccount = (props) => {
 				</div>
 				<div className="item-email__bottomSection bottomSection">
 					Verification letter has been sent to your email
-					<button className={'more-info'}>?</button>
+					<button
+						data-clue="A verified email address increases your level of authorization and gives you more opportunities to interact with Competitive Biddin"
+						className={'more-info clue'}
+					>?</button>
 				</div>
 			</div>
 
