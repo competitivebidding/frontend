@@ -7,7 +7,7 @@ import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons'
 import {useMutation} from '@apollo/client'
 import Cookies from 'js-cookie';
 
-import SIGNUP_MUTATION from '../../Components/server/signup.js'
+import SIGNUP_MUTATION from '../../components/server/signup.js'
 import {useLocalStorage} from '../../hooks/useLocalStorage'
 
 import './SignUpRight.scss'

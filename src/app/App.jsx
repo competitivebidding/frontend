@@ -16,8 +16,8 @@ import TokensPage from '../pages/pageTokens/TokensPage.jsx'
 import WinnersListPage from '../pages/pageWinnersList/WinnersListPage.jsx'
 import LotPage from '../pages/pageAuctions/LotPage/LotPage.jsx'
 
-import MainSection from '../Components/MainSection/MainSection.jsx'
-import NavHeader from '../Components/NavHeaderSection/NavHeader.jsx'
+import MainSection from '../components/MainSection/MainSection.jsx'
+import NavHeader from '../components/NavHeaderSection/NavHeader.jsx'
 
 import SignIn from '../pagesAuthorization/PageSignIn/SignIn.jsx'
 import SignUp from '../pagesAuthorization/PageSignUp/SignUp.jsx'

@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { ApolloProvider } from '@apollo/client'
 
 import App from './app/App'
-import client from './Components/server/client.js'
+import client from './components/server/client.js'
 
 import './config/i18n/i18n'
 

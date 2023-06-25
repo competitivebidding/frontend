@@ -27,16 +27,16 @@ export const GET_ALL_MY_ROOMS = gql`
 `
 
 export const GET_ALL_MESSAGES_BY_ROOM = gql`
-    query Query($input: UserMessages!) {
-      getAllMessagesByRoomId(input: $input) {
-        id
-        userId
-        roomId
-        content
-        createdAt
-        updatedAt
-      }
-    }
+query GetAllMessagesByRoomId($userMessage: UserMessages!) {
+  getAllMessagesByRoomId(userMessage: $userMessage) {
+    content
+    createdAt
+    id
+    roomId
+    updatedAt
+    userId
+  }
+}
 `
 
 export const SEND_MESSAGE = gql`

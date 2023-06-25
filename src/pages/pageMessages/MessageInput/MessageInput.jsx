@@ -3,6 +3,7 @@ import iconSend from "../../../assets/Chat/iconSend.svg";
 import { useMutation } from "@apollo/client";
 import { SEND_MESSAGE } from "../../../components/server/messages";
 import scss from './MessageInput.module.scss';
+import { useEffect } from 'react';
 
 export const MessageInput = ({ roomId }) => {
     const [newMessage, setNewMessage] = useState('')
@@ -22,11 +23,26 @@ export const MessageInput = ({ roomId }) => {
         }).then(message => console.log(message))
         setNewMessage('')
     }
+    const handleNewMessage = (e) => {
+        if (e.target.value === '') {
+            return;
+        }
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            handleSendMessage();
+            return;
+        }
+        console.log(e.target);
+        setNewMessage(e.target.value);
+    };
+
+
+
 
     return (
-    <div className={`${scss.chat__footer} ${scss.footer}`}>
-            <input type="text" placeholder="Enter your message" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} />
-            <button onClick={handleSendMessage}>
+        <div className={`${scss.chat__footer} ${scss.footer}`}>
+            <input type="text" placeholder="Enter your message" value={newMessage} onChange={handleNewMessage} onKeyUp={handleNewMessage} />
+
+            <button onClick={handleSendMessage} >
                 <img src={iconSend} alt="iconSend" className={scss.footer__send} />
             </button>
         </div>
