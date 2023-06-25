@@ -1,10 +1,15 @@
 import React from 'react';
-import {useMutation} from "@apollo/client";
-import { JOIN_ROOM } from "../../../components/server/messages";
+import {useMutation, useQuery} from "@apollo/client";
+import {GET_ALL_USERS_BY_ROOM_ID, JOIN_ROOM} from "../../../components/server/messages";
 export const ChatJoin = ({roomId}) => {
   const [joinRoom, { }] = useMutation(JOIN_ROOM)
+  const { data, refetch} = useQuery(GET_ALL_USERS_BY_ROOM_ID, {
+    variables: {
+      roomId
+    }
+  })
   const joinGroup = () => {
-    joinRoom({ variables: { roomId } }).then(e => console.log(e))
+    joinRoom({ variables: { roomId } }).then(refetch)
   }
 
   return (

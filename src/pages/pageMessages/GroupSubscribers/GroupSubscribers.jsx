@@ -1,17 +1,22 @@
 import React from 'react';
 import Icon from '../../../assets/cabinet/icons/avatar.svg'
-import { useMutation} from "@apollo/client";
-import { LEAVE_FROM_CHAT } from "../../../components/server/messages";
+import {useMutation, useQuery} from "@apollo/client";
+import {GET_ALL_USERS_BY_ROOM_ID, LEAVE_FROM_CHAT} from "../../../components/server/messages";
 
 export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose }) => {
     const [leaveFromChat] = useMutation(LEAVE_FROM_CHAT);
+    const { data, refetch } = useQuery(GET_ALL_USERS_BY_ROOM_ID, {
+        variables: {
+            roomId: Number(roomId)
+        }
+    })
 
     const handleLeaveChat = () => {
         leaveFromChat({
             variables: {
                 roomId
             }
-        })
+        }).then(refetch)
         onClose();
     };
 
