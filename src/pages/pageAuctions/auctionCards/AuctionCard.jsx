@@ -20,14 +20,6 @@ const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, started
   }
 
 
-  // const auctionDate = new Intl.DateTimeFormat('ru', {
-  //   day: 'numeric',
-  //   month: 'numeric',
-  //   year: 'numeric',
-  //   hour: '2-digit',
-  //   minute: '2-digit',
-  // }).format(Date.parse(date))
-
   const formattedDate = new Date(startedAt).toLocaleString();
 
   const StartDate = () => {

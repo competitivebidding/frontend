@@ -7,6 +7,7 @@ import CabinetPage from '../pages/pageCabinet/CabinetPage.jsx'
 import MainPage from '../pages/pageMain/MainPage.jsx'
 import MyAuctionsPage from '../pages/pageMyAuctions/MyAuctionsPage.jsx'
 import NewsPage from '../pages/pageNews/NewsPage.jsx'
+import Messages from '../pages/pageMessages/MessagesPage.jsx'
 import NotificationsPage from '../pages/pageNotifications/NotificationsPage.jsx'
 import PartnerPage from '../pages/pagePartnerProgram/PartnerPage.jsx'
 import QuestionsPage from '../pages/pageQuestions/QuestionsPage.jsx'
@@ -15,8 +16,8 @@ import TokensPage from '../pages/pageTokens/TokensPage.jsx'
 import WinnersListPage from '../pages/pageWinnersList/WinnersListPage.jsx'
 import LotPage from '../pages/pageAuctions/LotPage/LotPage.jsx'
 
-import MainSection from '../Components/MainSection/MainSection.jsx'
-import NavHeader from '../Components/NavHeaderSection/NavHeader.jsx'
+import MainSection from '../components/MainSection/MainSection.jsx'
+import NavHeader from '../components/NavHeaderSection/NavHeader.jsx'
 
 import SignIn from '../pagesAuthorization/PageSignIn/SignIn.jsx'
 import SignUp from '../pagesAuthorization/PageSignUp/SignUp.jsx'
@@ -39,6 +40,7 @@ const App = () => {
                 <Route path="/auctions" element={<AuctionsPage title={'Auction'} />} />
                 <Route path="/myauctions" element={<MyAuctionsPage title={'My Auctions'} />} />
                 <Route path="/news" element={<NewsPage title={'News'} />} />
+                <Route path="/messages" element={<Messages title={'Messages'} />} />
                 <Route path="/partnerProgram" element={<PartnerPage title={'Partner Program'} />} />
                 <Route path="/tokens" element={<TokensPage title={'Tokens'} />} />
                 <Route path="/winnerList" element={<WinnersListPage title={'WinnerList'} />} />

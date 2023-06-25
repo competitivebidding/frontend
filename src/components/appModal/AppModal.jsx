@@ -8,9 +8,9 @@ export const AppModal = ({children, title, onClose, isOpen = false}) => {
             <div className={`${cls.modal} ${isOpen ? cls.opened : ''}`}>
                 <div className={cls.overlay} onClick={() => onClose(false)}></div>
                     <div className={cls.modalWindow}>
-                        <div className={cls.modalWindow__title}>
+                        {title && <div className={cls.modalWindow__title}>
                             {title}
-                        </div>
+                        </div>}
                     <div className={cls.modalWindow__body}>
                         {children}
                     </div>

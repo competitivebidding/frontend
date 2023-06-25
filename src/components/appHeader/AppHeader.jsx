@@ -27,7 +27,6 @@ const AppHeader = ({ title }) => {
     if (Cookies.get('refreshtoken') && userAuth && userAuth.username) {
       setIsLogged(true);
     }
-    console.log(123)
   }, []);
 
   const handleLogout = async () => {
