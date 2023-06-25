@@ -1,0 +1,23 @@
+.chat__header {
+  background-color: #182032;
+  border-top-right-radius: 5px;
+  color: #fff;
+  padding: 10px;
+
+  &-subscribers {
+      font-size: 11px;
+      margin-top: 5px;
+  }
+
+  &-users {
+      margin-left: 10px;
+  }
+
+  &-title {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 100%;
+  }
+}

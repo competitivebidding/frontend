@@ -13,6 +13,7 @@ import calendar from '../../assets/imgNavBar/calendar.svg'
 import bell from '../../assets/imgNavBar/bell.svg'
 import flash from '../../assets/imgNavBar/flash.svg'
 import heart from '../../assets/imgNavBar/heart.svg'
+import messages from '../../assets/imgNavBar/messages.svg'
 
 import './AppNavBar.scss'
 
@@ -93,6 +94,16 @@ const AppNavBar = () => {
         </div>
 
         <div className="menu__group">
+
+          
+        <NavLink to="/messages" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
+            <div className="menu__item">
+              <img src={messages} alt="messages" />
+              <h3>
+                Messages
+              </h3>
+            </div>
+          </NavLink>
 
           <NavLink to="/news" className={({ isActive }) => (isActive ? "navBar__name" : "menu__group a")}>
             <div className="menu__item">

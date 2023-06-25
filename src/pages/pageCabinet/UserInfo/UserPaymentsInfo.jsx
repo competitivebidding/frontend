@@ -3,8 +3,11 @@ import icon from '@/assets/cabinet/icons/card.svg'
 import {useMutation, useQuery} from "@apollo/client";
 import {GET_USER_PAYMENT, UPDATE_USER_PAYMENT} from "../../../components/server/userProfile";
 import {useEffect} from "react";
+import {useTranslation} from "react-i18next";
 
 export const UserPaymentsInfo = ({onOpen}) => {
+    const {t} = useTranslation('cabinet')
+
     const [field, setField] = React.useState(null)
     const [updateCard] = useMutation(UPDATE_USER_PAYMENT)
     const {data, loading, refetch} = useQuery(GET_USER_PAYMENT)
@@ -47,8 +50,8 @@ export const UserPaymentsInfo = ({onOpen}) => {
             </div>
             <div className="item-bottom">
                 {
-                    field && field.number ? <button className="user-info__button" onClick={() => unlink()}>unlink </button> :
-                        <button className="user-info__button" onClick={() => onOpen(true)}>Connect</button>
+                    field && field.number ? <button className="user-info__button" onClick={() => unlink()}>{t('unlink')} </button> :
+                        <button className="user-info__button" onClick={() => onOpen(true)}>{t('connect')}</button>
                 }
             </div>
         </div>

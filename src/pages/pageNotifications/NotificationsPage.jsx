@@ -3,7 +3,11 @@ import AppHeader from '../../components/appHeader/AppHeader.jsx'
 import './NotificationsPage.scss'
 import NotificationCard from './NotificationCard.jsx'
 
+import useNoAuth from '../../hooks/UsenoAuth.jsx';
+
+
 const NotificationsPage = ({ title }) => {
+  useNoAuth()
   const data = [
     {
       title: 'Iphone 14 pro за 32 999 ₽',

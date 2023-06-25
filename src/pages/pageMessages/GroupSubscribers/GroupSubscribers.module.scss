@@ -1,0 +1,98 @@
+.modalGroup {
+  width: 300px;
+  border-radius: 8px;
+
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+    &__avatarGroup {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 10px;
+    }
+
+
+
+    &__subscribers {
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+
+    &__name--group {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 100%;
+
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    &__description {}
+  }
+
+  .subscribers {
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      align-items: center;
+    }
+
+    
+    &__count {
+      text-align: center;
+      padding: 20px;
+    }
+
+    &__avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 10px;
+    }
+
+    &__member {
+      display: flex;
+      font-size: 16px;
+      margin-bottom: 7px;
+
+      &:hover {
+        background-color: rgba(88, 124, 253, 0.2);
+        border-radius: 5px;
+      }
+    }
+  }
+
+  &__button {
+    text-align: center;
+    margin-top: 20px;
+
+    .modalGroup__leave {
+      background-color: rgba(76, 114, 248, 0.2);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(110, 140, 250, 0.2);
+      }
+    }
+  }
+}
