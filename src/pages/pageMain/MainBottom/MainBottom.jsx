@@ -14,7 +14,7 @@ export const MainBottom = (props) => {
 
 				<Social />
 
-				<Chats />
+				{/*<Chats />*/}
 
 			</div>
 

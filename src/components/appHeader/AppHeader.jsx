@@ -62,6 +62,7 @@ const AppHeader = ({ title }) => {
             <Link>
             <img className='group__exit' src={iconExit} alt="iconExit" onClick={handleLogout} />
             </Link>
+            <HeaderBurger/>
           </>
         ) : (
           <div className="group__container">
