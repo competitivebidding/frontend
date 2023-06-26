@@ -3,7 +3,7 @@ import AppHeader from '../../components/appHeader/AppHeader.jsx'
 import './NotificationsPage.scss'
 import NotificationCard from './NotificationCard.jsx'
 
-import useNoAuth from '../../hooks/UsenoAuth.jsx';
+import useNoAuth from '../../hooks/useNoAuth.jsx';
 
 
 const NotificationsPage = ({ title }) => {
