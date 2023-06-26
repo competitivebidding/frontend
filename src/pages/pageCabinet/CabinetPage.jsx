@@ -7,7 +7,7 @@ import DoubleIncome from '@/pages/pageCabinet/DoubleIncome'
 import RublesIncome from '@/pages/pageCabinet/ChartsData/RublesIncome'
 import AuctionsInfo from "./AuctionsInfo/AuctionsInfo";
 import UserInfo from "./UserInfo/UserInfo";
-import useNoAuth from '../../hooks/UsenoAuth.jsx';
+import useNoAuth from '../../hooks/useNoAuth.jsx';
 import './CabinetPage.scss'
 
 const CabinetPage = ({ title }) => {
