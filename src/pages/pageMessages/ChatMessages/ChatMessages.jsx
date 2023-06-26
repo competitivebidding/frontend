@@ -21,7 +21,6 @@ export const ChatMessages = ({ groupId }) => {
 
     console.log('FROM_SUBSCRIPTION', { d, l, error })
 
-
     const { data, loading } = useQuery(GET_ALL_MESSAGES_BY_ROOM, {
         variables:
         {
@@ -30,6 +29,17 @@ export const ChatMessages = ({ groupId }) => {
             }
         }
     })
+
+    useEffect(() => {
+        console.log(123)
+        if (ref.current) {
+            ref.current.scrollTo({
+                top: ref.current.scrollHeight,
+                behavior: 'smooth'
+            });
+            setAutoScrollEnabled(false);
+        }
+    }, [groupMessages])
 
     useEffect(() => {
         if (!l) {
@@ -50,7 +60,6 @@ export const ChatMessages = ({ groupId }) => {
         if (ref.current && autoScrollEnabled) {
             ref.current.scrollTo({
                 top: ref.current.scrollHeight,
-                behavior: 'smooth'
             });
             setAutoScrollEnabled(false);
         }

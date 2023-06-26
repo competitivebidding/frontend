@@ -30,7 +30,7 @@ export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose }) => 
                         <img src={Icon} alt="Group Avatar" />
                     </div>
                     <div className={scss.header__info}>
-                        <p className={scss['header__name--group']}>{groupTitle}</p>
+                        <p className={scss['header__name--group']}>{groupTitle.length > 20 ? groupTitle.substring(0, 20) + '...' : groupTitle}</p>
                         <input
                             type="text"
                             className={scss.header__description}

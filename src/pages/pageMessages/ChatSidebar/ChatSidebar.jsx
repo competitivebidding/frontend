@@ -19,7 +19,7 @@ export const ChatSidebar = ({onToggleNewGroupModal, onSelectGroup, activeGroupId
                     </button>
                 </div>
             </div>
-            <ChatGroups onSelectGroup={onSelectGroup} />
+            <ChatGroups onSelectGroup={onSelectGroup} activeItem={activeGroupId} />
         </div>
     );
 };
