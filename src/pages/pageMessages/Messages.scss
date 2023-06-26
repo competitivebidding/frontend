@@ -1,3 +1,5 @@
+@import "./ChatHeader/ChatHeader";
+
 .chat {
   display: flex;
   height: 70vh;
@@ -8,7 +10,6 @@
     display: flex;
     flex-direction: column;
     border-radius: 4px;
-    
   }
 
   .empty__container {

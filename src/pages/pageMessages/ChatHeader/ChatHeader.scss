@@ -16,8 +16,21 @@
   &-title {
       display: inline-block;
       overflow: hidden;
-      white-space: nowrap;
+      white-space: break-spaces;
       text-overflow: ellipsis;
       max-width: 100%;
   }
+}
+
+@mixin chatWidth($maxWidth, $minWidth) {
+  $addSize: 1920 - 320;
+  width: calc(#{320px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin adaptive-paddings($top, $bottom, $pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $maxWidth - 320;
+  $result: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+
+  padding: #{$top + px} $result #{$bottom + px} $result;
 }

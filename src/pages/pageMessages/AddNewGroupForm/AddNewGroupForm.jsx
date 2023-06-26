@@ -30,6 +30,7 @@ export const AddNewGroupForm = ({onClose}) => {
             <input
                 type="text"
                 className="modalNewGroup__name"
+
                 value={value}
                 onChange={e => setValue(e.target.value)}
             />

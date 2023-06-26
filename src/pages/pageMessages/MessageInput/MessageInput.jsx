@@ -31,7 +31,6 @@ export const MessageInput = ({ roomId }) => {
             handleSendMessage();
             return;
         }
-        console.log(e.target);
         setNewMessage(e.target.value);
     };
 
