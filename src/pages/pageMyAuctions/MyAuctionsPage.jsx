@@ -3,7 +3,7 @@ import AppHeader from '../../components/appHeader/AppHeader.jsx'
 import Filter from '../pageAuctions/filter/Filter.jsx'
 import Search from '../pageAuctions/search/Search.jsx'
 import MyAuctionContent from './MyAuctionContent/MyAuctionContent.jsx'
-import useNoAuth from '../../hooks/UsenoAuth.jsx';
+import useNoAuth from '../../hooks/useNoAuth.jsx';
 
 const data = [
   {

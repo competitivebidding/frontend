@@ -2,7 +2,7 @@ import React from 'react';
 import {DropDown} from "../DropDown/DropDown";
 import {useTranslation} from "react-i18next";
 
-import  UsIcon from '@/assets/cabinet/dropdown/us.svg'
+import  UsIcon from '@/assets/cabinet/dropdown/US.svg'
 import ru from '@/assets/cabinet/dropdown/RU.svg'
 import ua from '@/assets/cabinet/dropdown/UA.svg'
 
