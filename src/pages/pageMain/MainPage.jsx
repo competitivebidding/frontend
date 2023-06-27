@@ -2,7 +2,7 @@ import React from 'react'
 
 import './MainPage.scss';
 
-import AppHeader from '../../components/appHeader/AppHeader.jsx';
+import AppHeader from '../../widgets/Header/AppHeader.jsx';
 
 import { MainTop } from './MainTop/MainTop';
 

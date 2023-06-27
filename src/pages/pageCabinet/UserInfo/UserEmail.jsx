@@ -45,7 +45,7 @@ export const UserEmail = ({field, handleUpdate}) => {
                 {/*<div className="item-bottom__content">*/}
                 {/*    <p>The confirmation letter was sent to the post office</p>*/}
                 {/*    <i>*/}
-                {/*        <img src={info} alt=""/>*/}
+                {/*        <temporary-auctions-img src={info} alt=""/>*/}
                 {/*    </i>*/}
                 {/*</div>*/}
             </div>

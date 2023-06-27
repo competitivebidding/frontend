@@ -11,7 +11,7 @@ import { UserPaymentsInfo } from './UserPaymentsInfo'
 import { UserCountry } from './UserCountry'
 import { UserSettings } from './UserSettings'
 import { UserInfoLevel } from './UserInfoLevel'
-import { GET_PROFILE_QUERY, UPDATE_PROFILE } from '@/components/server/userProfile'
+import { GET_PROFILE_QUERY, UPDATE_PROFILE } from '@/shared/schemas/user/userProfile'
 import './UserInfo.scss'
 
 const UserInfo = () => {

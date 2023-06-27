@@ -1,8 +1,8 @@
 import * as React from 'react'
-import DonutChart from '@/components/Charts/DonutChart'
+import DonutChart from '@/shared/ui/Charts/DonutChart'
 import { useTranslation } from "react-i18next";
 
-import { Clue } from '../../../components/clue/clue';
+import { TooltipButton } from '../../../shared/ui/TooltipButton/TooltipButton';
 
 export const UserInfoLevel = ({ field }) => {
 	const { t } = useTranslation('cabinet')
@@ -47,7 +47,7 @@ export const UserInfoLevel = ({ field }) => {
 			<div className="level-content">
 				<div className="level-content__title">
 					<p>{t('authorizationLevel')}</p>
-					<Clue info="level-content__status not-verified level-content__status not-verified level-content__status not-verified" />
+					<TooltipButton info="level-content__status not-verified level-content__status not-verified level-content__status not-verified" />
 				</div>
 				<span className="level-content__status not-verified">{t('notVerified')}</span>
 			</div>

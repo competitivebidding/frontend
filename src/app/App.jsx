@@ -14,17 +14,17 @@ import QuestionsPage from '../pages/pageQuestions/QuestionsPage.jsx'
 import SupportPage from '../pages/pageSupport/SupportPage.jsx'
 import TokensPage from '../pages/pageTokens/TokensPage.jsx'
 import WinnersListPage from '../pages/pageWinnersList/WinnersListPage.jsx'
-import LotPage from '../pages/pageAuctions/LotPage/LotPage.jsx'
+import LotPage from '../pages/LotPage/LotPage.jsx'
 
-import MainSection from '../components/MainSection/MainSection.jsx'
-import NavHeader from '../components/NavHeaderSection/NavHeader.jsx'
+import MainSection from '../widgets/MainSection/MainSection.jsx'
+import NavHeader from '../widgets/NavHeaderSection/NavHeader.jsx'
 
-import SignIn from '../pagesAuthorization/PageSignIn/SignIn.jsx'
-import SignUp from '../pagesAuthorization/PageSignUp/SignUp.jsx'
-import ResetPassword from '../pagesAuthorization/PageResetPassword/ResetPassword.jsx'
-import NewPassword from '../pagesAuthorization/PageNewPassword/NewPassword.jsx'
+import SignIn from '../pages/pagesAuthorization/PageSignIn/SignIn.jsx'
+import SignUp from '../pages/pagesAuthorization/PageSignUp/SignUp.jsx'
+import ResetPassword from '../pages/pagesAuthorization/PageResetPassword/ResetPassword.jsx'
+import NewPassword from '../pages/pagesAuthorization/PageNewPassword/NewPassword.jsx'
 
-import './App.scss'
+import './styles/App.scss'
 import {UserContextProvider} from "../context/AuthContext";
 import {useTranslation} from "react-i18next";
 

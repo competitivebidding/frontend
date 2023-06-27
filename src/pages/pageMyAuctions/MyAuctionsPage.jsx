@@ -1,13 +1,13 @@
 import React from 'react'
-import AppHeader from '../../components/appHeader/AppHeader.jsx'
-import Filter from '../pageAuctions/filter/Filter.jsx'
-import Search from '../pageAuctions/search/Search.jsx'
+import AppHeader from '../../widgets/Header/AppHeader.jsx'
+import Filter from '../../feauters/filter/Filter.jsx'
+import Search from '../../feauters/search/Search.jsx'
 import MyAuctionContent from './MyAuctionContent/MyAuctionContent.jsx'
-import useNoAuth from '../../hooks/useNoAuth.jsx';
+import useNoAuth from '../../shared/lib/hooks/useNoAuth.jsx';
 
 const data = [
   {
-    img: '/src/pages/pageAuctions/img/quare.png',
+    img: '/src/pages/pageAuctions/temporary-auctions-img/quare.png',
     alt: 'img',
     name: 'Apple Watch SE 44mm',
     date: '2023-04-06T15:12',
@@ -17,7 +17,7 @@ const data = [
     id: 1,
   },
   {
-    img: '/src/pages/pageAuctions/img/quare.png',
+    img: '/src/pages/pageAuctions/temporary-auctions-img/quare.png',
     alt: 'img',
     name: 'iPhone 12 Pro 128 Gb',
     date: '2023-04-06T17:30',
@@ -27,7 +27,7 @@ const data = [
     id: 2,
   },
   {
-    img: '/src/pages/pageAuctions/img/quare.png',
+    img: '/src/pages/pageAuctions/temporary-auctions-img/quare.png',
     alt: 'img',
     name: '1 Bitcoin',
     date: '2023-04-06T17:30',
@@ -37,7 +37,7 @@ const data = [
     id: 3,
   },
   {
-    img: '/src/pages/pageAuctions/img/quare.png',
+    img: '/src/pages/pageAuctions/temporary-auctions-img/quare.png',
     alt: 'img',
     name: 'Vacuum Dyson',
     date: '2023-04-06T17:30',
@@ -47,7 +47,7 @@ const data = [
     id: 4,
   },
   {
-    img: '/src/pages/pageAuctions/img/quare.png',
+    img: '/src/pages/pageAuctions/temporary-auctions-img/quare.png',
     alt: 'img',
     name: 'Hair Dryer Dyson',
     date: '2023-04-06T17:30',
@@ -57,7 +57,7 @@ const data = [
     id: 5,
   },
   {
-    img: '/src/pages/pageAuctions/img/quare.png',
+    img: '/src/pages/pageAuctions/temporary-auctions-img/quare.png',
     alt: 'img',
     name: 'MacBook Pro M1 256 Gb',
     date: '2023-04-06T17:30',

@@ -1,8 +1,8 @@
 import React from 'react';
-import AppHeader from '../../components/appHeader/AppHeader.jsx';
+import AppHeader from '../../widgets/Header/AppHeader.jsx';
 import PartnersStatistic from "@/pages/pagePartnerProgram/Statistic/PartnersStatistic";
 import UserInfo from './UserInfo/UserInfo.jsx';
-import useNoAuth from '../../hooks/useNoAuth.jsx';
+import useNoAuth from '../../shared/lib/hooks/useNoAuth.jsx';
 
 const PartnerPage = ({title}) => {
 

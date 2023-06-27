@@ -3,7 +3,7 @@ import styles from "./BestInviters.module.scss";
 import InviterUser from "@/pages/pagePartnerProgram/Statistic/Lists/InviterUser";
 import avatar from "@assets/Partners/User.svg";
 import {useQuery} from "@apollo/client";
-import {GET_MY_REFERRALS} from "@/components/server/referals";
+import {GET_MY_REFERRALS} from "@/shared/schemas/user/referals";
 
 function BestInviters() {
 

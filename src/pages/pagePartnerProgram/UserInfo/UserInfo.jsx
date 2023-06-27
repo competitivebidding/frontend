@@ -7,7 +7,7 @@ import UserInfoAccount from './UserInfoComponents/UserInfoAccount';
 import ForPartners from "@/pages/pagePartnerProgram/UserInfo/UserInfoComponents/ForPartners";
 
 import { useQuery } from '@apollo/client'
-import { GET_PROFILE_QUERY } from '../../../components/server/userProfile'
+import { GET_PROFILE_QUERY } from '../../../shared/schemas/user/userProfile'
 
 
 const UserInfo = () => {

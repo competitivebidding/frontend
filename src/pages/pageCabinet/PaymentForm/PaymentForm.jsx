@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './PaymentForm.scss'
 import {useMutation, useQuery} from "@apollo/client";
-import {GET_USER_PAYMENT, UPDATE_USER_PAYMENT} from "../../../components/server/userProfile";
-import {AppModal} from "@/components/appModal/AppModal";
+import {GET_USER_PAYMENT, UPDATE_USER_PAYMENT} from "../../../shared/schemas/user/userProfile";
+import {AppModal} from "@/shared/ui/Modal/AppModal";
 import {FormInput} from "../FormInput/FormInput";
 import {useTranslation} from "react-i18next";
 

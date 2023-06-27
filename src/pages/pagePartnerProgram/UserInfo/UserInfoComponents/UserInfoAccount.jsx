@@ -6,7 +6,7 @@ import email from '@assets/imgPartnerProgram/sms.svg';
 import hat from '@assets/imgPartnerProgram/magic-trick-dynamic-premium.png';
 import card from '@assets/imgPartnerProgram/card.svg';
 
-import { Clue } from '@/components/clue/clue';
+import { TooltipButton } from '@/shared/ui/TooltipButton/TooltipButton';
 
 import './UserInfoAccount.scss';
 
@@ -61,7 +61,7 @@ const UserInfoAccount = (props) => {
 						<div>
 							Partner
 
-							<Clue info="As a member of the affiliate program, you will receive a commission in the form of 20% of the spending of users who have registered using your referral link." />
+							<TooltipButton info="As a member of the affiliate program, you will receive a commission in the form of 20% of the spending of users who have registered using your referral link." />
 						</div>
 						<p>20% from personally invited</p>
 					</div>
@@ -127,7 +127,7 @@ const UserInfoAccount = (props) => {
 				<div className="item-email__bottomSection bottomSection">
 					Verification letter has been sent to your email
 
-					<Clue info="A verified email address increases your level of authorization and gives you more opportunities to interact with Competitive Biddin" />
+					<TooltipButton info="A verified email address increases your level of authorization and gives you more opportunities to interact with Competitive Biddin" />
 				</div>
 			</div>
 

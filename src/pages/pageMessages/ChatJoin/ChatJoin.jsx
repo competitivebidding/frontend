@@ -1,6 +1,6 @@
 import React from 'react';
 import {useMutation, useQuery} from "@apollo/client";
-import {GET_ALL_USERS_BY_ROOM_ID, JOIN_ROOM} from "../../../components/server/messages";
+import {GET_ALL_USERS_BY_ROOM_ID, JOIN_ROOM} from "../../../shared/schemas/messages/messages";
 import './ChatJoin.scss';
 
 export const ChatJoin = ({roomId}) => {

@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react'
-import AppHeader from '../../components/appHeader/AppHeader.jsx'
+import AppHeader from '../../widgets/Header/AppHeader.jsx'
 
-import CardsAuctions from './auctionCards/CardAuctions.jsx'
-import Filter from './filter/Filter.jsx'
-import Search from './search/Search.jsx'
+import Filter from '../../feauters/filter/Filter.jsx'
+import Search from '../../feauters/search/Search.jsx'
 
 import './AuctionsPage.scss'
 import {useQuery} from "@apollo/client";
-import {GET_AUCTIONS} from "../../components/server/auctions";
+import {GET_AUCTIONS} from "../../shared/schemas/auctions/auctions";
+import AuctionsPageContent from "../../widgets/auction-page-content/AuctionsPageContent.jsx";
 
 const MyAuctionsPage = ({ title }) => {
   // эмитация данных с бэка
@@ -32,7 +32,7 @@ const MyAuctionsPage = ({ title }) => {
         <div className='auctions__search--card'>
           <Search />
 
-          {<CardsAuctions data={auctData}/>}
+          {<AuctionsPageContent data={auctData}/>}
         </div>
         <Filter />
       </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from '../../../assets/cabinet/icons/avatar.svg'
 import {useMutation, useQuery} from "@apollo/client";
-import {GET_ALL_USERS_BY_ROOM_ID, LEAVE_FROM_CHAT} from "../../../components/server/messages";
+import {GET_ALL_USERS_BY_ROOM_ID, LEAVE_FROM_CHAT} from "../../../shared/schemas/messages/messages";
 
 import scss from'./GroupSubscribers.module.scss';
 

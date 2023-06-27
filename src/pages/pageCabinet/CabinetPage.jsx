@@ -1,13 +1,13 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
-import AppHeader from '../../components/appHeader/AppHeader.jsx'
+import AppHeader from '../../widgets/Header/AppHeader.jsx'
 import PlayersAmount from "./PlayersAmount/PlayersAmount";
 import RotoIncome from '@/pages/pageCabinet/ChartsData/RotoIncome'
 import DoubleIncome from '@/pages/pageCabinet/DoubleIncome'
 import RublesIncome from '@/pages/pageCabinet/ChartsData/RublesIncome'
 import AuctionsInfo from "./AuctionsInfo/AuctionsInfo";
 import UserInfo from "./UserInfo/UserInfo";
-import useNoAuth from '../../hooks/useNoAuth.jsx';
+import useNoAuth from '../../shared/lib/hooks/useNoAuth.jsx';
 import './CabinetPage.scss'
 
 const CabinetPage = ({ title }) => {

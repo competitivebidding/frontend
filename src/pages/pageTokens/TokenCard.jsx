@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { AppModal } from '../../components/appModal/AppModal';
+import { AppModal } from '../../shared/ui/Modal/AppModal';
 
 import video from '../../assets/videoAd/shorts.mp4'
 

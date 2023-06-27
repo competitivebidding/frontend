@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import styles from "@/components/Charts/Income.module.scss";
+import styles from "@/shared/ui/Charts/Income.module.scss";
 import arrow from "@assets/Partners/arrow.svg"
-import BarChart from "@/components/Charts/BarChart";
+import BarChart from "@/shared/ui/Charts/BarChart";
 
 function DoubleIncome({currency, color, data}) {
     const [filterValue, setFilterValue] = useState('Last week');

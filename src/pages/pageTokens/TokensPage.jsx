@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AppHeader from '../../components/appHeader/AppHeader.jsx'
+import AppHeader from '../../widgets/Header/AppHeader.jsx'
 import './TokensPage.scss'
 import TokenCard from './TokenCard.jsx'
 

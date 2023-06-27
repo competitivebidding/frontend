@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useState} from "react";
 import {useMutation} from "@apollo/client";
-import {CREATE_MY_ROOM} from "@/components/server/messages";
+import {CREATE_MY_ROOM} from "@/shared/schemas/messages/messages";
 import './AddNewGroupForm.scss';
 
 export const AddNewGroupForm = ({onClose}) => {

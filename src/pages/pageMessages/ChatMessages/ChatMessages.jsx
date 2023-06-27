@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useEffect, useState, useRef } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_ALL_MESSAGES_BY_ROOM } from "../../../components/server/messages";
-import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import { GET_ALL_MESSAGES_BY_ROOM } from "../../../shared/schemas/messages/messages";
+import { useLocalStorage } from "../../../shared/lib/hooks/useLocalStorage";
 import { useSubscription } from "@apollo/client";
-import { NEW_MESSAGE } from "../../../components/server/subscriptions";
-import { toTime } from "../../../utils/timeHelpers";
+import { NEW_MESSAGE } from "../../../shared/schemas/messages/subscriptions";
+import { toTime } from "../../../shared/utils/timeHelpers";
 import './ChatMessages.scss'
 
 export const ChatMessages = ({ groupId }) => {
@@ -19,7 +19,6 @@ export const ChatMessages = ({ groupId }) => {
         { variables: { roomId: groupId } }
     );
 
-    console.log('FROM_SUBSCRIPTION', { d, l, error })
 
     const { data, loading } = useQuery(GET_ALL_MESSAGES_BY_ROOM, {
         variables:
@@ -31,7 +30,6 @@ export const ChatMessages = ({ groupId }) => {
     })
 
     useEffect(() => {
-        console.log(123)
         if (ref.current) {
             ref.current.scrollTo({
                 top: ref.current.scrollHeight,
@@ -82,7 +80,7 @@ export const ChatMessages = ({ groupId }) => {
             </div>)
     }
 
-    const Answer = ({message}) => { 
+    const Answer = ({message}) => {
         return (
         <div className="message__answer answer">
             <div className="answer__content-answer">

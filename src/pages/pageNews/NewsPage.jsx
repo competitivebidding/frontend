@@ -1,9 +1,9 @@
 import React from 'react'
-import AppHeader from '../../components/appHeader/AppHeader.jsx'
+import AppHeader from '../../widgets/Header/AppHeader.jsx'
 import NewsList from './NewsList/NewsList'
 
 import { useQuery } from '@apollo/client'
-import { ALL_NEWS } from '../../components/server/news.js'
+import { ALL_NEWS } from '../../shared/schemas/news/news.js'
 
 const NewsPage = ({ title }) => {
 	// Эмитация базы данных. Данные будут приходить с бэка

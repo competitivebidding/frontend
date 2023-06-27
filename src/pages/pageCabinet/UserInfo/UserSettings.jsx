@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {useEffect} from 'react';
-import {UserAvatar} from "../../../components/UserAvatar/UserAvatar";
+import {UserAvatar} from "../../../shared/ui/UserAvatar/UserAvatar";
 import {CabinetSettings} from "../CabinetSettings/CabinetSettings";
-import {AppModal} from "../../../components/appModal/AppModal";
+import {AppModal} from "../../../shared/ui/Modal/AppModal";
 import {useTranslation} from "react-i18next";
 
 export const UserSettings = ({id, avatarUrl, handleUpdate}) => {

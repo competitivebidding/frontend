@@ -5,7 +5,7 @@ const NewsListItem = ({ images, title, date, text }) => {
 	const newDate = new Date(date)
 	const ImgItem = () => {
 		if (images && typeof images === 'object') {
-			const getImages = images.map(image => <img src={image || "/src/pages/pageNews/img/quare.png"} alt={""} />)
+			const getImages = images.map(image => <img src={image || "/src/pages/pageNews/temporary-auctions-img/quare.png"} alt={""} />)
 			return (
 				<div className="listItem__imgbox">
 					{getImages}
@@ -14,7 +14,7 @@ const NewsListItem = ({ images, title, date, text }) => {
 		} else {
 			return (
 				<div className="listItem__imgbox">
-					<img src={images || "/src/pages/pageNews/img/quare.png"} alt={""} />
+					<img src={images || "/src/pages/pageNews/temporary-auctions-img/quare.png"} alt={""} />
 				</div>
 			)
 		}

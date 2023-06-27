@@ -1,7 +1,7 @@
 import * as React from 'react';
 import icon from '@/assets/cabinet/icons/card.svg'
 import {useMutation, useQuery} from "@apollo/client";
-import {GET_USER_PAYMENT, UPDATE_USER_PAYMENT} from "../../../components/server/userProfile";
+import {GET_USER_PAYMENT, UPDATE_USER_PAYMENT} from "../../../shared/schemas/user/userProfile";
 import {useEffect} from "react";
 import {useTranslation} from "react-i18next";
 

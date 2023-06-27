@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './Messages.scss';
-import { AppModal } from '../../components/appModal/AppModal';
+import { AppModal } from '../../shared/ui/Modal/AppModal';
 import { useQuery, useSubscription } from "@apollo/client";
-import { GET_ALL_USERS_BY_ROOM_ID } from "../../components/server/messages";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { NEW_MESSAGE } from "../../components/server/subscriptions";
+import { GET_ALL_USERS_BY_ROOM_ID } from "../../shared/schemas/messages/messages";
+import { useLocalStorage } from "../../shared/lib/hooks/useLocalStorage";
+import { NEW_MESSAGE } from "../../shared/schemas/messages/subscriptions";
 import { MessageInput } from "./MessageInput/MessageInput";
 import { GroupSubscribers } from "./GroupSubscribers/GroupSubscribers";
 import { AddNewGroupForm } from "./AddNewGroupForm/AddNewGroupForm";

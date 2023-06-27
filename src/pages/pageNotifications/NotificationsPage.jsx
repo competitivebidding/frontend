@@ -1,9 +1,9 @@
 import React from 'react'
-import AppHeader from '../../components/appHeader/AppHeader.jsx'
+import AppHeader from '../../widgets/Header/AppHeader.jsx'
 import './NotificationsPage.scss'
 import NotificationCard from './NotificationCard.jsx'
 
-import useNoAuth from '../../hooks/useNoAuth.jsx';
+import useNoAuth from '../../shared/lib/hooks/useNoAuth.jsx';
 
 
 const NotificationsPage = ({ title }) => {
@@ -16,7 +16,7 @@ const NotificationsPage = ({ title }) => {
       date: '16/02/2023',
       time: '22:32',
       id: 1,
-      prizeImg: 'src/pages/pageNotifications/img/prize.svg',
+      prizeImg: 'src/pages/pageNotifications/temporary-auctions-img/prize.svg',
     },
     {
       title: 'Iphone 14 pro за 32 999 ₽',
@@ -25,7 +25,7 @@ const NotificationsPage = ({ title }) => {
       date: '16/02/2023',
       time: '22:32',
       id: 2,
-      prizeImg: 'src/pages/pageNotifications/img/prize.svg',
+      prizeImg: 'src/pages/pageNotifications/temporary-auctions-img/prize.svg',
     },
     {
       title: 'Iphone 14 pro за 32 999 ₽',
@@ -34,7 +34,7 @@ const NotificationsPage = ({ title }) => {
       date: '16/02/2023',
       time: '22:32',
       id: 3,
-      prizeImg: 'src/pages/pageNotifications/img/prize.svg',
+      prizeImg: 'src/pages/pageNotifications/temporary-auctions-img/prize.svg',
     },
   ]
 

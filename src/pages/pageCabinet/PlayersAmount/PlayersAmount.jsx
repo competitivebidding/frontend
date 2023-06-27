@@ -1,5 +1,5 @@
 import React from 'react'
-import DonutChart from '@/components/Charts/DonutChart.jsx'
+import DonutChart from '@/shared/ui/Charts/DonutChart.jsx'
 import styles from './PlayersAmount.module.scss'
 
 function PlayersAmount(props) {

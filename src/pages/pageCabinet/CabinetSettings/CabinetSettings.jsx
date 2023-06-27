@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import cls from './CabinetSettings.module.scss'
 import {FormInput} from "../FormInput/FormInput";
 import {useMutation, useQuery} from "@apollo/client";
-import {GET_USER_ADDRESS} from "@/components/server/userProfile";
-import {GET_PROFILE_QUERY, UPDATE_PROFILE, UPDATE_USER_ADDRESS} from "@/components/server/userProfile";
+import {GET_USER_ADDRESS} from "@/shared/schemas/user/userProfile";
+import {GET_PROFILE_QUERY, UPDATE_PROFILE, UPDATE_USER_ADDRESS} from "@/shared/schemas/user/userProfile";
 
 export const CabinetSettings = () => {
     const [isEditable, setIsEditable] = React.useState(false)

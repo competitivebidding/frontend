@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { DropDown } from "@/components/DropDown/DropDown";
+import { DropDown } from "@/shared/ui/DropDown/DropDown";
 
 import icon from '@/assets/cabinet/icons/global-search.svg'
 import { useMutation, useQuery } from "@apollo/client";
-import { GET_USER_ADDRESS, UPDATE_USER_ADDRESS } from "@/components/server/userProfile";
+import { GET_USER_ADDRESS, UPDATE_USER_ADDRESS } from "@/shared/schemas/user/userProfile";
 import { useTranslation } from "react-i18next";
-import { Clue } from '@/components/clue/clue';
+import { TooltipButton } from '@/shared/ui/TooltipButton/TooltipButton';
 
 
 import US from '@/assets/cabinet/dropdown/US.svg'
@@ -63,7 +63,7 @@ export const UserCountry = () => {
 				<div className="item-bottom__content">
 					<p>{t('theCountryWasSetAutomatically')}
 					</p>
-					<Clue style={{ width: "16px" }} info="theCountryWasSetAutomatically theCountryWasSetAutomatically theCountryWasSetAutomatically" />
+					<TooltipButton style={{ width: "16px" }} info="theCountryWasSetAutomatically theCountryWasSetAutomatically theCountryWasSetAutomatically" />
 				</div>
 			</div>
 		</div>

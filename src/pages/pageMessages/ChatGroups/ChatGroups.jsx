@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from "@apollo/client";
-import { GET_ALL_ROOMS } from "../../../components/server/messages";
-import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import { GET_ALL_ROOMS } from "../../../shared/schemas/messages/messages";
+import { useLocalStorage } from "../../../shared/lib/hooks/useLocalStorage";
 import { useSubscription } from "@apollo/client";
-import { NEW_MESSAGE } from "../../../components/server/subscriptions";
+import { NEW_MESSAGE } from "../../../shared/schemas/messages/subscriptions";
 import './ChatGroups.scss'
 
 export const ChatGroups = ({ onSelectGroup, activeItem }) => {
