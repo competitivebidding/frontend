@@ -6,8 +6,9 @@ import email from '@assets/imgPartnerProgram/sms.svg';
 import hat from '@assets/imgPartnerProgram/magic-trick-dynamic-premium.png';
 import card from '@assets/imgPartnerProgram/card.svg';
 
+import { Clue } from '@/components/clue/clue';
+
 import './UserInfoAccount.scss';
-import '../../../../components/clue/clue.scss'
 
 const UserInfoAccount = (props) => {
 	const [userInfo, setUserInfo] = useState({
@@ -59,9 +60,8 @@ const UserInfoAccount = (props) => {
 					<div className={'item-content__text'}>
 						<div>
 							Partner
-							<button
-								data-clue="As a member of the affiliate program, you will receive a commission in the form of 20% of the spending of users who have registered using your referral link."
-								className={'more-info clue'}>?</button>
+
+							<Clue info="As a member of the affiliate program, you will receive a commission in the form of 20% of the spending of users who have registered using your referral link." />
 						</div>
 						<p>20% from personally invited</p>
 					</div>
@@ -126,10 +126,8 @@ const UserInfoAccount = (props) => {
 				</div>
 				<div className="item-email__bottomSection bottomSection">
 					Verification letter has been sent to your email
-					<button
-						data-clue="A verified email address increases your level of authorization and gives you more opportunities to interact with Competitive Biddin"
-						className={'more-info clue'}
-					>?</button>
+
+					<Clue info="A verified email address increases your level of authorization and gives you more opportunities to interact with Competitive Biddin" />
 				</div>
 			</div>
 
