@@ -9,7 +9,7 @@ export const MessageInput = ({ roomId }) => {
     const [newMessage, setNewMessage] = useState('')
     const [sendMessage, { data, loading, error }] = useMutation(SEND_MESSAGE)
 
-    console.log('FROM_SEND_MESSAGE', { data, loading, error })
+    // console.log('FROM_SEND_MESSAGE', { data, loading, error })
 
     const handleSendMessage = () => {
         sendMessage({

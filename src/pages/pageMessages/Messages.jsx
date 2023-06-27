@@ -22,6 +22,8 @@ const Messages = () => {
   const [activeGroup, setActiveGroup] = useState(lsActiveGroup || null)
   const [groupUsers, setGroupUsers] = useState([])
 
+
+
   const isJoined = () => {
     return groupUsers.find(user => user.username === lsUser.username)
   }
@@ -51,34 +53,34 @@ const Messages = () => {
   }, [users])
 
   return (
-      <>
-        <div className="chat">
-          <ChatSidebar onToggleNewGroupModal={setModalNewGroup} onSelectGroup={handleSelectActiveGroup} activeGroupId={activeGroup && activeGroup.id} />
-          {activeGroup ? <div className="chat__container">
-            <ChatHeader title={activeGroup && activeGroup.title} length={groupUsers.length} onToggleModal={toggleGroup} />
-            <ChatMessages groupId={activeGroup && activeGroup.id} />
-            {isJoined() ?
-                <MessageInput roomId={ activeGroup && activeGroup.id} /> :
-                <ChatJoin roomId={activeGroup && activeGroup.id} />
-            }
-          </div> : 
+    <>
+      <div className="chat">
+        <ChatSidebar onToggleNewGroupModal={setModalNewGroup} onSelectGroup={handleSelectActiveGroup} activeGroupId={activeGroup && activeGroup.id} />
+        {activeGroup ? <div className="chat__container">
+          <ChatHeader title={activeGroup && activeGroup.title} length={groupUsers.length} onToggleModal={toggleGroup} />
+          <ChatMessages groupId={activeGroup && activeGroup.id}/>
+          {isJoined() ?
+            <MessageInput roomId={activeGroup && activeGroup.id} /> :
+            <ChatJoin roomId={activeGroup && activeGroup.id} />
+          }
+        </div> :
           <div className='empty__container'>
             <div className='chat__empty'> Select a chat to start messaging</div>
-            </div>}
-        </div>
+          </div>}
+      </div>
 
-        {modalNewGroup && (
-            <AppModal isOpen={modalNewGroup} onClose={toggleNewGroup}>
-              <AddNewGroupForm onClose={setModalNewGroup} />
-            </AppModal>
-        )}
+      {modalNewGroup && (
+        <AppModal isOpen={modalNewGroup} onClose={toggleNewGroup}>
+          <AddNewGroupForm onClose={setModalNewGroup} />
+        </AppModal>
+      )}
 
-        {modalGroup && (
-            <AppModal isOpen={modalGroup} onClose={toggleGroup}>
-              <GroupSubscribers groupTitle={activeGroup && activeGroup.title} groupSubs={groupUsers} roomId={activeGroup && activeGroup.id} onClose={toggleGroup} />
-            </AppModal>
-        )}
-      </>
+      {modalGroup && (
+        <AppModal isOpen={modalGroup} onClose={toggleGroup}>
+          <GroupSubscribers groupTitle={activeGroup && activeGroup.title} groupSubs={groupUsers} roomId={activeGroup && activeGroup.id} onClose={toggleGroup} />
+        </AppModal>
+      )}
+    </>
   );
 };
 
