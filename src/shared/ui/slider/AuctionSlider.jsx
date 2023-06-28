@@ -3,7 +3,7 @@ import React, {useEffect, useRef, useState} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useWindowSize from "@/shared/lib/hooks/useWindowSize";
 
-// Import Swiper styles
+// Import Swiper ui
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -12,7 +12,7 @@ import "./AuctionSlider.scss";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
-import AuctionCard from "@/widgets/auction-card/AuctionCard";
+import AuctionCard from "@/widgets/auction/ui/auction-card/AuctionCard";
 
 export default function AuctionSlider({data}) {
     const {width} = useWindowSize()
