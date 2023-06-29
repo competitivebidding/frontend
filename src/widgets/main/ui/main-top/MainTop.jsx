@@ -5,7 +5,7 @@ import "./MainTop.scss"
 import { RoyalAuction } from '../../../royal-auction/RoyalAuction.jsx'
 import { ProgressList } from '../../../progress/ui/progress-list/ProgressList.jsx'
 import { Mission } from '../../../mission/Mission.jsx'
-import { StatsList } from '../../../stats-list/StatsList.jsx'
+import { StatsList } from '../../../../entities/stats/ui/stats-list/StatsList.jsx'
 
 export const MainTop = (props) => {
 	return (

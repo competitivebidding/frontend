@@ -1,5 +1,5 @@
 import React from 'react';
-import PlayersAmount from "@/widgets/partners/ui/players-amount/PlayersAmount";
+import PlayersAmount from "@/entities/partners/ui/players-amount/PlayersAmount";
 import styles from "./Charts.module.scss"
 import Income from "@/shared/ui/charts/Income";
 import rotoIncome from "@/shared/charts-data/RotoIncome.js";

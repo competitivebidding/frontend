@@ -1,7 +1,7 @@
 import React from 'react'
 
 import LeftAuth from '../authorization/leftAuth.jsx'
-import ResetPasswordRight from '../../widgets/reset-password-right/ResetPasswordRight.jsx'
+import { ResetPasswordRight } from '@/feauters/auth'
 
 const ResetPassword = () => {
   return (

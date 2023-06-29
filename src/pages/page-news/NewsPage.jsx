@@ -1,6 +1,6 @@
 import React from 'react'
 import AppHeader from '../../widgets/header/AppHeader.jsx'
-import NewsList from '../../widgets/news-list/NewsList'
+import NewsList from '../../entities/news/ui/news-list/NewsList'
 
 import { useQuery } from '@apollo/client'
 import { ALL_NEWS } from '../../shared/schemas/news/news.js'

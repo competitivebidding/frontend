@@ -12,7 +12,7 @@ import "./AuctionSlider.scss";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
-import AuctionCard from "@/widgets/auction/ui/auction-card/AuctionCard";
+import AuctionCard from "@/entities/auction/ui/auction-card/AuctionCard";
 
 export default function AuctionSlider({data}) {
     const {width} = useWindowSize()

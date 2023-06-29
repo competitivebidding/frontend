@@ -1,7 +1,7 @@
 import React from 'react'
 import AppHeader from '../../widgets/header/AppHeader.jsx'
 import './WinnerListPage.scss'
-import WinnerListCard from '../../widgets/winner-list-card/WinnerListCard.jsx'
+import { WinnerListCard } from '@/entities/user'
 
 import winner from '@/assets/winner-list/winner.png'
 import prize from '@/assets/winner-list/prize.png'

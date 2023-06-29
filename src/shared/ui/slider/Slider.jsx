@@ -1,7 +1,7 @@
 //старое, на всякий случай не удалил пока
 
 import React, { useState, useRef, useEffect } from 'react';
-import AuctionCard from '../../../widgets/auction/ui/auction-card/AuctionCard';
+import AuctionCard from '../../../entities/auction/ui/auction-card/AuctionCard';
 
 import './Slider.scss';
 
