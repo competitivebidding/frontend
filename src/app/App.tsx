@@ -2,7 +2,7 @@ import {Route, Routes} from 'react-router-dom'
 
 import React, {Suspense} from 'react'
 
-import AuctionsPage from '../pages/auctions/AuctionsPage.jsx'
+import AuctionsPage from '../pages/auctions/AuctionsPage'
 import CabinetPage from '../pages/cabinet/CabinetPage.jsx'
 import MainPage from '../pages/main/MainPage.jsx'
 import MyAuctionsPage from '../pages/my-auctions/MyAuctionsPage.jsx'
@@ -25,11 +25,11 @@ import ResetPassword from '../pages/reset-password/ResetPassword.jsx'
 import NewPassword from '../pages/new-password/NewPassword.jsx'
 
 import './ui/App.scss'
-import {UserContextProvider} from "../context/AuthContext";
+import {UserContextProvider} from "@/context/AuthContext";
 import {useTranslation} from "react-i18next";
 
 const App = () => {
-  const {t} = useTranslation('header')
+  const { t} = useTranslation('header')
   return (
       <Suspense fallback={'loading...'}>
         <UserContextProvider>
@@ -63,7 +63,6 @@ const App = () => {
           </div>
         </UserContextProvider>
       </Suspense>
-
   )
 }
 

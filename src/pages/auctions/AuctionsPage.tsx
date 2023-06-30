@@ -6,7 +6,7 @@ import Search from '../../feauters/search/Search.jsx'
 
 import './AuctionsPage.scss'
 import {useQuery} from "@apollo/client";
-import {GET_AUCTIONS} from "../../shared/schemas/auctions/auctions";
+import {GET_AUCTIONS} from "@/shared/schemas/auctions/auctions";
 import AuctionsPageContent from "../../entities/auction/ui/auction-page-content/AuctionsPageContent.jsx";
 
 const MyAuctionsPage = ({ title }) => {
