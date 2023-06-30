@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import useWindowSize from "@/shared/lib/hooks/useWindowSize";
+import useWindowSize from "@/shared/lib/useWindowSize";
 
 // Import Swiper ui
 import "swiper/css";

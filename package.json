@@ -47,10 +47,12 @@
     "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
+    "@types/js-cookie": "^3.0.3",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
     "@vitejs/plugin-react": "^3.1.0",
     "sass": "^1.60.0",
+    "typescript": "^5.1.6",
     "vite": "^4.2.0"
   }
 }

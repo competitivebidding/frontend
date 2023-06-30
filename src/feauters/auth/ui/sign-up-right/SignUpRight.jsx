@@ -8,7 +8,7 @@ import {useMutation} from '@apollo/client'
 import Cookies from 'js-cookie';
 
 import SIGNUP_MUTATION from '../../../../shared/schemas/auth/signup.js'
-import {useLocalStorage} from '@/shared/lib/hooks/useLocalStorage'
+import {useLocalStorage} from '@/shared/lib/useLocalStorage'
 
 import './SignUpRight.scss'
 

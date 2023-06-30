@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from "@apollo/client";
 import { GET_ALL_ROOMS } from "@/shared/schemas/messages/messages";
-import { useLocalStorage } from "@/shared/lib/hooks/useLocalStorage";
+import { useLocalStorage } from "@/shared/lib/useLocalStorage";
 import { useSubscription } from "@apollo/client";
 import { NEW_MESSAGE } from "@/shared/schemas/messages/subscriptions";
 import './ChatGroups.scss'

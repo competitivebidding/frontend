@@ -9,7 +9,7 @@ import {useMutation} from '@apollo/client'
 import SIGNIN_MUTATION from '../../../../shared/schemas/auth/signin.js'
 
 import './SignInRight.scss'
-import {useLocalStorage} from '@/shared/lib/hooks/useLocalStorage'
+import {useLocalStorage} from '@/shared/lib/useLocalStorage'
 
 export const SignInRight = () => {
 	const {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import icon from '@assets/cabinet/icons/user.svg'
 import {useContext, useEffect} from "react";
 import {AuthContext} from "../../../../../context/AuthContext";
-import {useLocalStorage} from "../../../../lib/hooks/useLocalStorage";
+import {useLocalStorage} from "../../../../lib/useLocalStorage";
 import {useTranslation} from "react-i18next";
 
 export const UserName = ({field, handleUpdate}) => {

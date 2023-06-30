@@ -3,7 +3,7 @@ import './Messages.scss';
 import { AppModal } from '../../shared/ui/modal/AppModal';
 import { useQuery, useSubscription } from "@apollo/client";
 import { GET_ALL_USERS_BY_ROOM_ID } from "../../shared/schemas/messages/messages";
-import { useLocalStorage } from "../../shared/lib/hooks/useLocalStorage";
+import { useLocalStorage } from "../../shared/lib/useLocalStorage";
 import { NEW_MESSAGE } from "../../shared/schemas/messages/subscriptions";
 import { MessageInput } from "../../feauters/message-input/MessageInput";
 import { GroupSubscribers } from "../../widgets/group-subscribers/GroupSubscribers";
