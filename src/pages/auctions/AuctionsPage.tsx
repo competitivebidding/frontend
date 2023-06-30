@@ -9,6 +9,7 @@ import {useQuery} from "@apollo/client";
 import {GET_AUCTIONS} from "@/shared/schemas/auctions/auctions";
 import AuctionsPageContent from "../../entities/auction/ui/auction-page-content/AuctionsPageContent.jsx";
 
+
 const MyAuctionsPage = ({ title }) => {
   // эмитация данных с бэка
 

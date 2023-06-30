@@ -4,7 +4,18 @@ import './AuctionCard.scss'
 import AuctionCardTimer from '../../../../shared/ui/auction-cards/AuctionCardTimer'
 import img from '@assets/temporary-auctions-img/watch.png'
 
-const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, startedAt, }) => {
+interface IAuctionCardProps {
+  id: number
+  alt: string
+  title: string
+  date: Date
+  bids: string
+  places: string
+  changeStatus: boolean
+  startedAt: Date
+}
+
+const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, startedAt, }: IAuctionCardProps) => {
 
   const [clazz, setClass] = useState('card');
   const [place, setPlace] = useState(places);
