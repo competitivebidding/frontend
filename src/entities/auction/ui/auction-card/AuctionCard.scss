@@ -1,0 +1,186 @@
+$fz14: 0.875rem;
+$fz12: 0.75rem;
+$fz8: 0.5rem;
+$fz15: 0.9375rem;
+
+.card {
+    background: #171A1E;
+    border-radius: 17px;
+    display: flex;
+    flex-direction: column;
+    &.active {
+        .card__imgbox {
+            .deposit {
+                background: #2F53FF;
+                &::before {
+                    background: #fff;
+                }
+            }
+        }
+
+        .card__btn {
+            background: #00A76B;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 22px;
+                height: 22px;
+                //background: url('@/assets/imgAuctions/');
+                top: 50%;
+                left: 62%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.card__imgbox {
+    width: 100%;
+    max-height: 270px;
+    border-radius: 17px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: #414658;
+    .img__wrapper {
+        width: 100%;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+        img {
+            object-fit: contain;
+            max-height: 100%;
+        }
+    }
+
+
+    .deposit {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 20px;
+        margin: 11px;
+        padding: 5px 10px 5px 36px;
+        background: rgba(0, 0, 0, 0.74);
+        color: #fff;
+        transition: all .3s;
+
+        span {
+            font-weight: 300;
+            font-size: $fz8;
+            line-height: 105%;
+        }
+
+        .price__title {
+            font-weight: 400;
+            font-size: $fz14;
+            line-height: 105%;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 6px;
+            width: 25px;
+            height: 25px;
+            border-radius: 100%;
+            background: #2F53FF;
+        }
+
+    }
+
+    .click__price {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        text-align: right;
+        margin: 0px 6px 12px 0px;
+        color: #fff;
+
+        span {
+            font-weight: 300;
+            font-size: $fz12;
+            line-height: 105%;
+        }
+    }
+}
+
+.cardContent {
+    padding: 0px 12px 17px 12px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-weight: 400;
+    font-size: $fz15;
+    line-height: 105%;
+    color: #fff;
+}
+
+.card__places {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-weight: 300;
+    font-size: $fz12;
+    line-height: 105%;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.card__start {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    font-weight: 300;
+    font-size: $fz14;
+    line-height: 105%;
+    color: #fff;
+    padding: 7px 0px 7px 0px;
+}
+
+.card__btn {
+    width: 100%;
+    height: 33px;
+    background: #2F53FF;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: $fz12;
+    line-height: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+    transition: all .3s;
+}
+
+.timer {
+    display: flex;
+    justify-content: space-between;
+    background: #13161A;
+    border-radius: 8px;
+    padding: 7px 20px 7px 13px;
+    font-weight: 300;
+    font-size: $fz14;
+    line-height: 105%;
+    color: #fff;
+    margin-bottom: 14px;
+
+    .time {
+        margin-right: 12.5px;
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+}
