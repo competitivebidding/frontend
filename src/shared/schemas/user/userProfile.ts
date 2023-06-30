@@ -1,18 +1,23 @@
 import { gql } from '@apollo/client'
+import {graphql} from "../../types/gql";
 
-export const GET_PROFILE_QUERY = gql(`
-    query GetProfile {
-      getProfile {
-        email
-        firstname
-        id
-        instagram
-        lastname
-        patronymic
-        username
-        phone
-      }
+export const GET_PROFILE_QUERY = graphql(`
+  query GetProfile {
+    getProfile {
+      id
+      username
+      email
+      firstname
+      phone
+      lastname
+      patronymic
+      instagram
+      confirmationCode
+      avatarUrl
+      createdAt
+      updatedAt
     }
+  }
 `)
 
 export const GET_USER_ADDRESS = gql`
@@ -41,7 +46,7 @@ export const GET_USER_PAYMENT = gql(`
         createdAt
         updatedAt
         }
-    }   
+    }
 `)
 
 export const UPDATE_USER_ADDRESS = gql`

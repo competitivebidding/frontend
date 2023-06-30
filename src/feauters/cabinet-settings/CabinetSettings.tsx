@@ -1,16 +1,21 @@
 import React, {useEffect} from 'react';
 import cls from './CabinetSettings.module.scss'
-import {FormInput} from "../../shared/ui/form-input/FormInput";
 import {useMutation, useQuery} from "@apollo/client";
-import {GET_USER_ADDRESS} from "@/shared/schemas/user/userProfile";
-import {GET_PROFILE_QUERY, UPDATE_PROFILE, UPDATE_USER_ADDRESS} from "@/shared/schemas/user/userProfile";
+import {
+    GET_PROFILE_QUERY,
+    GET_USER_ADDRESS,
+    UPDATE_PROFILE,
+    UPDATE_USER_ADDRESS
+} from "shared/schemas/user/userProfile";
+import {FormInput} from "shared/ui/form-input/FormInput";
 
 export const CabinetSettings = () => {
-    const [isEditable, setIsEditable] = React.useState(false)
-    const [userInfo, setUserInfo] = React.useState(null)
-    const [address, setAddress] = React.useState('')
 
-    const {data: profile, refetch} = useQuery(GET_PROFILE_QUERY)
+    const [isEditable, setIsEditable] = React.useState<boolean>(false)
+    const [userInfo, setUserInfo] = React.useState(null)
+    const [address, setAddress] = React.useState<string>('')
+
+    const {data: profileData, refetch} = useQuery(GET_PROFILE_QUERY)
     const {data: userAddress} = useQuery(GET_USER_ADDRESS)
 
     const [updateProfile] = useMutation(UPDATE_PROFILE)
@@ -34,7 +39,7 @@ export const CabinetSettings = () => {
                     address
                 }
             }
-        })]).then(refetch)
+        })]).then(() => refetch())
     }
 
     const handleChangeUserInfo = (field) => {
@@ -42,13 +47,13 @@ export const CabinetSettings = () => {
     }
 
     useEffect(() => {
-        if (profile) {
-            setUserInfo(profile.getProfile)
+        if (profileData) {
+            setUserInfo(profileData)
         }
         if (userAddress) {
             setAddress(userAddress.getUserAddress.address)
         }
-    }, [profile, userAddress])
+    }, [profileData, userAddress])
 
     return (
        <>

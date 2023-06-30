@@ -43,7 +43,6 @@ export const GET_AUCTIONS = gql`
         }
     }
 }
-
 `
 
 export const CREATE_MY_BID = gql`
