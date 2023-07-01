@@ -7,7 +7,8 @@ import {
     UPDATE_PROFILE,
     UPDATE_USER_ADDRESS
 } from "shared/schemas/user/userProfile";
-import {FormInput} from "shared/ui/form-input/FormInput";
+
+import FormInput from 'shared/ui/form-input/FormInput'
 
 export const CabinetSettings = () => {
 

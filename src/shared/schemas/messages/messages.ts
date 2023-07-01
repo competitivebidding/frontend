@@ -1,19 +1,6 @@
-import { gql } from "@apollo/client";
+import {graphql} from "../../types/gql";
 
-export const CREATE_MY_ROOM = gql`
-    mutation CreateMyRoom($input: RoomCreateInput!) {
-      createMyRoom(input: $input) {
-        id
-        ownerId
-        title
-        description
-        createdAt
-        updatedAt
-      }
-    }
-`
-
-export const GET_ALL_MY_ROOMS = gql`
+export const GET_ALL_MY_ROOMS = graphql(`
     query GetAllMyRooms {
       getAllMyRooms {
         id
@@ -24,9 +11,8 @@ export const GET_ALL_MY_ROOMS = gql`
         updatedAt
       }
     }
-`
-
-export const GET_ALL_MESSAGES_BY_ROOM = gql`
+`)
+export const GET_ALL_MESSAGES_BY_ROOM = graphql(`
 query GetAllMessagesByRoomId($userMessage: UserMessages!) {
   getAllMessagesByRoomId(userMessage: $userMessage) {
     content
@@ -37,9 +23,18 @@ query GetAllMessagesByRoomId($userMessage: UserMessages!) {
     userId
   }
 }
-`
-
-export const SEND_MESSAGE = gql`
+`)
+export const GET_ALL_USERS_BY_ROOM_ID = graphql(`
+    query GetAllUsersByRoomId($roomId: Float!) {
+      getAllUsersByRoomId(roomId: $roomId) {
+        username
+        firstname
+        lastname
+        avatarUrl
+      }
+    }
+`)
+export const SEND_MESSAGE = graphql(`
     mutation Mutation($newMessage: NewMessageInput!) {
       sendMessage(newMessage: $newMessage) {
         id
@@ -50,9 +45,21 @@ export const SEND_MESSAGE = gql`
         updatedAt
       }
     }
-`
+`)
+export const CREATE_MY_ROOM = graphql(`
+    mutation CreateMyRoom($input: RoomCreateInput!) {
+      createMyRoom(input: $input) {
+        id
+        ownerId
+        title
+        description
+        createdAt
+        updatedAt
+      }
+    }
 
-export const JOIN_ROOM = gql`
+`)
+export const JOIN_ROOM = graphql(`
     mutation JoinToRoom($roomId: Float!) {
   joinToRoom(roomId: $roomId) {
     username
@@ -61,32 +68,8 @@ export const JOIN_ROOM = gql`
     avatarUrl
   }
 }
-`
-
-export const GET_ALL_ROOMS = gql`
-query GetAllRooms {
-  getAllRooms {
-    id
-    ownerId
-    title
-    description
-    createdAt
-    updatedAt
-  }
-}
-`
-
-export const GET_ALL_USERS_BY_ROOM_ID = gql`
-    query GetAllUsersByRoomId($roomId: Float!) {
-      getAllUsersByRoomId(roomId: $roomId) {
-        username
-        firstname
-        lastname
-        avatarUrl
-      }
-    }
-`
-export const LEAVE_FROM_CHAT = gql`
+`)
+export const LEAVE_FROM_CHAT = graphql(`
 mutation LeaveFromRoom($roomId: Float!) {
   leaveFromRoom(roomId: $roomId) {
     avatarUrl
@@ -95,5 +78,5 @@ mutation LeaveFromRoom($roomId: Float!) {
     username
   }
 }
-`
+`)
 

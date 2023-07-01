@@ -1,5 +1,4 @@
 import React from 'react'
-import DonutChart from '@/shared/ui/charts/DonutChart.jsx'
 import styles from './PlayersAmount.module.scss'
 
 function PlayersAmount(props) {
@@ -37,7 +36,7 @@ function PlayersAmount(props) {
             ))}
           </ul>
         )}
-        <DonutChart data={data} count={10} haveTooltip />
+        {/*<DonutChart data={data} count={10} haveTooltip />*/}
       </div>
     </div>
   )

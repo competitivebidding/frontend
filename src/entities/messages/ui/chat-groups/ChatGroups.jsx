@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from "@apollo/client";
-import { GET_ALL_ROOMS } from "@/shared/schemas/messages/messages";
 import { useLocalStorage } from "@/shared/lib/useLocalStorage";
 import { useSubscription } from "@apollo/client";
-import { NEW_MESSAGE } from "@/shared/schemas/messages/subscriptions";
 import './ChatGroups.scss'
+import {NEW_MESSAGE} from "shared/schemas/messages/subscriptions";
+import {GET_ALL_MY_ROOMS} from "../../../../shared/schemas/messages/messages";
 
 export const ChatGroups = ({ onSelectGroup, activeItem }) => {
     const [groups, setGroups] = useState(null);
     const { setValue } = useLocalStorage('activeGroup');
-    const { data, loading } = useQuery(GET_ALL_ROOMS);
+    const { data, loading } = useQuery(GET_ALL_MY_ROOMS);
     const [lastMessages, setLastMessages] = useState({});
 
     const { data: newMessageData, loading: newMessageLoading } = useSubscription(

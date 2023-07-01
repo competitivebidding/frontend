@@ -1,5 +1,5 @@
 import React from 'react';
-import {DropDown} from "../../shared/ui/dropdown/DropDown";
+import {DropDown} from "shared/ui/dropdown/DropDown";
 import {useTranslation} from "react-i18next";
 
 import  UsIcon from '@assets/cabinet/dropdown/US.svg'
