@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AuctionList from '../../entities/auction/ui/auctions-list/AuctionList.jsx'
+import AuctionList from '../../entities/auction/ui/auctions-list/AuctionList.tsx'
 import './MyAuctionContent.scss'
 
 const MyAuctionContent = ({ data }) => {

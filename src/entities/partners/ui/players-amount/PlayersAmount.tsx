@@ -2,7 +2,7 @@ import React from 'react';
 import donut from "@assets/Partners/donut.svg";
 import styles from './PlayersAmount.module.scss';
 
-function PlayersAmount(props) {
+function PlayersAmount() {
     const data = {
         labels: ['Amount of players', 'Amount of partners', 'Amount of active partners per week'],
         datasets: [{

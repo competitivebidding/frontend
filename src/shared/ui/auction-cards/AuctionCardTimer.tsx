@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 interface IAuctionCardTimerProps {
   date: string;
   timer: boolean;
-  id: string;
+  id: number;
 }
 
 const AuctionCardTimer = ({ date, timer, id }: IAuctionCardTimerProps) => {

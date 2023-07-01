@@ -1,13 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from "@apollo/client";
-import { useLocalStorage } from "@/shared/lib/useLocalStorage";
+
 import { useSubscription } from "@apollo/client";
 import './ChatGroups.scss'
-import {NEW_MESSAGE} from "shared/schemas/messages/subscriptions";
-import {GET_ALL_MY_ROOMS} from "../../../../shared/schemas/messages/messages";
 
-export const ChatGroups = ({ onSelectGroup, activeItem }) => {
-    const [groups, setGroups] = useState(null);
+
+import { NEW_MESSAGE } from '../../../../shared/schemas/messages/subscriptions'
+import { GET_ALL_MY_ROOMS } from '../../../../shared/schemas/messages/messages'
+import { useLocalStorage } from '../../../../shared/lib/useLocalStorage'
+
+interface Group {
+    title: string
+    id: number
+}
+
+interface IChatGroupsProps {
+    onSelectGroup: (group: Group) => void
+    activeItem: number | unknown
+}
+
+export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
+    const [groups, setGroups] = useState<Group[] | null>(null);
     const { setValue } = useLocalStorage('activeGroup');
     const { data, loading } = useQuery(GET_ALL_MY_ROOMS);
     const [lastMessages, setLastMessages] = useState({});
@@ -19,7 +32,7 @@ export const ChatGroups = ({ onSelectGroup, activeItem }) => {
 
     useEffect(() => {
         if (!loading) {
-            setGroups(data.getAllRooms);
+            setGroups(newMessageData?.getAllRooms);
         }
     }, [data, loading]);
 
@@ -35,7 +48,7 @@ export const ChatGroups = ({ onSelectGroup, activeItem }) => {
         }
     }, [newMessageData, newMessageLoading]);
 
-    const handleSetActiveGroup = (group) => {
+    const handleSetActiveGroup = (group: { title: string, id: number }) => {
         onSelectGroup(group);
         setValue(group);
     };
@@ -44,7 +57,7 @@ export const ChatGroups = ({ onSelectGroup, activeItem }) => {
         <div className="sidebar__group ">
             {groups && (
                 <ul>
-                    {groups.map((group) => (
+                    {groups.map((group: Group) => (
                         <li
                             key={group.id}
                             className={`sidebar__list ${activeItem === group.id ? 'active' : ''
@@ -55,7 +68,7 @@ export const ChatGroups = ({ onSelectGroup, activeItem }) => {
                         >
                             <div className="sidebar__list-title">
                                 {group.title}
-                                <p>{lastMessages[group.id]}</p>
+                                {/*<p>{lastMessages[group.id]}</p>*/}
                             </div>
                         </li>
                     ))}

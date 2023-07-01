@@ -1,6 +1,6 @@
-import {graphql} from "../../types/gql";
+import { gql } from '@apollo/client'
 
-export const GET_ALL_MY_ROOMS = graphql(`
+export const GET_ALL_MY_ROOMS = gql(`
     query GetAllMyRooms {
       getAllMyRooms {
         id
@@ -12,7 +12,7 @@ export const GET_ALL_MY_ROOMS = graphql(`
       }
     }
 `)
-export const GET_ALL_MESSAGES_BY_ROOM = graphql(`
+export const GET_ALL_MESSAGES_BY_ROOM = gql(`
 query GetAllMessagesByRoomId($userMessage: UserMessages!) {
   getAllMessagesByRoomId(userMessage: $userMessage) {
     content
@@ -24,7 +24,7 @@ query GetAllMessagesByRoomId($userMessage: UserMessages!) {
   }
 }
 `)
-export const GET_ALL_USERS_BY_ROOM_ID = graphql(`
+export const GET_ALL_USERS_BY_ROOM_ID = gql(`
     query GetAllUsersByRoomId($roomId: Float!) {
       getAllUsersByRoomId(roomId: $roomId) {
         username
@@ -34,7 +34,7 @@ export const GET_ALL_USERS_BY_ROOM_ID = graphql(`
       }
     }
 `)
-export const SEND_MESSAGE = graphql(`
+export const SEND_MESSAGE = gql(`
     mutation Mutation($newMessage: NewMessageInput!) {
       sendMessage(newMessage: $newMessage) {
         id
@@ -46,7 +46,7 @@ export const SEND_MESSAGE = graphql(`
       }
     }
 `)
-export const CREATE_MY_ROOM = graphql(`
+export const CREATE_MY_ROOM = gql(`
     mutation CreateMyRoom($input: RoomCreateInput!) {
       createMyRoom(input: $input) {
         id
@@ -59,7 +59,7 @@ export const CREATE_MY_ROOM = graphql(`
     }
 
 `)
-export const JOIN_ROOM = graphql(`
+export const JOIN_ROOM = gql(`
     mutation JoinToRoom($roomId: Float!) {
   joinToRoom(roomId: $roomId) {
     username
@@ -69,7 +69,7 @@ export const JOIN_ROOM = graphql(`
   }
 }
 `)
-export const LEAVE_FROM_CHAT = graphql(`
+export const LEAVE_FROM_CHAT = gql(`
 mutation LeaveFromRoom($roomId: Float!) {
   leaveFromRoom(roomId: $roomId) {
     avatarUrl

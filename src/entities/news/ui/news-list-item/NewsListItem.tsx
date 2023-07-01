@@ -1,7 +1,14 @@
 import React from 'react'
 import './NewsListItem.scss'
 
-const NewsListItem = ({ images, title, date, text }) => {
+interface IWesListItem {
+	images: string[]
+	title: string
+	date: string
+	text: string
+}
+
+const NewsListItem = ({ images, title, date, text }: IWesListItem) => {
 	const newDate = new Date(date)
 	const ImgItem = () => {
 		if (images && typeof images === 'object') {

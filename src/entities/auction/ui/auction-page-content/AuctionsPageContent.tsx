@@ -1,11 +1,13 @@
 import React from 'react'
-import Slider from '../../../../shared/ui/slider/Slider'
 import AuctionList from '../auctions-list/AuctionList'
 import './AuctionsPageContent.scss'
-import AuctionSlider from "@/shared/ui/slider/AuctionSlider";
 
-const AuctionsPageContent = ({data}) => {
-    console.log(data)
+interface IAuctionsPageContent {
+  data: any
+}
+
+export const AuctionsPageContent = ({ data }: IAuctionsPageContent) => {
+
   return (
     <div>
       {/* <div className="title">Upcoming announcements </div>
@@ -19,5 +21,3 @@ const AuctionsPageContent = ({data}) => {
     </div>
   )
 }
-
-export default AuctionsPageContent;
