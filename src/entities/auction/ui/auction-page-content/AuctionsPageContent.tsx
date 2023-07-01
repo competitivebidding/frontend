@@ -1,14 +1,13 @@
 import React from 'react'
 import AuctionList from '../auctions-list/AuctionList'
 import './AuctionsPageContent.scss'
-import { GetAuctionQuery } from '../../../../shared/types/gql/graphql'
 
 interface IAuctionsPageContent {
-  data: GetAuctionQuery
+  data: any
 }
 
-const AuctionsPageContent = ({ data }: IAuctionsPageContent) => {
-    console.log(data)
+export const AuctionsPageContent = ({ data }: IAuctionsPageContent) => {
+
   return (
     <div>
       {/* <div className="title">Upcoming announcements </div>
@@ -22,5 +21,3 @@ const AuctionsPageContent = ({ data }: IAuctionsPageContent) => {
     </div>
   )
 }
-
-export default AuctionsPageContent;

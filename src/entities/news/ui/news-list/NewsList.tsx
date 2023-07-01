@@ -2,7 +2,7 @@ import React from 'react'
 import NewsListItem from '../news-list-item/NewsListItem'
 import './NewsList.scss'
 
-const NewsList = ({ data }) => {
+export const NewsList = ({ data }) => {
 	const listItem = data.items.map((item) => {
 		// const listItem = data.map((item) => {
 		const { id, ...itemProps } = item
@@ -12,4 +12,3 @@ const NewsList = ({ data }) => {
 	return <div className="newsList">{listItem}</div>
 }
 
-export default NewsList

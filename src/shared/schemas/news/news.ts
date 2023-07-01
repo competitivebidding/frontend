@@ -1,6 +1,6 @@
-import {graphql} from "../../types/gql";
+import { gql } from '@apollo/client'
 
-export const ALL_NEWS = graphql(`
+export const ALL_NEWS = gql(`
 	query GetAllNews($sortBy: String, $sortOrder: String, $skip: Int, $take: Int, $search: String) {
 		news: getAllNews(sortBy: $sortBy, sortOrder: $sortOrder, skip: $skip, take: $take, search: $search) {
 		  totalCount

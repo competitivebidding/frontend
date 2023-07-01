@@ -1,7 +1,15 @@
 import React from 'react';
 import styles from "@/entities/partners/ui/payer-user/PayerUser.module.scss";
 
-function PayerUser({avatar, name, money, date, time}) {
+interface IPayerUser {
+  avatar: string
+  name: string
+  money: number
+  date: string
+  time: string
+}
+
+function PayerUser({avatar, name, money, date, time}: IPayerUser) {
     return (
         <div className={styles.user}>
             <img src={avatar} alt="avatar"/>

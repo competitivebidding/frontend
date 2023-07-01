@@ -1,6 +1,6 @@
-import {graphql} from "../../types/gql";
+import { gql } from '@apollo/client'
 
-export const NEW_MESSAGE = graphql(`
+export const NEW_MESSAGE = gql(`
     mutation Mutation($newMessage: NewMessageInput!) {
       sendMessage(newMessage: $newMessage) {
         id

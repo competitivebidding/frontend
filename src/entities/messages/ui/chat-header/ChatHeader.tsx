@@ -1,7 +1,13 @@
 import React from 'react';
 import './ChatHeader.scss';
 
-export const ChatHeader = ({ onToggleModal, title, length }) => {
+interface IChatHeaderProps {
+    onToggleModal: () => void
+    title: string
+    length: number
+}
+
+export const ChatHeader = ({ onToggleModal, title, length }: IChatHeaderProps) => {
     return (
         <div className="chat__header" onClick={onToggleModal}>
             {title && (

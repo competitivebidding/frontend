@@ -1,7 +1,14 @@
 import React from 'react';
 import styles from './InviterUser.module.scss'
 
-function InviterUser({avatar, name, subname, amount}) {
+interface InviterUser {
+  avatar: string
+  name: string
+  subname: string
+  amount: number
+}
+
+function InviterUser({avatar, name, subname, amount}: InviterUser) {
     return (
         <div className={styles.user}>
             <img src={avatar} alt="avatar"/>
