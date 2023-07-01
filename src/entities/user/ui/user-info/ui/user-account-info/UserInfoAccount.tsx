@@ -10,12 +10,16 @@ import { TooltipButton } from '@/shared/ui/tooltip-button/TooltipButton';
 
 import './UserInfoAccount.scss';
 
-export const UserInfoAccount = (props) => {
+interface IUserInfoAccountProps {
+	id: number
+}
+
+export const UserInfoAccount = ({ id }: IUserInfoAccountProps) => {
 	const [userInfo, setUserInfo] = useState({
 		mainCard: {
 			picture: userImg,
 			verify: false,
-			id: props.id,
+			id: id,
 		},
 		phoneCard: {
 			phoneNumber: '+181435113212',

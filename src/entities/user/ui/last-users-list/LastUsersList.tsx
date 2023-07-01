@@ -2,11 +2,17 @@ import React from 'react';
 
 import "./LastUsersList.scss"
 
-import { LastUser } from '../last-user/LastUser.jsx';
+import { LastUser } from '../last-user/LastUser';
 
-import LastUsersData from '../last-user/Data/LastUsersData.js';
+import LastUsersData from '../last-user/Data/LastUsersData';
 
-export const LastUsersList = (props) => {
+interface ILastUserListProps {
+	props: {
+
+	}
+}
+
+export const LastUsersList = ({ props }: ILastUserListProps) => {
 
 	const getData = LastUsersData.map(user => {
 		return <LastUser

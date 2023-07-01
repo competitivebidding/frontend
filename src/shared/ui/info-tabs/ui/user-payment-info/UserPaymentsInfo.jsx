@@ -10,13 +10,13 @@ export const UserPaymentsInfo = ({onOpen}) => {
 
     const [field, setField] = React.useState(null)
     const [updateCard] = useMutation(UPDATE_USER_PAYMENT)
-    const {data, loading, refetch} = useQuery(GET_USER_PAYMENT)
+    const {data: {getUserPayment}, loading, refetch} = useQuery(GET_USER_PAYMENT)
 
     useEffect(() => {
         if (!loading) {
-            setField(data.getUserPayment)
+            setField(getUserPayment)
         }
-    }, [data])
+    }, [getUserPayment])
 
     const unlink = () => {
         updateCard({
