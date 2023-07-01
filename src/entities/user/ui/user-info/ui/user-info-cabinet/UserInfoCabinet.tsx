@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { useMutation, useQuery } from '@apollo/client'
 import { UserInfoLoader } from '@/shared/ui/loader/UserInfoLoader'
@@ -11,26 +11,31 @@ import { UserPaymentsInfo } from '@/shared/ui/info-tabs/ui/user-payment-info/Use
 import { UserCountry } from '@/shared/ui/info-tabs/ui/user-country/UserCountry'
 import { UserSettings } from '@/shared/ui/info-tabs/ui/user-settings/UserSettings'
 import { UserInfoLevel } from '@/shared/ui/info-tabs/ui/user-verification/UserInfoLevel'
-import { GET_PROFILE_QUERY, UPDATE_PROFILE } from '../../../../../../shared/schemas/user/userProfile'
+import { GET_PROFILE_QUERY, UPDATE_PROFILE } from '@/shared/schemas/user/userProfile'
 import './UserInfoCabinet.scss'
+import { UpdateUserInput } from '../../../../../../__generated__/graphql'
 
 export const UserInfoCabinet = () => {
-	const [modalIsOpen, setModalIsOpen] = React.useState(false)
-	const [userData, setUserData] = React.useState(null)
+	const [modalIsOpen, setModalIsOpen] = useState(false)
+	const [userData, setUserData] = useState(null)
 
-	const { data, error, loading, refetch } = useQuery(GET_PROFILE_QUERY)
+	const { data: {getProfile}, error, loading, refetch } = useQuery(GET_PROFILE_QUERY)
 
 	const [update] = useMutation(UPDATE_PROFILE)
 
-	const updateProfile = (data) => {
-		update({variables: {updateUserInput: {}}}).then(() => refetch())
+	const updateProfile = (data: UpdateUserInput) => {
+		update({
+			variables: {
+				updateUserInput: { ...data },
+			},
+		}).then(() => refetch())
 	}
 
 	React.useEffect(() => {
 		if (!loading) {
-			setUserData(data.getProfile)
+			setUserData(getProfile)
 		}
-	}, [data])
+	}, [getProfile])
 
 
 

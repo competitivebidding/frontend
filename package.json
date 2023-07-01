@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "codegen": "graphql-codegen --watch",
+    "compile": "graphql-codegen",
+    "codegen": "graphql-codegen --w",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
