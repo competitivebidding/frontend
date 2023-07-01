@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {FC, useState} from "react";
 import {useMutation} from "@apollo/client";
-import {CREATE_MY_ROOM} from "@/shared/schemas/messages/messages";
 import './AddNewGroupForm.scss';
+import {CREATE_MY_ROOM} from "../../shared/schemas/messages/messages";
 
 interface IAddNewGroupFormProps {
     onClose: (value: boolean) => void
@@ -10,14 +10,15 @@ interface IAddNewGroupFormProps {
 
 export const AddNewGroupForm: FC<IAddNewGroupFormProps> = ({onClose}) => {
     const [value, setValue] = useState('')
-    const [createRoom, {data, loading, error}] = useMutation(CREATE_MY_ROOM)
+    const [createRoom] = useMutation(CREATE_MY_ROOM)
 
     const handleCreateRoom = () => {
         if (value.length > 0) {
             createRoom({
                 variables: {
                     input: {
-                        title: value
+                        title: value,
+                        description: ''
                     }
                 }
             }).then((v) => console.log(v))

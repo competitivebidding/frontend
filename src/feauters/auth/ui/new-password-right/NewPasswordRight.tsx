@@ -1,11 +1,11 @@
 import React, {FC, useState} from 'react'
-import {useForm} from 'react-hook-form'
+import {SubmitHandler, useForm} from 'react-hook-form'
 import './NewPasswordRight.scss'
 import {Link} from 'react-router-dom'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons'
 
-interface INewPasswordForm {
+type INewPasswordForm = {
   password: string
   repeatPassword: string
 }
@@ -18,12 +18,13 @@ export const NewPasswordRight = () => {
     watch,
   } = useForm<INewPasswordForm>()
 
-  const password = watch("password")
-  const repeatPassword = watch("repeatPassword")
+  const password = watch('password')
+  const repeatPassword = watch('repeatPassword')
+
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false)
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: INewPasswordForm) => {
     if (password !== repeatPassword) {
       console.log(data)
     } else {
