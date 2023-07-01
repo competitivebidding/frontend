@@ -49,7 +49,6 @@ export const NewPasswordRight = () => {
             <input
               type={isPasswordVisible ? 'text' : 'password'}
               id="password"
-              name="password"
               required
               {...register('password', {
                 required: true,
@@ -70,7 +69,6 @@ export const NewPasswordRight = () => {
             <input
               type={isRepeatPasswordVisible ? 'text' : 'password'}
               id="repeat__password"
-              name="repeatPassword"
               required
               {...register('repeatPassword', { required: true })}
             />

@@ -8,7 +8,7 @@ interface IAuctionCardProps {
   id: number
   alt: string
   title: string
-  date: Date
+  date: any
   bids: string
   places: string
   changeStatus: boolean

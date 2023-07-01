@@ -1,5 +1,6 @@
 /* eslint-disable */
-import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core'
+
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -687,28 +688,152 @@ export type UserPublic = {
 export type ExampleQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ExampleQueryQuery = { __typename?: 'Query', getAuctions: Array<{ __typename?: 'Auction', createdAt: any, description: string, finishedAt: any, id: number, sortOrder: number, startedAt: any, title: string, updatedAt: any, bids?: Array<{ __typename?: 'Bid', id: number, userId: number, auctionId: number, bitPrice: number, createdAt: any, updatedAt: any, user?: { __typename?: 'UserPublic', username: string, firstname?: string | null, lastname?: string | null, avatarUrl?: string | null } | null }> | null, creator: { __typename?: 'UserPublic', username: string, firstname?: string | null, lastname?: string | null, avatarUrl?: string | null }, status: { __typename?: 'Status', id: number, name: string }, winner?: { __typename?: 'UserPublic', username: string, firstname?: string | null, lastname?: string | null, avatarUrl?: string | null } | null }> };
+export type ExampleQueryQuery = {
+  __typename?: 'Query',
+  getAuctions: Array<{
+    __typename?: 'Auction',
+    createdAt: any,
+    description: string,
+    finishedAt: any,
+    id: number,
+    sortOrder: number,
+    startedAt: any,
+    title: string,
+    updatedAt: any,
+    bids?: Array<{
+      __typename?: 'Bid',
+      id: number,
+      userId: number,
+      auctionId: number,
+      bitPrice: number,
+      createdAt: any,
+      updatedAt: any,
+      user?: {
+        __typename?: 'UserPublic',
+        username: string,
+        firstname?: string | null,
+        lastname?: string | null,
+        avatarUrl?: string | null
+      } | null
+    }> | null,
+    creator: {
+      __typename?: 'UserPublic',
+      username: string,
+      firstname?: string | null,
+      lastname?: string | null,
+      avatarUrl?: string | null
+    },
+    status: { __typename?: 'Status', id: number, name: string },
+    winner?: {
+      __typename?: 'UserPublic',
+      username: string,
+      firstname?: string | null,
+      lastname?: string | null,
+      avatarUrl?: string | null
+    } | null
+  }>
+};
 
 export type CreateMyBidMutationVariables = Exact<{
   input: CreateBidInput;
 }>;
 
 
-export type CreateMyBidMutation = { __typename?: 'Mutation', createMyBid: { __typename?: 'Bid', id: number, userId: number, auctionId: number, bitPrice: number, createdAt: any, updatedAt: any, user?: { __typename?: 'UserPublic', username: string, firstname?: string | null, lastname?: string | null, avatarUrl?: string | null } | null } };
+export type CreateMyBidMutation = {
+  __typename?: 'Mutation',
+  createMyBid: {
+    __typename?: 'Bid',
+    id: number,
+    userId: number,
+    auctionId: number,
+    bitPrice: number,
+    createdAt: any,
+    updatedAt: any,
+    user?: {
+      __typename?: 'UserPublic',
+      username: string,
+      firstname?: string | null,
+      lastname?: string | null,
+      avatarUrl?: string | null
+    } | null
+  }
+};
 
 export type GetBidsByAuctionIdQueryVariables = Exact<{
   auctionId: Scalars['Int']['input'];
 }>;
 
 
-export type GetBidsByAuctionIdQuery = { __typename?: 'Query', getBidsByAuctionId: Array<{ __typename?: 'Bid', id: number, userId: number, auctionId: number, bitPrice: number, createdAt: any, updatedAt: any, user?: { __typename?: 'UserPublic', username: string, firstname?: string | null, lastname?: string | null, avatarUrl?: string | null } | null }> };
+export type GetBidsByAuctionIdQuery = {
+  __typename?: 'Query',
+  getBidsByAuctionId: Array<{
+    __typename?: 'Bid',
+    id: number,
+    userId: number,
+    auctionId: number,
+    bitPrice: number,
+    createdAt: any,
+    updatedAt: any,
+    user?: {
+      __typename?: 'UserPublic',
+      username: string,
+      firstname?: string | null,
+      lastname?: string | null,
+      avatarUrl?: string | null
+    } | null
+  }>
+};
 
 export type GetAuctionQueryVariables = Exact<{
   auctionId: Scalars['Int']['input'];
 }>;
 
 
-export type GetAuctionQuery = { __typename?: 'Query', getAuction: { __typename?: 'Auction', id: number, title: string, description: string, sortOrder: number, finishedAt: any, startedAt: any, createdAt: any, updatedAt: any, creator: { __typename?: 'UserPublic', username: string, firstname?: string | null, lastname?: string | null, avatarUrl?: string | null }, winner?: { __typename?: 'UserPublic', username: string, firstname?: string | null, lastname?: string | null, avatarUrl?: string | null } | null, status: { __typename?: 'Status', id: number, name: string }, bids?: Array<{ __typename?: 'Bid', id: number, userId: number, auctionId: number, bitPrice: number, createdAt: any, updatedAt: any, user?: { __typename?: 'UserPublic', username: string, firstname?: string | null, lastname?: string | null, avatarUrl?: string | null } | null }> | null } };
+export type GetAuctionQuery = {
+  __typename?: 'Query',
+  getAuction: {
+    __typename?: 'Auction',
+    id: number,
+    title: string,
+    description: string,
+    sortOrder: number,
+    finishedAt: any,
+    startedAt: any,
+    createdAt: any,
+    updatedAt: any,
+    creator: {
+      __typename?: 'UserPublic',
+      username: string,
+      firstname?: string | null,
+      lastname?: string | null,
+      avatarUrl?: string | null
+    },
+    winner?: {
+      __typename?: 'UserPublic',
+      username: string,
+      firstname?: string | null,
+      lastname?: string | null,
+      avatarUrl?: string | null
+    } | null,
+    status: { __typename?: 'Status', id: number, name: string },
+    bids?: Array<{
+      __typename?: 'Bid',
+      id: number,
+      userId: number,
+      auctionId: number,
+      bitPrice: number,
+      createdAt: any,
+      updatedAt: any,
+      user?: {
+        __typename?: 'UserPublic',
+        username: string,
+        firstname?: string | null,
+        lastname?: string | null,
+        avatarUrl?: string | null
+      } | null
+    }> | null
+  }
+};
 
 export type LogoutMutationVariables = Exact<{
   logoutId: Scalars['Int']['input'];
@@ -722,73 +847,182 @@ export type SigninMutationVariables = Exact<{
 }>;
 
 
-export type SigninMutation = { __typename?: 'Mutation', signin: { __typename?: 'SignResponse', refreshToken: string, accessToken: string, user: { __typename?: 'User', username: string, id: number, email: string } } };
+export type SigninMutation = {
+  __typename?: 'Mutation',
+  signin: {
+    __typename?: 'SignResponse',
+    refreshToken: string,
+    accessToken: string,
+    user: { __typename?: 'User', username: string, id: number, email: string }
+  }
+};
 
 export type SignupMutationVariables = Exact<{
   signUpInput: SignUpInput;
 }>;
 
 
-export type SignupMutation = { __typename?: 'Mutation', signup: { __typename?: 'SignResponse', refreshToken: string, accessToken: string, user: { __typename?: 'User', username: string, id: number, email: string } } };
+export type SignupMutation = {
+  __typename?: 'Mutation',
+  signup: {
+    __typename?: 'SignResponse',
+    refreshToken: string,
+    accessToken: string,
+    user: { __typename?: 'User', username: string, id: number, email: string }
+  }
+};
 
 export type CreateMyRoomMutationVariables = Exact<{
   input: RoomCreateInput;
 }>;
 
 
-export type CreateMyRoomMutation = { __typename?: 'Mutation', createMyRoom?: { __typename?: 'Room', id: number, ownerId: number, title: string, description?: string | null, createdAt: any, updatedAt: any } | null };
+export type CreateMyRoomMutation = {
+  __typename?: 'Mutation',
+  createMyRoom?: {
+    __typename?: 'Room',
+    id: number,
+    ownerId: number,
+    title: string,
+    description?: string | null,
+    createdAt: any,
+    updatedAt: any
+  } | null
+};
 
 export type GetAllMyRoomsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllMyRoomsQuery = { __typename?: 'Query', getAllMyRooms: Array<{ __typename?: 'Room', id: number, ownerId: number, title: string, description?: string | null, createdAt: any, updatedAt: any }> };
+export type GetAllMyRoomsQuery = {
+  __typename?: 'Query',
+  getAllMyRooms: Array<{
+    __typename?: 'Room',
+    id: number,
+    ownerId: number,
+    title: string,
+    description?: string | null,
+    createdAt: any,
+    updatedAt: any
+  }>
+};
 
 export type GetAllMessagesByRoomIdQueryVariables = Exact<{
   userMessage: UserMessages;
 }>;
 
 
-export type GetAllMessagesByRoomIdQuery = { __typename?: 'Query', getAllMessagesByRoomId: Array<{ __typename?: 'Message', content: string, createdAt: any, id: number, roomId: number, updatedAt: any, userId: number }> };
+export type GetAllMessagesByRoomIdQuery = {
+  __typename?: 'Query',
+  getAllMessagesByRoomId: Array<{
+    __typename?: 'Message',
+    content: string,
+    createdAt: any,
+    id: number,
+    roomId: number,
+    updatedAt: any,
+    userId: number
+  }>
+};
 
 export type MutationMutationVariables = Exact<{
   newMessage: NewMessageInput;
 }>;
 
 
-export type MutationMutation = { __typename?: 'Mutation', sendMessage?: { __typename?: 'Message', id: number, userId: number, roomId: number, content: string, createdAt: any, updatedAt: any } | null };
+export type MutationMutation = {
+  __typename?: 'Mutation',
+  sendMessage?: {
+    __typename?: 'Message',
+    id: number,
+    userId: number,
+    roomId: number,
+    content: string,
+    createdAt: any,
+    updatedAt: any
+  } | null
+};
 
 export type JoinToRoomMutationVariables = Exact<{
   roomId: Scalars['Float']['input'];
 }>;
 
 
-export type JoinToRoomMutation = { __typename?: 'Mutation', joinToRoom: { __typename?: 'UserPublic', username: string, firstname?: string | null, lastname?: string | null, avatarUrl?: string | null } };
+export type JoinToRoomMutation = {
+  __typename?: 'Mutation',
+  joinToRoom: {
+    __typename?: 'UserPublic',
+    username: string,
+    firstname?: string | null,
+    lastname?: string | null,
+    avatarUrl?: string | null
+  }
+};
 
 export type GetAllRoomsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllRoomsQuery = { __typename?: 'Query', getAllRooms: Array<{ __typename?: 'Room', id: number, ownerId: number, title: string, description?: string | null, createdAt: any, updatedAt: any }> };
+export type GetAllRoomsQuery = {
+  __typename?: 'Query',
+  getAllRooms: Array<{
+    __typename?: 'Room',
+    id: number,
+    ownerId: number,
+    title: string,
+    description?: string | null,
+    createdAt: any,
+    updatedAt: any
+  }>
+};
 
 export type GetAllUsersByRoomIdQueryVariables = Exact<{
   roomId: Scalars['Float']['input'];
 }>;
 
 
-export type GetAllUsersByRoomIdQuery = { __typename?: 'Query', getAllUsersByRoomId: Array<{ __typename?: 'UserPublic', username: string, firstname?: string | null, lastname?: string | null, avatarUrl?: string | null }> };
+export type GetAllUsersByRoomIdQuery = {
+  __typename?: 'Query',
+  getAllUsersByRoomId: Array<{
+    __typename?: 'UserPublic',
+    username: string,
+    firstname?: string | null,
+    lastname?: string | null,
+    avatarUrl?: string | null
+  }>
+};
 
 export type LeaveFromRoomMutationVariables = Exact<{
   roomId: Scalars['Float']['input'];
 }>;
 
 
-export type LeaveFromRoomMutation = { __typename?: 'Mutation', leaveFromRoom: { __typename?: 'UserPublic', avatarUrl?: string | null, lastname?: string | null, firstname?: string | null, username: string } };
+export type LeaveFromRoomMutation = {
+  __typename?: 'Mutation',
+  leaveFromRoom: {
+    __typename?: 'UserPublic',
+    avatarUrl?: string | null,
+    lastname?: string | null,
+    firstname?: string | null,
+    username: string
+  }
+};
 
 export type SubscriptionSubscriptionVariables = Exact<{
   roomId: Scalars['Int']['input'];
 }>;
 
 
-export type SubscriptionSubscription = { __typename?: 'Subscription', newMessage: { __typename?: 'Message', id: number, userId: number, roomId: number, content: string, createdAt: any, updatedAt: any } };
+export type SubscriptionSubscription = {
+  __typename?: 'Subscription',
+  newMessage: {
+    __typename?: 'Message',
+    id: number,
+    userId: number,
+    roomId: number,
+    content: string,
+    createdAt: any,
+    updatedAt: any
+  }
+};
 
 export type GetAllNewsQueryVariables = Exact<{
   sortBy?: InputMaybe<Scalars['String']['input']>;
@@ -799,21 +1033,63 @@ export type GetAllNewsQueryVariables = Exact<{
 }>;
 
 
-export type GetAllNewsQuery = { __typename?: 'Query', news: { __typename?: 'ItemNews', totalCount: number, items: Array<{ __typename?: 'News', id: number, title: string, updatedAt: any, userId: number, text?: string | null, date: any, images?: string | null }> } };
+export type GetAllNewsQuery = {
+  __typename?: 'Query',
+  news: {
+    __typename?: 'ItemNews',
+    totalCount: number,
+    items: Array<{
+      __typename?: 'News',
+      id: number,
+      title: string,
+      updatedAt: any,
+      userId: number,
+      text?: string | null,
+      date: any,
+      images?: string | null
+    }>
+  }
+};
 
 export type CreateTokenMutationVariables = Exact<{
   data: CreateTokenInput;
 }>;
 
 
-export type CreateTokenMutation = { __typename?: 'Mutation', createToken?: { __typename?: 'Token', updatedAt: any, title?: string | null, sortOrder: number, points: number, price: number, id: number, description?: string | null, createdAt: any } | null };
+export type CreateTokenMutation = {
+  __typename?: 'Mutation',
+  createToken?: {
+    __typename?: 'Token',
+    updatedAt: any,
+    title?: string | null,
+    sortOrder: number,
+    points: number,
+    price: number,
+    id: number,
+    description?: string | null,
+    createdAt: any
+  } | null
+};
 
 export type GetTokenByIdMutationVariables = Exact<{
   getTokenByIdId: Scalars['Int']['input'];
 }>;
 
 
-export type GetTokenByIdMutation = { __typename?: 'Mutation', getTokenById?: { __typename?: 'Token', createdAt: any, description?: string | null, points: number, id: number, price: number, updatedAt: any, title?: string | null, sortOrder: number } | null };
+export type GetTokenByIdMutation = {
+  __typename?: 'Mutation',
+  getTokenById?: {
+    __typename?: 'Token',
+    createdAt: any,
+    description?: string | null,
+    points: number,
+    id: number,
+    price: number,
+    updatedAt: any,
+    title?: string | null,
+    sortOrder: number
+  } | null
+};
 
 export type UpdateTokenMutationVariables = Exact<{
   updateTokenId: Scalars['Int']['input'];
@@ -821,74 +1097,1350 @@ export type UpdateTokenMutationVariables = Exact<{
 }>;
 
 
-export type UpdateTokenMutation = { __typename?: 'Mutation', updateToken?: { __typename?: 'Token', createdAt: any, description?: string | null, id: number, points: number, price: number, sortOrder: number, title?: string | null, updatedAt: any } | null };
+export type UpdateTokenMutation = {
+  __typename?: 'Mutation',
+  updateToken?: {
+    __typename?: 'Token',
+    createdAt: any,
+    description?: string | null,
+    id: number,
+    points: number,
+    price: number,
+    sortOrder: number,
+    title?: string | null,
+    updatedAt: any
+  } | null
+};
 
 export type GetMyReferralsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetMyReferralsQuery = { __typename?: 'Query', getMyReferrals: Array<{ __typename?: 'ReferralUser', id: number, cuid: string, email: string, username: string, createdAt: any }> };
+export type GetMyReferralsQuery = {
+  __typename?: 'Query',
+  getMyReferrals: Array<{
+    __typename?: 'ReferralUser',
+    id: number,
+    cuid: string,
+    email: string,
+    username: string,
+    createdAt: any
+  }>
+};
 
 export type GetProfileQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetProfileQuery = { __typename?: 'Query', getProfile: { __typename?: 'User', id: number, username: string, email: string, firstname?: string | null, phone?: string | null, lastname?: string | null, patronymic?: string | null, instagram?: string | null, confirmationCode?: string | null, avatarUrl?: string | null, createdAt: any, updatedAt?: any | null } };
+export type GetProfileQuery = {
+  __typename?: 'Query',
+  getProfile: {
+    __typename?: 'User',
+    id: number,
+    username: string,
+    email: string,
+    firstname?: string | null,
+    phone?: string | null,
+    lastname?: string | null,
+    patronymic?: string | null,
+    instagram?: string | null,
+    confirmationCode?: string | null,
+    avatarUrl?: string | null,
+    createdAt: any,
+    updatedAt?: any | null
+  }
+};
 
 export type GetUserAddressQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetUserAddressQuery = { __typename?: 'Query', getUserAddress: { __typename?: 'Address', country?: string | null, city?: string | null, address?: string | null, index?: string | null, createdAt: any, updatedAt: any } };
+export type GetUserAddressQuery = {
+  __typename?: 'Query',
+  getUserAddress: {
+    __typename?: 'Address',
+    country?: string | null,
+    city?: string | null,
+    address?: string | null,
+    index?: string | null,
+    createdAt: any,
+    updatedAt: any
+  }
+};
 
 export type GetUserPaymentQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetUserPaymentQuery = { __typename?: 'Query', getUserPayment: { __typename?: 'Payment', firstname?: string | null, lastname?: string | null, patronymic?: string | null, number?: string | null, cvv?: string | null, month?: string | null, year?: string | null, createdAt: any, updatedAt: any } };
+export type GetUserPaymentQuery = {
+  __typename?: 'Query',
+  getUserPayment: {
+    __typename?: 'Payment',
+    firstname?: string | null,
+    lastname?: string | null,
+    patronymic?: string | null,
+    number?: string | null,
+    cvv?: string | null,
+    month?: string | null,
+    year?: string | null,
+    createdAt: any,
+    updatedAt: any
+  }
+};
 
 export type UpdateUserAddressMutationVariables = Exact<{
   input: UpdateAddressInput;
 }>;
 
 
-export type UpdateUserAddressMutation = { __typename?: 'Mutation', updateUserAddress: { __typename?: 'Address', country?: string | null, city?: string | null, address?: string | null, index?: string | null, createdAt: any, updatedAt: any } };
+export type UpdateUserAddressMutation = {
+  __typename?: 'Mutation',
+  updateUserAddress: {
+    __typename?: 'Address',
+    country?: string | null,
+    city?: string | null,
+    address?: string | null,
+    index?: string | null,
+    createdAt: any,
+    updatedAt: any
+  }
+};
 
 export type EditProfileMutationVariables = Exact<{
   updateUserInput: UpdateUserInput;
 }>;
 
 
-export type EditProfileMutation = { __typename?: 'Mutation', editProfile: { __typename?: 'User', id: number, username: string, email: string, firstname?: string | null, phone?: string | null, lastname?: string | null, patronymic?: string | null, instagram?: string | null, createdAt: any, updatedAt?: any | null } };
+export type EditProfileMutation = {
+  __typename?: 'Mutation',
+  editProfile: {
+    __typename?: 'User',
+    id: number,
+    username: string,
+    email: string,
+    firstname?: string | null,
+    phone?: string | null,
+    lastname?: string | null,
+    patronymic?: string | null,
+    instagram?: string | null,
+    createdAt: any,
+    updatedAt?: any | null
+  }
+};
 
 export type UpdateUserPaymentMutationVariables = Exact<{
   input: UpdatePaymentInput;
 }>;
 
 
-export type UpdateUserPaymentMutation = { __typename?: 'Mutation', updateUserPayment: { __typename?: 'Payment', firstname?: string | null, lastname?: string | null, patronymic?: string | null, number?: string | null, cvv?: string | null, month?: string | null, year?: string | null, createdAt: any, updatedAt: any } };
+export type UpdateUserPaymentMutation = {
+  __typename?: 'Mutation',
+  updateUserPayment: {
+    __typename?: 'Payment',
+    firstname?: string | null,
+    lastname?: string | null,
+    patronymic?: string | null,
+    number?: string | null,
+    cvv?: string | null,
+    month?: string | null,
+    year?: string | null,
+    createdAt: any,
+    updatedAt: any
+  }
+};
 
 
-export const ExampleQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ExampleQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getAuctions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"bids"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}},{"kind":"Field","name":{"kind":"Name","value":"auctionId"}},{"kind":"Field","name":{"kind":"Name","value":"bitPrice"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"creator"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}}]}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"finishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"sortOrder"}},{"kind":"Field","name":{"kind":"Name","value":"startedAt"}},{"kind":"Field","name":{"kind":"Name","value":"status"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"winner"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}}]}}]}}]}}]} as unknown as DocumentNode<ExampleQueryQuery, ExampleQueryQueryVariables>;
-export const CreateMyBidDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateMyBid"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateBidInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createMyBid"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}},{"kind":"Field","name":{"kind":"Name","value":"auctionId"}},{"kind":"Field","name":{"kind":"Name","value":"bitPrice"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}}]}}]}}]}}]} as unknown as DocumentNode<CreateMyBidMutation, CreateMyBidMutationVariables>;
-export const GetBidsByAuctionIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetBidsByAuctionId"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"auctionId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getBidsByAuctionId"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"auctionId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"auctionId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}},{"kind":"Field","name":{"kind":"Name","value":"auctionId"}},{"kind":"Field","name":{"kind":"Name","value":"bitPrice"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}}]}}]}}]}}]} as unknown as DocumentNode<GetBidsByAuctionIdQuery, GetBidsByAuctionIdQueryVariables>;
-export const GetAuctionDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAuction"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"auctionId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getAuction"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"auctionId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"auctionId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"creator"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}}]}},{"kind":"Field","name":{"kind":"Name","value":"winner"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}}]}},{"kind":"Field","name":{"kind":"Name","value":"status"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"sortOrder"}},{"kind":"Field","name":{"kind":"Name","value":"finishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"startedAt"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"bids"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}},{"kind":"Field","name":{"kind":"Name","value":"auctionId"}},{"kind":"Field","name":{"kind":"Name","value":"bitPrice"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetAuctionQuery, GetAuctionQueryVariables>;
-export const LogoutDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Logout"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"logoutId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"logout"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"logoutId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"loggedOut"}}]}}]}}]} as unknown as DocumentNode<LogoutMutation, LogoutMutationVariables>;
-export const SigninDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Signin"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"signInInput"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SignInInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"signin"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"signInInput"},"value":{"kind":"Variable","name":{"kind":"Name","value":"signInInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"accessToken"}}]}}]}}]} as unknown as DocumentNode<SigninMutation, SigninMutationVariables>;
-export const SignupDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Signup"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"signUpInput"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SignUpInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"signup"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"signUpInput"},"value":{"kind":"Variable","name":{"kind":"Name","value":"signUpInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"accessToken"}}]}}]}}]} as unknown as DocumentNode<SignupMutation, SignupMutationVariables>;
-export const CreateMyRoomDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateMyRoom"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"RoomCreateInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createMyRoom"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"ownerId"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<CreateMyRoomMutation, CreateMyRoomMutationVariables>;
-export const GetAllMyRoomsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllMyRooms"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getAllMyRooms"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"ownerId"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<GetAllMyRoomsQuery, GetAllMyRoomsQueryVariables>;
-export const GetAllMessagesByRoomIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllMessagesByRoomId"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userMessage"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UserMessages"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getAllMessagesByRoomId"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"userMessage"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userMessage"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"roomId"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}}]}}]}}]} as unknown as DocumentNode<GetAllMessagesByRoomIdQuery, GetAllMessagesByRoomIdQueryVariables>;
-export const MutationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Mutation"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"newMessage"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"NewMessageInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"sendMessage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"newMessage"},"value":{"kind":"Variable","name":{"kind":"Name","value":"newMessage"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}},{"kind":"Field","name":{"kind":"Name","value":"roomId"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<MutationMutation, MutationMutationVariables>;
-export const JoinToRoomDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"JoinToRoom"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"roomId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"joinToRoom"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"roomId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"roomId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}}]}}]}}]} as unknown as DocumentNode<JoinToRoomMutation, JoinToRoomMutationVariables>;
-export const GetAllRoomsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllRooms"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getAllRooms"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"ownerId"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<GetAllRoomsQuery, GetAllRoomsQueryVariables>;
-export const GetAllUsersByRoomIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllUsersByRoomId"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"roomId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getAllUsersByRoomId"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"roomId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"roomId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}}]}}]}}]} as unknown as DocumentNode<GetAllUsersByRoomIdQuery, GetAllUsersByRoomIdQueryVariables>;
-export const LeaveFromRoomDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"LeaveFromRoom"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"roomId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"leaveFromRoom"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"roomId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"roomId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"username"}}]}}]}}]} as unknown as DocumentNode<LeaveFromRoomMutation, LeaveFromRoomMutationVariables>;
-export const SubscriptionDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"subscription","name":{"kind":"Name","value":"Subscription"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"roomId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"newMessage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"roomId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"roomId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}},{"kind":"Field","name":{"kind":"Name","value":"roomId"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<SubscriptionSubscription, SubscriptionSubscriptionVariables>;
-export const GetAllNewsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllNews"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"sortBy"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"sortOrder"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"skip"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"take"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"search"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"news"},"name":{"kind":"Name","value":"getAllNews"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"sortBy"},"value":{"kind":"Variable","name":{"kind":"Name","value":"sortBy"}}},{"kind":"Argument","name":{"kind":"Name","value":"sortOrder"},"value":{"kind":"Variable","name":{"kind":"Name","value":"sortOrder"}}},{"kind":"Argument","name":{"kind":"Name","value":"skip"},"value":{"kind":"Variable","name":{"kind":"Name","value":"skip"}}},{"kind":"Argument","name":{"kind":"Name","value":"take"},"value":{"kind":"Variable","name":{"kind":"Name","value":"take"}}},{"kind":"Argument","name":{"kind":"Name","value":"search"},"value":{"kind":"Variable","name":{"kind":"Name","value":"search"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"totalCount"}},{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","alias":{"kind":"Name","value":"images"},"name":{"kind":"Name","value":"imageUrl"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}}]}}]}}]}}]} as unknown as DocumentNode<GetAllNewsQuery, GetAllNewsQueryVariables>;
-export const CreateTokenDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateToken"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateTokenInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createToken"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"sortOrder"}},{"kind":"Field","name":{"kind":"Name","value":"points"}},{"kind":"Field","name":{"kind":"Name","value":"price"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}}]}}]}}]} as unknown as DocumentNode<CreateTokenMutation, CreateTokenMutationVariables>;
-export const GetTokenByIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"GetTokenById"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"getTokenByIdId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getTokenById"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"getTokenByIdId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"points"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"price"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"sortOrder"}}]}}]}}]} as unknown as DocumentNode<GetTokenByIdMutation, GetTokenByIdMutationVariables>;
-export const UpdateTokenDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateToken"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"updateTokenId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UpdateTokenInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateToken"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"updateTokenId"}}},{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"points"}},{"kind":"Field","name":{"kind":"Name","value":"price"}},{"kind":"Field","name":{"kind":"Name","value":"sortOrder"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<UpdateTokenMutation, UpdateTokenMutationVariables>;
-export const GetMyReferralsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetMyReferrals"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getMyReferrals"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cuid"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}}]}}]}}]} as unknown as DocumentNode<GetMyReferralsQuery, GetMyReferralsQueryVariables>;
-export const GetProfileDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetProfile"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getProfile"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"patronymic"}},{"kind":"Field","name":{"kind":"Name","value":"instagram"}},{"kind":"Field","name":{"kind":"Name","value":"confirmationCode"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<GetProfileQuery, GetProfileQueryVariables>;
-export const GetUserAddressDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetUserAddress"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getUserAddress"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"index"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<GetUserAddressQuery, GetUserAddressQueryVariables>;
-export const GetUserPaymentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetUserPayment"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getUserPayment"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"patronymic"}},{"kind":"Field","name":{"kind":"Name","value":"number"}},{"kind":"Field","name":{"kind":"Name","value":"cvv"}},{"kind":"Field","name":{"kind":"Name","value":"month"}},{"kind":"Field","name":{"kind":"Name","value":"year"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<GetUserPaymentQuery, GetUserPaymentQueryVariables>;
-export const UpdateUserAddressDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateUserAddress"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UpdateAddressInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateUserAddress"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"index"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<UpdateUserAddressMutation, UpdateUserAddressMutationVariables>;
-export const EditProfileDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"EditProfile"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"updateUserInput"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UpdateUserInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"editProfile"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"updateUserInput"},"value":{"kind":"Variable","name":{"kind":"Name","value":"updateUserInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"patronymic"}},{"kind":"Field","name":{"kind":"Name","value":"instagram"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<EditProfileMutation, EditProfileMutationVariables>;
-export const UpdateUserPaymentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateUserPayment"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UpdatePaymentInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateUserPayment"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"firstname"}},{"kind":"Field","name":{"kind":"Name","value":"lastname"}},{"kind":"Field","name":{"kind":"Name","value":"patronymic"}},{"kind":"Field","name":{"kind":"Name","value":"number"}},{"kind":"Field","name":{"kind":"Name","value":"cvv"}},{"kind":"Field","name":{"kind":"Name","value":"month"}},{"kind":"Field","name":{"kind":"Name","value":"year"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<UpdateUserPaymentMutation, UpdateUserPaymentMutationVariables>;
+export const ExampleQueryDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'ExampleQuery' },
+    'selectionSet': {
+      'kind': 'SelectionSet', 'selections': [{
+        'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'getAuctions' }, 'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'bids' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'userId' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'auctionId' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'bitPrice' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'updatedAt' },
+              }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'user' },
+                'selectionSet': {
+                  'kind': 'SelectionSet',
+                  'selections': [{
+                    'kind': 'Field',
+                    'name': { 'kind': 'Name', 'value': 'username' },
+                  }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'firstname' } }, {
+                    'kind': 'Field',
+                    'name': { 'kind': 'Name', 'value': 'lastname' },
+                  }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'avatarUrl' } }],
+                },
+              }],
+            },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'creator' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'username' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'firstname' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'lastname' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'avatarUrl' },
+              }],
+            },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'description' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'finishedAt' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'sortOrder' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'startedAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'status' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'name' },
+              }],
+            },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'title' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'winner' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'username' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'firstname' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'lastname' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'avatarUrl' },
+              }],
+            },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<ExampleQueryQuery, ExampleQueryQueryVariables>
+export const CreateMyBidDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'CreateMyBid' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'input' } },
+      'type': {
+        'kind': 'NonNullType',
+        'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'CreateBidInput' } },
+      },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'createMyBid' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'input' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'input' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'userId' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'auctionId' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'bitPrice' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'user' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'username' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'firstname' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'lastname' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'avatarUrl' },
+              }],
+            },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<CreateMyBidMutation, CreateMyBidMutationVariables>
+export const GetBidsByAuctionIdDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'GetBidsByAuctionId' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'auctionId' } },
+      'type': { 'kind': 'NonNullType', 'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'Int' } } },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'getBidsByAuctionId' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'auctionId' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'auctionId' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'userId' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'auctionId' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'bitPrice' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'user' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'username' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'firstname' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'lastname' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'avatarUrl' },
+              }],
+            },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetBidsByAuctionIdQuery, GetBidsByAuctionIdQueryVariables>
+export const GetAuctionDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'GetAuction' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'auctionId' } },
+      'type': { 'kind': 'NonNullType', 'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'Int' } } },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet', 'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'getAuction' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'auctionId' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'auctionId' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'title' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'description' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'creator' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'username' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'firstname' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'lastname' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'avatarUrl' },
+              }],
+            },
+          }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'winner' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'username' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'firstname' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'lastname' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'avatarUrl' },
+              }],
+            },
+          }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'status' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'name' },
+              }],
+            },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'sortOrder' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'finishedAt' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'startedAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'createdAt' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'updatedAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'bids' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'userId' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'auctionId' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'bitPrice' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'updatedAt' },
+              }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'user' },
+                'selectionSet': {
+                  'kind': 'SelectionSet',
+                  'selections': [{
+                    'kind': 'Field',
+                    'name': { 'kind': 'Name', 'value': 'username' },
+                  }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'firstname' } }, {
+                    'kind': 'Field',
+                    'name': { 'kind': 'Name', 'value': 'lastname' },
+                  }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'avatarUrl' } }],
+                },
+              }],
+            },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetAuctionQuery, GetAuctionQueryVariables>
+export const LogoutDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'Logout' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'logoutId' } },
+      'type': { 'kind': 'NonNullType', 'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'Int' } } },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'logout' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'id' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'logoutId' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'loggedOut' } }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<LogoutMutation, LogoutMutationVariables>
+export const SigninDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'Signin' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'signInInput' } },
+      'type': {
+        'kind': 'NonNullType',
+        'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'SignInInput' } },
+      },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'signin' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'signInInput' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'signInInput' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'user' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'username' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'id' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'email' } }],
+            },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'refreshToken' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'accessToken' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<SigninMutation, SigninMutationVariables>
+export const SignupDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'Signup' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'signUpInput' } },
+      'type': {
+        'kind': 'NonNullType',
+        'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'SignUpInput' } },
+      },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'signup' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'signUpInput' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'signUpInput' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'user' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'username' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'id' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'email' } }],
+            },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'refreshToken' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'accessToken' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<SignupMutation, SignupMutationVariables>
+export const CreateMyRoomDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'CreateMyRoom' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'input' } },
+      'type': {
+        'kind': 'NonNullType',
+        'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'RoomCreateInput' } },
+      },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'createMyRoom' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'input' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'input' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'ownerId' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'title' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'description' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<CreateMyRoomMutation, CreateMyRoomMutationVariables>
+export const GetAllMyRoomsDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'GetAllMyRooms' },
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'getAllMyRooms' },
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'ownerId' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'title' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'description' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetAllMyRoomsQuery, GetAllMyRoomsQueryVariables>
+export const GetAllMessagesByRoomIdDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'GetAllMessagesByRoomId' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'userMessage' } },
+      'type': {
+        'kind': 'NonNullType',
+        'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'UserMessages' } },
+      },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'getAllMessagesByRoomId' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'userMessage' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'userMessage' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'content' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'createdAt' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'roomId' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'updatedAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'userId' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetAllMessagesByRoomIdQuery, GetAllMessagesByRoomIdQueryVariables>
+export const MutationDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'Mutation' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'newMessage' } },
+      'type': {
+        'kind': 'NonNullType',
+        'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'NewMessageInput' } },
+      },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'sendMessage' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'newMessage' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'newMessage' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'userId' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'roomId' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'content' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<MutationMutation, MutationMutationVariables>
+export const JoinToRoomDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'JoinToRoom' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'roomId' } },
+      'type': { 'kind': 'NonNullType', 'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'Float' } } },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'joinToRoom' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'roomId' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'roomId' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'username' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'firstname' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'lastname' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'avatarUrl' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<JoinToRoomMutation, JoinToRoomMutationVariables>
+export const GetAllRoomsDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'GetAllRooms' },
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'getAllRooms' },
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'ownerId' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'title' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'description' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetAllRoomsQuery, GetAllRoomsQueryVariables>
+export const GetAllUsersByRoomIdDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'GetAllUsersByRoomId' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'roomId' } },
+      'type': { 'kind': 'NonNullType', 'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'Float' } } },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'getAllUsersByRoomId' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'roomId' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'roomId' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'username' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'firstname' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'lastname' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'avatarUrl' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetAllUsersByRoomIdQuery, GetAllUsersByRoomIdQueryVariables>
+export const LeaveFromRoomDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'LeaveFromRoom' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'roomId' } },
+      'type': { 'kind': 'NonNullType', 'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'Float' } } },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'leaveFromRoom' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'roomId' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'roomId' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'avatarUrl' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'lastname' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'firstname' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'username' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<LeaveFromRoomMutation, LeaveFromRoomMutationVariables>
+export const SubscriptionDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'subscription',
+    'name': { 'kind': 'Name', 'value': 'Subscription' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'roomId' } },
+      'type': { 'kind': 'NonNullType', 'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'Int' } } },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'newMessage' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'roomId' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'roomId' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'userId' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'roomId' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'content' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<SubscriptionSubscription, SubscriptionSubscriptionVariables>
+export const GetAllNewsDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'GetAllNews' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'sortBy' } },
+      'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'String' } },
+    }, {
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'sortOrder' } },
+      'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'String' } },
+    }, {
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'skip' } },
+      'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'Int' } },
+    }, {
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'take' } },
+      'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'Int' } },
+    }, {
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'search' } },
+      'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'String' } },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet', 'selections': [{
+        'kind': 'Field',
+        'alias': { 'kind': 'Name', 'value': 'news' },
+        'name': { 'kind': 'Name', 'value': 'getAllNews' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'sortBy' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'sortBy' } },
+        }, {
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'sortOrder' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'sortOrder' } },
+        }, {
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'skip' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'skip' } },
+        }, {
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'take' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'take' } },
+        }, {
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'search' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'search' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'totalCount' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'items' },
+            'selectionSet': {
+              'kind': 'SelectionSet',
+              'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+                'kind': 'Field',
+                'name': { 'kind': 'Name', 'value': 'title' },
+              }, {
+                'kind': 'Field',
+                'alias': { 'kind': 'Name', 'value': 'text' },
+                'name': { 'kind': 'Name', 'value': 'description' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'updatedAt' } }, {
+                'kind': 'Field',
+                'alias': { 'kind': 'Name', 'value': 'date' },
+                'name': { 'kind': 'Name', 'value': 'createdAt' },
+              }, {
+                'kind': 'Field',
+                'alias': { 'kind': 'Name', 'value': 'images' },
+                'name': { 'kind': 'Name', 'value': 'imageUrl' },
+              }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'userId' } }],
+            },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetAllNewsQuery, GetAllNewsQueryVariables>
+export const CreateTokenDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'CreateToken' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'data' } },
+      'type': {
+        'kind': 'NonNullType',
+        'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'CreateTokenInput' } },
+      },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'createToken' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'data' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'data' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'updatedAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'title' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'sortOrder' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'points' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'price' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'id' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'description' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'createdAt' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<CreateTokenMutation, CreateTokenMutationVariables>
+export const GetTokenByIdDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'GetTokenById' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'getTokenByIdId' } },
+      'type': { 'kind': 'NonNullType', 'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'Int' } } },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'getTokenById' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'id' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'getTokenByIdId' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'description' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'points' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'id' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'price' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'title' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'sortOrder' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetTokenByIdMutation, GetTokenByIdMutationVariables>
+export const UpdateTokenDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'UpdateToken' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'updateTokenId' } },
+      'type': { 'kind': 'NonNullType', 'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'Int' } } },
+    }, {
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'data' } },
+      'type': {
+        'kind': 'NonNullType',
+        'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'UpdateTokenInput' } },
+      },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'updateToken' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'id' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'updateTokenId' } },
+        }, {
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'data' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'data' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'description' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'points' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'price' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'sortOrder' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'title' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<UpdateTokenMutation, UpdateTokenMutationVariables>
+export const GetMyReferralsDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'GetMyReferrals' },
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'getMyReferrals' },
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'cuid' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'email' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'username' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetMyReferralsQuery, GetMyReferralsQueryVariables>
+export const GetProfileDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'GetProfile' },
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'getProfile' },
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'username' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'email' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'firstname' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'phone' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'lastname' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'patronymic' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'instagram' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'confirmationCode' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'avatarUrl' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetProfileQuery, GetProfileQueryVariables>
+export const GetUserAddressDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'GetUserAddress' },
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'getUserAddress' },
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'country' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'city' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'address' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'index' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetUserAddressQuery, GetUserAddressQueryVariables>
+export const GetUserPaymentDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'GetUserPayment' },
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'getUserPayment' },
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'firstname' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'lastname' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'patronymic' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'number' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'cvv' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'month' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'year' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'createdAt' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'updatedAt' } }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetUserPaymentQuery, GetUserPaymentQueryVariables>
+export const UpdateUserAddressDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'UpdateUserAddress' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'input' } },
+      'type': {
+        'kind': 'NonNullType',
+        'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'UpdateAddressInput' } },
+      },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'updateUserAddress' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'input' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'input' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'country' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'city' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'address' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'index' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<UpdateUserAddressMutation, UpdateUserAddressMutationVariables>
+export const EditProfileDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'EditProfile' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'updateUserInput' } },
+      'type': {
+        'kind': 'NonNullType',
+        'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'UpdateUserInput' } },
+      },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'editProfile' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'updateUserInput' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'updateUserInput' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'id' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'username' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'email' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'firstname' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'phone' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'lastname' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'patronymic' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'instagram' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'createdAt' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'updatedAt' },
+          }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<EditProfileMutation, EditProfileMutationVariables>
+export const UpdateUserPaymentDocument = {
+  'kind': 'Document', 'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'mutation',
+    'name': { 'kind': 'Name', 'value': 'UpdateUserPayment' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'input' } },
+      'type': {
+        'kind': 'NonNullType',
+        'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'UpdatePaymentInput' } },
+      },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'updateUserPayment' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'input' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'input' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'firstname' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'lastname' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'patronymic' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'number' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'cvv' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'month' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'year' } }, {
+            'kind': 'Field',
+            'name': { 'kind': 'Name', 'value': 'createdAt' },
+          }, { 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'updatedAt' } }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<UpdateUserPaymentMutation, UpdateUserPaymentMutationVariables>

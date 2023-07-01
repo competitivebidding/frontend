@@ -2,8 +2,11 @@ import React from 'react'
 import AuctionCard from '../auction-card/AuctionCard'
 import '../auction-page-content/AuctionsPageContent.scss'
 
+interface IAuctionList {
+    data: any
+}
 
-const AuctionList = ({ data }) => {
+const AuctionList = ({ data }: IAuctionList) => {
     if (!data || !Array.isArray(data)) {
         return null; // Return null or handle the error case appropriately
     }

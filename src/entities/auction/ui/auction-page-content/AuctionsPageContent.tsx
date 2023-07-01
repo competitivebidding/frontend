@@ -1,11 +1,10 @@
 import React from 'react'
-import Slider from '../../../../shared/ui/slider/Slider'
 import AuctionList from '../auctions-list/AuctionList'
 import './AuctionsPageContent.scss'
-import AuctionSlider from "@/shared/ui/slider/AuctionSlider";
+import { GetAuctionQuery } from '../../../../shared/types/gql/graphql'
 
 interface IAuctionsPageContent {
-
+  data: GetAuctionQuery
 }
 
 const AuctionsPageContent = ({ data }: IAuctionsPageContent) => {
