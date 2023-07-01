@@ -1,7 +1,6 @@
-
 import React, { useState, useContext, useEffect } from 'react';
 import icon from '@assets/cabinet/icons/user.svg';
-import { AuthContext } from '../../../../../context/AuthContext';
+// import { AuthContext } from '../../../../../context/AuthContext';
 import { useLocalStorage } from '../../../../lib/useLocalStorage';
 import { useTranslation } from 'react-i18next';
 
@@ -14,7 +13,7 @@ const UserName = ({ field, handleUpdate }: UserNameProps) => {
     const { t } = useTranslation('cabinet');
     const [isEditable, setIsEditable] = useState(false);
     const [value, setValue] = useState(field);
-    const { value: user, setValue: setUserName } = useContext(AuthContext);
+    // const { value: user, setValue: setUserName } = useContext(AuthContext);
     const { setValue: setLS } = useLocalStorage('user');
 
     const changeState = () => {
@@ -24,8 +23,6 @@ const UserName = ({ field, handleUpdate }: UserNameProps) => {
     const update = (data: string) => {
         handleUpdate({ username: data });
         setIsEditable(false);
-        setUserName({ ...user, username: value });
-        setLS({ ...user, username: value });
     };
 
     useEffect(() => {
