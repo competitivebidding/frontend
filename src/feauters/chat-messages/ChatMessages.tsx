@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {FC, useEffect, useRef, useState} from 'react';
 import {useQuery, useSubscription} from "@apollo/client";
-import {GET_ALL_MESSAGES_BY_ROOM} from "src/shared/schemas/messages/messages";
+import {GET_ALL_MESSAGES_BY_ROOM} from "shared/schemas/messages/messages";
 import {useLocalStorage} from "shared/lib/useLocalStorage";
-import {NEW_MESSAGE} from "src/shared/schemas/messages/subscriptions";
+import {NEW_MESSAGE} from "shared/schemas/messages/subscriptions";
 import {toTime} from "shared/utils/timeHelpers";
 import './ChatMessages.scss'
 

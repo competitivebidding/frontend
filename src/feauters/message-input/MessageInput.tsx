@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, {FC, useState} from 'react';
 import iconSend from "@assets/Chat/iconSend.svg";
-import { useMutation } from "@apollo/client";
-import { SEND_MESSAGE } from "../../shared/schemas/messages/messages";
+import {useMutation} from "@apollo/client";
+import {SEND_MESSAGE} from "../../shared/schemas/messages/messages";
 import scss from './MessageInput.module.scss';
-import { useEffect } from 'react';
 
-export const MessageInput = ({ roomId }) => {
+interface IMessageInputProps {
+    roomId: number
+}
+
+export const MessageInput: FC<IMessageInputProps> = ({ roomId }) => {
     const [newMessage, setNewMessage] = useState('')
-    const [sendMessage, { data, loading, error }] = useMutation(SEND_MESSAGE)
+    const [sendMessage] = useMutation(SEND_MESSAGE)
 
     const handleSendMessage = (e) => {
         if (e.target.value === '') {
@@ -35,9 +38,6 @@ export const MessageInput = ({ roomId }) => {
             return;
         }
     }
-
-
-
 
     return (
         <div className={`${scss.chat__footer} ${scss.footer}`}>

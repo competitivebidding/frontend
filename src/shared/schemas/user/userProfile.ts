@@ -1,4 +1,4 @@
-import {graphql} from "../../types/gql";
+import { graphql } from '../../types/gql'
 
 export const GET_PROFILE_QUERY = graphql(`
   query GetProfile {
@@ -33,19 +33,19 @@ export const GET_USER_ADDRESS = graphql(`
 `)
 
 export const GET_USER_PAYMENT = graphql(`
-    query GetUserPayment {
-        getUserPayment {
-        firstname
-        lastname
-        patronymic
-        number
-        cvv
-        month
-        year
-        createdAt
-        updatedAt
-        }
+  query GetUserPayment {
+    getUserPayment {
+      firstname
+      lastname
+      patronymic
+      number
+      cvv
+      month
+      year
+      createdAt
+      updatedAt
     }
+  }
 `)
 
 export const UPDATE_USER_ADDRESS = graphql(`

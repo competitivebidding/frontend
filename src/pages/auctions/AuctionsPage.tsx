@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import AppHeader from '../../widgets/header/AppHeader.jsx'
 
-import Filter from '../../feauters/filter/Filter.jsx'
+import Filter from '../../feauters/filter/Filter.js'
 import Search from '../../feauters/search/Search.js'
 
 import './AuctionsPage.scss'

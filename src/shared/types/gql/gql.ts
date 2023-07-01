@@ -16,19 +16,16 @@ const documents = {
     "\n    query ExampleQuery {\n    getAuctions {\n        bids {\n            id\n            userId\n            auctionId\n            bitPrice\n            createdAt\n            updatedAt\n            user {\n                username\n                firstname\n                lastname\n                avatarUrl\n            }\n        }\n        createdAt\n        creator {\n            username\n            firstname\n            lastname\n            avatarUrl\n        }\n        description\n        finishedAt\n        id\n        sortOrder\n        startedAt\n        status {\n            id\n            name\n        }\n        title\n        updatedAt\n        winner {\n            username\n            firstname\n            lastname\n            avatarUrl\n        }\n    }\n}\n": types.ExampleQueryDocument,
     "\n    mutation CreateMyBid($input: CreateBidInput!) {\n      createMyBid(input: $input) {\n        id\n        userId\n        auctionId\n        bitPrice\n        createdAt\n        updatedAt\n        user {\n          username\n          firstname\n          lastname\n          avatarUrl\n        }\n      }\n    }\n": types.CreateMyBidDocument,
     "\n    query GetBidsByAuctionId($auctionId: Int!) {\n      getBidsByAuctionId(auctionId: $auctionId) {\n        id\n        userId\n        auctionId\n        bitPrice\n        createdAt\n        updatedAt\n        user {\n          username\n          firstname\n          lastname\n          avatarUrl\n        }\n      }\n    }\n": types.GetBidsByAuctionIdDocument,
-    "\nquery GetAuction($auctionId: Int!) {\n  getAuction(auctionId: $auctionId) {\n    id\n    title\n    description\n    creator {\n      username\n      firstname\n      lastname\n      avatarUrl\n    }\n    winner {\n      username\n      firstname\n      lastname\n      avatarUrl\n    }\n    status {\n      id\n      name\n    }\n    sortOrder\n    finishedAt\n    startedAt\n    createdAt\n    updatedAt\n    bids {\n      id\n      userId\n      auctionId\n      bitPrice\n      createdAt\n      updatedAt\n      user {\n        username\n        firstname\n        lastname\n        avatarUrl\n      }\n    }\n  }\n}\n\n\n": types.GetAuctionDocument,
     "\nmutation Logout($logoutId: Int!) {\n  logout(id: $logoutId) {\n    loggedOut\n  }\n}": types.LogoutDocument,
     "\nmutation Signin($signInInput: SignInInput!) {\n  signin(signInInput: $signInInput) {\n    user {\n      username\n      id\n      email\n    }\n    refreshToken\n    accessToken\n  }\n}\n": types.SigninDocument,
     "\n  mutation Signup($signUpInput: SignUpInput!) {\n    signup(signUpInput: $signUpInput) {\n      user {\n        username\n        id\n        email\n      }\n      refreshToken\n      accessToken\n    }\n  }\n": types.SignupDocument,
-    "\n    mutation CreateMyRoom($input: RoomCreateInput!) {\n      createMyRoom(input: $input) {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n": types.CreateMyRoomDocument,
     "\n    query GetAllMyRooms {\n      getAllMyRooms {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n": types.GetAllMyRoomsDocument,
     "\nquery GetAllMessagesByRoomId($userMessage: UserMessages!) {\n  getAllMessagesByRoomId(userMessage: $userMessage) {\n    content\n    createdAt\n    id\n    roomId\n    updatedAt\n    userId\n  }\n}\n": types.GetAllMessagesByRoomIdDocument,
-    "\n    mutation Mutation($newMessage: NewMessageInput!) {\n      sendMessage(newMessage: $newMessage) {\n        id\n        userId\n        roomId\n        content\n        createdAt\n        updatedAt\n      }\n    }\n": types.MutationDocument,
-    "\n    mutation JoinToRoom($roomId: Float!) {\n  joinToRoom(roomId: $roomId) {\n    username\n    firstname\n    lastname\n    avatarUrl\n  }\n}\n": types.JoinToRoomDocument,
-    "\nquery GetAllRooms {\n  getAllRooms {\n    id\n    ownerId\n    title\n    description\n    createdAt\n    updatedAt\n  }\n}\n": types.GetAllRoomsDocument,
     "\n    query GetAllUsersByRoomId($roomId: Float!) {\n      getAllUsersByRoomId(roomId: $roomId) {\n        username\n        firstname\n        lastname\n        avatarUrl\n      }\n    }\n": types.GetAllUsersByRoomIdDocument,
+    "\n    mutation Mutation($newMessage: NewMessageInput!) {\n      sendMessage(newMessage: $newMessage) {\n        id\n        userId\n        roomId\n        content\n        createdAt\n        updatedAt\n      }\n    }\n": types.MutationDocument,
+    "\n    mutation CreateMyRoom($input: RoomCreateInput!) {\n      createMyRoom(input: $input) {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n\n": types.CreateMyRoomDocument,
+    "\n    mutation JoinToRoom($roomId: Float!) {\n  joinToRoom(roomId: $roomId) {\n    username\n    firstname\n    lastname\n    avatarUrl\n  }\n}\n": types.JoinToRoomDocument,
     "\nmutation LeaveFromRoom($roomId: Float!) {\n  leaveFromRoom(roomId: $roomId) {\n    avatarUrl\n    lastname\n    firstname\n    username\n  }\n}\n": types.LeaveFromRoomDocument,
-    "\n    subscription Subscription($roomId: Int!) {\n      newMessage(roomId: $roomId) {\n        id\n        userId\n        roomId\n        content\n        createdAt\n        updatedAt\n      }\n    }\n": types.SubscriptionDocument,
     "\n\tquery GetAllNews($sortBy: String, $sortOrder: String, $skip: Int, $take: Int, $search: String) {\n\t\tnews: getAllNews(sortBy: $sortBy, sortOrder: $sortOrder, skip: $skip, take: $take, search: $search) {\n\t\t  totalCount\n\t\t  items {\n\t\t\tid\n\t\t\ttitle\n\t\t\ttext: description\n\t\t\tupdatedAt\n\t\t\tdate: createdAt\n\t\t\timages: imageUrl\n\t\t\tuserId\n\t\t}\n\t }\n  } \n": types.GetAllNewsDocument,
     "\nmutation CreateToken($data: CreateTokenInput!) {\n  createToken(data: $data) {\n    updatedAt\n    title\n    sortOrder\n    points\n    price\n    id\n    description\n    createdAt\n  }\n}\n": types.CreateTokenDocument,
     "\nmutation GetTokenById($getTokenByIdId: Int!) {\n  getTokenById(id: $getTokenByIdId) {\n    createdAt\n    description\n    points\n    id\n    price\n    updatedAt\n    title\n    sortOrder\n  }\n}\n": types.GetTokenByIdDocument,
@@ -36,7 +33,7 @@ const documents = {
     "\n    query GetMyReferrals {\n      getMyReferrals {\n        id\n        cuid\n        email\n        username\n        createdAt\n      }\n    }\n": types.GetMyReferralsDocument,
     "\n  query GetProfile {\n    getProfile {\n      id\n      username\n      email\n      firstname\n      phone\n      lastname\n      patronymic\n      instagram\n      confirmationCode\n      avatarUrl\n      createdAt\n      updatedAt\n    }\n  }\n": types.GetProfileDocument,
     "\n  query GetUserAddress {\n    getUserAddress {\n      country\n      city\n      address\n      index\n      createdAt\n      updatedAt\n    }\n  }\n": types.GetUserAddressDocument,
-    "\n    query GetUserPayment {\n        getUserPayment {\n        firstname\n        lastname\n        patronymic\n        number\n        cvv\n        month\n        year\n        createdAt\n        updatedAt\n        }\n    }\n": types.GetUserPaymentDocument,
+    "\n  query GetUserPayment {\n    getUserPayment {\n      firstname\n      lastname\n      patronymic\n      number\n      cvv\n      month\n      year\n      createdAt\n      updatedAt\n    }\n  }\n": types.GetUserPaymentDocument,
     "\n  mutation UpdateUserAddress($input: UpdateAddressInput!) {\n    updateUserAddress(input: $input) {\n      country\n      city\n      address\n      index\n      createdAt\n      updatedAt\n    }\n  }\n": types.UpdateUserAddressDocument,
     "\n  mutation EditProfile($updateUserInput: UpdateUserInput!) {\n    editProfile(updateUserInput: $updateUserInput) {\n      id\n      username\n      email\n      firstname\n      phone\n      lastname\n      patronymic\n      instagram\n      createdAt\n      updatedAt\n    }\n  }\n": types.EditProfileDocument,
     "\n  mutation UpdateUserPayment($input: UpdatePaymentInput!) {\n    updateUserPayment(input: $input) {\n      firstname\n      lastname\n      patronymic\n      number\n      cvv\n      month\n      year\n      createdAt\n      updatedAt\n    }\n  }\n": types.UpdateUserPaymentDocument,
@@ -71,10 +68,6 @@ export function graphql(source: "\n    query GetBidsByAuctionId($auctionId: Int!
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\nquery GetAuction($auctionId: Int!) {\n  getAuction(auctionId: $auctionId) {\n    id\n    title\n    description\n    creator {\n      username\n      firstname\n      lastname\n      avatarUrl\n    }\n    winner {\n      username\n      firstname\n      lastname\n      avatarUrl\n    }\n    status {\n      id\n      name\n    }\n    sortOrder\n    finishedAt\n    startedAt\n    createdAt\n    updatedAt\n    bids {\n      id\n      userId\n      auctionId\n      bitPrice\n      createdAt\n      updatedAt\n      user {\n        username\n        firstname\n        lastname\n        avatarUrl\n      }\n    }\n  }\n}\n\n\n"): (typeof documents)["\nquery GetAuction($auctionId: Int!) {\n  getAuction(auctionId: $auctionId) {\n    id\n    title\n    description\n    creator {\n      username\n      firstname\n      lastname\n      avatarUrl\n    }\n    winner {\n      username\n      firstname\n      lastname\n      avatarUrl\n    }\n    status {\n      id\n      name\n    }\n    sortOrder\n    finishedAt\n    startedAt\n    createdAt\n    updatedAt\n    bids {\n      id\n      userId\n      auctionId\n      bitPrice\n      createdAt\n      updatedAt\n      user {\n        username\n        firstname\n        lastname\n        avatarUrl\n      }\n    }\n  }\n}\n\n\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
 export function graphql(source: "\nmutation Logout($logoutId: Int!) {\n  logout(id: $logoutId) {\n    loggedOut\n  }\n}"): (typeof documents)["\nmutation Logout($logoutId: Int!) {\n  logout(id: $logoutId) {\n    loggedOut\n  }\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -87,10 +80,6 @@ export function graphql(source: "\n  mutation Signup($signUpInput: SignUpInput!)
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n    mutation CreateMyRoom($input: RoomCreateInput!) {\n      createMyRoom(input: $input) {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n"): (typeof documents)["\n    mutation CreateMyRoom($input: RoomCreateInput!) {\n      createMyRoom(input: $input) {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
 export function graphql(source: "\n    query GetAllMyRooms {\n      getAllMyRooms {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n"): (typeof documents)["\n    query GetAllMyRooms {\n      getAllMyRooms {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -99,7 +88,15 @@ export function graphql(source: "\nquery GetAllMessagesByRoomId($userMessage: Us
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+export function graphql(source: "\n    query GetAllUsersByRoomId($roomId: Float!) {\n      getAllUsersByRoomId(roomId: $roomId) {\n        username\n        firstname\n        lastname\n        avatarUrl\n      }\n    }\n"): (typeof documents)["\n    query GetAllUsersByRoomId($roomId: Float!) {\n      getAllUsersByRoomId(roomId: $roomId) {\n        username\n        firstname\n        lastname\n        avatarUrl\n      }\n    }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
 export function graphql(source: "\n    mutation Mutation($newMessage: NewMessageInput!) {\n      sendMessage(newMessage: $newMessage) {\n        id\n        userId\n        roomId\n        content\n        createdAt\n        updatedAt\n      }\n    }\n"): (typeof documents)["\n    mutation Mutation($newMessage: NewMessageInput!) {\n      sendMessage(newMessage: $newMessage) {\n        id\n        userId\n        roomId\n        content\n        createdAt\n        updatedAt\n      }\n    }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n    mutation CreateMyRoom($input: RoomCreateInput!) {\n      createMyRoom(input: $input) {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n\n"): (typeof documents)["\n    mutation CreateMyRoom($input: RoomCreateInput!) {\n      createMyRoom(input: $input) {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -107,19 +104,7 @@ export function graphql(source: "\n    mutation JoinToRoom($roomId: Float!) {\n 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\nquery GetAllRooms {\n  getAllRooms {\n    id\n    ownerId\n    title\n    description\n    createdAt\n    updatedAt\n  }\n}\n"): (typeof documents)["\nquery GetAllRooms {\n  getAllRooms {\n    id\n    ownerId\n    title\n    description\n    createdAt\n    updatedAt\n  }\n}\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n    query GetAllUsersByRoomId($roomId: Float!) {\n      getAllUsersByRoomId(roomId: $roomId) {\n        username\n        firstname\n        lastname\n        avatarUrl\n      }\n    }\n"): (typeof documents)["\n    query GetAllUsersByRoomId($roomId: Float!) {\n      getAllUsersByRoomId(roomId: $roomId) {\n        username\n        firstname\n        lastname\n        avatarUrl\n      }\n    }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
 export function graphql(source: "\nmutation LeaveFromRoom($roomId: Float!) {\n  leaveFromRoom(roomId: $roomId) {\n    avatarUrl\n    lastname\n    firstname\n    username\n  }\n}\n"): (typeof documents)["\nmutation LeaveFromRoom($roomId: Float!) {\n  leaveFromRoom(roomId: $roomId) {\n    avatarUrl\n    lastname\n    firstname\n    username\n  }\n}\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n    subscription Subscription($roomId: Int!) {\n      newMessage(roomId: $roomId) {\n        id\n        userId\n        roomId\n        content\n        createdAt\n        updatedAt\n      }\n    }\n"): (typeof documents)["\n    subscription Subscription($roomId: Int!) {\n      newMessage(roomId: $roomId) {\n        id\n        userId\n        roomId\n        content\n        createdAt\n        updatedAt\n      }\n    }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -151,7 +136,7 @@ export function graphql(source: "\n  query GetUserAddress {\n    getUserAddress 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n    query GetUserPayment {\n        getUserPayment {\n        firstname\n        lastname\n        patronymic\n        number\n        cvv\n        month\n        year\n        createdAt\n        updatedAt\n        }\n    }\n"): (typeof documents)["\n    query GetUserPayment {\n        getUserPayment {\n        firstname\n        lastname\n        patronymic\n        number\n        cvv\n        month\n        year\n        createdAt\n        updatedAt\n        }\n    }\n"];
+export function graphql(source: "\n  query GetUserPayment {\n    getUserPayment {\n      firstname\n      lastname\n      patronymic\n      number\n      cvv\n      month\n      year\n      createdAt\n      updatedAt\n    }\n  }\n"): (typeof documents)["\n  query GetUserPayment {\n    getUserPayment {\n      firstname\n      lastname\n      patronymic\n      number\n      cvv\n      month\n      year\n      createdAt\n      updatedAt\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

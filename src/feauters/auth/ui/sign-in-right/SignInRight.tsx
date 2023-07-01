@@ -11,18 +11,23 @@ import SIGNIN_MUTATION from '../../../../shared/schemas/auth/signin.ts'
 import './SignInRight.scss'
 import {useLocalStorage} from '@/shared/lib/useLocalStorage'
 
+interface ISignInFields {
+	email: string,
+	password: string
+}
+
 export const SignInRight = () => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm();
+	} = useForm<ISignInFields>();
 
 	const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false);
 
 	const { setValue } = useLocalStorage('user')
 
-	const [signin, { loading, error }] = useMutation(SIGNIN_MUTATION);
+	const [signin] = useMutation(SIGNIN_MUTATION);
 
 	const handleSignIn = (data) => {
 		signin({
@@ -35,11 +40,11 @@ export const SignInRight = () => {
 		})
 			.then((response) => {
 				console.log('Logged in successfully', response.data);
-				Cookies.set('accesstoken', response.data.signin.accessToken);
-				Cookies.set('refreshtoken', response.data.signin.refreshToken);
-				const user = JSON.stringify(response.data.signin.user);
+				Cookies.set('accesstoken', response.data?.signin.accessToken as string);
+				Cookies.set('refreshtoken', response.data?.signin.refreshToken as string);
+				const user = JSON.stringify(response.data?.signin.user);
 				Cookies.set('user', user);
-				setValue(response.data.signin.user)
+				setValue(response.data?.signin.user)
 				window.location.href = '/';
 			})
 			.catch((error) => {
@@ -47,12 +52,9 @@ export const SignInRight = () => {
 			});
 	};
 
-	const onSubmit = handleSubmit(handleSignIn);
-
-
 	return (
 		<>
-			<form className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
+			<form className="form" onSubmit={handleSubmit(handleSignIn)} noValidate>
 				<h2 className="form__title">Log in</h2>
 				<div className="form__descr">
 					<p>

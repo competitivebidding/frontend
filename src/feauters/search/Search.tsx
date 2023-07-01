@@ -1,12 +1,15 @@
-import React from 'react'
+import React, {ChangeEvent, FC} from 'react'
 import './Search.scss'
 
-const Search = () => {
-  return (
-    <>
-      <input type="text" placeholder="Search" className="search__filter" />
-    </>
-  )
+interface ISearchProps {
+    onChange: (value: string) => void
+}
+
+const Search:FC<ISearchProps> = ({onChange}) => {
+    const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+        onChange(e.target.value)
+    }
+  return <input type="text" placeholder="Search" className="search__filter" onChange={handleOnChange}/>
 }
 
 export default Search

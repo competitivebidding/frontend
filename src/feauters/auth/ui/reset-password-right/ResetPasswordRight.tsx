@@ -5,12 +5,17 @@ import { Link } from 'react-router-dom'
 
 import './ResetPasswordRight.scss'
 
+interface IResetPasswordFields {
+  email: string
+  code: string
+}
+
 export const ResetPasswordRight = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm<IResetPasswordFields>()
 
   const [emailSubmitted, setEmailSubmitted] = useState(false)
   // const [verificationCode, setVerificationCode] = useState("1234");

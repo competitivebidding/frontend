@@ -11,7 +11,7 @@ import { UserPaymentsInfo } from '@/shared/ui/info-tabs/ui/user-payment-info/Use
 import { UserCountry } from '@/shared/ui/info-tabs/ui/user-country/UserCountry'
 import { UserSettings } from '@/shared/ui/info-tabs/ui/user-settings/UserSettings'
 import { UserInfoLevel } from '@/shared/ui/info-tabs/ui/user-verification/UserInfoLevel'
-import { GET_PROFILE_QUERY, UPDATE_PROFILE } from '@/shared/schemas/user/userProfile'
+import { GET_PROFILE_QUERY, UPDATE_PROFILE } from '../../../../../../shared/schemas/user/userProfile'
 import './UserInfoCabinet.scss'
 
 export const UserInfoCabinet = () => {
@@ -23,11 +23,7 @@ export const UserInfoCabinet = () => {
 	const [update] = useMutation(UPDATE_PROFILE)
 
 	const updateProfile = (data) => {
-		update({
-			variables: {
-				updateUserInput: { ...data },
-			},
-		}).then(() => refetch())
+		update({variables: {updateUserInput: {}}}).then(() => refetch())
 	}
 
 	React.useEffect(() => {

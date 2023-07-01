@@ -28,7 +28,7 @@ export const PaymentForm: FC<IPaymentsForm> = ({onClose}) => {
         const month = cardDate.substring(0, cardDate.indexOf('/')).trim()
         const firstname = cardHolder.substring(0, cardHolder.indexOf(' '))
         const lastname = cardHolder.substring(cardHolder.indexOf(' ') + 1, cardHolder.length - 1)
-        console.log(cardHolder)
+
         update({
             variables: {
                 input: {

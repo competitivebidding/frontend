@@ -1,8 +1,24 @@
 import React from 'react'
 import styles from './PlayersAmount.module.scss'
+import DonutChart from "../../shared/ui/charts/DonutChart";
+
+type dataset = {
+  label: string,
+  data: number[],
+  borderWidth: number,
+  backgroundColor: string[],
+  circumference: number,
+  datalabels: {display: boolean}
+}
+
+interface IChartData {
+  labels: string[],
+  datasets: dataset[]
+}
 
 function PlayersAmount(props) {
-  const data = {
+
+  const data: IChartData = {
     labels: ['Amount of players', 'Amount of partners', 'Amount of active partners per week', 'Total amount'],
     datasets: [
       {
@@ -11,7 +27,6 @@ function PlayersAmount(props) {
         borderWidth: 0,
         backgroundColor: ['#00FFA3', '#2F53FF', '#ffffff', 'rgba(255, 255, 255, 0.2)'],
         circumference: 360,
-
         datalabels: {
           display: false,
         },
@@ -36,7 +51,7 @@ function PlayersAmount(props) {
             ))}
           </ul>
         )}
-        {/*<DonutChart data={data} count={10} haveTooltip />*/}
+        <DonutChart data={data} count={10} haveTooltip />
       </div>
     </div>
   )

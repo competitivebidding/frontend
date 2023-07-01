@@ -12,6 +12,15 @@ import {useLocalStorage} from '@/shared/lib/useLocalStorage'
 
 import './SignUpRight.scss'
 
+interface ISignUpFields {
+    email: string
+    username: string
+    password: string
+    repeatPassword: string
+    referrerUserId: number
+    isChecked: boolean
+}
+
 export const SignUpRight = () => {
     const {
         register,
@@ -19,7 +28,7 @@ export const SignUpRight = () => {
         formState: {errors},
         reset,
         watch
-    } = useForm()
+    } = useForm<ISignUpFields>()
 
     const password = watch('password')
     const repeatPassword = watch('repeatPassword')
@@ -33,13 +42,11 @@ export const SignUpRight = () => {
         onCompleted: (data) => {
             console.log(data)
             setSubmitted(true)
-
             Cookies.set('accesstoken', data.signup.accessToken)
             Cookies.set('refreshtoken', data.signup.refreshToken)
             const user = JSON.stringify(data.signup.user)
             Cookies.set('user', user)
             setValue(data.signup.user)
-
             window.location.href = '/';
             reset()
         },
@@ -48,12 +55,9 @@ export const SignUpRight = () => {
             console.log()
         },
     })
-
     console.log(errors)
 
-
     const onSubmit = (data) => {
-        console.log(data)
         signupMutation({
             variables: {
                 signUpInput: {
@@ -74,8 +78,8 @@ export const SignUpRight = () => {
                     <p>
                         Already have an account?
                         <span>
-              <Link to="/SignIn">Log In</Link>
-            </span>
+                <Link to="/SignIn">Log In</Link>
+                </span>
                     </p>
                 </div>
 

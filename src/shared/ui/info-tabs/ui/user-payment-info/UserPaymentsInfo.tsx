@@ -5,21 +5,25 @@ import {GET_USER_PAYMENT, UPDATE_USER_PAYMENT} from '../../../../schemas/user/us
 import {useTranslation} from 'react-i18next';
 
 interface UserPaymentsInfoProps {
-    onOpen: (value: boolean) => void;
+    onOpen: (value: boolean) => void
 }
 
-const UserPaymentsInfo = ({ onOpen } : UserPaymentsInfoProps) => {
-    const { t } = useTranslation('cabinet');
+const UserPaymentsInfo = ({ onOpen }: UserPaymentsInfoProps) => {
+    const { t } = useTranslation('cabinet')
 
-    const [field, setField] = useState(undefined);
-    const [updateCard] = useMutation(UPDATE_USER_PAYMENT);
-    const { data: {getUserPayment}, loading, refetch } = useQuery(GET_USER_PAYMENT);
+    const [field, setField] = useState(undefined)
+    const [updateCard] = useMutation(UPDATE_USER_PAYMENT)
+    const {
+        data: {getUserPayment},
+        loading,
+        refetch,
+    } = useQuery<GetUserPaymentQuery>(GET_USER_PAYMENT)
 
     useEffect(() => {
         if (!loading && getUserPayment) {
-            setField(getUserPayment);
+            setField(getUserPayment)
         }
-    }, [getUserPayment]);
+    }, [getUserPayment])
 
     const unlink = () => {
         updateCard({
@@ -33,8 +37,8 @@ const UserPaymentsInfo = ({ onOpen } : UserPaymentsInfoProps) => {
                     year: '',
                 },
             },
-        }).then(() => refetch());
-    };
+        }).then(() => refetch())
+    }
 
     return (
         <div className="cabinet-block user-info__item">
@@ -47,13 +51,9 @@ const UserPaymentsInfo = ({ onOpen } : UserPaymentsInfoProps) => {
                         <p className="item-top__content-title">
                             {field && field.number ? '****' `${field.number.slice(-4)}` : 'UserPayment'}
                         </p>
-                        <span className="item-top__content-subtitle">
-                            {field && field.number ? 'Bank card' : 'Not connected'}
-                        </span>
+                        <span className="item-top__content-subtitle">{field && field.number ? 'Bank card' : 'Not connected'}</span>
                     </div>
-                    <div className="item-top__status info">
-                        {field && `${field.firstname} ${field.lastname}`}
-                    </div>
+                    <div className="item-top__status info">{field && field.firstname + ' ' + field.lastname}</div>
                 </div>
             </div>
             <div className="item-bottom">
@@ -68,7 +68,7 @@ const UserPaymentsInfo = ({ onOpen } : UserPaymentsInfoProps) => {
                 )}
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default UserPaymentsInfo;
+export default UserPaymentsInfo

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import './Filter.scss';
 
 import arrowGrey from '@assets/imgAuctions/arrowGrey.svg';
@@ -6,17 +6,17 @@ import arrowFilter from '@assets/imgAuctions/arrowFilter.svg';
 import cross from '@assets/imgAuctions/cross.svg';
 
 const Filter = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [isCategoriesVisible, setIsCategoriesVisible] = useState(true);
-  const [isBrandVisible, setIsBrandVisible] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [isCategoriesVisible, setIsCategoriesVisible] = useState<boolean>(true);
+  const [isBrandVisible, setIsBrandVisible] = useState<boolean>(true);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  const handleResize = useCallback(() => {
+    setIsMobile(window.innerWidth < 1000);
+    window.innerWidth < 1000 ? setIsVisible(false) : ''
+  }, [])
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1000);
-
-      window.innerWidth < 1000 ? setIsVisible(false) : ''
-    };
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
