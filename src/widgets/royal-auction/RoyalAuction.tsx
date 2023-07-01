@@ -2,7 +2,7 @@ import React from "react";
 
 import "./RoyalAuction.scss"
 
-export const RoyalAuction = (props) => {
+export const RoyalAuction = () => {
 	return (
 		<div className={'main__royalAction'}>
 			<div className={'royalAction__title'}>Royal Auction</div>

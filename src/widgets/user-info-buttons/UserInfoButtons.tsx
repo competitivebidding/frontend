@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './UserInfoButtons.scss';
 
 const UserInfoButtons = () => {

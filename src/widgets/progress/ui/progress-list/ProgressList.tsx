@@ -6,7 +6,7 @@ import "./ProgressList.scss"
 
 import ProgressListData from "./Data/ProgressListData.js"
 
-export const ProgressList = (props) => {
+export const ProgressList = () => {
 
 	const getData = ProgressListData.map((list) => {
 		return <ProgressItem

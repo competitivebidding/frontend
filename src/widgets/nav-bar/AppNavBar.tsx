@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 
-import { Link, NavLink } from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 
 import logo from '@assets/imgNavBar/LogoCircle.svg'
 import hammerIco from '@assets/imgNavBar/judge.svg'
@@ -18,7 +18,6 @@ import messages from '@assets/imgNavBar/messages.svg'
 import './AppNavBar.scss'
 
 const AppNavBar = () => {
-
 
   return (
     <nav className="navBar">

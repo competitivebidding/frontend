@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import styles from './HeaderBurger.module.scss'
-import AppNavBar from "@/widgets/nav-bar/AppNavBar";
+import AppNavBar from "../nav-bar/AppNavBar";
 
-function HeaderBurger({isClicked, setIcClicked}) {
+interface IHeaderBurgerProps {
+    isClicked: boolean
+    setIcClicked: () => void
+}
+
+export const HeaderBurger:FC<IHeaderBurgerProps> = ({isClicked, setIcClicked}) => {
     const [isActive, setIsActive] = useState(false);
-
-
 
     return (
         <div className={styles.a}>

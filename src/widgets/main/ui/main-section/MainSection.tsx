@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
-import AppFooter from "../../../footer/AppFooter.jsx";
-import AppNavBar from '../../../nav-bar/AppNavBar.jsx';
+import AppFooter from "../../../footer/AppFooter.js";
+import AppNavBar from '../../../nav-bar/AppNavBar.tsx';
 import {Outlet} from 'react-router-dom';
 
 import './MainSection.scss'
 
-function MainSection() {
-
+export const MainSection = () => {
     const userWidth = window.innerWidth;
     return (
         <>
@@ -19,6 +18,5 @@ function MainSection() {
     );
 }
 
-export default MainSection;
 
 

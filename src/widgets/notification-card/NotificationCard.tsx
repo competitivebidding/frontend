@@ -1,6 +1,16 @@
-import React from 'react'
+import React, {FC} from 'react'
 
-const NotificationCard = ({ id, title, text, link, date, time, prizeImg }) => {
+interface INotificationCardProps {
+  id: string
+  title: string
+  text: string
+  link: string
+  date: string
+  time: string
+  prizeImg: string
+}
+
+const NotificationCard: FC<INotificationCardProps> = ({ id, title, text, link, date, time, prizeImg }) => {
   return (
     <div className="note">
       <img className="note__note-img" src="/src/assets/temporary-notifications-img/prize.svg" alt="prize" />
@@ -9,7 +19,7 @@ const NotificationCard = ({ id, title, text, link, date, time, prizeImg }) => {
           <h1 className="note-information__note-texts__note-title"> {title}</h1>
           <p className="note-information__note-texts__note-text">{text}</p>
           <a href="#" className="note-information__note-texts__note-link">
-            {link}{' '}
+            {link}
           </a>
         </div>
         <div className="note-information__note-dates">

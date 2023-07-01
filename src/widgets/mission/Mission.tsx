@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import "./Mission.scss"
 
 export const Mission = (props) => {

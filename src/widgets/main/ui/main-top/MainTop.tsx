@@ -2,12 +2,12 @@ import React from "react";
 
 import "./MainTop.scss"
 
-import { RoyalAuction } from '../../../royal-auction/RoyalAuction.jsx'
-import { ProgressList } from '../../../progress/ui/progress-list/ProgressList.jsx'
-import { Mission } from '../../../mission/Mission.jsx'
+import { RoyalAuction } from '../../../royal-auction/RoyalAuction.js'
+import { ProgressList } from '../../../progress/ui/progress-list/ProgressList.js'
+import { Mission } from '../../../mission/Mission.tsx'
 import { StatsList } from '../../../../entities/stats/ui/stats-list/StatsList.jsx'
 
-export const MainTop = (props) => {
+export const MainTop = () => {
 	return (
 		<div className={'main-top'}>
 

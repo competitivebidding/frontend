@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form'
 import validator from 'validator'
-
 import '../../pages/support/Support.scss'
+
+interface ISupportProps {
+  email: string
+  problem: string
+}
 
 const Support = () => {
   const {
@@ -10,7 +14,7 @@ const Support = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm()
+  } = useForm<ISupportProps>()
 
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
 
