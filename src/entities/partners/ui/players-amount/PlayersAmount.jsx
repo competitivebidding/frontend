@@ -1,5 +1,4 @@
 import React from 'react';
-import DonutChart from "@/shared/ui/charts/DonutChart.jsx";
 import donut from "@assets/Partners/donut.svg";
 import styles from './PlayersAmount.module.scss';
 
@@ -30,7 +29,7 @@ function PlayersAmount(props) {
                     <li className={styles.statistic__item  + ' ' + styles.statistic__item_blue}><span>3</span><br/><p>Amount of partners</p></li>
                     <li className={styles.statistic__item  + ' ' + styles.statistic__item_white}><span>1</span><br/><p>Amount of active partners per week</p></li>
                 </ul>
-                <DonutChart chart={donut} data={data}/>
+                {/*<DonutChart chart={donut} data={data}/>*/}
             </div>
         </div>
     );

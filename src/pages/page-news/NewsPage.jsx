@@ -3,7 +3,7 @@ import AppHeader from '../../widgets/header/AppHeader.jsx'
 import NewsList from '../../entities/news/ui/news-list/NewsList'
 
 import { useQuery } from '@apollo/client'
-import { ALL_NEWS } from '../../shared/schemas/news/news.js'
+import { ALL_NEWS } from '../../shared/schemas/news/news.ts'
 
 const NewsPage = ({ title }) => {
 	// Эмитация базы данных. Данные будут приходить с бэка

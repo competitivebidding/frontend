@@ -3,6 +3,10 @@ import styles from "@/shared/ui/charts/Income.module.scss";
 import arrow from "@assets/Partners/arrow.svg"
 import BarChart from "@/shared/ui/charts/BarChart";
 
+interface IDoubleIncomeProps {
+
+}
+
 function DoubleIncome({currency, color, data}) {
     const [filterValue, setFilterValue] = useState('Last week');
     const [dropdownVisibility, setDropdownVisibility] = useState(false);

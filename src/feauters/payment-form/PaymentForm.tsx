@@ -1,12 +1,17 @@
 import * as React from 'react';
 import './PaymentForm.scss'
 import {useMutation, useQuery} from "@apollo/client";
-import {GET_USER_PAYMENT, UPDATE_USER_PAYMENT} from "../../shared/schemas/user/userProfile";
+import {GET_USER_PAYMENT, UPDATE_USER_PAYMENT} from "shared/schemas/user/userProfile";
 import {AppModal} from "@/shared/ui/modal/AppModal";
-import {FormInput} from "../../shared/ui/form-input/FormInput";
+import {FormInput} from "shared/ui/form-input/FormInput";
 import {useTranslation} from "react-i18next";
+import {FC} from "react";
 
-export const PaymentForm = ({onClose}) => {
+interface IPaymentsForm {
+    onClose: (value: boolean) => void
+}
+
+export const PaymentForm: FC<IPaymentsForm> = ({onClose}) => {
     const {t} = useTranslation('cabinet')
 
     const [cardNumber, setCardNumber] = React.useState("")

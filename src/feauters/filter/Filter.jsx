@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import './Filter.scss';
 
 import arrowGrey from '@assets/imgAuctions/arrowGrey.svg';
