@@ -1,8 +1,8 @@
-import {gql} from "@apollo/client";
+import {graphql} from "../../types/gql";
 
-export const NEW_MESSAGE = gql`
-    subscription Subscription($roomId: Int!) {
-      newMessage(roomId: $roomId) {
+export const NEW_MESSAGE = graphql(`
+    mutation Mutation($newMessage: NewMessageInput!) {
+      sendMessage(newMessage: $newMessage) {
         id
         userId
         roomId
@@ -11,4 +11,4 @@ export const NEW_MESSAGE = gql`
         updatedAt
       }
     }
-`
+`)

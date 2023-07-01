@@ -1,14 +1,17 @@
 import * as React from 'react';
-import {useEffect, useState, useRef} from "react";
-import {useQuery} from "@apollo/client";
-import {GET_ALL_MESSAGES_BY_ROOM} from "../../shared/schemas/messages/messages";
-import {useLocalStorage} from "../../shared/lib/useLocalStorage";
-import {useSubscription} from "@apollo/client";
-import {NEW_MESSAGE} from "../../shared/schemas/messages/subscriptions";
-import {toTime} from "../../shared/utils/timeHelpers";
+import {FC, useEffect, useRef, useState} from 'react';
+import {useQuery, useSubscription} from "@apollo/client";
+import {GET_ALL_MESSAGES_BY_ROOM} from "src/shared/schemas/messages/messages";
+import {useLocalStorage} from "shared/lib/useLocalStorage";
+import {NEW_MESSAGE} from "src/shared/schemas/messages/subscriptions";
+import {toTime} from "shared/utils/timeHelpers";
 import './ChatMessages.scss'
 
-export const ChatMessages = ({groupId}) => {
+interface IChatMessages {
+    groupId: number
+}
+
+export const ChatMessages:FC<IChatMessages> = ({groupId}) => {
     const {lsValue} = useLocalStorage('user')
     const [groupMessages, setGroupMessages] = useState(null)
     const ref = useRef(null)
@@ -18,7 +21,6 @@ export const ChatMessages = ({groupId}) => {
         NEW_MESSAGE,
         {variables: {roomId: groupId}}
     );
-
 
     const {data, loading} = useQuery(GET_ALL_MESSAGES_BY_ROOM, {
         variables:

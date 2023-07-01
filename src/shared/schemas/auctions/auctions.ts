@@ -1,6 +1,6 @@
-import { gql } from '@apollo/client';
+import {graphql} from "../../types/gql";
 
-export const GET_AUCTIONS = gql`
+export const GET_AUCTIONS = graphql(`
     query ExampleQuery {
     getAuctions {
         bids {
@@ -43,10 +43,9 @@ export const GET_AUCTIONS = gql`
         }
     }
 }
+`)
 
-`
-
-export const CREATE_MY_BID = gql`
+export const CREATE_MY_BID = graphql(`
     mutation CreateMyBid($input: CreateBidInput!) {
       createMyBid(input: $input) {
         id
@@ -63,10 +62,9 @@ export const CREATE_MY_BID = gql`
         }
       }
     }
-`
+`)
 
-
-export const GET_BIDS_BY_AUCTION_ID = gql`
+export const GET_BIDS_BY_AUCTION_ID = graphql(`
     query GetBidsByAuctionId($auctionId: Int!) {
       getBidsByAuctionId(auctionId: $auctionId) {
         id
@@ -83,4 +81,4 @@ export const GET_BIDS_BY_AUCTION_ID = gql`
         }
       }
     }
-`
+`)

@@ -1,6 +1,7 @@
-import { gql } from '@apollo/client';
+import {graphql} from "../../types/gql";
 
-const SIGNIN_MUTATION = gql`
+
+const SIGNIN_MUTATION = graphql(`
 mutation Signin($signInInput: SignInInput!) {
   signin(signInInput: $signInInput) {
     user {
@@ -12,6 +13,6 @@ mutation Signin($signInInput: SignInInput!) {
     accessToken
   }
 }
-`;
+`)
 
 export default SIGNIN_MUTATION;

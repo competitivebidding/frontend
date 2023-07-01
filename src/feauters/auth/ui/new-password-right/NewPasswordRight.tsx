@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import validator from 'validator'
+import React, {FC, useState} from 'react'
+import {useForm} from 'react-hook-form'
 import './NewPasswordRight.scss'
-import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import {Link} from 'react-router-dom'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons'
+
+interface INewPasswordForm {
+  password: string
+  repeatPassword: string
+}
 
 export const NewPasswordRight = () => {
   const {
@@ -12,10 +16,10 @@ export const NewPasswordRight = () => {
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm()
+  } = useForm<INewPasswordForm>()
 
-  const password = watch('password')
-  const repeatPassword = watch('repeatPassword')
+  const password = watch("password")
+  const repeatPassword = watch("repeatPassword")
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false)
 
@@ -33,7 +37,7 @@ export const NewPasswordRight = () => {
         <h2 className="form__title">Recover password</h2>
         <div className="form__descr">
           <p>
-            Already have an account?{' '}
+            Already have an account?
             <span>
               <Link to="/SignIn">Log in</Link>
             </span>

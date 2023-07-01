@@ -1,21 +1,25 @@
-import { gql } from '@apollo/client'
+import {graphql} from "../../types/gql";
 
-export const GET_PROFILE_QUERY = gql(`
-    query GetProfile {
-      getProfile {
-        email
-        firstname
-        id
-        instagram
-        lastname
-        patronymic
-        username
-        phone
-      }
+export const GET_PROFILE_QUERY = graphql(`
+  query GetProfile {
+    getProfile {
+      id
+      username
+      email
+      firstname
+      phone
+      lastname
+      patronymic
+      instagram
+      confirmationCode
+      avatarUrl
+      createdAt
+      updatedAt
     }
+  }
 `)
 
-export const GET_USER_ADDRESS = gql`
+export const GET_USER_ADDRESS = graphql(`
   query GetUserAddress {
     getUserAddress {
       country
@@ -26,9 +30,9 @@ export const GET_USER_ADDRESS = gql`
       updatedAt
     }
   }
-`
+`)
 
-export const GET_USER_PAYMENT = gql(`
+export const GET_USER_PAYMENT = graphql(`
     query GetUserPayment {
         getUserPayment {
         firstname
@@ -41,10 +45,10 @@ export const GET_USER_PAYMENT = gql(`
         createdAt
         updatedAt
         }
-    }   
+    }
 `)
 
-export const UPDATE_USER_ADDRESS = gql`
+export const UPDATE_USER_ADDRESS = graphql(`
   mutation UpdateUserAddress($input: UpdateAddressInput!) {
     updateUserAddress(input: $input) {
       country
@@ -55,9 +59,9 @@ export const UPDATE_USER_ADDRESS = gql`
       updatedAt
     }
   }
-`
+`)
 
-export const UPDATE_PROFILE = gql`
+export const UPDATE_PROFILE = graphql(`
   mutation EditProfile($updateUserInput: UpdateUserInput!) {
     editProfile(updateUserInput: $updateUserInput) {
       id
@@ -72,9 +76,9 @@ export const UPDATE_PROFILE = gql`
       updatedAt
     }
   }
-`
+`)
 
-export const UPDATE_USER_PAYMENT = gql`
+export const UPDATE_USER_PAYMENT = graphql(`
   mutation UpdateUserPayment($input: UpdatePaymentInput!) {
     updateUserPayment(input: $input) {
       firstname
@@ -88,4 +92,4 @@ export const UPDATE_USER_PAYMENT = gql`
       updatedAt
     }
   }
-`
+`)

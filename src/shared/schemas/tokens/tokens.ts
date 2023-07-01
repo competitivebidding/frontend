@@ -1,6 +1,6 @@
-import { gql } from '@apollo/client';
+import {graphql} from "../../types/gql";
 
-export const CREATE_TOKEN = gql`
+export const CREATE_TOKEN = graphql(`
 mutation CreateToken($data: CreateTokenInput!) {
   createToken(data: $data) {
     updatedAt
@@ -13,9 +13,9 @@ mutation CreateToken($data: CreateTokenInput!) {
     createdAt
   }
 }
-`;
+`)
 
-export const GET_TOKEN_BY_ID = gql`
+export const GET_TOKEN_BY_ID = graphql(`
 mutation GetTokenById($getTokenByIdId: Int!) {
   getTokenById(id: $getTokenByIdId) {
     createdAt
@@ -28,10 +28,11 @@ mutation GetTokenById($getTokenByIdId: Int!) {
     sortOrder
   }
 }
-`;
+`);
 
-export const UPDATE_TOKEN = gql`
-mutation GetTokenById($updateTokenId: Int!, $data: UpdateTokenInput!) {
+
+export const UPDATE_TOKEN = graphql(`
+mutation UpdateToken($updateTokenId: Int!, $data: UpdateTokenInput!) {
   updateToken(id: $updateTokenId, data: $data) {
     createdAt
     description
@@ -43,8 +44,4 @@ mutation GetTokenById($updateTokenId: Int!, $data: UpdateTokenInput!) {
     updatedAt
   }
 }
-`
-
-
-
-
+`)

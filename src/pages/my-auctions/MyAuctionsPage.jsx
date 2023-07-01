@@ -1,7 +1,7 @@
 import React from 'react'
 import AppHeader from '../../widgets/header/AppHeader.jsx'
 import Filter from '../../feauters/filter/Filter.jsx'
-import Search from '../../feauters/search/Search.jsx'
+import Search from '../../feauters/search/Search.tsx'
 import MyAuctionContent from '../../widgets/my-auctions-content/MyAuctionContent.jsx'
 import useNoAuth from '../../shared/lib/useNoAuth.ts';
 
