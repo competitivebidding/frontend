@@ -6,11 +6,12 @@ import DoubleIncome from '@/feauters/double-income/DoubleIncome'
 import RublesIncome from '@/shared/charts-data/RublesIncome'
 import {AuctionsInfo} from "@/entities/user/ui/user-info";
 import {UserInfoCabinet} from '@/entities/user';
-import useNoAuth from '@/shared/lib/useNoAuth.ts';
+import useNoAuth from '@shared/lib/useNoAuth';
 import './CabinetPage.scss'
 
 const CabinetPage = ({ title }) => {
-  const auctions = {}
+  const auctions = 0
+  // const auctions = {}
 
   useNoAuth()
 

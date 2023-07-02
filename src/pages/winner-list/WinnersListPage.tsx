@@ -1,61 +1,63 @@
 import React from 'react'
-import AppHeader from '../../widgets/header/AppHeader.jsx'
-import './NotificationsPage.scss'
-import NotificationCard from '../../widgets/notification-card/NotificationCard.jsx'
+import AppHeader from '../../widgets/header/AppHeader.js'
+import './WinnerListPage.scss'
+import { WinnerListCard } from '@/entities/user'
 
-import useNoAuth from '../../shared/lib/useNoAuth.ts';
+import winner from '@/assets/winner-list/winner.png'
+import prize from '@/assets/winner-list/prize.png'
 
-
-const NotificationsPage = ({ title }) => {
-  useNoAuth()
+const WinnersListPage = ({ title }) => {
   const data = [
     {
-      title: 'Iphone 14 pro за 32 999 ₽',
+      acc: '@mur.mur',
+      cardData: '22/03/2023',
+      cardTime: '20:34',
+      winnerImg: {winner},
+      prizeImg: {prize},
+      prizeTitle: 'iPhone 12 Pro Max 256 Gb',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      link: 'Перейти на страницу лота',
-      date: '16/02/2023',
-      time: '22:32',
       id: 1,
-      prizeImg: 'src/pages/notifications/temporary-auctions-img/prize.svg',
     },
     {
-      title: 'Iphone 14 pro за 32 999 ₽',
+      acc: '@mur.mur',
+      cardData: '22/03/2023',
+      cardTime: '20:36',
+      winnerImg: {winner},
+      prizeImg: {prize},
+      prizeTitle: 'iPhone 12 Pro Max 256 Gb',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      link: 'Перейти на страницу лота',
-      date: '16/02/2023',
-      time: '22:32',
       id: 2,
-      prizeImg: 'src/pages/notifications/temporary-auctions-img/prize.svg',
     },
     {
-      title: 'Iphone 14 pro за 32 999 ₽',
+      acc: '@mur.mur',
+      cardData: '22/03/2023',
+      cardTime: '20:35',
+      winnerImg: {winner},
+      prizeImg: {prize},
+      prizeTitle: 'iPhone 12 Pro Max 256 Gb',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      link: 'Перейти на страницу лота',
-      date: '16/02/2023',
-      time: '22:32',
       id: 3,
-      prizeImg: 'src/pages/notifications/temporary-auctions-img/prize.svg',
     },
   ]
-
   return (
     <>
       <AppHeader title={title} />
-      <div className="notes">
+      <div className="winnerlist_cards">
         {data.map((obj) => (
-          <NotificationCard
+          <WinnerListCard
             key={obj.id}
-            title={obj.title}
-            text={obj.text}
-            link={obj.link}
-            date={obj.date}
-            time={obj.time}
+            acc={obj.acc}
+            cardData={obj.cardData}
+            cardTime={obj.cardTime}
+            winnerImg={obj.winnerImg}
             prizeImg={obj.prizeImg}
+            prizeTitle={obj.prizeTitle}
+            text={obj.text}
           />
         ))}
-      </div>
+      </div>{' '}
     </>
   )
 }
 
-export default NotificationsPage
+export default WinnersListPage

@@ -11,7 +11,7 @@ interface UserPaymentsInfoProps {
 const UserPaymentsInfo = ({ onOpen }: UserPaymentsInfoProps) => {
     const { t } = useTranslation('cabinet')
 
-    const [field, setField] = useState(undefined)
+    const [field, setField] = useState<{ number?: string; firstname?: string; lastname?: string }>({});
     const [updateCard] = useMutation(UPDATE_USER_PAYMENT)
     const {
         data: {getUserPayment},
@@ -49,7 +49,7 @@ const UserPaymentsInfo = ({ onOpen }: UserPaymentsInfoProps) => {
                 <div className="item-top__info">
                     <div className="item-top__content">
                         <p className="item-top__content-title">
-                            {field && field.number ? '****' `${field.number.slice(-4)}` : 'UserPayment'}
+                            {field && field.number ? '****'+ `${field.number.slice(-4)}` : 'UserPayment'}
                         </p>
                         <span className="item-top__content-subtitle">{field && field.number ? 'Bank card' : 'Not connected'}</span>
                     </div>

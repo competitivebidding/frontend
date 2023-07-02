@@ -1,7 +1,7 @@
 import React, {FC} from 'react'
 
 interface INotificationCardProps {
-  id: string
+  id?: string
   title: string
   text: string
   link: string

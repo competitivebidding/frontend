@@ -4,7 +4,7 @@ import React, {Suspense} from 'react'
 
 import AuctionsPage from '../pages/auctions/AuctionsPage'
 import CabinetPage from '../pages/cabinet/CabinetPage.jsx'
-import MainPage from '../pages/main/MainPage.jsx'
+import MainPage from '../pages/main/MainPage.js'
 import MyAuctionsPage from '../pages/my-auctions/MyAuctionsPage.jsx'
 import NewsPage from '../pages/page-news/NewsPage.jsx'
 import Messages from '../pages/messages/MessagesPage.jsx'
