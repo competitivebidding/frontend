@@ -6,15 +6,15 @@ import Search from '../../feauters/search/Search.js'
 
 import './AuctionsPage.scss'
 import {useQuery} from "@apollo/client";
-import {GET_AUCTIONS} from "@/shared/schemas/auctions/auctions";
-import AuctionsPageContent from "../../entities/auction/ui/auction-page-content/AuctionsPageContent.jsx";
+import { GET_AUCTIONS } from "@/shared/schemas/auctions/auctions";
+import AuctionsPageContent from "../../entities/auction/ui/auction-page-content/AuctionsPageContent";
 
 
 const MyAuctionsPage = ({ title }) => {
   // эмитация данных с бэка
 
 
-  const [auctData, setAuctData] = React.useState(null)
+  const [auctData, setAuctData] = useState(null)
 
   const {data, loading} = useQuery(GET_AUCTIONS)
   console.log(auctData)

@@ -4,7 +4,11 @@ import AuctionList from '../auctions-list/AuctionList'
 import './AuctionsPageContent.scss'
 import AuctionSlider from "@/shared/ui/slider/AuctionSlider";
 
-const AuctionsPageContent = ({data}) => {
+interface IAuctionsPageContent {
+
+}
+
+const AuctionsPageContent = ({ data }: IAuctionsPageContent) => {
     console.log(data)
   return (
     <div>

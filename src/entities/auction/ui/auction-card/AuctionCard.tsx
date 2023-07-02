@@ -15,7 +15,7 @@ interface IAuctionCardProps {
   startedAt: Date
 }
 
-const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, startedAt, }: IAuctionCardProps) => {
+const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, startedAt}: IAuctionCardProps) => {
 
   const [clazz, setClass] = useState('card');
   const [place, setPlace] = useState(places);

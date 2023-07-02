@@ -1,0 +1,8 @@
+schema: schema.graphql
+extensions:
+  endpoints:
+    Default GraphQL Endpoint:
+      url: http://ec2-52-59-235-173.eu-central-1.compute.amazonaws.com:3000/graphql
+      headers:
+        user-agent: JS GraphQL
+      introspect: false
