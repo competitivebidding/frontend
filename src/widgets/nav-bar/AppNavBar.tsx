@@ -17,7 +17,7 @@ import messages from '@assets/imgNavBar/messages.svg'
 
 import './AppNavBar.scss'
 
-const AppNavBar = () => {
+export const AppNavBar = () => {
 
   return (
     <nav className="navBar">
@@ -150,5 +150,3 @@ const AppNavBar = () => {
     </nav>
   )
 }
-
-export default AppNavBar

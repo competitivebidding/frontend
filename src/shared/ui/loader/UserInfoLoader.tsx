@@ -1,4 +1,3 @@
-import * as React from 'react';
 import './UserInfoLoader.scss'
 
 export const UserInfoLoader = () => {

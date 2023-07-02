@@ -2,7 +2,14 @@ import React from "react";
 
 import "./SocialIcon.scss"
 
-export const SocialIcon = (props) => {
+interface Iprops {
+	props: {
+		imageSrc: string;
+		link: string;
+	}
+}
+
+export const SocialIcon = ({props}: Iprops) => {
 	return (
 		<div className="social__item">
 			<div className="social__item_wrap">

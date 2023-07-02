@@ -4,6 +4,7 @@ interface IAuctionCardTimerProps {
   date: string;
   timer: boolean;
   id: string;
+  changeStatus: boolean;
 }
 
 const AuctionCardTimer = ({ date, timer, id }: IAuctionCardTimerProps) => {

@@ -1,10 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
+import './leftAuth.scss'
 import iconAuth from '@assets/imgAuth/iconAuth.svg'
 import rocket from '@assets/imgAuth/rocket.png'
-
-import './leftAuth.scss'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const LeftAuth = () => {
   return (

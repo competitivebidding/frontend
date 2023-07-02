@@ -1,28 +1,27 @@
-import React, {useEffect, useRef, useState} from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import useWindowSize from "@/shared/lib/useWindowSize";
-
-// Import Swiper ui
+import useWindowSize from "@shared/lib/useWindowSize";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import "./AuctionSlider.scss";
 
-// import required modules
 import { Pagination, Navigation } from "swiper";
-import AuctionCard from "@/entities/auction/ui/auction-card/AuctionCard";
+import AuctionCard from "@entities/auction/ui/auction-card/AuctionCard";
 
-export default function AuctionSlider({data}) {
+interface IAuctionSliderProps {
+    data: any[];
+    }
+
+export const AuctionSlider = ({data}: IAuctionSliderProps) => {
     const {width} = useWindowSize()
 
     const configureSlider = () => {
-        if (width <= 600) {
+        if (width && width <= 600) {
             return 1
         }
 
-        if (width <= 1400) {
+        if (width && width <= 1400) {
             return 2
         }
 

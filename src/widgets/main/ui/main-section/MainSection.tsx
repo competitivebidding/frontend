@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import AppFooter from "../../../footer/AppFooter.js";
-import AppNavBar from '../../../nav-bar/AppNavBar.tsx';
+import {AppNavBar} from '../../../nav-bar/AppNavBar';
 import {Outlet} from 'react-router-dom';
 
 import './MainSection.scss'

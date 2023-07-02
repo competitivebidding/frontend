@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './AuctionCard.scss'
-import AuctionCardTimer from '../../../../shared/ui/auction-cards/AuctionCardTimer'
+import AuctionCardTimer from '@shared/ui/auction-cards/AuctionCardTimer'
 import img from '@assets/temporary-auctions-img/watch.png'
 
 interface IAuctionCardProps {
-  id: number
+  id: string
   alt: string
   title: string
-  date: Date
+  date: string
   bids: string
   places: string
   changeStatus: boolean
   startedAt: Date
+  className?: string
 }
 
 const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, startedAt}: IAuctionCardProps) => {
