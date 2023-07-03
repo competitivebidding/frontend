@@ -4,7 +4,7 @@ import { ProgressItem } from '../progress-item/ProgressItem';
 
 import "./ProgressList.scss"
 
-import ProgressListData from "./Data/ProgressListData.js"
+import ProgressListData from "./Data/ProgressListData"
 
 export const ProgressList = () => {
 

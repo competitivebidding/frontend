@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react';
 import styles from './HeaderBurger.module.scss'
-import AppNavBar from "../nav-bar/AppNavBar";
+import {AppNavBar} from "@widgets/nav-bar/AppNavBar";
 
 interface IHeaderBurgerProps {
     isClicked: boolean

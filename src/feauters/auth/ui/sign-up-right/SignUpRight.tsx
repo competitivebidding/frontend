@@ -7,10 +7,10 @@ import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons'
 import {useMutation} from '@apollo/client'
 import Cookies from 'js-cookie';
 
-import SIGNUP_MUTATION from '../../../../shared/schemas/auth/signup.ts'
 import {useLocalStorage} from '@/shared/lib/useLocalStorage'
 
 import './SignUpRight.scss'
+import SIGNUP_MUTATION from "@shared/schemas/auth/signup";
 
 interface ISignUpFields {
     email: string
@@ -57,7 +57,7 @@ export const SignUpRight = () => {
     })
     console.log(errors)
 
-    const onSubmit = (data) => {
+    const onSubmit = (data: ISignUpFields) => {
         signupMutation({
             variables: {
                 signUpInput: {
@@ -89,7 +89,6 @@ export const SignUpRight = () => {
                         <input
                             type="text"
                             id="username"
-                            name="username"
                             {...register('username', {
                                 required: true,
                                 maxLength: 16,
@@ -110,7 +109,6 @@ export const SignUpRight = () => {
                         <input
                             type="email"
                             id="email"
-                            name="email"
                             required
                             {...register('email', {
                                 validate: (value) => validator.isEmail(value) || 'Please enter a valid email address',
@@ -127,7 +125,6 @@ export const SignUpRight = () => {
                         <input
                             type={isPasswordVisible ? 'text' : 'password'}
                             id="password"
-                            name="password"
                             {...register('password', {
                                 required: {
                                     value: true,
@@ -153,7 +150,6 @@ export const SignUpRight = () => {
                         <input
                             type={isRepeatPasswordVisible ? 'text' : 'password'}
                             id="repeat__password"
-                            name="repeatPassword"
                             {...register('repeatPassword', {
                                 required: true,
                             })}
@@ -178,7 +174,6 @@ export const SignUpRight = () => {
                         <input
                             type="number"
                             id="referrerUserId"
-                            name="referrerUserId"
                             {...register('referrerUserId', {
                                 required: false,
                             })}
@@ -191,7 +186,7 @@ export const SignUpRight = () => {
                 </div>
 
                 <label className="checkbox__container">
-                    <input type="checkbox" name="text" {...register('isChecked', {required: true})} />
+                    <input type="checkbox"  {...register('isChecked', {required: true})} />
                     <span className="checkmark"></span>I have read and agree with
                     <span className="text__blue">the terms and conditions of the Competitive Bidding</span>
                 </label>

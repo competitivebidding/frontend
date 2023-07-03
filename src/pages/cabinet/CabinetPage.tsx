@@ -9,7 +9,7 @@ import {UserInfoCabinet} from '@/entities/user';
 import useNoAuth from '@shared/lib/useNoAuth';
 import './CabinetPage.scss'
 
-const CabinetPage = ({ title }) => {
+const CabinetPage = ({ title }: {title: string}) => {
   const auctions = 0
   // const auctions = {}
 

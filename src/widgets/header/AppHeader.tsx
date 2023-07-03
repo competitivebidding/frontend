@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useMutation } from '@apollo/client'
+import React, {useEffect, useState} from 'react'
+import {Link} from 'react-router-dom'
+import {useMutation, useQuery} from '@apollo/client'
 import Cookies from 'js-cookie'
 
 import blueBalance from '@assets/imgHeader/blueBalance.svg'
@@ -9,19 +9,20 @@ import iconNotification from '@assets/imgHeader/iconNotification.svg'
 
 import LOGOUT_MUTATION from '../../shared/schemas/auth/logout'
 import HeaderBurger from '@/widgets/burger/HeaderBurger'
-import { AuthContext } from '../../context/AuthContext'
-import { UserAvatar } from '../../shared/ui/user-avatar/UserAvatar'
-import { LangSwitcher } from '../../feauters/lang-switcher/LangSwitcher'
+import {UserAvatar} from '../../shared/ui/user-avatar/UserAvatar'
+import {LangSwitcher} from '../../feauters/lang-switcher/LangSwitcher'
 import './AppHeader.scss'
+import {GetProfileDocument} from "@shared/lib/types/__generated-types__/graphql";
 
-const AppHeader = ({ title }) => {
-
+const AppHeader = ({ title }: {title: string}) => {
+  const [isClicked, setIsClicked] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [logout] = useMutation(LOGOUT_MUTATION);
 
   const userAuthString = Cookies.get('user');
   const userAuth = userAuthString ? JSON.parse(userAuthString) : null;
-  const {value} = useContext(AuthContext)
+
+  const {data} = useQuery(GetProfileDocument)
 
   useEffect(() => {
     if (Cookies.get('refreshtoken') && userAuth && userAuth.username) {
@@ -55,14 +56,12 @@ const AppHeader = ({ title }) => {
             </div>
             <LangSwitcher />
             <img className='group__notifications' src={iconNotification} alt="iconNotification" />
-            <p className='group__name'>{userAuth && value.username}</p>
+            <p className='group__name'>{userAuth && data?.getProfile.username}</p>
             <Link to={'/cabinet'}>
               <UserAvatar width={40} height={40} />
             </Link>
-            <Link>
             <img className='group__exit' src={iconExit} alt="iconExit" onClick={handleLogout} />
-            </Link>
-            <HeaderBurger/>
+            <HeaderBurger isClicked={isClicked} setIcClicked={() => setIsClicked(!isClicked)}/>
           </>
         ) : (
           <div className="group__container">
@@ -72,7 +71,7 @@ const AppHeader = ({ title }) => {
             <Link to="/SignUp" className="group__sign">
               Sign up
             </Link>
-            <HeaderBurger/>
+            <HeaderBurger isClicked={isClicked} setIcClicked={() => setIsClicked(!isClicked)}/>
           </div>
         )}
       </div>

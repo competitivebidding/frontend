@@ -4,8 +4,8 @@ import "./MainTop.scss"
 
 import { RoyalAuction } from '../../../royal-auction/RoyalAuction.js'
 import { ProgressList } from '../../../progress/ui/progress-list/ProgressList.js'
-import { Mission } from '../../../mission/Mission.tsx'
-import { StatsList } from '../../../../entities/stats/ui/stats-list/StatsList.jsx'
+import { StatsList } from '@entities/stats/ui/stats-list/StatsList'
+import {Mission} from "@widgets/mission/Mission";
 
 export const MainTop = () => {
 	return (

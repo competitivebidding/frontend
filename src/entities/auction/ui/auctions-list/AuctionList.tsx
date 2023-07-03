@@ -1,6 +1,8 @@
 import React from 'react'
 import AuctionCard from '../auction-card/AuctionCard'
 import '../auction-page-content/AuctionsPageContent.scss'
+import {useQuery} from "@apollo/client";
+import {GetAuctionsDocument} from "@shared/lib/types/__generated-types__/graphql";
 
 interface IAuctionCardProps {
     data:
@@ -17,7 +19,9 @@ interface IAuctionCardProps {
     }
 }
 
-export const AuctionList = ({ data }: IAuctionCardProps) => {
+export const AuctionList = () => {
+    const { data, loading } = useQuery(GetAuctionsDocument)
+
     if (!data || !Array.isArray(data)) {
         return null; // Return null or handle the error case appropriately
     }

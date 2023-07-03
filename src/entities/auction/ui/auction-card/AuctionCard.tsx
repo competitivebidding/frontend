@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './AuctionCard.scss'
-import AuctionCardTimer from '@shared/ui/auction-cards/AuctionCardTimer'
 import img from '@assets/temporary-auctions-img/watch.png'
 
 interface IAuctionCardProps {
@@ -74,7 +73,7 @@ const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, started
           <span>{place} from 30</span>
         </div>
         <StartDate />
-        <AuctionCardTimer date={date} timer={timer} changeStatus={changeStatus} id={id} />
+        {/*<AuctionCardTimer date={date} timer={timer} changeStatus={changeStatus} id={id} />*/}
         <Link to={`/Lot/${id}`} >
           <button className="card__btn" onClick={onJoin}>
             <span> Read More </span>

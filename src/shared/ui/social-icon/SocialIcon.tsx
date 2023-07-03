@@ -3,22 +3,22 @@ import React from "react";
 import "./SocialIcon.scss"
 
 interface Iprops {
-	props: {
+
 		imageSrc: string;
 		link: string;
-	}
+
 }
 
-export const SocialIcon = ({props}: Iprops) => {
+export const SocialIcon = ({imageSrc, link}: Iprops) => {
 	return (
 		<div className="social__item">
 			<div className="social__item_wrap">
 				<img
-					src={props.imageSrc}
-					alt=""
+					src={imageSrc}
+					alt="img"
 				/>
 			</div>
-			<a href="#">{props.link}</a>
+			<a href="#">{link}</a>
 		</div>
 	)
 }

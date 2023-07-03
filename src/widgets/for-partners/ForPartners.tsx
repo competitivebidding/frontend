@@ -5,7 +5,7 @@ import pdf from '@assets/imgPartnerProgram/pdf.png';
 import video from '@assets/imgPartnerProgram/video.png';
 import chat from '@assets/imgPartnerProgram/chat.png';
 
-function ForPartners(props) {
+function ForPartners() {
     return (
         <div className={styles.for_partners}>
             <div className={styles.for_partners__item}>

@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
 import styles from "../../shared/ui/charts/Income.module.scss";
 import arrow from "@assets/Partners/arrow.svg"
-import BarChart from "shared/ui/charts/BarChart";
+import BarChart from "@shared/ui/charts/BarChart";
+import {ChartData} from "chart.js";
 
 interface IDoubleIncomeProps {
     currency: string
     color: string
-    data: string
+    data: ChartData<'bar'>[]
 }
 
-function DoubleIncome({currency, color, data}) {
+function DoubleIncome({currency, color, data}: IDoubleIncomeProps) {
     const [filterValue, setFilterValue] = useState<string>('Last week');
     const [dropdownVisibility, setDropdownVisibility] = useState<boolean>(false);
     const [isROTO, setIsROTO] = useState<boolean>(false);
@@ -86,7 +87,7 @@ function DoubleIncome({currency, color, data}) {
                         style={{background: (isROTO ? color[0] : color[1])}}></span>{isROTO ? currency[0] : currency[1]}
                     </div>
                     <div className={styles.income_chart__total}>Total
-                        earnings: {(isROTO ? data[0] : data[1]).datasets[0].data.reduce((acc, v) => acc + v, 0)} {isROTO ? currency[0] : currency[1]}</div>
+                        earnings: {(isROTO ? data[0] : data[1]).datasets[0].data.reduce((acc: any, v: any) => acc + v, 0)} {isROTO ? currency[0] : currency[1]}</div>
                 </div>
             </div>
             {isROTO ? <BarChart data={data[0]} color={color[0]}/> : <BarChart data={data[1]} color={color[1]}/>}

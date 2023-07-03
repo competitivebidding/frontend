@@ -9,7 +9,7 @@ interface FormInputProps {
     mask?: string;
     maskChar?: string | null;
     pattern?: string | undefined;
-    type: string;
+    type?: string;
     label: string;
     required?: boolean;
     className?: string;

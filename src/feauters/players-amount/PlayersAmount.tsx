@@ -1,24 +1,11 @@
 import React from 'react'
 import styles from './PlayersAmount.module.scss'
 import DonutChart from "../../shared/ui/charts/DonutChart";
+import {ChartData} from "chart.js";
 
-type dataset = {
-  label: string,
-  data: number[],
-  borderWidth: number,
-  backgroundColor: string[],
-  circumference: number,
-  datalabels: {display: boolean}
-}
+function PlayersAmount() {
 
-interface IChartData {
-  labels: string[],
-  datasets: dataset[]
-}
-
-function PlayersAmount(props) {
-
-  const data: IChartData = {
+  const data: ChartData<'doughnut'> = {
     labels: ['Amount of players', 'Amount of partners', 'Amount of active partners per week', 'Total amount'],
     datasets: [
       {
@@ -35,25 +22,25 @@ function PlayersAmount(props) {
   }
 
   return (
-    <div className={styles.players}>
-      <div className={styles.players__header}>
-        <h3 className={styles.players__title}>My players</h3>
-        <p className={styles.players__amount}>112 Total</p>
+      <div className={styles.players}>
+        <div className={styles.players__header}>
+          <h3 className={styles.players__title}>My players</h3>
+          <p className={styles.players__amount}>112 Total</p>
+        </div>
+        <div className={styles.players__body}>
+          {data && (
+              <ul className={styles.statistic}>
+                {data.datasets[0].map((item, i) => (
+                    <li key={i} className={styles.statistic__item} style={{ color: data.datasets[0].backgroundColor[i] }}>
+                      <span>{item}</span>
+                      <p>{data.labels[i]}</p>
+                    </li>
+                ))}
+              </ul>
+          )}
+          <DonutChart data={data} count={10} haveTooltip />
+        </div>
       </div>
-      <div className={styles.players__body}>
-        {data && (
-          <ul className={styles.statistic}>
-            {data.datasets[0].data.map((item, i, array) => (
-              <li key={i} className={styles.statistic__item} style={{ color: data.datasets[0].backgroundColor[i] }}>
-                <span>{item}</span>
-                <p>{data.labels[i]}</p>
-              </li>
-            ))}
-          </ul>
-        )}
-        <DonutChart data={data} count={10} haveTooltip />
-      </div>
-    </div>
   )
 }
 

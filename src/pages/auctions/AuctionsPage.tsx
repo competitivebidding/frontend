@@ -1,35 +1,27 @@
 import './AuctionsPage.scss'
 import { useQuery } from '@apollo/client'
-import React, { useEffect, useState } from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import { GET_AUCTIONS } from '@/shared/schemas/auctions/auctions'
-import AuctionsPageContent from '../../entities/auction/ui/auction-page-content/AuctionsPageContent'
 import Filter from '../../feauters/filter/Filter.js'
 import Search from '../../feauters/search/Search.js'
 import AppHeader from '../../widgets/header/AppHeader.jsx'
+import {GetAuctionsDocument} from "@shared/lib/types/__generated-types__/graphql";
+import AuctionsPageContent from "@entities/auction/ui/auction-page-content/AuctionsPageContent";
 
-const MyAuctionsPage = ({ title }) => {
+interface IMyAuctionsPageProps {
+  title: string
+}
+const MyAuctionsPage:FC<IMyAuctionsPageProps> = ({ title }) => {
   // эмитация данных с бэка
-
-  const [auctData, setAuctData] = useState(null)
-
-  const { data, loading } = useQuery(GET_AUCTIONS)
-  console.log(auctData)
-
-  useEffect(() => {
-    if (!loading) {
-      setAuctData(data.getAuctions)
-    }
-  }, [data])
-
   return (
     <>
       <AppHeader title={title} />
 
       <div className="auctions__components">
         <div className="auctions__search--card">
-          <Search />
+          <Search onChange={() => console.log()}/>
 
-          <AuctionsPageContent data={auctData} />
+          <AuctionsPageContent />
         </div>
         <Filter />
       </div>

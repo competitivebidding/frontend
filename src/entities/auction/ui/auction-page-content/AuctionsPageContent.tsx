@@ -1,25 +1,15 @@
 import React from 'react'
-// import Slider from '@shared/ui/slider/Slider'
-import {AuctionList} from '../auctions-list/AuctionList'
+// import Slider from '../../../../shared/ui/slider/Slider'
 import './AuctionsPageContent.scss'
-import {AuctionSlider} from "@/shared/ui/slider/AuctionSlider";
+// import AuctionSlider from "@/shared/ui/slider/AuctionSlider";
+import {AuctionList} from "@entities/auction/ui/auctions-list/AuctionList";
 
 interface IAuctionsPageContent {
-    data: {
-      id: string
-      alt: string
-      title: string
-      date: string
-      bids: string
-      places: string
-      changeStatus: boolean
-      startedAt: Date
-      className?: string
-    }
+
 }
 
-export const AuctionsPageContent = ({ data }: IAuctionsPageContent) => {
-    console.log(data)
+const AuctionsPageContent = () => {
+
   return (
     <div>
       {/* <div className="title">Upcoming announcements </div>
@@ -29,7 +19,9 @@ export const AuctionsPageContent = ({ data }: IAuctionsPageContent) => {
         {/*<AuctionSlider data={data}/>*/}
       <div className="title">Active Auctions</div>
       {/*<AuctionList data={data.filter(card => (card.status === 'Open'))} />*/}
-        {data && <AuctionList data={data}/>}
+        <AuctionList />
     </div>
   )
 }
+
+export default AuctionsPageContent;

@@ -6,6 +6,7 @@ import {useLocalStorage} from "shared/lib/useLocalStorage";
 import {NEW_MESSAGE} from "shared/schemas/messages/subscriptions";
 import {toTime} from "shared/utils/timeHelpers";
 import './ChatMessages.scss'
+import {GetAllMessagesByRoomIdDocument} from "@shared/lib/types/__generated-types__/graphql";
 
 interface IChatMessages {
     groupId: number
@@ -22,7 +23,7 @@ export const ChatMessages:FC<IChatMessages> = ({groupId}) => {
         {variables: {roomId: groupId}}
     );
 
-    const {data, loading} = useQuery(GET_ALL_MESSAGES_BY_ROOM, {
+    const {data, loading} = useQuery(GetAllMessagesByRoomIdDocument, {
         variables:
             {
                 userMessage: {
@@ -67,7 +68,7 @@ export const ChatMessages:FC<IChatMessages> = ({groupId}) => {
 
     useEffect(() => {
         if (!loading) {
-            setGroupMessages(data.getAllMessagesByRoomId)
+            setGroupMessages(data?.getAllMessagesByRoomId)
             setAutoScrollEnabled(true);
         }
     }, [data]);

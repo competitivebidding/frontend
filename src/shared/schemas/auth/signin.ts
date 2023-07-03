@@ -1,7 +1,7 @@
-import {graphql} from "../../types/gql";
+import { gql } from '@apollo/client'
 
 
-const SIGNIN_MUTATION = graphql(`
+const SIGNIN_MUTATION = gql(`
 mutation Signin($signInInput: SignInInput!) {
   signin(signInInput: $signInInput) {
     user {

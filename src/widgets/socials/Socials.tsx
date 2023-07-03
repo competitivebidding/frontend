@@ -3,11 +3,11 @@ import React from "react";
 import "./Socials.scss"
 
 
-import SocialData from "./Data/SocialData.js";
+import SocialData from "./Data/SocialData";
 
 import { SocialIcon } from "@/shared/ui/social-icon/SocialIcon"
 
-export const Socials = (props) => {
+export const Socials = () => {
 
 	const getData = SocialData.map(item => {
 		return <SocialIcon

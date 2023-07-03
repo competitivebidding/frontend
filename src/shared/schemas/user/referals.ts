@@ -1,6 +1,14 @@
-import {graphql} from "../../types/gql";
+import { gql } from '@apollo/client'
 
-export const GET_MY_REFERRALS = graphql(`
+// export interface Referals {
+//   id: number
+//   cuid: string
+//   email: string
+//   username: string
+//   createdAt: string
+// }
+
+export const GET_MY_REFERRALS = gql(`
     query GetMyReferrals {
       getMyReferrals {
         id

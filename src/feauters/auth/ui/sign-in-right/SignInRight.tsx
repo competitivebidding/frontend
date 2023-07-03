@@ -6,10 +6,10 @@ import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons'
 import Cookies from 'js-cookie';
 
 import {useMutation} from '@apollo/client'
-import SIGNIN_MUTATION from '../../../../shared/schemas/auth/signin.ts'
 
 import './SignInRight.scss'
 import {useLocalStorage} from '@/shared/lib/useLocalStorage'
+import SIGNIN_MUTATION from "@shared/schemas/auth/signin";
 
 interface ISignInFields {
 	email: string,
@@ -29,7 +29,7 @@ export const SignInRight = () => {
 
 	const [signin] = useMutation(SIGNIN_MUTATION);
 
-	const handleSignIn = (data) => {
+	const handleSignIn = (data: ISignInFields) => {
 		signin({
 			variables: {
 				signInInput: {
@@ -70,7 +70,6 @@ export const SignInRight = () => {
 						<input
 							type="email"
 							id="email"
-							name="email"
 							required
 							{...register('email', {
 								required: true,
@@ -87,7 +86,6 @@ export const SignInRight = () => {
 						<input
 							type={isRepeatPasswordVisible ? 'text' : 'password'}
 							id="password"
-							name="password"
 							required
 							{...register('password', { required: true })}
 						/>

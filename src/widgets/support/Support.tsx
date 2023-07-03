@@ -18,7 +18,7 @@ const Support = () => {
 
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: ISupportProps) => {
     if (validator.isEmail(data.email)) {
       setIsFormSubmitted(true)
       console.log('Logged in successfully')
@@ -42,7 +42,6 @@ const Support = () => {
               <input
                 type="email"
                 id="email"
-                name="email"
                 required
                 {...register('email', {
                   required: true,
@@ -60,7 +59,6 @@ const Support = () => {
             <div className="problem__input">
               <textarea
                 id="problem"
-                name="problem"
                 required
                 minLength={10}
                 {...register('problem', {

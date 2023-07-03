@@ -1,7 +1,7 @@
 import React from 'react'
 
-import AppNavBar from '../nav-bar/AppNavBar.tsx'
 import { Outlet } from 'react-router-dom'
+import {AppNavBar} from "@widgets/nav-bar/AppNavBar";
 
 function NavHeader() {
   return (

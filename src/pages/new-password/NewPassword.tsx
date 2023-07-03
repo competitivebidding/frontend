@@ -1,7 +1,7 @@
 import React from 'react'
 
-import LeftAuth from '../authorization/leftAuth.js'
 import { NewPasswordRight } from '@/feauters/auth'
+import LeftAuth from "@pages/authorization/leftAuth";
 
 const NewPassword = () => {
   return (

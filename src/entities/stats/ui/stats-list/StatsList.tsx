@@ -6,7 +6,7 @@ import "./StatsList.scss"
 
 import StatsData from "./Data/StatsData.js"
 
-export const StatsList = (props) => {
+export const StatsList = () => {
 
 	const getData = StatsData.map((stat) => {
 		return <StatsItem

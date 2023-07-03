@@ -5,7 +5,23 @@ import Search from '@feauters/search/Search.js'
 import MyAuctionContent from '@widgets/my-auctions-content/MyAuctionContent.js'
 import useNoAuth from '@shared/lib/useNoAuth.js';
 
-const data = [
+enum Status {
+  ACTIVE = 'active',
+  END = 'end',
+  WAIT = 'wait',
+}
+export interface IAuctionData {
+  img: string,
+  alt: string,
+  name: string,
+  date: string,
+  price: string,
+  places: number,
+  status: Status,
+  id: number,
+}
+
+const data: IAuctionData[] = [
   {
     img: '/src/pages/auctions/temporary-auctions-img/quare.png',
     alt: 'img',
@@ -13,7 +29,7 @@ const data = [
     date: '2023-04-06T15:12',
     price: '50',
     places: 12,
-    status: 'active',
+    status: Status.ACTIVE,
     id: 1,
   },
   {
@@ -23,7 +39,7 @@ const data = [
     date: '2023-04-06T17:30',
     price: '86',
     places: 12,
-    status: 'end',
+    status: Status.END,
     id: 2,
   },
   {
@@ -33,7 +49,7 @@ const data = [
     date: '2023-04-06T17:30',
     price: '2458',
     places: 3,
-    status: 'wait',
+    status: Status.WAIT,
     id: 3,
   },
   {
@@ -43,7 +59,7 @@ const data = [
     date: '2023-04-06T17:30',
     price: '98.3',
     places: 15,
-    status: 'active',
+    status: Status.ACTIVE,
     id: 4,
   },
   {
@@ -53,7 +69,7 @@ const data = [
     date: '2023-04-06T17:30',
     price: '85.9',
     places: 30,
-    status: 'active',
+    status: Status.ACTIVE,
     id: 5,
   },
   {
@@ -63,12 +79,12 @@ const data = [
     date: '2023-04-06T17:30',
     price: '183.9',
     places: 0,
-    status: 'end',
+    status: Status.END,
     id: 6,
   },
 ]
 
-const MyAuctionsPage = ({ title }) => {
+const MyAuctionsPage = ({ title }: {title: string}) => {
 
   useNoAuth()
 
@@ -78,7 +94,7 @@ const MyAuctionsPage = ({ title }) => {
 
       <div className='auctions__components'>
         <div className='actions__search--card'>
-          <Search />
+          <Search onChange={() => console.log()} />
 
           <MyAuctionContent data={data} />
         </div>

@@ -23,8 +23,7 @@ export const ResetPasswordRight = () => {
 
   let verificationCode = '1234'
 
-  const onSubmit = (data, event) => {
-    event.preventDefault()
+  const onSubmit = (data: IResetPasswordFields) => {
     if (emailSubmitted) {
       if (data.code === verificationCode) {
         console.log('Code verified!')
@@ -61,7 +60,6 @@ export const ResetPasswordRight = () => {
               <input
                 type="email"
                 id="email"
-                name="email"
                 required
                 {...register('email', {
                   required: true,
@@ -84,7 +82,6 @@ export const ResetPasswordRight = () => {
                 <input
                   type="text"
                   id="code"
-                  name="code"
                   required
                   {...register('code', {
                     required: true,

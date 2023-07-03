@@ -1,6 +1,6 @@
-import {graphql} from "../../types/gql";
+import { gql } from '@apollo/client'
 
-export const GET_LOT = graphql(`
+export const GET_LOT = gql(`
     query ExampleQuery {
     getAuctions {
         bids {
