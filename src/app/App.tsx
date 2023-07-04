@@ -16,7 +16,7 @@ import TokensPage from '../pages/tokens/TokensPage'
 import WinnersListPage from '../pages/winner-list/WinnersListPage'
 import LotPage from '../pages/lot/LotPage'
 
-import {MainSection} from '../widgets/main/ui/main-section/MainSection'
+import {Layout} from '@widgets/main'
 import NavHeader from '../widgets/nav-header-section/NavHeader'
 
 import SignIn from '../pages/sign-in/SignIn'
@@ -33,24 +33,24 @@ const App = () => {
       <Suspense fallback={'loading...'}>
           <div className="app">
             <Routes>
-              <Route element={<MainSection />}>
-                <Route path="/" element={<MainPage title={'Main'} />} index />
-                <Route path="/auctions" element={<AuctionsPage title={'Auction'} />} />
-                <Route path="/myauctions" element={<MyAuctionsPage title={'My Auctions'} />} />
-                <Route path="/news" element={<NewsPage title={'News'} />} />
-                <Route path="/messages" element={<Messages title={'Messages'} />} />
-                <Route path="/partnerProgram" element={<PartnerPage title={'Partner Program'} />} />
-                <Route path="/tokens" element={<TokensPage title={'Tokens'} />} />
-                <Route path="/winnerList" element={<WinnersListPage title={'WinnerList'} />} />
-                <Route path="/Lot/:id" element={<LotPage title={'Lot №1'} />} />
-                <Route path="/cabinet" element={<CabinetPage title={t('cabinet')} />} />
+              <Route element={<Layout />}>
+                <Route path="/" element={<MainPage/>} index />
+                <Route path="/auctions" element={<AuctionsPage/>} />
+                <Route path="/myauctions" element={<MyAuctionsPage/>} />
+                <Route path="/news" element={<NewsPage/>} />
+                <Route path="/messages" element={<Messages/>} />
+                <Route path="/partnerProgram" element={<PartnerPage/>} />
+                <Route path="/tokens" element={<TokensPage/>} />
+                <Route path="/winnerList" element={<WinnersListPage/>} />
+                <Route path="/Lot/:id" element={<LotPage/>} />
+                <Route path="/cabinet" element={<CabinetPage/>} />
               </Route>
 
               <Route element={<NavHeader />}>
-                <Route path="/cabinet" element={<CabinetPage title={'Cabinet'} />} />
-                <Route path="/notifications" element={<NotificationsPage title={'Notifications'} />} />
-                <Route path="/questions" element={<QuestionsPage title={'Questions'} />} />
-                <Route path="/support" element={<SupportPage title={'Support'} />} />
+                <Route path="/cabinet" element={<CabinetPage/>} />
+                <Route path="/notifications" element={<NotificationsPage/>} />
+                <Route path="/questions" element={<QuestionsPage/>} />
+                <Route path="/support" element={<SupportPage/>} />
               </Route>
 
               <Route path="/SignIn" element={<SignIn />} />

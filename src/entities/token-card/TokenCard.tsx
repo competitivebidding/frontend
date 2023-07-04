@@ -5,7 +5,7 @@ import video from '@assets/videoAd/shorts.mp4'
 
 interface ITokenCardProps {
   tokens: string
-  prize: number
+  prize: string
   buttonName: string
   id: number
 }

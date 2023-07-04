@@ -6,7 +6,7 @@ import { WinnerListCard } from '@/entities/user'
 import winner from '@/assets/winner-list/winner.png'
 import prize from '@/assets/winner-list/prize.png'
 
-const WinnersListPage = ({ title }) => {
+const WinnersListPage = () => {
   const data = [
     {
       acc: '@mur.mur',
@@ -40,23 +40,20 @@ const WinnersListPage = ({ title }) => {
     },
   ]
   return (
-    <>
-      <AppHeader title={title} />
-      <div className="winnerlist_cards">
-        {data.map((obj) => (
-          <WinnerListCard
-            key={obj.id}
-            acc={obj.acc}
-            cardData={obj.cardData}
-            cardTime={obj.cardTime}
-            winnerImg={obj.winnerImg}
-            prizeImg={obj.prizeImg}
-            prizeTitle={obj.prizeTitle}
-            text={obj.text}
-          />
-        ))}
-      </div>{' '}
-    </>
+    <div className="winnerlist_cards">
+      {data.map((obj) => (
+        <WinnerListCard
+          key={obj.id}
+          acc={obj.acc}
+          cardData={obj.cardData}
+          cardTime={obj.cardTime}
+          winnerImg={obj.winnerImg}
+          prizeImg={obj.prizeImg}
+          prizeTitle={obj.prizeTitle}
+          text={obj.text}
+        />
+      ))}
+    </div>
   )
 }
 

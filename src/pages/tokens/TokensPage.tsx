@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import AppHeader from '@widgets/header/AppHeader.js'
+import AppHeader from '@widgets/header/AppHeader'
 import './TokensPage.scss'
 import TokenCard from '@entities/token-card/TokenCard'
 
 
 
-const TokensPage = ({ title }) => {
+const TokensPage = () => {
   const data = [{
     tokens: '1 000 ROTO',
     prize: '12 $',
@@ -37,13 +37,9 @@ const TokensPage = ({ title }) => {
   }]
 
   return (
-    <>
-      <AppHeader title={title} />
-      <div className='tokens'>
-        {data.map((obj, index) => (<TokenCard tokens={obj.tokens} prize={obj.prize} buttonName={obj.buttonName} id={obj.id} key={index} />))}
-      </div>
-
-    </>
+    <div className='tokens'>
+      {data.map((obj, index) => (<TokenCard tokens={obj.tokens} prize={obj.prize} buttonName={obj.buttonName} id={obj.id} key={index} />))}
+    </div>
   )
 }
 

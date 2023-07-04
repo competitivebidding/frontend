@@ -7,16 +7,12 @@ import { MainTop } from '../../widgets/main/ui/main-top/MainTop';
 import { MainBottom } from '../../widgets/main/ui/main-bottom/MainBottom';
 
 
-const AuctionsPage = ({ title }) => {
+const AuctionsPage = () => {
   return (
-    <>
-      <AppHeader title={title} />
-
-      <div>
-        <MainTop />
-        <MainBottom />
-      </div>
-    </>
+    <div>
+      <MainTop />
+      <MainBottom />
+    </div>
   );
 };
 

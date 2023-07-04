@@ -4,13 +4,12 @@ import { PartnersStatistic } from "@/entities/partners";
 import { UserInfoPartnerProgram } from '@/entities/user/ui/user-info';
 import useNoAuth from '@shared/lib/useNoAuth.js';
 
-const PartnerPage = ({title}) => {
+const PartnerPage = () => {
 
     useNoAuth();
 
     return (
         <div>
-            <AppHeader title={title}/>
             <UserInfoPartnerProgram/>
             <PartnersStatistic/>
         </div>

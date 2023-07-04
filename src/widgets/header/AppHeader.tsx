@@ -9,15 +9,18 @@ import iconNotification from '@assets/imgHeader/iconNotification.svg'
 
 import LOGOUT_MUTATION from '../../shared/schemas/auth/logout'
 import HeaderBurger from '@/widgets/burger/HeaderBurger'
-import {UserAvatar} from '../../shared/ui/user-avatar/UserAvatar'
-import {LangSwitcher} from '../../feauters/lang-switcher/LangSwitcher'
+import {UserAvatar} from '@shared/ui/user-avatar/UserAvatar'
+import {LangSwitcher} from '@feauters/lang-switcher/LangSwitcher'
 import './AppHeader.scss'
 import {GetProfileDocument} from "@shared/lib/types/__generated-types__/graphql";
+import { getPageTitle } from '@shared/lib/routes/getPath'
 
-const AppHeader = ({ title }: {title: string}) => {
+const AppHeader = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [logout] = useMutation(LOGOUT_MUTATION);
+
+  const [title, setTitle] = useState<string | undefined>(undefined)
 
   const userAuthString = Cookies.get('user');
   const userAuth = userAuthString ? JSON.parse(userAuthString) : null;
@@ -25,6 +28,8 @@ const AppHeader = ({ title }: {title: string}) => {
   const {data} = useQuery(GetProfileDocument)
 
   useEffect(() => {
+    setTitle(getPageTitle(location.pathname))
+
     if (Cookies.get('refreshtoken') && userAuth && userAuth.username) {
       setIsLogged(true);
     }

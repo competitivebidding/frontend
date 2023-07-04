@@ -1,13 +1,10 @@
 import React from 'react'
-import AppHeader from '@widgets/header/AppHeader.js'
-import Support from '@widgets/support/Support.js'
+import AppHeader from '@widgets/header/AppHeader'
+import Support from '@widgets/support/Support'
 
-const SupportPage = ({ title }) => {
+const SupportPage = () => {
   return (
-    <>
-      <AppHeader title={title} />
-      <Support />
-    </>
+    <Support />
   )
 }
 

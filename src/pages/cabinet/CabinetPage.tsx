@@ -9,7 +9,7 @@ import {UserInfoCabinet} from '@/entities/user';
 import useNoAuth from '@shared/lib/useNoAuth';
 import './CabinetPage.scss'
 
-const CabinetPage = ({ title }: {title: string}) => {
+const CabinetPage = () => {
   const auctions = 0
   // const auctions = {}
 
@@ -17,7 +17,6 @@ const CabinetPage = ({ title }: {title: string}) => {
 
   return (
     <div className='cabinet'>
-      <AppHeader title={title} />
       <UserInfoCabinet />
       <AuctionsInfo amount={12} rotoSpent={10} winsSum={400000} wins={5} auctions={auctions} />
       <div className='cabinet__charts'>

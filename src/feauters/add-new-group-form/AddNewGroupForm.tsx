@@ -2,7 +2,7 @@ import * as React from 'react';
 import {FC, useState} from "react";
 import {useMutation} from "@apollo/client";
 import './AddNewGroupForm.scss';
-import {CREATE_MY_ROOM} from "../../shared/schemas/messages/messages";
+import {CREATE_MY_ROOM} from '@shared/schemas/messages/messages';
 
 interface IAddNewGroupFormProps {
     onClose: (value: boolean) => void

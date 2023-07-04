@@ -5,7 +5,7 @@ import { NewsList } from '@entities/news/ui/news-list/NewsList'
 import { useQuery } from '@apollo/client'
 import { ALL_NEWS } from '@shared/schemas/news/news.js'
 
-const NewsPage = ({ title }) => {
+const NewsPage = () => {
 	// Эмитация базы данных. Данные будут приходить с бэка
 	const { loading, error, data } = useQuery(ALL_NEWS)
 	//error, data
@@ -20,14 +20,11 @@ const NewsPage = ({ title }) => {
 	}
 
 	return (
-		<>
-			<AppHeader title={title} />
-			<div>
-				<NewsList data={data.news} />
-				{/* <NewsList data={_data} /> */}
+		<div>
+			<NewsList data={data.news} />
+			{/* <NewsList data={_data} /> */}
 
-			</div>
-		</>
+		</div>
 	)
 }
 

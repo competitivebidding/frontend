@@ -3,13 +3,14 @@ import AppHeader from '@widgets/header/AppHeader.js'
 import Filter from '@feauters/filter/Filter.js'
 import Search from '@feauters/search/Search.js'
 import MyAuctionContent from '@widgets/my-auctions-content/MyAuctionContent.js'
-import useNoAuth from '@shared/lib/useNoAuth.js';
+import useNoAuth from '@shared/lib/useNoAuth.js'
 
 enum Status {
   ACTIVE = 'active',
   END = 'end',
   WAIT = 'wait',
 }
+
 export interface IAuctionData {
   img: string,
   alt: string,
@@ -84,24 +85,20 @@ const data: IAuctionData[] = [
   },
 ]
 
-const MyAuctionsPage = ({ title }: {title: string}) => {
+const MyAuctionsPage = () => {
 
   useNoAuth()
 
   return (
-    <>
-      <AppHeader title={title} />
+    <div className='auctions__components'>
+      <div className='actions__search--card'>
+        <Search onChange={() => console.log()} />
 
-      <div className='auctions__components'>
-        <div className='actions__search--card'>
-          <Search onChange={() => console.log()} />
-
-          <MyAuctionContent data={data} />
-        </div>
-        <Filter />
-        </div>
-      </>
-      )
+        <MyAuctionContent data={data} />
+      </div>
+      <Filter />
+    </div>
+  )
 }
 
-      export default MyAuctionsPage
+export default MyAuctionsPage

@@ -3,7 +3,7 @@ import React from 'react';
 import "./MainBottom.scss"
 
 import {Socials} from '../../../socials/Socials'
-import {LastUsersList} from '../../../../entities/user/ui/last-users-list/LastUsersList';
+import {LastUsersList} from '@entities/user';
 
 export const MainBottom = () => {
 	return (

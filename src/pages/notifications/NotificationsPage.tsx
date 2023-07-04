@@ -3,10 +3,10 @@ import AppHeader from '../../widgets/header/AppHeader.js'
 import './NotificationsPage.scss'
 import NotificationCard from '../../widgets/notification-card/NotificationCard.js'
 
-import useNoAuth from '../../shared/lib/useNoAuth.js';
+import useNoAuth from '../../shared/lib/useNoAuth.js'
 
 
-const NotificationsPage = ({ title }) => {
+const NotificationsPage = () => {
   useNoAuth()
   const data = [
     {
@@ -39,22 +39,19 @@ const NotificationsPage = ({ title }) => {
   ]
 
   return (
-    <>
-      <AppHeader title={title} />
-      <div className="notes">
-        {data.map((obj) => (
-          <NotificationCard
-            key={obj.id}
-            title={obj.title}
-            text={obj.text}
-            link={obj.link}
-            date={obj.date}
-            time={obj.time}
-            prizeImg={obj.prizeImg}
-          />
-        ))}
-      </div>
-    </>
+    <div className='notes'>
+      {data.map((obj) => (
+        <NotificationCard
+          key={obj.id}
+          title={obj.title}
+          text={obj.text}
+          link={obj.link}
+          date={obj.date}
+          time={obj.time}
+          prizeImg={obj.prizeImg}
+        />
+      ))}
+    </div>
   )
 }
 
