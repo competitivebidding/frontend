@@ -2,7 +2,7 @@ import { useMutation, useQuery } from '@apollo/client'
 import icon from '@assets/cabinet/icons/card.svg'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { GET_USER_PAYMENT, UPDATE_USER_PAYMENT } from '../../../../schemas/user/userProfile'
+import { GET_USER_PAYMENT, UPDATE_USER_PAYMENT } from '@shared/schemas/user/userProfile'
 
 interface UserPaymentsInfoProps {
   onOpen: (value: boolean) => void
@@ -17,7 +17,7 @@ const UserPaymentsInfo = ({ onOpen }: UserPaymentsInfoProps) => {
     data: { getUserPayment },
     loading,
     refetch,
-  } = useQuery<GetUserPaymentQuery>(GET_USER_PAYMENT)
+  } = useQuery(GET_USER_PAYMENT)
 
   useEffect(() => {
     if (!loading && getUserPayment) {

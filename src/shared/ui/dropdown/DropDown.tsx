@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { SVGProps, useState } from 'react'
 import { ReactComponent as Arrow } from '@assets/cabinet/arrow.svg';
 import './DropDown.scss';
+import { ILang } from 'src/feauters/lang-switcher/LangSwitcher'
 
-interface LangOptions {
-  value: string;
-  label: string;
-}
+
+interface LangOptions extends ILang {}
 
 interface IDropDownProps {
   data: LangOptions[];
@@ -38,7 +37,7 @@ export const DropDown = ({ data, current, onChange, withArrow = true }: IDropDow
           <div className={` ${dropdownVisibility ? 'dropdown__dropdown' : 'dropdown__dropdown dropdown__dropdown--visible'} `}>
             {data.map((item) => (
               <div key={item.value} className={'dropdown__item'} onClick={() => onChangeValue(item.value)}>
-                {item.label}
+                <img src={item.label} key={item.value}/>
               </div>
             ))}
           </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import AppHeader from '@widgets/header/AppHeader.js'
 import './TokensPage.scss'
-import TokenCard from '@entities/token-card/TokenCard.jsx'
+import TokenCard from '@entities/token-card/TokenCard'
 
 
 

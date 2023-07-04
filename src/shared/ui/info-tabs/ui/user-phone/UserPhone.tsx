@@ -2,7 +2,12 @@ import * as React from 'react';
 import icon from '@assets/cabinet/icons/call.svg'
 import {useTranslation} from "react-i18next";
 
-export const UserPhone = ({field, handleUpdate}) => {
+interface IUserPhoneProps {
+    field: any
+    handleUpdate: any
+}
+
+export const UserPhone = ({field, handleUpdate}: IUserPhoneProps) => {
     const {t} = useTranslation('cabinet')
 
     const [isEditable, setIsEditable] = React.useState(false)
@@ -12,7 +17,7 @@ export const UserPhone = ({field, handleUpdate}) => {
         setIsEditable(!isEditable)
     }
 
-    const update = (data) => {
+    const update = (data: string) => {
         handleUpdate({phone: data})
         setIsEditable(false)
     }

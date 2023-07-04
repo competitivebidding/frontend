@@ -1,29 +1,39 @@
 import * as React from 'react';
 import {FC, useEffect, useRef, useState} from 'react';
 import {useQuery, useSubscription} from "@apollo/client";
-import {GET_ALL_MESSAGES_BY_ROOM} from "shared/schemas/messages/messages";
-import {useLocalStorage} from "shared/lib/useLocalStorage";
-import {NEW_MESSAGE} from "shared/schemas/messages/subscriptions";
-import {toTime} from "shared/utils/timeHelpers";
+import {GET_ALL_MESSAGES_BY_ROOM} from "@shared/schemas/messages/messages";
+import {useLocalStorage} from "@shared/lib/useLocalStorage";
+import {NEW_MESSAGE} from "@shared/schemas/messages/subscriptions";
+import {toTime} from "@shared/utils/timeHelpers";
 import './ChatMessages.scss'
 import {GetAllMessagesByRoomIdDocument} from "@shared/lib/types/__generated-types__/graphql";
+import { ITime } from '@shared/utils/timeHelpers'
+import { User } from 'src/entities/messages/Messages'
 
 interface IChatMessages {
     groupId: number
 }
 
-export const ChatMessages:FC<IChatMessages> = ({groupId}) => {
-    const {lsValue} = useLocalStorage('user')
-    const [groupMessages, setGroupMessages] = useState(null)
-    const ref = useRef(null)
+interface IMessage {
+    userId: number
+    id: number
+    username: string
+    content: string
+    createdAt: ITime
+}
+
+export const ChatMessages = ({groupId}: IChatMessages) => {
+    const {lsValue} = useLocalStorage<User>('user')
+    const [groupMessages, setGroupMessages] = useState<IMessage[] | null>(null)
+    const ref = useRef<HTMLDivElement>(null)
     const [autoScrollEnabled, setAutoScrollEnabled] = useState(false)
 
-    const {data: d, loading: l, error} = useSubscription(
+    const {data: subData, loading: subLoading, error} = useSubscription(
         NEW_MESSAGE,
         {variables: {roomId: groupId}}
     );
 
-    const {data, loading} = useQuery(GetAllMessagesByRoomIdDocument, {
+    const {data: messagesData, loading: messagesLoading} = useQuery(GetAllMessagesByRoomIdDocument, {
         variables:
             {
                 userMessage: {
@@ -43,8 +53,8 @@ export const ChatMessages:FC<IChatMessages> = ({groupId}) => {
     }, [groupMessages])
 
     useEffect(() => {
-        if (!l) {
-            const newMessage = d?.newMessage;
+        if (!subLoading) {
+            const newMessage = subData?.newMessage;
             if (newMessage) {
                 setGroupMessages((prevMessages) => {
                     if (prevMessages && Array.isArray(prevMessages)) {
@@ -55,7 +65,7 @@ export const ChatMessages:FC<IChatMessages> = ({groupId}) => {
                 });
             }
         }
-    }, [d, l]);
+    }, [subData, subLoading]);
 
     useEffect(() => {
         if (ref.current && autoScrollEnabled) {
@@ -67,13 +77,14 @@ export const ChatMessages:FC<IChatMessages> = ({groupId}) => {
     }, [autoScrollEnabled]);
 
     useEffect(() => {
-        if (!loading) {
-            setGroupMessages(data?.getAllMessagesByRoomId)
+        if (!subLoading) {
+            setGroupMessages(subData?.getAllMessagesByRoomId)
             setAutoScrollEnabled(true);
         }
-    }, [data]);
+    }, [subData]);
 
-    const Your = ({message}) => {
+
+    const Your = ({ message }: { message: IMessage }) => {
         return (
             <div key={message.id} className="message__your">
                 <div className="message__content">
@@ -83,7 +94,7 @@ export const ChatMessages:FC<IChatMessages> = ({groupId}) => {
             </div>)
     }
 
-    const Answer = ({message}) => {
+    const Answer = ({ message }: { message: IMessage }) => {
         return (
             <div className="message__answer answer">
                 <div className="answer__content-answer">
@@ -100,7 +111,7 @@ export const ChatMessages:FC<IChatMessages> = ({groupId}) => {
             {groupMessages &&
                 <div className="chat__messages message" ref={ref}>
                     {groupMessages.map(message => (
-                            message.userId === lsValue.id ? <Your message={message} key={message.id}/> :
+                            message.userId === lsValue?.id ? <Your message={message} key={message.id}/> :
                                 <Answer message={message} key={message.id}/>
                         )
                     )}

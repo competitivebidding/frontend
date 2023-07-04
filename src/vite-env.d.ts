@@ -6,3 +6,4 @@ declare module '*.scss';
 declare module '*.tsx';
 declare module '*.svg';
 declare module '*.ts';
+declare module '*.mp4';

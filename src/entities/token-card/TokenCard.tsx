@@ -1,9 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { AppModal } from '../../shared/ui/modal/AppModal';
+import { AppModal } from '@shared/ui/modal/AppModal';
 
 import video from '@assets/videoAd/shorts.mp4'
 
-const TokenCard = ({ tokens, prize, buttonName, id }) => {
+interface ITokenCardProps {
+  tokens: string
+  prize: number
+  buttonName: string
+  id: number
+}
+
+const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
   const [modal, setModal] = useState(false);
   const [nextModalActive, setNextModalActive] = useState(false);
   const videoRef = useRef(null);
@@ -32,7 +39,7 @@ const TokenCard = ({ tokens, prize, buttonName, id }) => {
     }
   }, [remainingTime]);
 
-  const formatTime = (seconds) => {
+  const formatTime = (seconds: number) => {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
     const remainingSeconds = seconds % 60;
@@ -84,7 +91,7 @@ const TokenCard = ({ tokens, prize, buttonName, id }) => {
         <>
           {modal && (
 
-            <AppModal isOpen={modal} >
+            <AppModal isOpen={modal} onClose={setModal}>
               <div className='modalAd'>
                 <h3 className='modalAd__header'>Advertising</h3>
                 {showTimer ? (
@@ -117,7 +124,7 @@ const TokenCard = ({ tokens, prize, buttonName, id }) => {
 
           )}
           {nextModalActive && (
-            <AppModal isOpen={nextModalActive} >
+            <AppModal isOpen={nextModalActive} onClose={setNextModalActive}>
               <p className='modalAd__text'>
                 Congratulations, you have successfully watched the ad and received 100 ROTO.
                 For this currency, you can participate in auctions and win valuable prizes.

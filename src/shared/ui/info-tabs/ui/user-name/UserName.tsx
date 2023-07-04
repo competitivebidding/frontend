@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react';
 import icon from '@assets/cabinet/icons/user.svg';
 // import { AuthContext } from '../../../../../context/AuthContext';
-import { useLocalStorage } from '../../../../lib/useLocalStorage';
+import { useLocalStorage } from '@shared/lib/useLocalStorage';
 import { useTranslation } from 'react-i18next';
 
 interface UserNameProps {
-    field: string;
+    field: string | undefined
     handleUpdate: (data: { username: string }) => void;
 }
 
@@ -60,7 +60,7 @@ const UserName = ({ field, handleUpdate }: UserNameProps) => {
                     <button
                         className="user-info__button"
                         disabled={!value}
-                        onClick={() => update(value)}
+                        onClick={() => update(value!)}
                     >
                         {t('change')}
                     </button>

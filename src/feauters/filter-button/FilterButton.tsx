@@ -2,8 +2,8 @@ import React, {FC, useState} from 'react';
 import styles from "@/feauters/filter-button/FilterButton.module.scss";
 
 interface IFilterButtonProps {
-    isClicked: boolean,
-    filterAction: () => void
+    isClicked: boolean
+    filterAction?: () => void
 }
 
 export const FilterButton:FC<IFilterButtonProps> = ({isClicked, filterAction}) => {
