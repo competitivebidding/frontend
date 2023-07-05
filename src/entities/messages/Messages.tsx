@@ -32,11 +32,11 @@ const Messages = () => {
   const [modalNewGroup, setModalNewGroup] = useState(false)
   const [modalGroup, setModalGroup] = useState(false)
   const [activeGroup, setActiveGroup] = useState<ActiveGroup | undefined>(undefined)
-  const [groupUsers, setGroupUsers] = useState<User[]>([])
+  const [groupUsers, setGroupUsers] = useState<User[] | []>([])
 
 
   const isJoined = () => {
-    return groupUsers.find((user: User) => user.username === lsUser?.username)
+    return users?.getAllUsersByRoomId.find(user => user.username === lsUser?.username)
   }
 
   const handleSelectActiveGroup = ({ title, id }: ActiveGroup) => {
@@ -57,11 +57,11 @@ const Messages = () => {
     },
   })
 
-  useEffect(() => {
-    if (!isUsersLoading) {
-      setGroupUsers(users.getAllUsersByRoomId)
-    }
-  }, [users])
+  // useEffect(() => {
+  //   if (!isUsersLoading) {
+  //     setGroupUsers(users?.getAllUsersByRoomId)
+  //   }
+  // }, [users])
 
   return (
     <>
@@ -74,7 +74,7 @@ const Messages = () => {
         {activeGroup ? <div className='chat__container'>
             <ChatHeader
               title={activeGroup && activeGroup.title}
-              length={groupUsers.length}
+              length={(users && users.getAllUsersByRoomId.length) as number}
               onToggleModal={toggleGroup}
             />
             <ChatMessages
@@ -82,7 +82,7 @@ const Messages = () => {
             />
             {isJoined() ?
               <MessageInput roomId={activeGroup && activeGroup.id} /> :
-              <ChatJoin roomId={activeGroup && activeGroup.id} />
+              <ChatJoin roomId={activeGroup && activeGroup.id}/>
             }
           </div> :
           <div className='empty__container'>

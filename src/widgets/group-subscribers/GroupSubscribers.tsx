@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import Icon from '@assets/cabinet/icons/avatar.svg'
 import {useMutation, useQuery} from "@apollo/client";
-import {GET_ALL_USERS_BY_ROOM_ID, LEAVE_FROM_CHAT} from "@/shared/schemas/messages/messages";
+import { GET_ALL_MY_ROOMS, GET_ALL_USERS_BY_ROOM_ID, LEAVE_FROM_CHAT } from '@/shared/schemas/messages/messages'
 
 import scss from './GroupSubscribers.module.scss';
 import {User} from "@entities/messages/Messages";
@@ -13,8 +13,8 @@ interface IGroupSubscribersProps {
     onClose: () => void
 }
 
-export const GroupSubscribers: FC<IGroupSubscribersProps> = ({ groupTitle, groupSubs, roomId, onClose }) => {
-    const [leaveFromChat] = useMutation(LEAVE_FROM_CHAT);
+export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose }: IGroupSubscribersProps) => {
+    const [leaveFromChat] = useMutation(LEAVE_FROM_CHAT, {refetchQueries: [GET_ALL_MY_ROOMS]});
     const { data, refetch } = useQuery(GET_ALL_USERS_BY_ROOM_ID, {
         variables: {
             roomId: Number(roomId)
@@ -26,7 +26,7 @@ export const GroupSubscribers: FC<IGroupSubscribersProps> = ({ groupTitle, group
             variables: {
                 roomId
             }
-        }).then(() => refetch())
+        })
         onClose();
     };
 

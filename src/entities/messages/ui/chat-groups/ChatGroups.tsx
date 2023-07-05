@@ -22,7 +22,7 @@ interface IChatGroupsProps {
 
 export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
     const { setValue } = useLocalStorage('activeGroup');
-    const { data: groupsData, loading: groupsLoading } = useQuery(GetAllMyRoomsDocument);
+    const { data: groupsData, loading: groupsLoading } = useQuery(GET_ALL_MY_ROOMS);
     const [lastMessages, setLastMessages] = useState({});
     const { data: newMessageData, loading: newMessageLoading } = useSubscription(
         NEW_MESSAGE,
