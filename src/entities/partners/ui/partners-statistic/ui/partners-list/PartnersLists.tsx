@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import styles from "./PartnersLists.module.scss"
-import { FilterButton } from "@/feauters/filter-button/FilterButton";
+import { FilterButton } from "@/features/filter-button/FilterButton";
 import FullUser from "@/entities/partners/ui/partners-statistic/ui/full-user/FullUser";
 import avatar from "@assets/Partners/User.svg"
 

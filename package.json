@@ -1,6 +1,7 @@
 {
   "name": "competitive-bidding",
   "private": true,
+  "type": "module",
   "version": "0.0.0",
   "scripts": {
     "compile": "graphql-codegen",
@@ -18,10 +19,9 @@
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@mui/material": "^5.11.15",
+    "@types/node": "^20.3.3",
     "chart.js": "^4.2.1",
     "chartjs-plugin-datalabels": "^2.2.0",
-    "concurrently": "^8.0.1",
     "cookie-parser": "^1.4.6",
     "graphql": "^16.6.0",
     "graphql-ws": "^5.13.1",
@@ -29,7 +29,6 @@
     "i18next-browser-languagedetector": "^7.0.2",
     "i18next-http-backend": "^2.2.1",
     "js-cookie": "^3.0.5",
-    "json-graphql-server": "^2.3.2",
     "jsonwebtoken": "^9.0.0",
     "link": "^1.5.1",
     "react": "^18.2.0",
@@ -46,15 +45,18 @@
     "subscriptions-transport-ws": "^0.11.0",
     "swiper": "^9.3.1",
     "validator": "^13.9.0",
-    "vite-plugin-svgr": "^3.2.0"
+    "vite-plugin-svgr": "^3.2.0",
+    "vite-tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "4.0.1",
     "@graphql-codegen/client-preset": "4.0.1",
+    "@graphql-codegen/introspection": "4.0.0",
     "@graphql-codegen/typescript": "^4.0.1",
     "@graphql-codegen/typescript-operations": "^4.0.1",
     "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@graphql-codegen/typescript-resolvers": "^4.0.1",
+    "@neodx/svg": "^0.2.0",
     "@types/graphql": "^14.5.0",
     "@types/js-cookie": "^3.0.3",
     "@types/react": "^18.2.14",
@@ -67,7 +69,6 @@
     "prettier": "^2.8.8",
     "sass": "^1.60.0",
     "typescript": "^5.1.6",
-    "vite": "^4.2.0",
-    "@graphql-codegen/introspection": "4.0.0"
+    "vite": "^4.2.0"
   }
 }

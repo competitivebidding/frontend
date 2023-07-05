@@ -7,7 +7,7 @@ import './ChatSideBar.scss';
 interface IChatSidebar {
   onToggleNewGroupModal: (value: (((prevState: boolean) => boolean) | boolean)) => void
   onSelectGroup: ({title, id}: {title: string, id: number}) => void
-  activeGroupId: number | unknown
+  activeGroupId: number
 }
 
 export const ChatSidebar = ({onToggleNewGroupModal, onSelectGroup, activeGroupId }: IChatSidebar) => {

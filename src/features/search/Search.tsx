@@ -1,11 +1,11 @@
-import React, {ChangeEvent, FC} from 'react'
+import React, {ChangeEvent} from 'react'
 import './Search.scss'
 
 interface ISearchProps {
     onChange: (value: string) => void
 }
 
-const Search:FC<ISearchProps> = ({onChange}) => {
+const Search = ({onChange}: ISearchProps) => {
     const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
         onChange(e.target.value)
     }

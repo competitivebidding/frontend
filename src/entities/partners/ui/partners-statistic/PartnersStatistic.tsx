@@ -3,8 +3,8 @@ import styles from "@/entities/partners/ui/partners-statistic/PartnersStatistic.
 import PlayersAmount from "@/entities/partners/ui/players-amount/PlayersAmount";
 import Income from "@/shared/ui/charts/Income";
 
-import rotoIncome from "@/shared/charts-data/RotoIncome";
-import rublesIncome from "@/shared/charts-data/RublesIncome";
+import { rotoIncome } from "@/shared/charts-data/RotoIncome";
+import { rublesIncome } from "@/shared/charts-data/RublesIncome";
 
 import BestInviters from "@/entities/partners/ui/partners-statistic/ui/best-inviters/BestInviters";
 import LastPays from "@/entities/partners/ui/last-pays/LastPays";

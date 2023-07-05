@@ -1,16 +1,16 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import './Messages.scss'
-import {AppModal} from '@shared/ui/modal/AppModal'
-import {useQuery} from '@apollo/client'
-import {GET_ALL_USERS_BY_ROOM_ID} from '@shared/schemas/messages/messages'
-import {useLocalStorage} from '@shared/lib/useLocalStorage'
-import {MessageInput} from '@feauters/message-input/MessageInput'
-import {GroupSubscribers} from '@widgets/group-subscribers/GroupSubscribers'
-import {AddNewGroupForm} from '@feauters/add-new-group-form/AddNewGroupForm'
-import {ChatMessages} from '@feauters/chat-messages/ChatMessages'
-import {ChatHeader} from './ui/chat-header/ChatHeader'
-import {ChatSidebar} from './ui/chat-sidebar/ChatSidebar'
-import {ChatJoin} from '@feauters/chat-join-button/ChatJoin'
+import { AppModal } from '@shared/ui/modal/AppModal'
+import { useQuery } from '@apollo/client'
+import { GET_ALL_USERS_BY_ROOM_ID } from '@shared/schemas/messages/messages'
+import { useLocalStorage } from '@shared/lib/useLocalStorage'
+import { MessageInput } from '@features/message-input/MessageInput'
+import { GroupSubscribers } from '@widgets/group-subscribers/GroupSubscribers'
+import { AddNewGroupForm } from '@features/add-new-group-form/AddNewGroupForm'
+import { ChatMessages } from '@features/chat-messages/ChatMessages'
+import { ChatHeader } from './ui/chat-header/ChatHeader'
+import { ChatSidebar } from './ui/chat-sidebar/ChatSidebar'
+import { ChatJoin } from '@features/chat-join-button/ChatJoin'
 
 interface ActiveGroup {
   title: string
@@ -66,11 +66,20 @@ const Messages = () => {
   return (
     <>
       <div className='chat'>
-        <ChatSidebar onToggleNewGroupModal={setModalNewGroup} onSelectGroup={handleSelectActiveGroup}
-                     activeGroupId={activeGroup && activeGroup.id} />
+        <ChatSidebar
+          onToggleNewGroupModal={setModalNewGroup}
+          onSelectGroup={handleSelectActiveGroup}
+          activeGroupId={(activeGroup && activeGroup.id) as number}
+        />
         {activeGroup ? <div className='chat__container'>
-            <ChatHeader title={activeGroup && activeGroup.title} length={groupUsers.length} onToggleModal={toggleGroup} />
-            <ChatMessages groupId={activeGroup && activeGroup.id} />
+            <ChatHeader
+              title={activeGroup && activeGroup.title}
+              length={groupUsers.length}
+              onToggleModal={toggleGroup}
+            />
+            <ChatMessages
+              groupId={activeGroup && activeGroup.id}
+            />
             {isJoined() ?
               <MessageInput roomId={activeGroup && activeGroup.id} /> :
               <ChatJoin roomId={activeGroup && activeGroup.id} />
@@ -88,9 +97,12 @@ const Messages = () => {
       )}
 
       {modalGroup && (
-        <AppModal isOpen={modalGroup} onClose={toggleGroup}>
-          {activeGroup && <GroupSubscribers groupTitle={activeGroup.title} groupSubs={groupUsers}
-                             roomId={activeGroup.id} onClose={toggleGroup}/>}
+        <AppModal
+          isOpen={modalGroup}
+          onClose={toggleGroup}>
+          {activeGroup &&
+            <GroupSubscribers groupTitle={activeGroup.title} groupSubs={groupUsers} roomId={activeGroup.id} onClose={toggleGroup} />
+          }
         </AppModal>
       )}
     </>

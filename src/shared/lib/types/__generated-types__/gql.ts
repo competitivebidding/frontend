@@ -27,6 +27,7 @@ const documents = {
     "\n    mutation CreateMyRoom($input: RoomCreateInput!) {\n      createMyRoom(input: $input) {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n\n": types.CreateMyRoomDocument,
     "\n    mutation JoinToRoom($roomId: Float!) {\n  joinToRoom(roomId: $roomId) {\n    username\n    firstname\n    lastname\n    avatarUrl\n  }\n}\n": types.JoinToRoomDocument,
     "\nmutation LeaveFromRoom($roomId: Float!) {\n  leaveFromRoom(roomId: $roomId) {\n    avatarUrl\n    lastname\n    firstname\n    username\n  }\n}\n": types.LeaveFromRoomDocument,
+    "\n  subscription NewMessage($roomId: Int!) {\n    newMessage(roomId: $roomId) {\n      content\n      createdAt\n      id\n      updatedAt\n      roomId\n      userId\n    }\n  }\n": types.NewMessageDocument,
     "\n\tquery GetAllNews($sortBy: String, $sortOrder: String, $skip: Int, $take: Int, $search: String) {\n\t\tnews: getAllNews(sortBy: $sortBy, sortOrder: $sortOrder, skip: $skip, take: $take, search: $search) {\n\t\t  totalCount\n\t\t  items {\n\t\t\tid\n\t\t\ttitle\n\t\t\ttext: description\n\t\t\tupdatedAt\n\t\t\tdate: createdAt\n\t\t\timages: imageUrl\n\t\t\tuserId\n\t\t}\n\t }\n  } \n": types.GetAllNewsDocument,
     "\nmutation CreateToken($data: CreateTokenInput!) {\n  createToken(data: $data) {\n    updatedAt\n    title\n    sortOrder\n    points\n    price\n    id\n    description\n    createdAt\n  }\n}\n": types.CreateTokenDocument,
     "\nmutation GetTokenById($getTokenByIdId: Int!) {\n  getTokenById(id: $getTokenByIdId) {\n    createdAt\n    description\n    points\n    id\n    price\n    updatedAt\n    title\n    sortOrder\n  }\n}\n": types.GetTokenByIdDocument,
@@ -110,6 +111,10 @@ export function gql(source: "\n    mutation JoinToRoom($roomId: Float!) {\n  joi
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "\nmutation LeaveFromRoom($roomId: Float!) {\n  leaveFromRoom(roomId: $roomId) {\n    avatarUrl\n    lastname\n    firstname\n    username\n  }\n}\n"): (typeof documents)["\nmutation LeaveFromRoom($roomId: Float!) {\n  leaveFromRoom(roomId: $roomId) {\n    avatarUrl\n    lastname\n    firstname\n    username\n  }\n}\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n  subscription NewMessage($roomId: Int!) {\n    newMessage(roomId: $roomId) {\n      content\n      createdAt\n      id\n      updatedAt\n      roomId\n      userId\n    }\n  }\n"): (typeof documents)["\n  subscription NewMessage($roomId: Int!) {\n    newMessage(roomId: $roomId) {\n      content\n      createdAt\n      id\n      updatedAt\n      roomId\n      userId\n    }\n  }\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

@@ -1,10 +1,9 @@
 import React from 'react';
 import './MainPage.scss';
-import AppHeader from '../../widgets/header/AppHeader.js';
 
-import { MainTop } from '../../widgets/main/ui/main-top/MainTop';
+import { MainTop } from '@widgets/main';
 
-import { MainBottom } from '../../widgets/main/ui/main-bottom/MainBottom';
+import { MainBottom } from '@widgets/main';
 
 
 const AuctionsPage = () => {

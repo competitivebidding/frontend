@@ -1,11 +1,11 @@
-import React, {FC, useState} from 'react'
+import React, {useState} from 'react'
 import './MyAuctionContent.scss'
 import {AuctionList} from "@entities/auction/ui/auctions-list/AuctionList";
 import {IAuctionData} from "@pages/my-auctions/MyAuctionsPage";
 interface IMyAuctionContentProps {
-  data: IAuctionData
+  data: IAuctionData[]
 }
-const MyAuctionContent: FC<IMyAuctionContentProps> = ({ data }) => {
+const MyAuctionContent = ({ data }: IMyAuctionContentProps) => {
   const [category, changeCategory] = useState('active')
 
   const onChangeActive = () => {

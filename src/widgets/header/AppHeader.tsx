@@ -10,10 +10,11 @@ import iconNotification from '@assets/imgHeader/iconNotification.svg'
 import LOGOUT_MUTATION from '../../shared/schemas/auth/logout'
 import HeaderBurger from '@/widgets/burger/HeaderBurger'
 import {UserAvatar} from '@shared/ui/user-avatar/UserAvatar'
-import {LangSwitcher} from '@feauters/lang-switcher/LangSwitcher'
+
 import './AppHeader.scss'
 import {GetProfileDocument} from "@shared/lib/types/__generated-types__/graphql";
 import { getPageTitle } from '@shared/lib/routes/getPath'
+import { LangSwitcher } from '@features/lang-switcher/LangSwitcher'
 
 const AppHeader = () => {
   const [isClicked, setIsClicked] = useState(false);

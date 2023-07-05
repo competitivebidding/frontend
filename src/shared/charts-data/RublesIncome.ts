@@ -1,4 +1,4 @@
-const rublesIncome = {
+export const rublesIncome = {
     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     datasets: [{
         label: '',
@@ -13,5 +13,3 @@ const rublesIncome = {
         },
     }]
 };
-
-export default rublesIncome;

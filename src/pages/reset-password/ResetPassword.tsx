@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ResetPasswordRight } from '@/feauters/auth'
+import { ResetPasswordRight } from '@features/auth'
 import LeftAuth from "@pages/authorization/leftAuth";
 
 const ResetPassword = () => {

@@ -17,7 +17,7 @@ export const PaymentForm = ({onClose}: IPaymentsForm) => {
     const [cardNumber, setCardNumber] = React.useState("")
     const [cardDate, setCardDate] = React.useState("")
     const [cardHolder, setCardHolder] = React.useState("")
-    const [cvv, setCvv] = React.useState("")
+    const [cvv] = React.useState("")
 
     const [update] = useMutation(UPDATE_USER_PAYMENT)
     const {refetch} = useQuery(GET_USER_PAYMENT)

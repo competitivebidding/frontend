@@ -1,14 +1,27 @@
 import { gql } from '@apollo/client'
 
+// export const NEW_MESSAGE = gql(`
+//     mutation watchMessages($newMessage: NewMessageInput!) {
+//       sendMessage(newMessage: $newMessage) {
+//         id
+//         userId
+//         roomId
+//         content
+//         createdAt
+//         updatedAt
+//       }
+//     }
+// `)
+
 export const NEW_MESSAGE = gql(`
-    mutation Mutation($newMessage: NewMessageInput!) {
-      sendMessage(newMessage: $newMessage) {
-        id
-        userId
-        roomId
-        content
-        createdAt
-        updatedAt
-      }
+  subscription NewMessage($roomId: Int!) {
+    newMessage(roomId: $roomId) {
+      content
+      createdAt
+      id
+      updatedAt
+      roomId
+      userId
     }
+  }
 `)

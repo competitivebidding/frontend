@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 import styles from "../../shared/ui/charts/Income.module.scss";
 import arrow from "@assets/Partners/arrow.svg"
 import BarChart from "@shared/ui/charts/BarChart";
-import {ChartData} from "chart.js";
+import { ChartData } from 'chart.js'
+
 
 interface IDoubleIncomeProps {
-    currency: string
-    color: string
+    currency: string[]
+    color: string[]
     data: ChartData<'bar'>[]
 }
 
@@ -25,7 +26,8 @@ function DoubleIncome({currency, color, data}: IDoubleIncomeProps) {
                             <span>{filterValue}</span>
                             <img src={arrow}
                                  className={dropdownVisibility ? styles.arrow : styles.arrow + ' ' + styles.arrow_visible}
-                                 onClick={() => setDropdownVisibility(!dropdownVisibility)}></img>
+                                 onClick={() => setDropdownVisibility(!dropdownVisibility)}>
+                            </img>
                         </p>
                         <div
                             className={dropdownVisibility ? styles.filter__dropdown : styles.filter__dropdown + ' ' + styles.filter__dropdown_visible}
@@ -90,7 +92,7 @@ function DoubleIncome({currency, color, data}: IDoubleIncomeProps) {
                         earnings: {(isROTO ? data[0] : data[1]).datasets[0].data.reduce((acc: any, v: any) => acc + v, 0)} {isROTO ? currency[0] : currency[1]}</div>
                 </div>
             </div>
-            {isROTO ? <BarChart data={data[0]} color={color[0]}/> : <BarChart data={data[1]} color={color[1]}/>}
+            <BarChart data={data[isROTO ? 0 : 1]} color={color[isROTO ? 0 : 1]}/>
         </div>
     );
 }

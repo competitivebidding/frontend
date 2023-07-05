@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from '@shared/lib/types/__generated-types__/gql'
 
 export const GET_ALL_MY_ROOMS = gql(`
     query GetAllMyRooms {
@@ -12,6 +12,7 @@ export const GET_ALL_MY_ROOMS = gql(`
       }
     }
 `)
+
 export const GET_ALL_MESSAGES_BY_ROOM = gql(`
 query GetAllMessagesByRoomId($userMessage: UserMessages!) {
   getAllMessagesByRoomId(userMessage: $userMessage) {

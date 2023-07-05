@@ -6,7 +6,7 @@ import {useLocalStorage} from "@shared/lib/useLocalStorage";
 import {NEW_MESSAGE} from "@shared/schemas/messages/subscriptions";
 import {toTime} from "@shared/utils/timeHelpers";
 import './ChatMessages.scss'
-import {GetAllMessagesByRoomIdDocument} from "@shared/lib/types/__generated-types__/graphql";
+import { GetAllMessagesByRoomIdDocument, MutationSendMessageArgs } from '@shared/lib/types/__generated-types__/graphql'
 import { ITime } from '@shared/utils/timeHelpers'
 import { User } from 'src/entities/messages/Messages'
 

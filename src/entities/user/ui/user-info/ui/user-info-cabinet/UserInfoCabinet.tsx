@@ -6,7 +6,7 @@ import UserName from '@/shared/ui/info-tabs/ui/user-name/UserName'
 import UserEmail  from '@/shared/ui/info-tabs/ui/user-email/UserEmail'
 import { UserPhone } from '@/shared/ui/info-tabs/ui/user-phone/UserPhone'
 import UserInst from "@/shared/ui/info-tabs/ui/user-instagram/UserInst"
-import { PaymentForm } from '@/feauters/payment-form/PaymentForm'
+import { PaymentForm } from '@/features/payment-form/PaymentForm'
 import UserPaymentsInfo from '@/shared/ui/info-tabs/ui/user-payment-info/UserPaymentsInfo'
 import UserCountry from '@/shared/ui/info-tabs/ui/user-country/UserCountry'
 import { UserSettings } from '@/shared/ui/info-tabs/ui/user-settings/UserSettings'

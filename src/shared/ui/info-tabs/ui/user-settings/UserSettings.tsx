@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react'
 import {UserAvatar} from "../../../user-avatar/UserAvatar";
-import {CabinetSettings} from '@feauters/cabinet-settings/CabinetSettings';
+import {CabinetSettings} from '@features/cabinet-settings/CabinetSettings';
 import {AppModal} from "../../../modal/AppModal";
 import {useTranslation} from "react-i18next";
 

@@ -1,7 +1,7 @@
 import React, { SVGProps, useState } from 'react'
-import { ReactComponent as Arrow } from '@assets/cabinet/arrow.svg';
+import arrow from '@assets/cabinet/arrow.svg';
 import './DropDown.scss';
-import { ILang } from 'src/feauters/lang-switcher/LangSwitcher'
+import { ILang } from '@features/lang-switcher/LangSwitcher'
 
 
 interface LangOptions extends ILang {}
@@ -31,7 +31,7 @@ export const DropDown = ({ data, current, onChange, withArrow = true }: IDropDow
       {data && (
         <div className={'dropdown'}>
           <div className={'dropdown__current'} onClick={() => setDropdownVisibility(!dropdownVisibility)}>
-            {withArrow && <Arrow className={` ${!dropdownVisibility ? 'arrow' : 'arrow arrow--visible'} `} />}
+            {withArrow && <img src={arrow} className={` ${!dropdownVisibility ? 'arrow' : 'arrow arrow--visible'} `} />}
             <img src={current && findFlag(current)} alt={'language'}/>
           </div>
           <div className={` ${dropdownVisibility ? 'dropdown__dropdown' : 'dropdown__dropdown dropdown__dropdown--visible'} `}>

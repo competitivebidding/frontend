@@ -1,12 +1,12 @@
-import React, {FC, useState} from 'react';
-import styles from "@/feauters/filter-button/FilterButton.module.scss";
+import React, {useState} from 'react';
+import styles from "@features/filter-button/FilterButton.module.scss";
 
 interface IFilterButtonProps {
     isClicked: boolean
     filterAction?: () => void
 }
 
-export const FilterButton:FC<IFilterButtonProps> = ({isClicked, filterAction}) => {
+export const FilterButton = ({isClicked, filterAction}: IFilterButtonProps) => {
     const [isActive, setIsActive] = useState(isClicked);
 
     const handleClick = () => {

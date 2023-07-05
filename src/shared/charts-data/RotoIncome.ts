@@ -13,5 +13,3 @@ export const rotoIncome = {
         },
     }]
 };
-
-export default rotoIncome;

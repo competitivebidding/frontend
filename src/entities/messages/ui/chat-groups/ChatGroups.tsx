@@ -5,9 +5,10 @@ import { useSubscription } from "@apollo/client";
 import './ChatGroups.scss'
 
 
-import { NEW_MESSAGE } from '../../../../shared/schemas/messages/subscriptions'
-import { GET_ALL_MY_ROOMS } from '../../../../shared/schemas/messages/messages'
-import { useLocalStorage } from '../../../../shared/lib/useLocalStorage'
+import { NEW_MESSAGE } from '@shared/schemas/messages/subscriptions'
+import { GET_ALL_MY_ROOMS } from '@shared/schemas/messages/messages'
+import { useLocalStorage } from '@shared/lib/useLocalStorage'
+import { GetAllMyRoomsDocument } from '@shared/lib/types/__generated-types__/graphql'
 
 interface Group {
     title: string
@@ -16,37 +17,29 @@ interface Group {
 
 interface IChatGroupsProps {
     onSelectGroup: (group: Group) => void
-    activeItem: number | unknown
+    activeItem: number
 }
 
 export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
-    const [groups, setGroups] = useState<Group[] | null>(null);
     const { setValue } = useLocalStorage('activeGroup');
-    const { data, loading } = useQuery(GET_ALL_MY_ROOMS);
+    const { data: groupsData, loading: groupsLoading } = useQuery(GetAllMyRoomsDocument);
     const [lastMessages, setLastMessages] = useState({});
-
     const { data: newMessageData, loading: newMessageLoading } = useSubscription(
         NEW_MESSAGE,
-        { variables: { roomId: activeItem } }
+      {variables: { newMessage: {roomId: activeItem, content: '' } }}
     );
 
-    useEffect(() => {
-        if (!loading) {
-            setGroups(newMessageData?.getAllRooms);
-        }
-    }, [data, loading]);
-
-    useEffect(() => {
-        if (!newMessageLoading) {
-            const newMessage = newMessageData?.newMessage;
-            if (newMessage) {
-                setLastMessages((prevMessages) => ({
-                    ...prevMessages,
-                    [newMessage.roomId]: newMessage.content,
-                }));
-            }
-        }
-    }, [newMessageData, newMessageLoading]);
+    // useEffect(() => {
+    //     if (!newMessageLoading) {
+    //         const newMessage = data?.newMessage;
+    //         if (newMessage) {
+    //             setLastMessages((prevMessages) => ({
+    //                 ...prevMessages,
+    //                 [newMessage.roomId]: newMessage.content,
+    //             }));
+    //         }
+    //     }
+    // }, [data, loading]);
 
     const handleSetActiveGroup = (group: { title: string, id: number }) => {
         onSelectGroup(group);
@@ -55,9 +48,9 @@ export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
 
     return (
         <div className="sidebar__group ">
-            {groups && (
+            {!groupsLoading && (
                 <ul>
-                    {groups.map((group: Group) => (
+                    {groupsData?.getAllMyRooms.map((group: Group) => (
                         <li
                             key={group.id}
                             className={`sidebar__list ${activeItem === group.id ? 'active' : ''

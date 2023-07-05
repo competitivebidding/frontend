@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from "./Charts.module.scss"
-import rublesIncome from "../../shared/charts-data/RublesIncome";
-import rotoIncome from "../../shared/charts-data/RotoIncome";
+import { rublesIncome } from '@shared/charts-data/RublesIncome';
+import { rotoIncome } from '@shared/charts-data/RotoIncome';
 import Income from "../../shared/ui/charts/Income";
-import PlayersAmount from "@feauters/players-amount/PlayersAmount";
+import PlayersAmount from "@features/players-amount/PlayersAmount";
 
 function Charts() {
     return (
