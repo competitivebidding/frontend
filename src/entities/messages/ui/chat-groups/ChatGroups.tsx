@@ -7,7 +7,7 @@ import './ChatGroups.scss'
 import { NEW_MESSAGE } from '@shared/schemas/messages/subscriptions'
 import { GET_ALL_MY_ROOMS } from '@shared/schemas/messages/messages'
 import { useLocalStorage } from '@shared/lib/useLocalStorage'
-import { GetAllMyRoomsDocument } from '@shared/lib/types/__generated-types__/graphql'
+import { GetAllMyRoomsDocument, NewMessageDocument } from '@shared/lib/types/__generated-types__/graphql'
 
 interface Group {
   title: string
@@ -21,10 +21,10 @@ interface IChatGroupsProps {
 
 export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
   const { setValue } = useLocalStorage('activeGroup')
-  const { data: groupsData, loading: groupsLoading } = useQuery(GET_ALL_MY_ROOMS)
+  const { data: groupsData, loading: groupsLoading } = useQuery(GetAllMyRoomsDocument)
   const [lastMessages, setLastMessages] = useState({})
-  const { data: newMessageData, loading: newMessageLoading } = useSubscription(NEW_MESSAGE, {
-    variables: { newMessage: { roomId: activeItem, content: '' } },
+  const { data: newMessageData, loading: newMessageLoading } = useSubscription(NewMessageDocument, {
+    variables: { roomId: activeItem, content: '' },
   })
 
   // useEffect(() => {
