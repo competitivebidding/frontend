@@ -15,7 +15,6 @@ interface IFullUserProps {
 }
 
 function FullUser({ userData }: IFullUserProps) {
-
   const days = 4
 
   return (
@@ -27,9 +26,7 @@ function FullUser({ userData }: IFullUserProps) {
       </div>
       <div className={styles.user__startDate}>
         {userData.startDate}
-        <p className={styles.user__daysIn}>
-          {`${days} days`}
-        </p>
+        <p className={styles.user__daysIn}>{`${days} days`}</p>
       </div>
       <div className={styles.user__earnedThisMonth}>
         {userData.earnedThisMonth}

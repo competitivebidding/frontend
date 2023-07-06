@@ -3,9 +3,7 @@ import AppHeader from '@widgets/header/AppHeader'
 import Support from '@widgets/support/Support'
 
 const SupportPage = () => {
-  return (
-    <Support />
-  )
+  return <Support />
 }
 
 export default SupportPage

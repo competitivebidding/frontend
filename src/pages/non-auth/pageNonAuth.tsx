@@ -1,9 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const PageNonAuth = () => {
-  return (
-    <div> Please </div>
-  );
+  return <div> Please </div>
 }
 
-export default PageNonAuth;
+export default PageNonAuth

@@ -5,7 +5,6 @@ import NotificationCard from '../../widgets/notification-card/NotificationCard.j
 
 import useNoAuth from '../../shared/lib/useNoAuth.js'
 
-
 const NotificationsPage = () => {
   useNoAuth()
   const data = [
@@ -39,7 +38,7 @@ const NotificationsPage = () => {
   ]
 
   return (
-    <div className='notes'>
+    <div className="notes">
       {data.map((obj) => (
         <NotificationCard
           key={obj.id}

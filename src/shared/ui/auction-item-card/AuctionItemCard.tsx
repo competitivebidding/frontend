@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 interface IAuctionItemCardProps {
   title: string
@@ -13,7 +13,7 @@ const AuctionItemCard = ({ title, image }: IAuctionItemCardProps) => {
         <img src={image} alt="macbook" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AuctionItemCard;
+export default AuctionItemCard

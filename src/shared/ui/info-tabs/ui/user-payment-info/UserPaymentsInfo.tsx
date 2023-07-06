@@ -3,27 +3,24 @@ import icon from '@assets/cabinet/icons/card.svg'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { GET_USER_PAYMENT, UPDATE_USER_PAYMENT } from '@shared/schemas/user/userProfile'
+import { GetUserPaymentDocument } from '@shared/lib/types/__generated-types__/graphql'
 
 interface UserPaymentsInfoProps {
   onOpen: (value: boolean) => void
 }
 
+interface IField {
+  number?: string
+  firstname?: string
+  lastname?: string
+}
+
 const UserPaymentsInfo = ({ onOpen }: UserPaymentsInfoProps) => {
   const { t } = useTranslation('cabinet')
 
-  const [field, setField] = useState<{ number?: string; firstname?: string; lastname?: string }>({})
+  const [field, setField] = useState<IField | {}>({})
   const [updateCard] = useMutation(UPDATE_USER_PAYMENT)
-  const {
-    data: { getUserPayment },
-    loading,
-    refetch,
-  } = useQuery(GET_USER_PAYMENT)
-
-  useEffect(() => {
-    if (!loading && getUserPayment) {
-      setField(getUserPayment)
-    }
-  }, [getUserPayment])
+  const { data, loading, refetch } = useQuery(GetUserPaymentDocument)
 
   const unlink = () => {
     updateCard({
@@ -49,15 +46,19 @@ const UserPaymentsInfo = ({ onOpen }: UserPaymentsInfoProps) => {
         <div className="item-top__info">
           <div className="item-top__content">
             <p className="item-top__content-title">
-              {field && field.number ? '****' + `${field.number.slice(-4)}` : 'UserPayment'}
+              {data?.getUserPayment.number ? '****' + `${data?.getUserPayment.number.slice(-4)}` : 'UserPayment'}
             </p>
-            <span className="item-top__content-subtitle">{field && field.number ? 'Bank card' : 'Not connected'}</span>
+            <span className="item-top__content-subtitle">
+              {data?.getUserPayment.number ? 'Bank card' : 'Not connected'}
+            </span>
           </div>
-          <div className="item-top__status info">{field && field.firstname + ' ' + field.lastname}</div>
+          <div className="item-top__status info">
+            {data?.getUserPayment.firstname + ' ' + data?.getUserPayment.lastname}
+          </div>
         </div>
       </div>
       <div className="item-bottom">
-        {field && field.number ? (
+        {data?.getUserPayment.number ? (
           <button className="user-info__button" onClick={() => unlink()}>
             {t('unlink')}
           </button>

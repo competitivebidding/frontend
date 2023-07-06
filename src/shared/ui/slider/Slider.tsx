@@ -50,17 +50,17 @@
 //     const Slide = ({ slideData }: {slideData: SlideData[]}) => {
 //         const card = slideData.map((item) => {
 //             // const { id, ...itemProps } = item;
-//             return ( 
+//             return (
 //                 <AuctionCard
-//                     className="slider__card" 
-//                     id={item.id} 
-//                     alt={item.alt} 
+//                     className="slider__card"
+//                     id={item.id}
+//                     alt={item.alt}
 //                     title={item.title}
-//                     date={item.date} 
-//                     bids={item.bids} 
+//                     date={item.date}
+//                     bids={item.bids}
 //                     places={item.places}
-//                     changeStatus={item.changeStatus} 
-//                     startedAt={item.startedAt} 
+//                     changeStatus={item.changeStatus}
+//                     startedAt={item.startedAt}
 //                 />
 //             )
 //         });

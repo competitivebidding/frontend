@@ -11,14 +11,14 @@ enum Status {
 }
 
 export interface IAuctionData {
-  img: string,
-  alt: string,
-  name: string,
-  date: string,
-  price: string,
-  places: number,
-  status: Status,
-  id: number,
+  img: string
+  alt: string
+  name: string
+  date: string
+  price: string
+  places: number
+  status: Status
+  id: number
 }
 
 const data: IAuctionData[] = [
@@ -85,12 +85,11 @@ const data: IAuctionData[] = [
 ]
 
 const MyAuctionsPage = () => {
-
   useNoAuth()
 
   return (
-    <div className='auctions__components'>
-      <div className='actions__search--card'>
+    <div className="auctions__components">
+      <div className="actions__search--card">
         <Search onChange={() => console.log()} />
 
         <MyAuctionContent data={data} />

@@ -13,7 +13,7 @@ export const Layout = () => {
   return (
     <>
       {userWidth! > 1000 && <AppNavBar />}
-      <div className='main-section'>
+      <div className="main-section">
         <AppHeader />
         <Outlet />
         <AppFooter />
@@ -21,6 +21,3 @@ export const Layout = () => {
     </>
   )
 }
-
-
-

@@ -3,9 +3,7 @@ import AppHeader from '../../widgets/header/AppHeader.js'
 import Messages from '../../entities/messages/Messages.jsx'
 
 const pageMessages = () => {
-  return (
-    <Messages />
-  )
+  return <Messages />
 }
 
 export default pageMessages

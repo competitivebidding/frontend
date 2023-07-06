@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from '@shared/lib/types/__generated-types__/gql'
 
 export const GET_AUCTIONS = gql(`
     query GetAuctions {

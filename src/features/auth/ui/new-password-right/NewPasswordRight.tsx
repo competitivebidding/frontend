@@ -1,9 +1,9 @@
-import React, {FC, useState} from 'react'
-import {SubmitHandler, useForm} from 'react-hook-form'
+import React, { FC, useState } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import './NewPasswordRight.scss'
-import {Link} from 'react-router-dom'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 type INewPasswordForm = {
   password: string

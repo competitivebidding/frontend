@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './MyAuctionContent.scss'
-import {AuctionList} from "@entities/auction/ui/auctions-list/AuctionList";
-import {IAuctionData} from "@pages/my-auctions/MyAuctionsPage";
+import { AuctionList } from '@entities/auction/ui/auctions-list/AuctionList'
+import { IAuctionData } from '@pages/my-auctions/MyAuctionsPage'
 interface IMyAuctionContentProps {
   data: IAuctionData[]
 }
@@ -40,9 +40,9 @@ const MyAuctionContent = ({ data }: IMyAuctionContentProps) => {
   return (
     <div className="myAuctions__content">
       <div className="myAuctions__btnsgroup">{btns}</div>
-      <AuctionList  />
+      <AuctionList />
     </div>
   )
 }
 
-export default MyAuctionContent;
+export default MyAuctionContent

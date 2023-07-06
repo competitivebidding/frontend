@@ -1,12 +1,12 @@
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
+//@keyframes fadeIn {
+//  from {
+//    opacity: 0;
+//  }
+//
+//  to {
+//    opacity: 1;
+//  }
+//}
 
 .accordion__questions {
   color: #FFFFFF;
@@ -43,7 +43,6 @@
     }
 
     &__content {
-      font-family: 'Roboto';
       font-style: normal;
       font-weight: 300;
       font-size: 0.8em;
@@ -51,13 +50,12 @@
       max-width: 100%;
 
       padding-top: 1em;
-      opacity: 0;
-      animation-name: fadeIn;
-      animation-duration: 2s;
-      animation-fill-mode: forwards;
+      //opacity: 0;
+      //animation-name: fadeIn;
+      //animation-duration: 2s;
+      //animation-fill-mode: forwards;
 
       @media (max-width: 500px) {
-        font-family: none;
         font-size: 0.7em;
         line-height: 1em;
       }

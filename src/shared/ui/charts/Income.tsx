@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import styles from '@/shared/ui/charts/Income.module.scss';
-import arrow from '@assets/Partners/arrow.svg';
-import BarChart from '@/shared/ui/charts/BarChart';
+import React, { useState } from 'react'
+import styles from '@/shared/ui/charts/Income.module.scss'
+import arrow from '@assets/Partners/arrow.svg'
+import BarChart from '@/shared/ui/charts/BarChart'
 
 interface IncomeProps {
-  currency: string;
-  color: string;
+  currency: string
+  color: string
   data: {
     datasets: {
-      data: number[];
-    }[];
-  };
+      data: number[]
+    }[]
+  }
 }
 
 const Income = ({ currency, color, data }: IncomeProps) => {
-  const [filterValue, setFilterValue] = useState<string>('Last week');
-  const [dropdownVisibility, setDropdownVisibility] = useState<boolean>(false);
+  const [filterValue, setFilterValue] = useState<string>('Last week')
+  const [dropdownVisibility, setDropdownVisibility] = useState<boolean>(false)
 
   return (
     <div className={styles.income_chart}>
@@ -26,11 +26,7 @@ const Income = ({ currency, color, data }: IncomeProps) => {
             <span>{filterValue}</span>
             <img
               src={arrow}
-              className={
-                dropdownVisibility
-                  ? styles.arrow
-                  : styles.arrow + ' ' + styles.arrow_visible
-              }
+              className={dropdownVisibility ? styles.arrow : styles.arrow + ' ' + styles.arrow_visible}
               onClick={() => setDropdownVisibility(!dropdownVisibility)}
               alt="Arrow"
             />
@@ -39,16 +35,14 @@ const Income = ({ currency, color, data }: IncomeProps) => {
             className={
               dropdownVisibility
                 ? styles.filter__dropdown
-                : styles.filter__dropdown +
-                  ' ' +
-                  styles.filter__dropdown_visible
+                : styles.filter__dropdown + ' ' + styles.filter__dropdown_visible
             }
           >
             <div
               className={styles.filter__item}
               onClick={() => {
-                setFilterValue('Last week');
-                setDropdownVisibility(!dropdownVisibility);
+                setFilterValue('Last week')
+                setDropdownVisibility(!dropdownVisibility)
               }}
             >
               Last week
@@ -56,8 +50,8 @@ const Income = ({ currency, color, data }: IncomeProps) => {
             <div
               className={styles.filter__item}
               onClick={() => {
-                setFilterValue('Last month');
-                setDropdownVisibility(!dropdownVisibility);
+                setFilterValue('Last month')
+                setDropdownVisibility(!dropdownVisibility)
               }}
             >
               Last month
@@ -65,8 +59,8 @@ const Income = ({ currency, color, data }: IncomeProps) => {
             <div
               className={styles.filter__item}
               onClick={() => {
-                setFilterValue('Last year');
-                setDropdownVisibility(!dropdownVisibility);
+                setFilterValue('Last year')
+                setDropdownVisibility(!dropdownVisibility)
               }}
             >
               Last year
@@ -79,14 +73,13 @@ const Income = ({ currency, color, data }: IncomeProps) => {
             {currency}
           </div>
           <div className={styles.income_chart__total}>
-            Total earnings: {data.datasets[0].data.reduce((acc, v) => acc + v, 0)}{' '}
-            {currency}
+            Total earnings: {data.datasets[0].data.reduce((acc, v) => acc + v, 0)} {currency}
           </div>
         </div>
       </div>
       <BarChart data={data} color={color} />
     </div>
-  );
-};
+  )
+}
 
-export default Income;
+export default Income

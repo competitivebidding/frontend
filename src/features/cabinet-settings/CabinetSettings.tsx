@@ -22,7 +22,7 @@ export const CabinetSettings = () => {
   const [address, setAddress] = useState<string | null | undefined>(undefined)
 
   const [updateProfile] = useMutation(EditProfileDocument)
-  const [updateAddress] = useMutation(UpdateUserAddressDocument, {refetchQueries: [GetUserAddressDocument]})
+  const [updateAddress] = useMutation(UpdateUserAddressDocument, { refetchQueries: [GetUserAddressDocument] })
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()

@@ -9,7 +9,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "formater": "prettier --write \"src/**/*.jsx\"",
+    "formater": "prettier --write \"src/**/*.tsx\"",
     "codegenerate": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {

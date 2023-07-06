@@ -8,11 +8,7 @@ export const WinnerListCard = ({ acc, cardData, cardTime, winnerImg, prizeImg, p
     <div className="winnerlist_card">
       <div className="card-header">
         <div className="card-header__card-info">
-          <img
-            className="card-header__card-info__card-image"
-            src={green}
-            alt="greencircle"
-          />
+          <img className="card-header__card-info__card-image" src={green} alt="greencircle" />
           <h1 className="card-header__card-info__card-acc">{acc}</h1>
         </div>
         <ul className="card-header__card-date">

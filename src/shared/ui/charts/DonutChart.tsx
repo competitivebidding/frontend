@@ -1,14 +1,14 @@
 import React from 'react'
 import './DonutChart.scss'
-import { Chart as ChartJS, Tooltip, ArcElement , ChartData, ChartOptions, Plugin, Legend } from 'chart.js'
-import { Doughnut  } from 'react-chartjs-2';
+import { Chart as ChartJS, Tooltip, ArcElement, ChartData, ChartOptions, Plugin, Legend } from 'chart.js'
+import { Doughnut } from 'react-chartjs-2'
 
 interface IDonutChartProps {
-  data: ChartData<'doughnut'>;
-  count: number;
-  haveTooltip?: boolean;
-  width?: number;
-  height?: number;
+  data: ChartData<'doughnut', number[], string>
+  count: number | null
+  haveTooltip?: boolean
+  width?: number
+  height?: number
 }
 
 interface IRoundRectParams {
@@ -22,7 +22,7 @@ interface IRoundRectParams {
   stroke: boolean
 }
 
-function roundRect({ctx, x, y, width, height, radius = 5, fill = false, stroke = true}: IRoundRectParams) {
+function roundRect({ ctx, x, y, width, height, radius = 5, fill = false, stroke = true }: IRoundRectParams) {
   if (typeof radius === 'number') {
     radius = { tl: radius, tr: radius, br: radius, bl: radius }
   } else {
@@ -56,7 +56,7 @@ function DonutChart({ data, count, haveTooltip = false, width = 300, height = 30
   const customTooltip = {
     id: 'customTooltip',
 
-    afterDraw(chart:any, args:any, options:any) {
+    afterDraw(chart: any, args: any, options: any) {
       const { ctx, chartArea, tooltip, scales } = chart
       tooltip.fillStyle = 'rgba(0, 0, 0, .4)'
       ctx.rounded = true
@@ -64,7 +64,7 @@ function DonutChart({ data, count, haveTooltip = false, width = 300, height = 30
       if (tooltip._active[0] && tooltip.dataPoints[0]) {
         ctx.strokeStyle = 'rgba(0, 0, 0, .5)'
         ctx.fillStyle = 'rgba(0, 0, 0, .5)'
-        roundRect(ctx) 
+        roundRect(ctx)
         // roundRect(ctx, tooltip.x, tooltip.y, tooltip.width, tooltip.height, 8, true)
 
         ctx.font = 'bolder 11px Arial'
@@ -78,9 +78,9 @@ function DonutChart({ data, count, haveTooltip = false, width = 300, height = 30
   const plugins: any = [
     {
       id: '1',
-      afterUpdate: function (chart:any) {
+      afterUpdate: function (chart: any) {
         const arcs = chart.getDatasetMeta(0).data
-        arcs.forEach(function (arc:any) {
+        arcs.forEach(function (arc: any) {
           arc.round = {
             x: (chart.chartArea.left + chart.chartArea.right) / 2,
             y: (chart.chartArea.top + chart.chartArea.bottom) / 2,
@@ -90,7 +90,7 @@ function DonutChart({ data, count, haveTooltip = false, width = 300, height = 30
           }
         })
       },
-      afterDraw: (chart:any) => {
+      afterDraw: (chart: any) => {
         const { ctx, canvas } = chart
         // ctx.globalCompositeOperation='multiply';
         const arcs = chart.getDatasetMeta(0).data
@@ -160,7 +160,7 @@ function DonutChart({ data, count, haveTooltip = false, width = 300, height = 30
       tooltip: {
         position: 'average',
         enabled: true,
-        filter: (tooltip:any) => tooltip.dataIndex !== 3,
+        filter: (tooltip: any) => tooltip.dataIndex !== 3,
 
         backgroundColor: 'transparent',
         titleColor: 'transparent',
@@ -179,7 +179,7 @@ function DonutChart({ data, count, haveTooltip = false, width = 300, height = 30
   return (
     <div className="donut" style={{ width: `${width}px`, height: `${height}px` }}>
       <Doughnut options={options} data={data} plugins={plugins} />
-      <p className="donut__amount">{count}</p>
+      <p className="donut__amount">{count?.toFixed(2) + ' %'}</p>
     </div>
   )
 }

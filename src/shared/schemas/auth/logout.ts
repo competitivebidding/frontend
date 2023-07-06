@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from '@shared/lib/types/__generated-types__/gql'
 
 const LOGOUT_MUTATION = gql(`
 mutation Logout($logoutId: Int!) {

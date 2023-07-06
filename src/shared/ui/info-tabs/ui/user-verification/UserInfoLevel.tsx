@@ -1,56 +1,66 @@
 import * as React from 'react'
 import DonutChart from '@/shared/ui/charts/DonutChart'
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next'
 
-import { TooltipButton } from '../../../tooltip-button/TooltipButton';
+import { TooltipButton } from '../../../tooltip-button/TooltipButton'
+import { GetProfileQuery, GetProfileQueryVariables } from '@shared/lib/types/__generated-types__/graphql'
+import { useEffect, useState } from 'react'
+import { ChartData } from 'chart.js'
 
-export const UserInfoLevel = ({ field }) => {
-	const { t } = useTranslation('cabinet')
-	const [value, setValue] = React.useState(field)
+interface IUserInfoProps {
+  field: Profile
+}
 
-	const calculate = (obj) => {
-		const l = Object.keys(obj).length
-		const v = Object.values(obj).filter((item) => {
-			if (item === '' || item === null) {
-				return
-			}
-			return item
-		}).length * 100
+type Profile = Pick<GetProfileQuery, 'getProfile'>
 
-		return v / l
-	}
+export const UserInfoLevel = ({ field }: IUserInfoProps) => {
+  const { t } = useTranslation('cabinet')
+  const [value, setValue] = useState<number | null>(null)
 
-	React.useEffect(() => {
-		if (field) {
-			setValue(calculate(field))
-		}
-	}, [field])
+  const calculate = ( obj: any) => {
+    const l = Object.keys(obj).length
+    const v =
+      Object.values(Object.values(field)).filter((item: any) => {
+        if (item === '' || item === null) {
+          return
+        }
+        return item
+      }).length * 100
 
-	const chartData = {
-		labels: [],
-		datasets: [
-			{
-				label: '',
-				data: [value, 100 - value],
-				borderWidth: 0,
-				backgroundColor: ['#2F53FF', 'rgba(255, 255, 255, 0.12)'],
-				datalabels: {
-					display: false,
-				},
-			},
-		],
-	}
+    return v / l
+  }
 
-	return (
-		<div className="cabinet-block user-info__level">
-			<DonutChart data={chartData} count={`${value}%`} width={90} height={90} />
-			<div className="level-content">
-				<div className="level-content__title">
-					<p>{t('authorizationLevel')}</p>
-					<TooltipButton info="level-content__status not-verified level-content__status not-verified level-content__status not-verified" />
-				</div>
-				<span className="level-content__status not-verified">{t('notVerified')}</span>
-			</div>
-		</div>
-	)
+  useEffect(() => {
+    if (field) {
+      setValue(calculate(field))
+    }
+  }, [field])
+
+  const chartData: ChartData<'doughnut', number[], string> = {
+    labels: [''],
+    datasets: [
+      {
+        label: '',
+        data: [value!, 100 - (value as number)],
+        borderWidth: 0,
+        backgroundColor: ['#2F53FF', 'rgba(255, 255, 255, 0.12)'],
+        datalabels: {
+          display: false,
+        },
+      },
+    ],
+  }
+
+  return (
+    <div className="cabinet-block user-info__level">
+      <DonutChart data={chartData} count={value} width={90} height={90} />
+      <div className="level-content">
+        <div className="level-content__title">
+          <p>{t('authorizationLevel')}</p>
+          <TooltipButton info="level-content__status not-verified level-content__status not-verified level-content__status not-verified" />
+        </div>
+        <span className="level-content__status not-verified">{t('notVerified')}</span>
+      </div>
+    </div>
+  )
 }

@@ -1,10 +1,9 @@
-import React from 'react';
-import './MainPage.scss';
+import React from 'react'
+import './MainPage.scss'
 
-import { MainTop } from '@widgets/main';
+import { MainTop } from '@widgets/main'
 
-import { MainBottom } from '@widgets/main';
-
+import { MainBottom } from '@widgets/main'
 
 const AuctionsPage = () => {
   return (
@@ -12,7 +11,7 @@ const AuctionsPage = () => {
       <MainTop />
       <MainBottom />
     </div>
-  );
-};
+  )
+}
 
-export default AuctionsPage;
+export default AuctionsPage

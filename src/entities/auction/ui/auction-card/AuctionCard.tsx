@@ -1,5 +1,5 @@
-import  { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './AuctionCard.scss'
 import img from '@assets/temporary-auctions-img/watch.png'
 
@@ -15,12 +15,11 @@ interface IAuctionCardProps {
   className?: string
 }
 
-const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, startedAt}: IAuctionCardProps) => {
-
-  const [clazz, setClass] = useState('card');
-  const [place, setPlace] = useState(places);
-  const [timer, setTimer] = useState(false);
-  const [join, setJoin] = useState(false);
+const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, startedAt }: IAuctionCardProps) => {
+  const [clazz, setClass] = useState('card')
+  const [place, setPlace] = useState(places)
+  const [timer, setTimer] = useState(false)
+  const [join, setJoin] = useState(false)
 
   const onJoin = () => {
     setJoin(!join)
@@ -30,8 +29,7 @@ const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, started
     // changeStatus(id, 'wait')
   }
 
-
-  const formattedDate = new Date(startedAt).toLocaleString();
+  const formattedDate = new Date(startedAt).toLocaleString()
 
   const StartDate = () => {
     if (!timer) {
@@ -55,7 +53,7 @@ const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, started
             <span>Deposite</span>
           </div>
         </div>
-        <div className='img__wrapper'>
+        <div className="img__wrapper">
           <img src={img} alt={alt} />
         </div>
         <div className="click__price">
@@ -74,7 +72,7 @@ const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, started
         </div>
         <StartDate />
         {/*<AuctionCardTimer date={date} timer={timer} changeStatus={changeStatus} id={id} />*/}
-        <Link to={`/Lot/${id}`} >
+        <Link to={`/Lot/${id}`}>
           <button className="card__btn" onClick={onJoin}>
             <span> Read More </span>
           </button>
@@ -84,4 +82,4 @@ const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, started
   )
 }
 
-export default AuctionCard;
+export default AuctionCard
