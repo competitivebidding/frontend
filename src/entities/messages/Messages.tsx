@@ -34,10 +34,16 @@ const Messages = () => {
   const [modalGroup, setModalGroup] = useState(false)
   const [activeGroup, setActiveGroup] = useState<ActiveGroup | undefined>(undefined)
   const [groupUsers, setGroupUsers] = useState<User[] | []>([])
-  const { data: currentRoom, loading } = useQuery(GetRoomByIdDocument, {
+  const { data: currentRoom, loading , refetch} = useQuery(GetRoomByIdDocument, {
     variables: {
       roomId: Number(lsActiveGroup?.id)
     }
+  })
+
+  const { data: users, loading: isUsersLoading } = useQuery(GET_ALL_USERS_BY_ROOM_ID, {
+    variables: {
+      roomId: Number(activeGroup?.id),
+    },
   })
 
   const isJoined = () => {
@@ -49,7 +55,10 @@ const Messages = () => {
   }
 
   const isCreator = () => {
-    return currentRoom?.getRoomById.ownerId == lsUser?.id
+    refetch({
+      roomId: Number(lsActiveGroup?.id)
+    })
+    return currentRoom?.getRoomById.ownerId === lsUser?.id
   }
 
   const toggleNewGroup = () => {
@@ -60,11 +69,6 @@ const Messages = () => {
     setModalGroup(!modalGroup)
   }
 
-  const { data: users, loading: isUsersLoading } = useQuery(GET_ALL_USERS_BY_ROOM_ID, {
-    variables: {
-      roomId: Number(activeGroup && activeGroup.id),
-    },
-  })
 
   // useEffect(() => {
   //   if (!isUsersLoading) {
