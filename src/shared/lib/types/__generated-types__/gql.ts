@@ -21,6 +21,7 @@ const documents = {
     "\nmutation Signin($signInInput: SignInInput!) {\n  signin(signInInput: $signInInput) {\n    user {\n      username\n      id\n      email\n    }\n    refreshToken\n    accessToken\n  }\n}\n": types.SigninDocument,
     "\n  mutation Signup($signUpInput: SignUpInput!) {\n    signup(signUpInput: $signUpInput) {\n      user {\n        username\n        id\n        email\n      }\n      refreshToken\n      accessToken\n    }\n  }\n": types.SignupDocument,
     "\n    query GetAllMyRooms {\n      getAllMyRooms {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n": types.GetAllMyRoomsDocument,
+    "\n  query GetAllRooms {\n    getAllRooms {\n      id\n      ownerId\n      title\n      description\n      createdAt\n      updatedAt\n    }\n  }\n": types.GetAllRoomsDocument,
     "\nquery GetAllMessagesByRoomId($userMessage: UserMessages!) {\n  getAllMessagesByRoomId(userMessage: $userMessage) {\n    content\n    createdAt\n    id\n    roomId\n    updatedAt\n    userId\n  }\n}\n": types.GetAllMessagesByRoomIdDocument,
     "\n    query GetAllUsersByRoomId($roomId: Float!) {\n      getAllUsersByRoomId(roomId: $roomId) {\n        username\n        firstname\n        lastname\n        avatarUrl\n      }\n    }\n": types.GetAllUsersByRoomIdDocument,
     "\n    mutation Mutation($newMessage: NewMessageInput!) {\n      sendMessage(newMessage: $newMessage) {\n        id\n        userId\n        roomId\n        content\n        createdAt\n        updatedAt\n      }\n    }\n": types.MutationDocument,
@@ -88,6 +89,10 @@ export function gql(source: "\n  mutation Signup($signUpInput: SignUpInput!) {\n
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "\n    query GetAllMyRooms {\n      getAllMyRooms {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n"): (typeof documents)["\n    query GetAllMyRooms {\n      getAllMyRooms {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n  query GetAllRooms {\n    getAllRooms {\n      id\n      ownerId\n      title\n      description\n      createdAt\n      updatedAt\n    }\n  }\n"): (typeof documents)["\n  query GetAllRooms {\n    getAllRooms {\n      id\n      ownerId\n      title\n      description\n      createdAt\n      updatedAt\n    }\n  }\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

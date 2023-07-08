@@ -7,7 +7,11 @@ import './ChatGroups.scss'
 import { NEW_MESSAGE } from '@shared/schemas/messages/subscriptions'
 import { GET_ALL_MY_ROOMS } from '@shared/schemas/messages/messages'
 import { useLocalStorage } from '@shared/lib/useLocalStorage'
-import { GetAllMyRoomsDocument, NewMessageDocument } from '@shared/lib/types/__generated-types__/graphql'
+import {
+  GetAllMyRoomsDocument,
+  GetAllRoomsDocument,
+  NewMessageDocument,
+} from '@shared/lib/types/__generated-types__/graphql'
 
 interface Group {
   title: string
@@ -21,7 +25,7 @@ interface IChatGroupsProps {
 
 export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
   const { setValue } = useLocalStorage('activeGroup')
-  const { data: groupsData, loading: groupsLoading } = useQuery(GetAllMyRoomsDocument)
+  const { data: groupsData, loading: groupsLoading } = useQuery(GetAllRoomsDocument)
   const [lastMessages, setLastMessages] = useState({})
   const { data: newMessageData, loading: newMessageLoading } = useSubscription(NewMessageDocument, {
     variables: { roomId: activeItem, content: '' },
@@ -48,7 +52,7 @@ export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
     <div className="sidebar__group ">
       {!groupsLoading && (
         <ul>
-          {groupsData?.getAllMyRooms.map((group: Group) => (
+          {groupsData?.getAllRooms.map((group: Group) => (
             <li
               key={group.id}
               className={`sidebar__list ${activeItem === group.id ? 'active' : ''}`}

@@ -12,6 +12,18 @@ export const GET_ALL_MY_ROOMS = gql(`
       }
     }
 `)
+export const GET_ALL_ROOMS = gql(`
+  query GetAllRooms {
+    getAllRooms {
+      id
+      ownerId
+      title
+      description
+      createdAt
+      updatedAt
+    }
+  }
+`)
 
 export const GET_ALL_MESSAGES_BY_ROOM = gql(`
 query GetAllMessagesByRoomId($userMessage: UserMessages!) {
