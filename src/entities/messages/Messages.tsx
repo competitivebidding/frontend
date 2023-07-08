@@ -11,6 +11,7 @@ import { ChatMessages } from '@features/chat-messages/ChatMessages'
 import { ChatHeader } from './ui/chat-header/ChatHeader'
 import { ChatSidebar } from './ui/chat-sidebar/ChatSidebar'
 import { ChatJoin } from '@features/chat-join-button/ChatJoin'
+import { GetRoomByIdDocument, GetRoomByIdQuery } from '@shared/lib/types/__generated-types__/graphql'
 
 interface ActiveGroup {
   title: string
@@ -26,13 +27,18 @@ export interface User {
 }
 
 const Messages = () => {
-  const { lsValue: lsActiveGroup } = useLocalStorage('activeGroup')
+  const { lsValue: lsActiveGroup } = useLocalStorage<ActiveGroup>('activeGroup')
   const { lsValue: lsUser } = useLocalStorage<User>('user')
 
   const [modalNewGroup, setModalNewGroup] = useState(false)
   const [modalGroup, setModalGroup] = useState(false)
   const [activeGroup, setActiveGroup] = useState<ActiveGroup | undefined>(undefined)
   const [groupUsers, setGroupUsers] = useState<User[] | []>([])
+  const { data: currentRoom, loading } = useQuery(GetRoomByIdDocument, {
+    variables: {
+      roomId: Number(lsActiveGroup?.id)
+    }
+  })
 
   const isJoined = () => {
     return users?.getAllUsersByRoomId.find((user) => user.username === lsUser?.username)
@@ -40,6 +46,10 @@ const Messages = () => {
 
   const handleSelectActiveGroup = ({ title, id }: ActiveGroup) => {
     setActiveGroup({ title, id })
+  }
+
+  const isCreator = () => {
+    return currentRoom?.getRoomById.ownerId == lsUser?.id
   }
 
   const toggleNewGroup = () => {
@@ -64,29 +74,29 @@ const Messages = () => {
 
   return (
     <>
-      <div className="chat">
+      <div className='chat'>
         <ChatSidebar
           onToggleNewGroupModal={setModalNewGroup}
           onSelectGroup={handleSelectActiveGroup}
           activeGroupId={(activeGroup && activeGroup.id) as number}
         />
         {activeGroup ? (
-          <div className="chat__container">
+          <div className='chat__container'>
             <ChatHeader
               title={activeGroup && activeGroup.title}
               length={(users && users.getAllUsersByRoomId.length) as number}
               onToggleModal={toggleGroup}
             />
-            <ChatMessages groupId={activeGroup && activeGroup.id} />
-            {isJoined() ? (
-              <MessageInput roomId={activeGroup && activeGroup.id} />
+            <ChatMessages groupId={activeGroup.id} />
+            {isJoined() || isCreator() ? (
+              <MessageInput roomId={activeGroup.id} />
             ) : (
-              <ChatJoin roomId={activeGroup && activeGroup.id} />
+              <ChatJoin roomId={activeGroup.id} />
             )}
           </div>
         ) : (
-          <div className="empty__container">
-            <div className="chat__empty"> Select a chat to start messaging</div>
+          <div className='empty__container'>
+            <div className='chat__empty'> Select a chat to start messaging</div>
           </div>
         )}
       </div>

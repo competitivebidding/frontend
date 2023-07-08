@@ -60,6 +60,15 @@ export const CREATE_MY_ROOM = gql(`
     }
 
 `)
+
+export const GET_OWNER_ID = gql(`
+  query GetRoomById($roomId: Float!) {
+    getRoomById(roomId: $roomId) {
+      ownerId
+    }
+  }
+`)
+
 export const JOIN_ROOM = gql(`
     mutation JoinToRoom($roomId: Float!) {
   joinToRoom(roomId: $roomId) {

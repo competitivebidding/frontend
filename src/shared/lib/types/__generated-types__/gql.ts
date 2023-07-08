@@ -25,6 +25,7 @@ const documents = {
     "\n    query GetAllUsersByRoomId($roomId: Float!) {\n      getAllUsersByRoomId(roomId: $roomId) {\n        username\n        firstname\n        lastname\n        avatarUrl\n      }\n    }\n": types.GetAllUsersByRoomIdDocument,
     "\n    mutation Mutation($newMessage: NewMessageInput!) {\n      sendMessage(newMessage: $newMessage) {\n        id\n        userId\n        roomId\n        content\n        createdAt\n        updatedAt\n      }\n    }\n": types.MutationDocument,
     "\n    mutation CreateMyRoom($input: RoomCreateInput!) {\n      createMyRoom(input: $input) {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n\n": types.CreateMyRoomDocument,
+    "\n  query GetRoomById($roomId: Float!) {\n    getRoomById(roomId: $roomId) {\n      ownerId\n    }\n  }\n": types.GetRoomByIdDocument,
     "\n    mutation JoinToRoom($roomId: Float!) {\n  joinToRoom(roomId: $roomId) {\n    username\n    firstname\n    lastname\n    avatarUrl\n  }\n}\n": types.JoinToRoomDocument,
     "\nmutation LeaveFromRoom($roomId: Float!) {\n  leaveFromRoom(roomId: $roomId) {\n    avatarUrl\n    lastname\n    firstname\n    username\n  }\n}\n": types.LeaveFromRoomDocument,
     "\n  subscription NewMessage($roomId: Int!) {\n    newMessage(roomId: $roomId) {\n      content\n      createdAt\n      id\n      updatedAt\n      roomId\n      userId\n    }\n  }\n": types.NewMessageDocument,
@@ -103,6 +104,10 @@ export function gql(source: "\n    mutation Mutation($newMessage: NewMessageInpu
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "\n    mutation CreateMyRoom($input: RoomCreateInput!) {\n      createMyRoom(input: $input) {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n\n"): (typeof documents)["\n    mutation CreateMyRoom($input: RoomCreateInput!) {\n      createMyRoom(input: $input) {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n  query GetRoomById($roomId: Float!) {\n    getRoomById(roomId: $roomId) {\n      ownerId\n    }\n  }\n"): (typeof documents)["\n  query GetRoomById($roomId: Float!) {\n    getRoomById(roomId: $roomId) {\n      ownerId\n    }\n  }\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

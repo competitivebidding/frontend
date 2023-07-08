@@ -17,14 +17,13 @@ interface IChatMessages {
 interface IMessage {
   userId: number
   id: number
-  username: string
   content: string
   createdAt: ITime
 }
 
 export const ChatMessages = ({ groupId }: IChatMessages) => {
   const { lsValue } = useLocalStorage<User>('user')
-  const [groupMessages, setGroupMessages] = useState<IMessage[] | null>(null)
+  const [groupMessages, setGroupMessages] = useState<IMessage[] | undefined>(undefined)
   const ref = useRef<HTMLDivElement>(null)
   const [autoScrollEnabled, setAutoScrollEnabled] = useState(false)
 
@@ -37,6 +36,11 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
       },
     },
   })
+
+  useEffect(() => {
+    console.log()
+  }, [])
+
 
   useEffect(() => {
     if (ref.current) {
@@ -73,11 +77,11 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
   }, [autoScrollEnabled])
 
   useEffect(() => {
-    if (!subLoading) {
-      setGroupMessages(subData?.getAllMessagesByRoomId)
+    if (!messagesLoading) {
+      setGroupMessages(messagesData?.getAllMessagesByRoomId)
       setAutoScrollEnabled(true)
     }
-  }, [subData])
+  }, [messagesData])
 
   const Your = ({ message }: { message: IMessage }) => {
     return (
@@ -94,7 +98,7 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
     return (
       <div className="message__answer answer">
         <div className="answer__content-answer">
-          <div className="answer__sender">{message.username}</div>
+          {/*<div className="answer__sender">{message.username}</div>*/}
           {message.content}
           <div className="answer__time-answer">{toTime(message.createdAt)}</div>
         </div>

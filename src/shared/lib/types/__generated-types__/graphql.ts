@@ -956,6 +956,13 @@ export type CreateMyRoomMutation = {
   } | null
 };
 
+export type GetRoomByIdQueryVariables = Exact<{
+  roomId: Scalars['Float']['input'];
+}>;
+
+
+export type GetRoomByIdQuery = { __typename?: 'Query', getRoomById: { __typename?: 'Room', ownerId: number } };
+
 export type JoinToRoomMutationVariables = Exact<{
   roomId: Scalars['Float']['input'];
 }>;
@@ -1811,6 +1818,35 @@ export const CreateMyRoomDocument = {
     },
   }],
 } as unknown as DocumentNode<CreateMyRoomMutation, CreateMyRoomMutationVariables>
+export const GetRoomByIdDocument = {
+  'kind': 'Document',
+  'definitions': [{
+    'kind': 'OperationDefinition',
+    'operation': 'query',
+    'name': { 'kind': 'Name', 'value': 'GetRoomById' },
+    'variableDefinitions': [{
+      'kind': 'VariableDefinition',
+      'variable': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'roomId' } },
+      'type': { 'kind': 'NonNullType', 'type': { 'kind': 'NamedType', 'name': { 'kind': 'Name', 'value': 'Float' } } },
+    }],
+    'selectionSet': {
+      'kind': 'SelectionSet',
+      'selections': [{
+        'kind': 'Field',
+        'name': { 'kind': 'Name', 'value': 'getRoomById' },
+        'arguments': [{
+          'kind': 'Argument',
+          'name': { 'kind': 'Name', 'value': 'roomId' },
+          'value': { 'kind': 'Variable', 'name': { 'kind': 'Name', 'value': 'roomId' } },
+        }],
+        'selectionSet': {
+          'kind': 'SelectionSet',
+          'selections': [{ 'kind': 'Field', 'name': { 'kind': 'Name', 'value': 'ownerId' } }],
+        },
+      }],
+    },
+  }],
+} as unknown as DocumentNode<GetRoomByIdQuery, GetRoomByIdQueryVariables>
 export const JoinToRoomDocument = {
   'kind': 'Document',
   'definitions': [{
