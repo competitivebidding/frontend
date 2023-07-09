@@ -7,8 +7,7 @@ import { NEW_MESSAGE } from '@shared/schemas/messages/subscriptions'
 import { toTime } from '@shared/utils/timeHelpers'
 import './ChatMessages.scss'
 import { GetAllMessagesByRoomIdDocument, MutationSendMessageArgs } from '@shared/lib/types/__generated-types__/graphql'
-import { ITime } from '@shared/utils/timeHelpers'
-import { User } from 'src/entities/messages/Messages'
+import { IUser } from 'src/entities/messages/Messages'
 
 interface IChatMessages {
   groupId: number
@@ -18,11 +17,11 @@ interface IMessage {
   userId: number
   id: number
   content: string
-  createdAt: ITime
+  createdAt: string
 }
 
 export const ChatMessages = ({ groupId }: IChatMessages) => {
-  const { lsValue } = useLocalStorage<User>('user')
+  const { lsValue } = useLocalStorage<IUser>('user')
   const [groupMessages, setGroupMessages] = useState<IMessage[] | undefined>(undefined)
   const ref = useRef<HTMLDivElement>(null)
   const [autoScrollEnabled, setAutoScrollEnabled] = useState(false)
@@ -88,7 +87,9 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
       <div key={message.id} className="message__your">
         <div className="message__content">
           {message.content}
-          <div className="message__time">{toTime(message.createdAt)}</div>
+          <div className="message__time">
+            {toTime(message.createdAt)}
+          </div>
         </div>
       </div>
     )
@@ -100,7 +101,9 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
         <div className="answer__content-answer">
           {/*<div className="answer__sender">{message.username}</div>*/}
           {message.content}
-          <div className="answer__time-answer">{toTime(message.createdAt)}</div>
+          <div className="answer__time-answer">
+            {toTime(message.createdAt)}
+          </div>
         </div>
       </div>
     )

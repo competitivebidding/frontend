@@ -4,11 +4,11 @@ import { useMutation, useQuery } from '@apollo/client'
 import { GET_ALL_MY_ROOMS, GET_ALL_USERS_BY_ROOM_ID, LEAVE_FROM_CHAT } from '@/shared/schemas/messages/messages'
 
 import scss from './GroupSubscribers.module.scss'
-import { User } from '@entities/messages/Messages'
+import { IUser } from '@entities/messages/Messages'
 
 interface IGroupSubscribersProps {
   groupTitle: string
-  groupSubs: User[]
+  groupSubs: IUser[]
   roomId: number
   onClose: () => void
 }
@@ -29,6 +29,8 @@ export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose }: IGr
     })
     onClose()
   }
+
+   console.log (groupSubs.length)
 
   return (
     <>

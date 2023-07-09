@@ -14,67 +14,75 @@ import { ChatJoin } from '@features/chat-join-button/ChatJoin'
 import { GetRoomByIdDocument, GetRoomByIdQuery } from '@shared/lib/types/__generated-types__/graphql'
 
 interface ActiveGroup {
-  title: string
-  id: number
+  title: string;
+  id: number;
 }
 
-export interface User {
-  id: number
-  username: string
-  firstname: string
-  lastname: string
-  avatarUrl: string
+export interface IUser {
+  id: number; 
+  username: string;
+  firstname?: string | null;
+  lastname?: string | null;
+  avatarUrl?: string | null;
 }
 
 const Messages = () => {
-  const { lsValue: lsActiveGroup } = useLocalStorage<ActiveGroup>('activeGroup')
-  const { lsValue: lsUser } = useLocalStorage<User>('user')
+  const { lsValue: lsActiveGroup } = useLocalStorage<ActiveGroup>('activeGroup');
+  const { lsValue: lsUser } = useLocalStorage<IUser>('user');
 
-  const [modalNewGroup, setModalNewGroup] = useState(false)
-  const [modalGroup, setModalGroup] = useState(false)
-  const [activeGroup, setActiveGroup] = useState<ActiveGroup | undefined>(undefined)
-  const [groupUsers, setGroupUsers] = useState<User[] | []>([])
-  const { data: currentRoom, loading , refetch} = useQuery(GetRoomByIdDocument, {
+  const [modalNewGroup, setModalNewGroup] = useState(false);
+  const [modalGroup, setModalGroup] = useState(false);
+  const [activeGroup, setActiveGroup] = useState<ActiveGroup | undefined>(undefined);
+  const [groupUsers, setGroupUsers] = useState<IUser[]>([]);
+  const { data: currentRoom, loading, refetch } = useQuery(GetRoomByIdDocument, {
     variables: {
-      roomId: Number(lsActiveGroup?.id)
-    }
-  })
+      roomId: Number(lsActiveGroup?.id),
+    },
+  });
 
   const { data: users, loading: isUsersLoading } = useQuery(GET_ALL_USERS_BY_ROOM_ID, {
     variables: {
       roomId: Number(activeGroup?.id),
     },
-  })
+  });
 
   const isJoined = () => {
-    return users?.getAllUsersByRoomId.find((user) => user.username === lsUser?.username)
-  }
+    return users?.getAllUsersByRoomId.find((user) => user.username === lsUser?.username);
+  };
 
   const handleSelectActiveGroup = ({ title, id }: ActiveGroup) => {
-    setActiveGroup({ title, id })
-  }
+    setActiveGroup({ title, id });
+  };
 
   const isCreator = () => {
     refetch({
-      roomId: Number(lsActiveGroup?.id)
-    })
-    return currentRoom?.getRoomById.ownerId === lsUser?.id
-  }
+      roomId: Number(lsActiveGroup?.id),
+    });
+    return currentRoom?.getRoomById.ownerId === lsUser?.id;
+  };
 
   const toggleNewGroup = () => {
-    setModalNewGroup(!modalNewGroup)
-  }
+    setModalNewGroup(!modalNewGroup);
+  };
 
   const toggleGroup = () => {
-    setModalGroup(!modalGroup)
-  }
+    setModalGroup(!modalGroup);
+  };
 
+  useEffect(() => {
+    if (!isUsersLoading) {
+      const transformedUsers = users?.getAllUsersByRoomId.map((user, index) => ({
+        id: parseInt(`${user.username}_${index}`),
+        username: user.username,
+        firstname: user.firstname ?? '',
+        lastname: user.lastname ?? '',
+        avatarUrl: user.avatarUrl ?? '',
+      })) ?? [];
 
-  // useEffect(() => {
-  //   if (!isUsersLoading) {
-  //     setGroupUsers(users?.getAllUsersByRoomId)
-  //   }
-  // }, [users])
+      setGroupUsers(transformedUsers);
+    }
+  }, [users]);
+  
 
   return (
     <>
