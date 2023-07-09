@@ -14,16 +14,16 @@ import { ChatJoin } from '@features/chat-join-button/ChatJoin'
 import { GetRoomByIdDocument, GetRoomByIdQuery } from '@shared/lib/types/__generated-types__/graphql'
 
 interface ActiveGroup {
-  title: string;
-  id: number;
+  title: string
+  id: number
 }
 
 export interface IUser {
-  id: number; 
-  username: string;
-  firstname?: string | null;
-  lastname?: string | null;
-  avatarUrl?: string | null;
+  id: number
+  username: string
+  firstname?: string | null
+  lastname?: string | null
+  avatarUrl?: string | null
 }
 
 const Messages = () => {
@@ -36,13 +36,13 @@ const Messages = () => {
   const [groupUsers, setGroupUsers] = useState<IUser[]>([]);
   const { data: currentRoom, loading, refetch } = useQuery(GetRoomByIdDocument, {
     variables: {
-      roomId: Number(lsActiveGroup?.id),
+      roomId: Number(lsActiveGroup?.id)
     },
   });
 
   const { data: users, loading: isUsersLoading } = useQuery(GET_ALL_USERS_BY_ROOM_ID, {
     variables: {
-      roomId: Number(activeGroup?.id),
+      roomId: Number(activeGroup?.id)
     },
   });
 
@@ -74,15 +74,15 @@ const Messages = () => {
       const transformedUsers = users?.getAllUsersByRoomId.map((user, index) => ({
         id: parseInt(`${user.username}_${index}`),
         username: user.username,
-        firstname: user.firstname ?? '',
-        lastname: user.lastname ?? '',
-        avatarUrl: user.avatarUrl ?? '',
-      })) ?? [];
+        firstname: user.firstname || '',
+        lastname: user.lastname || '',
+        avatarUrl: user.avatarUrl || '',
+      })) || [];
 
       setGroupUsers(transformedUsers);
     }
   }, [users]);
-  
+
 
   return (
     <>
@@ -135,4 +135,5 @@ const Messages = () => {
   )
 }
 
-export default Messages
+
+export default Messages;

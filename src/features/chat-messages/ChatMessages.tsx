@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FC, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useQuery, useSubscription } from '@apollo/client'
 import { GET_ALL_MESSAGES_BY_ROOM } from '@shared/schemas/messages/messages'
 import { useLocalStorage } from '@shared/lib/useLocalStorage'
