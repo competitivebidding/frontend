@@ -18,11 +18,13 @@ import {
   $email,
   $username,
   $referrerId,
+  $phone,
   passwordChanged,
   repeatPasswordChanged,
   emailChanged,
   referrerIdChanged,
   usernameChanged,
+
 } from './model'
 
 import { useUnit } from 'effector-react'
@@ -47,12 +49,13 @@ export const SignUpRight = () => {
     mode: "onChange"
   })
 
-  const [pass, repeatPass, email, username, referrerId] = useUnit([
+  const [pass, repeatPass, email, username, referrerId, phone] = useUnit([
     $password,
     $repeatPassword,
     $email,
     $username,
-    $referrerId
+    $referrerId,
+    $phone
   ])
 
   const password = watch('password')
@@ -116,6 +119,8 @@ export const SignUpRight = () => {
               type='text'
               id='username'
               {...register('username', {
+                value: username,
+                onChange: (e) => usernameChanged(e.target.value),
                 required: true,
                 minLength: 4,
                 maxLength: 16,
@@ -160,6 +165,8 @@ export const SignUpRight = () => {
               type={isPasswordVisible ? 'text' : 'password'}
               id='password'
               {...register('password', {
+                value: pass,
+                onChange: (e) => passwordChanged(e.target.value),
                 required: {
                   value: true,
                   message: 'Please enter a password',
@@ -187,6 +194,8 @@ export const SignUpRight = () => {
               type={isRepeatPasswordVisible ? 'text' : 'password'}
               id='repeat__password'
               {...register('repeatPassword', {
+                value: repeatPass,
+                onChange: (e) => repeatPasswordChanged(e.target.value),
                 required: true,
               })}
             />
@@ -211,6 +220,8 @@ export const SignUpRight = () => {
               type='number'
               id='referrerUserId'
               {...register('referrerUserId', {
+                value: referrerId as number,
+                onChange: (e) => referrerIdChanged(e.target.value),
                 required: false,
               })}
             />
