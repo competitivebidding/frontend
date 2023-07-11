@@ -25,7 +25,7 @@ const langs: LangOption[] = [
 const UserCountry = () => {
   const { t } = useTranslation('cabinet')
 
-  const [country, setCountry] = useState<string>('')
+  const [country, setCountry] = useState<string | null | undefined>('')
   const { data, loading, refetch } = useQuery(GET_USER_ADDRESS)
   const [update] = useMutation(UPDATE_USER_ADDRESS)
 
@@ -42,7 +42,7 @@ const UserCountry = () => {
 
   useEffect(() => {
     if (!loading) {
-      setCountry(data.getUserAddress.country)
+      setCountry(data?.getUserAddress.country)
     }
   }, [data, loading])
 
