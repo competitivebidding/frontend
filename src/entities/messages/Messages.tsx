@@ -13,7 +13,7 @@ import { ChatSidebar } from './ui/chat-sidebar/ChatSidebar'
 import { ChatJoin } from '@features/chat-join-button/ChatJoin'
 import { GetRoomByIdDocument, GetRoomByIdQuery } from '@shared/lib/types/__generated-types__/graphql'
 
-interface ActiveGroup {
+export interface ActiveGroup {
   title: string
   id: number
 }
@@ -85,53 +85,54 @@ const Messages = () => {
 
 
   return (
-    <>
-      <div className='chat'>
-        <ChatSidebar
-          onToggleNewGroupModal={setModalNewGroup}
-          onSelectGroup={handleSelectActiveGroup}
-          activeGroupId={(activeGroup && activeGroup.id) as number}
-        />
-        {activeGroup ? (
-          <div className='chat__container'>
-            <ChatHeader
-              title={activeGroup && activeGroup.title}
-              length={(users && users.getAllUsersByRoomId.length) as number}
-              onToggleModal={toggleGroup}
-            />
-            <ChatMessages groupId={activeGroup.id} />
-            {isJoined() || isCreator() ? (
-              <MessageInput roomId={activeGroup.id} />
-            ) : (
-              <ChatJoin roomId={activeGroup.id} />
-            )}
-          </div>
-        ) : (
-          <div className='empty__container'>
-            <div className='chat__empty'> Select a chat to start messaging</div>
-          </div>
-        )}
-      </div>
-
-      {modalNewGroup && (
-        <AppModal isOpen={modalNewGroup} onClose={toggleNewGroup}>
-          <AddNewGroupForm onClose={setModalNewGroup} />
-        </AppModal>
-      )}
-
-      {modalGroup && (
-        <AppModal isOpen={modalGroup} onClose={toggleGroup}>
-          {activeGroup && (
-            <GroupSubscribers
-              groupTitle={activeGroup.title}
-              groupSubs={groupUsers}
-              roomId={activeGroup.id}
-              onClose={toggleGroup}
-            />
+      <>
+        <div className='chat'>
+          <ChatSidebar
+              onToggleNewGroupModal={setModalNewGroup}
+              onSelectGroup={handleSelectActiveGroup}
+              activeGroupId={(activeGroup && activeGroup.id) as number}
+          />
+          {activeGroup ? (
+              <div className='chat__container'>
+                {<ChatHeader
+                    title={ activeGroup.title}
+                    length={(users?.getAllUsersByRoomId.length) as number}
+                    onToggleModal={toggleGroup}
+                />}
+                <ChatMessages groupId={activeGroup.id} />
+                {isJoined() || isCreator() ? (
+                    <MessageInput roomId={activeGroup.id} />
+                ) : (
+                    <ChatJoin roomId={activeGroup.id} />
+                )}
+              </div>
+          ) : (
+              <div className='empty__container'>
+                <div className='chat__empty'> Select a chat to start messaging</div>
+              </div>
           )}
-        </AppModal>
-      )}
-    </>
+        </div>
+
+        {modalNewGroup && (
+            <AppModal isOpen={modalNewGroup} onClose={toggleNewGroup}>
+              <AddNewGroupForm onClose={setModalNewGroup} />
+            </AppModal>
+        )}
+
+        {modalGroup && (
+            <AppModal isOpen={modalGroup} onClose={toggleGroup}>
+              {activeGroup && (
+                  <GroupSubscribers
+                      groupTitle={activeGroup.title}
+                      groupSubs={groupUsers}
+                      roomId={activeGroup.id}
+                      onClose={toggleGroup}
+                      setActiveGroup={setActiveGroup}
+                  />
+              )}
+            </AppModal>
+        )}
+      </>
   )
 }
 
