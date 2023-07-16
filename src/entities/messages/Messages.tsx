@@ -29,6 +29,7 @@ export interface IUser {
 const Messages = () => {
   const { lsValue: lsActiveGroup } = useLocalStorage<ActiveGroup>('activeGroup');
   const { lsValue: lsUser } = useLocalStorage<IUser>('user');
+  const [isSidebarOpened, setIsSidebarOpened] = useState(true)
 
   const [modalNewGroup, setModalNewGroup] = useState(false);
   const [modalGroup, setModalGroup] = useState(false);
@@ -52,6 +53,7 @@ const Messages = () => {
 
   const handleSelectActiveGroup = ({ title, id }: ActiveGroup) => {
     setActiveGroup({ title, id });
+    toggleActiveSidebar()
   };
 
   const isCreator = () => {
@@ -68,6 +70,10 @@ const Messages = () => {
   const toggleGroup = () => {
     setModalGroup(!modalGroup);
   };
+
+  const toggleActiveSidebar = () => {
+    setIsSidebarOpened(!isSidebarOpened)
+  }
 
   useEffect(() => {
     if (!isUsersLoading) {
@@ -91,6 +97,7 @@ const Messages = () => {
               onToggleNewGroupModal={setModalNewGroup}
               onSelectGroup={handleSelectActiveGroup}
               activeGroupId={(activeGroup && activeGroup.id) as number}
+              isSidebarOpened={isSidebarOpened}
           />
           {activeGroup ? (
               <div className='chat__container'>
@@ -98,6 +105,8 @@ const Messages = () => {
                     title={ activeGroup.title}
                     length={(users?.getAllUsersByRoomId.length) as number}
                     onToggleModal={toggleGroup}
+                    isSidebarOpened={isSidebarOpened}
+                    toggleActiveSidebar={toggleActiveSidebar}
                 />}
                 <ChatMessages groupId={activeGroup.id} />
                 {isJoined() || isCreator() ? (

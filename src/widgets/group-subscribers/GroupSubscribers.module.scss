@@ -8,7 +8,11 @@
     justify-content: center;
     align-items: center;
 
-
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
     &__avatarGroup {
       width: 50px;

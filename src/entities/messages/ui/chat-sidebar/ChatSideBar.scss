@@ -3,7 +3,6 @@
   padding: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-
   background-color: #171e2c;
   color: #fff;
 
@@ -20,6 +19,22 @@
 
     .group__rotate {
       transition: transform 0.3s ease-in-out;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .chat {
+    overflow: hidden;
+    .sidebar {
+      position: absolute;
+      height: 100%;
+      left: -220px;
+      transition: 250ms all ease;
+      z-index: 9;
+      &.active {
+        left: 0;
+      }
     }
   }
 }
