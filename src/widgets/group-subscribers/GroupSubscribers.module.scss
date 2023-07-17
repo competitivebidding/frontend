@@ -8,7 +8,11 @@
     justify-content: center;
     align-items: center;
 
-
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
     &__avatarGroup {
       width: 50px;
@@ -51,7 +55,7 @@
       align-items: center;
     }
 
-    
+
     &__count {
       text-align: center;
       padding: 20px;
@@ -84,15 +88,44 @@
     .modalGroup__leave {
       background-color: rgba(76, 114, 248, 0.2);
       color: #fff;
+
       border: none;
       padding: 10px 20px;
       font-size: 14px;
       border-radius: 4px;
       cursor: pointer;
+      margin-left: 20px;
 
       &:hover {
         background-color: rgba(110, 140, 250, 0.2);
       }
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title{
+    text-align: center;
+  }
+
+  &__agreement {
+    background-color: rgba(111, 108, 103, 0.2);
+    color: #fff;
+
+
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+
+    &:hover {
+      background-color: rgba(167, 161, 152, 0.2);
     }
   }
 }

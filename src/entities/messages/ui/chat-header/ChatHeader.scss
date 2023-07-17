@@ -3,6 +3,10 @@
   border-top-right-radius: 5px;
   color: #fff;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 8px;
 
   &-subscribers {
       font-size: 11px;
@@ -11,6 +15,56 @@
 
   &-users {
       margin-left: 10px;
+    flex: 1;
+    overflow: hidden;
+  }
+  &-burger {
+    display: none;
+    position: relative;
+    cursor: pointer;
+    width: 28px;
+    height: 18px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    span {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-50%);
+      height: 2px;
+      background-color: white;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+    &:before, &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      left: 0;
+      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, bottom 0.3s ease-in-out;
+    }
+    &:before {
+      top: 0;
+    }
+    &:after {
+      bottom: 0;
+    }
+    &.active span {
+      opacity: 0;
+    }
+    &.active::before {
+      transform: translateY(-50%) rotate(45deg);
+      top: 50%;
+    }
+    &.active::after {
+      transform: translateY(50%) rotate(-45deg);
+      bottom: 50%;
+    }
   }
 
   &-title {
@@ -33,4 +87,13 @@
   $result: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
 
   padding: #{$top + px} $result #{$bottom + px} $result;
+}
+
+
+@media (max-width: 768px) {
+  .chat__header{
+    &-burger {
+      display: block;
+    }
+  }
 }

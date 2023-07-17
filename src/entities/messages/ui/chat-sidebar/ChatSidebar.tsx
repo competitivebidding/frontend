@@ -8,11 +8,12 @@ interface IChatSidebar {
   onToggleNewGroupModal: React.Dispatch<React.SetStateAction<boolean>>
   onSelectGroup: ({ title, id }: { title: string; id: number }) => void
   activeGroupId: number
+    isSidebarOpened: boolean
 }
 
-export const ChatSidebar = ({ onToggleNewGroupModal, onSelectGroup, activeGroupId }: IChatSidebar) => {
+export const ChatSidebar = ({ onToggleNewGroupModal, onSelectGroup, activeGroupId, isSidebarOpened }: IChatSidebar) => {
   return (
-    <div className="chat__sidebar sidebar">
+    <div className={`chat__sidebar sidebar ${isSidebarOpened && 'active'}`}>
       <div className="sidebar__header">
         <h2>Groups</h2>
         <div className="sidebar__menu">
