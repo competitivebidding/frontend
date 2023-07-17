@@ -36,7 +36,7 @@ const UserInst = ({ field, handleUpdate }: UserInstProps) => {
                 autoFocus
                 type="text"
                 className="item-top__input"
-                defaultValue={field}
+                defaultValue={field as string}
                 onChange={(e) => setValue(e.target.value)}
               />
             ) : (

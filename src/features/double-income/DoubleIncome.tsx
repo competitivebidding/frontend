@@ -7,7 +7,7 @@ import { ChartData } from 'chart.js'
 interface IDoubleIncomeProps {
   currency: string[]
   color: string[]
-  data: ChartData<'bar'>[]
+  data: ChartData<'bar', number[], string[]>[]
 }
 
 function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {

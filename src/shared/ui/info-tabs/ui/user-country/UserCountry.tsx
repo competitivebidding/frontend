@@ -7,19 +7,19 @@ import { GET_USER_ADDRESS, UPDATE_USER_ADDRESS } from '@/shared/schemas/user/use
 import { useTranslation } from 'react-i18next'
 import { TooltipButton } from '@/shared/ui/tooltip-button/TooltipButton'
 
-import US from '@assets/cabinet/dropdown/US.svg'
-import RU from '@assets/cabinet/dropdown/RU.svg'
-import UA from '@assets/cabinet/dropdown/UA.svg'
+// import US from '@assets/cabinet/dropdown/US.svg'
+// import RU from '@assets/cabinet/dropdown/RU.svg'
+// import UA from '@assets/cabinet/dropdown/UA.svg'
+import ua from '@assets/cabinet/dropdown/UA.svg'
+import ru from '@assets/cabinet/dropdown/RU.svg'
+import us from '@assets/cabinet/dropdown/US.svg'
+import { ILang } from '@features/lang-switcher/LangSwitcher'
+interface LangOptions extends ILang {}
 
-interface LangOption {
-  label: JSX.Element
-  value: string
-}
-
-const langs: LangOption[] = [
-  { label: <img src={UA} alt="UA" />, value: 'Ukraine' },
-  { label: <img src={RU} alt="RU" />, value: 'Russian Federation' },
-  { label: <img src={US} alt="US" />, value: 'United States of America' },
+const langs: LangOptions[] = [
+  { label: ua, value: 'ua' },
+  { label: ru, value: 'ru' },
+  { label: us, value: 'en' },
 ]
 
 const UserCountry = () => {
@@ -58,7 +58,7 @@ const UserCountry = () => {
             <span className="item-top__content-subtitle">{country && country}</span>
           </div>
           <div>
-            <DropDown data={langs} current={country} onChange={updateAddress} />
+            <DropDown data={langs} current={country as string} onChange={updateAddress} />
           </div>
         </div>
       </div>

@@ -2,7 +2,11 @@ import React from 'react'
 
 import './Mission.scss'
 
-export const Mission = ({ value }: { value: string }) => {
+interface IMissionProps {
+  value: string
+}
+
+export const Mission = ({ value }: IMissionProps) => {
   return (
     <div className={'main__mission'}>
       <div className={'mission__title'}>Mission</div>

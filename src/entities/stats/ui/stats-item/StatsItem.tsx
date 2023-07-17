@@ -2,7 +2,14 @@ import React from 'react'
 
 import './StatsItem.scss'
 
-export const StatsItem = (props) => {
+interface IStatsItemProps {
+  styles: string
+  title: string
+  text: string
+  image: string
+}
+
+export const StatsItem = (props: IStatsItemProps) => {
   return (
     <div className={`stats__item ${props.styles || ''}`}>
       <div className="stats__title">{props.title}</div>

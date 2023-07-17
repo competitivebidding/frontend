@@ -1,5 +1,5 @@
 import React from 'react'
-
+import auction from '@assets/pageMain/royalAuction.png'
 import './RoyalAuction.scss'
 
 export const RoyalAuction = () => {
@@ -11,7 +11,7 @@ export const RoyalAuction = () => {
         services, crypto-assets, cars, real estate and other things, for 15-20% of their market value
       </div>
       <div className={'royalAction__crown'}>
-        <img src={'src/assets/main/royalAuction.png'} />
+        <img src={auction} alt={'Auction'}/>
       </div>
     </div>
   )

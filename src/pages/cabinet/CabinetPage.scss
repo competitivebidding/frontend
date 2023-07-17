@@ -2,7 +2,7 @@
   border-radius: 1em;
   padding: 1rem 1.5rem;
   background-color: rgb(23, 26, 30);
-  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  box-shadow: rgb(0 0 0 / 35%) 0 5px 15px;
   color: #fff;
   transition: all .250s ease;
   &:hover {
@@ -27,7 +27,7 @@
     display: flex;
     gap: 16px;
 
-    @media (max-width: 1300px) {
+    @media (width < 1500px) {
       flex-direction: column;
     }
 

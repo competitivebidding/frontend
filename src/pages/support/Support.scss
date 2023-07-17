@@ -5,7 +5,6 @@
   border-radius: 5px;
 
   &--title {
-    font-family: 'Roboto';
     color: white;
     font-style: normal;
     font-weight: 600;
@@ -16,7 +15,6 @@
 
 
   &--descr {
-    font-family: 'Roboto';
     color: white;
     font-style: normal;
     font-weight: 400;
@@ -73,7 +71,7 @@
     display: flex;
   }
 
-  
+
 
 .btn__form {
     display: block;
@@ -95,7 +93,7 @@
     display: flex;
     // width: 25em;
   }
-  
+
   .error-message {
     margin-top: 10px;
     color: rgb(170, 9, 9);

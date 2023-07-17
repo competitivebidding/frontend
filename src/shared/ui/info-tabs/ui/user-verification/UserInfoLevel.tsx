@@ -8,10 +8,11 @@ import { useEffect, useState } from 'react'
 import { ChartData } from 'chart.js'
 
 interface IUserInfoProps {
-  field: Profile
+  field: Profile | undefined
 }
 
-type Profile = Pick<GetProfileQuery, 'getProfile'>
+type Profile = GetProfileQuery['getProfile']
+
 
 export const UserInfoLevel = ({ field }: IUserInfoProps) => {
   const { t } = useTranslation('cabinet')
@@ -20,7 +21,7 @@ export const UserInfoLevel = ({ field }: IUserInfoProps) => {
   const calculate = ( obj: any) => {
     const l = Object.keys(obj).length
     const v =
-      Object.values(Object.values(field)).filter((item: any) => {
+      Object.values(Object.values(field!)).filter((item: any) => {
         if (item === '' || item === null) {
           return
         }

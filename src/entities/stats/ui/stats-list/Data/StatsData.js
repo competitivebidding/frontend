@@ -47,7 +47,7 @@ const StatsData = [
 		styles: "image",
 		title: "Number of winners",
 		text: "132",
-		image: "src/assets/main/trophy-front-premium.png"
+		image: "./src/assets/pageMain/trophy-front-premium.png"
 	},
 ]
 

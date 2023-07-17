@@ -3,7 +3,7 @@ import './AuctionsInfo.scss'
 
 import macbook from '@assets/cabinet/macbook_menu 1.png'
 import iphone from '@assets/cabinet/image 51.png'
-import AuctionItemCard from '../../../../../../shared/ui/auction-item-card/AuctionItemCard'
+import AuctionItemCard from '@shared/ui/auction-item-card/AuctionItemCard'
 
 interface IAuctionsInfoProps {
   amount: number
