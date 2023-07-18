@@ -1,9 +1,11 @@
 .payers {
+  overflow-x: scroll;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 25px 28px 30px 28px;
   height: 100%;
+  gap: 5px;
 
   background: #171A1E;
   border-radius: 17px;

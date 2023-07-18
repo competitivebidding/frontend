@@ -4,7 +4,7 @@ import { StatsItem } from '../stats-item/StatsItem'
 
 import './StatsList.scss'
 
-import StatsData from './Data/StatsData.js'
+import StatsData from './Data/StatsData'
 
 export const StatsList = () => {
   const getData = StatsData.map((stat) => {

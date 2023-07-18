@@ -4,10 +4,10 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1em;
 
-  @media (width < 1500px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
+  //@media (width < 1500px) {
+  //  grid-template-columns: 1fr;
+  //  grid-template-rows: auto;
+  //}
 
   &__item {
     display: flex;
@@ -118,9 +118,9 @@
     justify-content: space-between;
     align-items: center;
 
-    @media (width < 1500px) {
-      grid-column: auto;
-    }
+    //@media (width < 1500px) {
+    //  grid-column: auto;
+    //}
 
     .item-top {
       display: flex;
@@ -203,7 +203,7 @@
   transition: 0.25s ease-in;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1500px) {
   .user-info {
     grid-template-columns: repeat(2, 1fr);
   }

@@ -23,7 +23,7 @@ export const AppNavBar = () => {
       <div className="navBar__logo">
         <img src={logo} alt="Competitive bidding" />
         <h1 className="navBar__title">
-          <Link to="/"> Competitive bidding </Link>
+          <Link to="/"> Competitive<br/> bidding </Link>
         </h1>
       </div>
 

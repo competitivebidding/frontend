@@ -3,8 +3,9 @@
   grid-template: repeat(4, auto) / 1fr 1fr;
   gap: 25px 16px;
 
-  @media (max-width: 1300px) {
-    grid-template: repeat(6, auto) / 1fr;
+  @media (width < 1550px) {
+    display: flex;
+    flex-direction: column;
     gap: 16px;
   }
 

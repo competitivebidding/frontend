@@ -8,7 +8,7 @@ export const routesConfig = {
   tokensPage: { name: 'Tokens', path: '/tokens' },
   winnersListPage: { name: 'Winner list', path: '/winnerList' },
   lotPage: { name: 'Lot/:id', path: '/:id' },
-  cabinetPage: { name: 'cabinet', path: '/cabinet' },
+  cabinetPage: { name: 'Cabinet', path: '/cabinet' },
   notificationsPage: { name: 'Notifications', path: '/notifications' },
   questionsPage: { name: 'Questions', path: '/questions' },
   supportPage: { name: 'SupportPage', path: '/support' },
