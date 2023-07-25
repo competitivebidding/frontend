@@ -10,7 +10,6 @@ const MyAuctionsPage = () => {
       <div className="auctions__components">
         <div className="auctions__search--card">
           <Search onChange={() => console.log()} />
-
           <AuctionsPageContent />
         </div>
         <Filter />

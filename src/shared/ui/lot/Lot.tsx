@@ -21,8 +21,8 @@ interface IBid {
 }
 
 const Lot = () => {
+  console.log(123123123)
   const [isShowMore, setIsShowMore] = useState(false)
-  const [lotData, setLotData] = useState<IAuctionData | null>(null)
 
   const { id } = useParams()
 
@@ -30,11 +30,8 @@ const Lot = () => {
     setIsShowMore((prevState) => !prevState)
   }
 
-  const { data: datas, loading } = useQuery(GET_LOT, {
-    variables: {
-      auctionId: Number(id),
-    },
-  })
+  const { data: datas, loading } = useQuery(GET_LOT, {variables: {auctionId: Number(id)}})
+  const { data: auctionBids } = useQuery(GET_BIDS_BY_AUCTION_ID, { variables: { auctionId: Number(id) } })
 
   const [createBid, { data: bidData }] = useMutation(CREATE_MY_BID)
 
@@ -50,33 +47,24 @@ const Lot = () => {
     }).then((result) => console.log(result))
   }
 
-  const [data, setData] = useState({
-    img: '/src/pages/auctions/temporary-auctions-img/quare.png',
-    alt: 'img',
-    name: 'Apple Watch SE 44mm',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    date: '2023-04-11T23:00',
-    price: '50',
-    places: 12,
-    status: 'active',
-    id: 1,
-  })
+  // const [data, setData] = useState({
+  //   img: '/src/pages/auctions/temporary-auctions-img/quare.png',
+  //   alt: 'img',
+  //   name: 'Apple Watch SE 44mm',
+  //   description:
+  //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  //   date: '2023-04-11T23:00',
+  //   price: '50',
+  //   places: 12,
+  //   status: 'active',
+  //   id: 1,
+  // })
 
-  useEffect(() => {
-    if (!loading) {
-      setLotData(datas.getAuction)
-    }
-  }, [datas])
 
-  console.log(lotData)
-
-  const { data: auctionBids } = useQuery(GET_BIDS_BY_AUCTION_ID, { variables: { auctionId: Number(id) } })
-  console.log(auctionBids)
 
   return (
     <>
-      {lotData && (
+      { (
         <>
           <Link to="/auctions">
             <button className="return--btn">Auctions</button>
@@ -105,15 +93,15 @@ const Lot = () => {
               <div className="lot__content">
                 <div className="lot__header">
                   <div className="lot__header__col__left">
-                    <div className="lot__title">{lotData.title}</div>
-                    <div className="lot__price">{'$' + data.price}</div>
+                    <div className="lot__title">{datas?.getAuction.title}</div>
+                    <div className="lot__price">{'$' + datas?.getAuction.startingPrice}</div>
                   </div>
                   <div className="lot__header__col__right">
                     <div className="lot__places">Free places:</div>
-                    <span>{data.places} from 30</span>
+                    {datas?.getAuction && <span>{30 - datas?.getAuction.bids?.length} from 30</span>}
                   </div>
                 </div>
-                <div className={`lot__description ${isShowMore ? 'shown' : ''}`}>{lotData.description}</div>
+                <div className={`lot__description ${isShowMore ? 'shown' : ''}`}>{datas?.getAuction.description}</div>
                 <a href="#" className="lot__more" onClick={onToggleShowMore}>
                   <span>Read more</span>
                 </a>
@@ -128,9 +116,9 @@ const Lot = () => {
               <span>Click history:</span>
               <div className="clicks__history__users">
                 {auctionBids &&
-                  auctionBids.getBidsByAuctionId.map((bid: IBid) => (
+                  auctionBids.getBidsByAuctionId.map((bid) => (
                     <div key={bid.id} className="clicks__history__users__item">
-                      <span>{bid.user.username}</span>
+                      <span>{bid.user?.username}</span>
                       <span className="time">{toDate(bid.createdAt)}</span>
                     </div>
                   ))}

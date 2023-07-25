@@ -21,6 +21,7 @@ const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, started
   const [timer, setTimer] = useState(false)
   const [join, setJoin] = useState(false)
 
+
   const onJoin = () => {
     setJoin(!join)
     setClass(clazz === 'card' ? clazz + ' active' : 'card')

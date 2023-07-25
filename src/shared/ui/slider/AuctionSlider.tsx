@@ -16,6 +16,8 @@ interface IAuctionSliderProps {
 export const AuctionSlider = ({ data }: IAuctionSliderProps) => {
   const { width } = useWindowSize()
 
+    console.log(data)
+
   const configureSlider = () => {
     if (width && width <= 600) {
       return 1
@@ -45,7 +47,7 @@ export const AuctionSlider = ({ data }: IAuctionSliderProps) => {
           const { id, ...itemProps } = item
           return (
             <SwiperSlide key={id}>
-              <AuctionCard className="slider__card" {...itemProps} />
+              <AuctionCard className="slider__card" {...itemProps} id={id} />
             </SwiperSlide>
           )
         })}

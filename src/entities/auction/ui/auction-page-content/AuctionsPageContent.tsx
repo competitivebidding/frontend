@@ -1,23 +1,27 @@
 import React from 'react'
-// import Slider from '../../../../shared/ui/slider/Slider'
 import './AuctionsPageContent.scss'
 // import AuctionSlider from "@/shared/ui/slider/AuctionSlider";
 import { AuctionList } from '@entities/auction/ui/auctions-list/AuctionList'
+import {useQuery} from "@apollo/client";
+import {GET_AUCTIONS} from "@shared/schemas/auctions/auctions";
+import {AuctionSlider} from "@shared/ui/slider/AuctionSlider";
 
 interface IAuctionsPageContent {}
 
 const AuctionsPageContent = () => {
+    const {data} = useQuery(GET_AUCTIONS)
   return (
-    <div>
-      {/* <div className="title">Upcoming announcements </div>
-      <Slider data={data.filter(card => (card.status == 'wait'))}/> */}
-      <div className="title">Announcement Auctions</div>
-      {/*<AuctionSlider data={data.filter(card => (card.status === 'wait'))}/>*/}
-      {/*<AuctionSlider data={data}/>*/}
-      <div className="title">Active Auctions</div>
-      {/*<AuctionList data={data.filter(card => (card.status === 'Open'))} />*/}
-      <AuctionList />
-    </div>
+    <>
+        {data && <>
+            <div className="title">Upcoming announcements </div>
+            <AuctionSlider data={data?.getAuctions.filter(card => card.status.name === 'New')}/>
+            <div className="title">Announcement Auctions</div>
+            <AuctionSlider data={data?.getAuctions.filter(card => card.status.name === 'Cancelled')}/>
+            <div className="title">Active Auctions</div>
+            <AuctionSlider data={data?.getAuctions.filter(card => card.status.name === 'Open')}/>
+            <AuctionList />
+        </>}
+    </>
   )
 }
 
