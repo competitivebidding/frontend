@@ -43,7 +43,7 @@ function PlayersAmount() {
           <ul className={styles.statistic}>
             {data.datasets[0].data.map((item: number, i: number) => (
               <li key={i} className={styles.statistic__item} style={{ color: colors[i] }}>
-                <span>{}</span>
+                <span>{item}</span>
                 <p>{data.labels && data.labels[i]}</p>
               </li>
             ))}
