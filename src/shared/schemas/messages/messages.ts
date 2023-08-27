@@ -36,7 +36,7 @@ export const GET_ALL_USERS_BY_ROOM_ID = gql(`
     }
 `)
 export const SEND_MESSAGE = gql(`
-    mutation Mutation($newMessage: NewMessageInput!) {
+    mutation SendMessage($newMessage: NewMessageInput!) {
       sendMessage(newMessage: $newMessage) {
         id
         userId
@@ -89,4 +89,15 @@ mutation LeaveFromRoom($roomId: Float!) {
   }
 }
 `)
+
+export const ADD_USER_IN_ROOM = gql(`
+mutation AddUserInRoom($addUser: AddUserInput!) {
+  addUserInRoom(addUser: $addUser) {
+    username
+    firstname
+    lastname
+    avatarUrl
+  }
+}`)
+
 

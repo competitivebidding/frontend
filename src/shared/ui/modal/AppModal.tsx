@@ -15,7 +15,7 @@ export const AppModal = ({ children, title, onClose, isOpen = false }: IAppModal
       <div className={cls.overlay} onClick={() => onClose(false)}></div>
       <div className={cls.modalWindow}>
         {title && <div className={cls.modalWindow__title}>{title}</div>}
-        <div className={cls.modalWindow__body}>{children}</div>
+        {children}
       </div>
     </div>,
     document.body,

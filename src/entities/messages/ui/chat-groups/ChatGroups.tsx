@@ -8,11 +8,9 @@ import { NEW_MESSAGE } from '@shared/schemas/messages/subscriptions'
 import { GET_ALL_MY_ROOMS } from '@shared/schemas/messages/messages'
 import { useLocalStorage } from '@shared/lib/useLocalStorage'
 import { GetAllMyRoomsDocument, NewMessageDocument } from '@shared/lib/types/__generated-types__/graphql'
+import {Group} from "@entities/messages/Messages";
 
-interface Group {
-  title: string
-  id: number
-}
+
 
 interface IChatGroupsProps {
   onSelectGroup: (group: Group) => void
@@ -52,7 +50,7 @@ export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
             <li
               key={group.id}
               className={`sidebar__list ${activeItem === group.id ? 'active' : ''}`}
-              onClick={() => handleSetActiveGroup({ title: group.title, id: group.id })}
+              onClick={() => handleSetActiveGroup(group)}
             >
               <div className="sidebar__list-title">
                 {group.title}

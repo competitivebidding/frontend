@@ -1,12 +1,12 @@
 .modalGroup {
-  width: 300px;
+
   border-radius: 8px;
 
 
   .header {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    gap: 16px;
 
     &__info {
       display: flex;
@@ -21,7 +21,14 @@
       overflow: hidden;
       margin-right: 10px;
     }
-
+    
+    &__invite {
+      img {
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
 
 
     &__subscribers {

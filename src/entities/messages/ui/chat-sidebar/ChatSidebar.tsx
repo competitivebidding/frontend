@@ -3,10 +3,11 @@ import iconPlus from '@assets/Chat/iconPlus.svg'
 import { ChatGroups } from '../chat-groups/ChatGroups'
 
 import './ChatSideBar.scss'
+import {Group} from "@entities/messages/Messages";
 
 interface IChatSidebar {
   onToggleNewGroupModal: React.Dispatch<React.SetStateAction<boolean>>
-  onSelectGroup: ({ title, id }: { title: string; id: number }) => void
+  onSelectGroup: (group: Group) => void
   activeGroupId: number
     isSidebarOpened: boolean
 }

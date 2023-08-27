@@ -1,21 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import './Messages.scss'
-import { AppModal } from '@shared/ui/modal/AppModal'
-import { useQuery } from '@apollo/client'
-import { GET_ALL_USERS_BY_ROOM_ID } from '@shared/schemas/messages/messages'
-import { useLocalStorage } from '@shared/lib/useLocalStorage'
-import { MessageInput } from '@features/message-input/MessageInput'
-import { GroupSubscribers } from '@widgets/group-subscribers/GroupSubscribers'
-import { AddNewGroupForm } from '@features/add-new-group-form/AddNewGroupForm'
-import { ChatMessages } from '@features/chat-messages/ChatMessages'
-import { ChatHeader } from './ui/chat-header/ChatHeader'
-import { ChatSidebar } from './ui/chat-sidebar/ChatSidebar'
-import { ChatJoin } from '@features/chat-join-button/ChatJoin'
-import { GetRoomByIdDocument, GetRoomByIdQuery } from '@shared/lib/types/__generated-types__/graphql'
+import {AppModal} from '@shared/ui/modal/AppModal'
+import {useQuery} from '@apollo/client'
+import {GET_ALL_USERS_BY_ROOM_ID} from '@shared/schemas/messages/messages'
+import {useLocalStorage} from '@shared/lib/useLocalStorage'
+import {MessageInput} from '@features/message-input/MessageInput'
+import {GroupSubscribers} from '@widgets/group-subscribers/GroupSubscribers'
+import {AddNewGroupForm} from '@features/add-new-group-form/AddNewGroupForm'
+import {ChatMessages} from '@features/chat-messages/ChatMessages'
+import {ChatHeader} from './ui/chat-header/ChatHeader'
+import {ChatSidebar} from './ui/chat-sidebar/ChatSidebar'
+import {ChatJoin} from '@features/chat-join-button/ChatJoin'
+import {GetRoomByIdDocument} from '@shared/lib/types/__generated-types__/graphql'
 
-export interface ActiveGroup {
-  title: string
+export interface Group {
+  createdAt: string
+  description: null | string
   id: number
+  ownerId: number
+  title: string
+  updatedAt: string
 }
 
 export interface IUser {
@@ -27,13 +31,13 @@ export interface IUser {
 }
 
 const Messages = () => {
-  const { lsValue: lsActiveGroup } = useLocalStorage<ActiveGroup>('activeGroup');
+  const { lsValue: lsActiveGroup } = useLocalStorage<Group>('activeGroup');
   const { lsValue: lsUser } = useLocalStorage<IUser>('user');
   const [isSidebarOpened, setIsSidebarOpened] = useState(true)
 
   const [modalNewGroup, setModalNewGroup] = useState(false);
   const [modalGroup, setModalGroup] = useState(false);
-  const [activeGroup, setActiveGroup] = useState<ActiveGroup | undefined>(undefined);
+  const [activeGroup, setActiveGroup] = useState<Group | undefined>(undefined);
   const [groupUsers, setGroupUsers] = useState<IUser[]>([]);
   const { data: currentRoom, loading, refetch } = useQuery(GetRoomByIdDocument, {
     variables: {
@@ -51,8 +55,8 @@ const Messages = () => {
     return users?.getAllUsersByRoomId.find((user) => user.username === lsUser?.username);
   };
 
-  const handleSelectActiveGroup = ({ title, id }: ActiveGroup) => {
-    setActiveGroup({ title, id });
+  const handleSelectActiveGroup = (group: Group) => {
+    setActiveGroup(group);
     toggleActiveSidebar()
   };
 
@@ -137,10 +141,12 @@ const Messages = () => {
                       roomId={activeGroup.id}
                       onClose={toggleGroup}
                       setActiveGroup={setActiveGroup}
+                   isOwner={activeGroup.ownerId === lsUser?.id}
                   />
               )}
             </AppModal>
         )}
+
       </>
   )
 }

@@ -54,7 +54,7 @@ export const UserInfoLevel = ({ field }: IUserInfoProps) => {
 
   return (
     <div className="cabinet-block user-info__level">
-      <DonutChart data={chartData} count={value} width={90} height={90} />
+      {value && <DonutChart data={chartData} count={value} width={90} height={90}/>}
       <div className="level-content">
         <div className="level-content__title">
           <p>{t('authorizationLevel')}</p>

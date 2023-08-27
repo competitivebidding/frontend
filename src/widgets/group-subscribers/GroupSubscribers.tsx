@@ -1,4 +1,4 @@
-import  { useState, Dispatch, SetStateAction } from 'react'
+import React, { useState, Dispatch, SetStateAction } from 'react'
 import Icon from '@assets/cabinet/icons/avatar.svg'
 import { useMutation, useQuery } from '@apollo/client'
 import { GET_ALL_MY_ROOMS, GET_ALL_USERS_BY_ROOM_ID, LEAVE_FROM_CHAT } from '@/shared/schemas/messages/messages'
@@ -7,6 +7,8 @@ import { AppModal } from '@shared/ui/modal/AppModal'
 import scss from './GroupSubscribers.module.scss'
 import { IUser } from '@entities/messages/Messages'
 import {ActiveGroup} from '@entities/messages/Messages'
+import iconPlus from "@assets/Chat/iconPlus.svg";
+import {InviteUserToChat} from "@features/invite-user-to-chat/ui/InviteUserToChat";
 
 interface IGroupSubscribersProps {
   groupTitle: string
@@ -14,17 +16,21 @@ interface IGroupSubscribersProps {
   roomId: number
   onClose: () => void
   setActiveGroup: Dispatch<SetStateAction<ActiveGroup | undefined>>
+  isOwner: boolean
 }
 
-export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose,  setActiveGroup}: IGroupSubscribersProps) => {
+export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose,  setActiveGroup, isOwner}: IGroupSubscribersProps) => {
   const [modalGroupOpen, setModalGroupOpen] = useState(true)
   const [leaveModalOpen, setLeaveModalOpen] = useState(false)
+  const [inviteModalIsOpen, setInviteModalIsOpen] = useState(false)
   const [leaveFromChat] = useMutation(LEAVE_FROM_CHAT, { refetchQueries: [GET_ALL_MY_ROOMS] })
   const { data, refetch } = useQuery(GET_ALL_USERS_BY_ROOM_ID, {
     variables: {
       roomId: Number(roomId),
     },
   })
+
+  console.log(isOwner)
 
   const confirm = () => {
     setModalGroupOpen(false)
@@ -47,7 +53,16 @@ export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose,  setA
     onClose()
   }
 
-  console.log(groupSubs.length)
+  const handleCancelInvite = () => {
+    setModalGroupOpen(true)
+    setInviteModalIsOpen(false)
+    onClose()
+  }
+
+  const handleInviteModalOpen = () => {
+    setModalGroupOpen(false)
+    setInviteModalIsOpen(true)
+  }
 
   return (
       <>
@@ -63,6 +78,9 @@ export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose,  setA
                   </p>
                   <input type="text" className={scss.header__description} placeholder="Description" />
                 </div>
+                {isOwner && <div className={scss.header__invite} onClick={handleInviteModalOpen}>
+                  <img src={iconPlus} alt="iconGroup"/>
+                </div>}
               </div>
               {groupSubs && (
                   <div className={`${scss.modalGroup__members} ${scss.subscribers}`}>
@@ -100,6 +118,11 @@ export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose,  setA
                   </button>
                 </div>
               </div>
+            </AppModal>
+        )}
+        {inviteModalIsOpen && (
+            <AppModal isOpen={inviteModalIsOpen} onClose={handleCancelInvite}>
+              <InviteUserToChat roomId={roomId} onClose={handleCancelInvite} title={'Invite user in group'} actionText={'Invite'} />
             </AppModal>
         )}
       </>

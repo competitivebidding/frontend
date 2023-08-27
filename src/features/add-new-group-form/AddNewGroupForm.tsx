@@ -10,7 +10,7 @@ interface IAddNewGroupFormProps {
 }
 
 export const AddNewGroupForm = ({ onClose }: IAddNewGroupFormProps) => {
-  const inputRef = useRef<HTMLInputElement>(null)
+  const fieldRef = useRef<HTMLInputElement>(null)
   const [value, setValue] = useState('')
   const [createRoom] = useMutation(CreateMyRoomDocument, { refetchQueries: [GET_ALL_MY_ROOMS] })
 
@@ -30,14 +30,14 @@ export const AddNewGroupForm = ({ onClose }: IAddNewGroupFormProps) => {
   }
 
   useEffect(() => {
-    inputRef?.current?.focus()
+    fieldRef?.current?.focus()
   }, [])
 
   return (
     <div className="modalNewGroup">
       <div className="modalNewGroup__title">Enter your group name</div>
       <input
-        ref={inputRef}
+        ref={fieldRef}
         type="text"
         className="modalNewGroup__name"
         value={value}
