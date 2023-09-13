@@ -1,0 +1,84 @@
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  height: fit-content;
+  padding: 20px 0 35px 0;
+
+  &__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 105%;
+    /* identical to box height, or 34px */
+
+
+    color: #FFFFFF;
+  }
+
+  .group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &__balance {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    &__exit {
+      margin-right: 20px;
+    }
+
+    &__container {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    &__log {
+      color: #fff;
+      margin-left: 10px;
+
+      &:hover {
+        color: rgb(149, 148, 148)
+      }
+    }
+
+    &__sign {
+      padding: 10px;
+      background-color: blue;
+      border-radius: 20px;
+      color: #fff;
+
+      &:hover {
+        color: rgb(149, 148, 148)
+      }
+    }
+
+
+    &__balanceSum {
+      color: #fff;
+      margin-left: 8px;
+    }
+
+    &__notifications {
+
+    }
+
+    &__name {
+      color: white;
+    }
+
+    &__profile {
+      margin-left: 9px;
+    }
+
+    &__exit {
+      &:hover {
+        fill: #eee;
+      }
+    }
+  }
+}
