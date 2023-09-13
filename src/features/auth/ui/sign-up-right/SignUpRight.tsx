@@ -12,22 +12,21 @@ import { useLocalStorage } from '@/shared/lib/useLocalStorage'
 import './SignUpRight.scss'
 import SIGNUP_MUTATION from '@shared/schemas/auth/signup'
 
-import {
-  $password,
-  $repeatPassword,
-  $email,
-  $username,
-  $referrerId,
-  $phone,
-  passwordChanged,
-  repeatPasswordChanged,
-  emailChanged,
-  referrerIdChanged,
-  usernameChanged,
+// import {
+//   $password,
+//   $repeatPassword,
+//   $email,
+//   $username,
+//   $referrerId,
+//   $phone,
+//   passwordChanged,
+//   repeatPasswordChanged,
+//   emailChanged,
+//   referrerIdChanged,
+//   usernameChanged,
 
-} from './model'
+// } from './model'
 
-import { useUnit } from 'effector-react'
 
 interface ISignUpFields {
   email: string
@@ -48,15 +47,6 @@ export const SignUpRight = () => {
   } = useForm<ISignUpFields>({
     mode: "onChange"
   })
-
-  const [pass, repeatPass, email, username, referrerId, phone] = useUnit([
-    $password,
-    $repeatPassword,
-    $email,
-    $username,
-    $referrerId,
-    $phone
-  ])
 
   const password = watch('password')
   const repeatPassword = watch('repeatPassword')
@@ -119,8 +109,6 @@ export const SignUpRight = () => {
               type='text'
               id='username'
               {...register('username', {
-                value: username,
-                onChange: (e) => usernameChanged(e.target.value),
                 required: true,
                 minLength: 4,
                 maxLength: 16,
@@ -140,17 +128,9 @@ export const SignUpRight = () => {
               id='email'
               required
               {...register('email', {
-                value: email,
-                onChange: (e) => emailChanged(e.target.value),
-                validate: (value) => {
-                  if (validator.isEmail(value)) {
-                    emailChanged(value)
-                    return validator.isEmail(value)
-                  }
-
-                  return 'Please enter a valid email address'
-                },
+                validate: (value) => validator.isEmail(value) || 'Please enter a valid email address',
               })}
+              
             />
           </div>
           {errors.email && (
@@ -165,8 +145,7 @@ export const SignUpRight = () => {
               type={isPasswordVisible ? 'text' : 'password'}
               id='password'
               {...register('password', {
-                value: pass,
-                onChange: (e) => passwordChanged(e.target.value),
+               
                 required: {
                   value: true,
                   message: 'Please enter a password',
@@ -194,8 +173,7 @@ export const SignUpRight = () => {
               type={isRepeatPasswordVisible ? 'text' : 'password'}
               id='repeat__password'
               {...register('repeatPassword', {
-                value: repeatPass,
-                onChange: (e) => repeatPasswordChanged(e.target.value),
+                
                 required: true,
               })}
             />
@@ -220,8 +198,7 @@ export const SignUpRight = () => {
               type='number'
               id='referrerUserId'
               {...register('referrerUserId', {
-                value: referrerId as number,
-                onChange: (e) => referrerIdChanged(e.target.value),
+                
                 required: false,
               })}
             />

@@ -49,6 +49,7 @@ const Messages = () => {
     variables: {
       roomId: Number(activeGroup?.id)
     },
+    skip: !activeGroup?.id
   });
 
   const isJoined = () => {
@@ -80,7 +81,7 @@ const Messages = () => {
   }
 
   useEffect(() => {
-    if (!isUsersLoading) {
+    if (!isUsersLoading && activeGroup?.id) {
       const transformedUsers = users?.getAllUsersByRoomId.map((user, index) => ({
         id: parseInt(`${user.username}_${index}`),
         username: user.username,
@@ -91,7 +92,7 @@ const Messages = () => {
 
       setGroupUsers(transformedUsers);
     }
-  }, [users]);
+  }, [users, activeGroup?.id]);
 
 
   return (

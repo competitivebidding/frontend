@@ -4,8 +4,8 @@ import './NewPasswordRight.scss'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import {$newPassword, $repeatNewPassword, passwordChanged, repeatPasswordChanged} from './model'
-import { useUnit } from 'effector-react'
+// import {$newPassword, $repeatNewPassword, passwordChanged, repeatPasswordChanged} from './model'
+// import { useUnit } from 'effector-react'
 
 type INewPasswordForm = {
   password: string
@@ -20,7 +20,6 @@ export const NewPasswordRight = () => {
     watch,
   } = useForm<INewPasswordForm>()
 
-  const [newPassword, repeatNewPassword ] = useUnit([$newPassword, $repeatNewPassword]);
 
   const password = watch('password')
   const repeatPassword = watch('repeatPassword')
@@ -56,8 +55,7 @@ export const NewPasswordRight = () => {
               id="password"
               required
               {...register('password', {
-                value: newPassword,
-                onChange: (e) => passwordChanged(e.target.value),
+                
                 required: true,
                 pattern: /^\S+@\S+$/i,
               })}
@@ -78,8 +76,7 @@ export const NewPasswordRight = () => {
               id="repeat__password"
               required
               {...register('repeatPassword', {
-                value: repeatNewPassword,
-                onChange: (e) => repeatPasswordChanged(e.target.value),
+                
                 required: true
               })}
             />
