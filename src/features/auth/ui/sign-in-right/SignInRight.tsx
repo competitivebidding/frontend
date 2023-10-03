@@ -27,7 +27,7 @@ export const SignInRight = () => {
 
   const { setValue } = useLocalStorage('user')
 
-  const [signin] = useMutation(SIGNIN_MUTATION)
+  const [signin, {error}] = useMutation(SIGNIN_MUTATION)
 
   const handleSignIn = (data: ISignInFields) => {
     signin({
@@ -53,7 +53,7 @@ export const SignInRight = () => {
   }
 
   return (
-    <>
+    <div  className="auth">
       <form className="form" onSubmit={handleSubmit(handleSignIn)} noValidate>
         <h2 className="form__title">Log in</h2>
         <div className="form__descr">
@@ -109,6 +109,9 @@ export const SignInRight = () => {
           </Link>
         </div>
       </form>
-    </>
+      {error && <div className="error">
+        {`${error.message} Логин или пароль указан не верно`}
+      </div>}
+    </div>
   )
 }

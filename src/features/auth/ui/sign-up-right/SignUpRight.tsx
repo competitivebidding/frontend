@@ -90,7 +90,7 @@ export const SignUpRight = () => {
   }
 
   return (
-    <>
+    <div className='auth'>
       <form className='form form__sign' onSubmit={handleSubmit(onSubmit)} noValidate>
         <h2 className='form__title'>Sign up</h2>
         <div className='form__descr'>
@@ -223,6 +223,6 @@ export const SignUpRight = () => {
           </button>
         </div>
       </form>
-    </>
+    </div>
   )
 }

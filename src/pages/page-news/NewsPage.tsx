@@ -10,6 +10,7 @@ const NewsPage = () => {
   const { loading, error, data } = useQuery(ALL_NEWS)
   //error, data
 
+  console.log(data)
   if (loading) {
     return <h2 style={{ color: 'ffffff' }}>Loading...</h2>
   }
