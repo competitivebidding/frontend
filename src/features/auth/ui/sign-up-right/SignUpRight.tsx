@@ -173,7 +173,6 @@ export const SignUpRight = () => {
               type={isRepeatPasswordVisible ? 'text' : 'password'}
               id='repeat__password'
               {...register('repeatPassword', {
-                
                 required: true,
               })}
             />
@@ -211,18 +210,21 @@ export const SignUpRight = () => {
         <label className='checkbox__container'>
           <input type='checkbox' {...register('isChecked', { required: true })} />
           <span className='checkmark'></span>I have read and agree with
-          <span className='text__blue'>the terms and conditions of the Competitive Bidding</span>
+          <span className='text__blue'> the terms and conditions of the Competitive Bidding</span>
         </label>
         {errors.isChecked && (
           <div className='error__message'>{errors.isChecked?.message || "It should be checked!"}</div>
         )}
 
         <div className='wrap__btn'>
-          <button type='submit' className='btn__form'>
+          <button disabled={password !== repeatPassword} type='submit' className='btn__form'>
             Sign in
           </button>
         </div>
       </form>
+      {error && <div className="error">
+        {error.message}
+      </div>}
     </div>
   )
 }
