@@ -11,7 +11,9 @@ import { REMOVE_MESSAGE } from '@/shared/schemas/messages/messages';
 
 import './MessageItem.scss';
 
-export const MessageItem = ({ message }: { message: IMessage }) => {
+
+
+export const MessageItem = ({ message, onContextMenu }: { message: IMessage, onContextMenu: React.MouseEventHandler<HTMLDivElement> | undefined }) => {
   const { lsValue } = useLocalStorage<IUser>('user');
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
   const [contextMenuPosition, setContextMenuPosition] = useState({ top: 0, left: 0 });
@@ -19,56 +21,31 @@ export const MessageItem = ({ message }: { message: IMessage }) => {
 
   const messageRef = useRef<HTMLDivElement | null>(null);
 
-  const handleContextMenu = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('OPen Context')
-    if (message.id) {
-      setIsContextMenuVisible(true);
-      const boundingBox = messageRef.current?.getBoundingClientRect();
-      if (boundingBox) {
-        setContextMenuPosition({
-          top: e.clientY,
-          left: e.clientX - 150,
-        });
-      }
-    }
-  };
 
-  const handleDeleteClick = () => {
-    console.log('asdsa');
-    if (message.id) {
-      removeMessage({ variables: { removeMessageId: message.id } })
-        .then(() => {
-          setIsContextMenuVisible(false);
-        })
-        .catch((error) => {
-          console.error('Ошибка при удалении сообщения:', error);
-        });
-    }
-  };
 
-  const handleClick = (e: MouseEvent) => {
-    if (isContextMenuVisible && (e.button === 0 || e.button === 2)) {
-      setIsContextMenuVisible(false);
-    }
-  };
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClick);
 
-    return () => {
-      document.removeEventListener('mousedown', handleClick);
-    };
-  }, [isContextMenuVisible]);
+  // const handleClick = (e: MouseEvent) => {
+  //   if (isContextMenuVisible && (e.button === 0 || e.button === 2)) {
+  //     setIsContextMenuVisible(false);
+  //   }
+  // };
 
-  const contextMenuClassName = `context-menu ${isContextMenuVisible ? 'open' : ''}`;
+  // useEffect(() => {
+  //   document.addEventListener('mousedown', handleClick);
+  //
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClick);
+  //   };
+  // }, [isContextMenuVisible]);
+
 
   return (
-    <div
+    <><div
+        onContextMenu={onContextMenu}
       className={`chat__message ${message.userId === lsValue?.id ? 'your' : 'answer'}`}
       ref={messageRef}
-      onContextMenu={handleContextMenu}
+
     >
       <div className="content">
         {message.content}
@@ -77,11 +54,8 @@ export const MessageItem = ({ message }: { message: IMessage }) => {
           {message.userId === lsValue?.id ? <img src={apxR} alt="" /> : <img src={apxL} alt="" />}
         </div>
       </div>
-
-      <div className={contextMenuClassName} style={{ top: contextMenuPosition.top, left: contextMenuPosition.left }}>
-        <div onClick={handleDeleteClick}>Удалить</div>
-        <div>Изменить</div>
-      </div>
     </div>
+
+    </>
   );
 };
