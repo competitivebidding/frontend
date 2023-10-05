@@ -47,6 +47,21 @@ export const SEND_MESSAGE = gql(`
       }
     }
 `)
+
+export const REMOVE_MESSAGE = gql(`
+   mutation RemoveMessage($removeMessageId: Float!) {
+  removeMessage(id: $removeMessageId) {
+    content
+    createdAt
+    updatedAt
+    userId
+    roomId
+    id
+  }
+}
+`)
+
+
 export const CREATE_MY_ROOM = gql(`
     mutation CreateMyRoom($input: RoomCreateInput!) {
       createMyRoom(input: $input) {
@@ -99,5 +114,6 @@ mutation AddUserInRoom($addUser: AddUserInput!) {
     avatarUrl
   }
 }`)
+
 
 

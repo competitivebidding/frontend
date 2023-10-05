@@ -1,35 +1,39 @@
 import * as React from 'react'
-import {useEffect, useRef, useState} from 'react'
-import {useQuery, useSubscription} from '@apollo/client'
-import {useLocalStorage} from '@shared/lib/useLocalStorage'
-import {NEW_MESSAGE} from '@shared/schemas/messages/subscriptions'
-import {toTime} from '@shared/utils/timeHelpers'
+import { useEffect, useRef, useState } from 'react'
+import { useQuery, useSubscription } from '@apollo/client'
+import { NEW_MESSAGE } from '@shared/schemas/messages/subscriptions'
+import { GetAllMessagesByRoomIdDocument } from '@shared/lib/types/__generated-types__/graphql'
+import { MessageItem } from '@features/message-item/MessageItem'
+
+// import { toTime } from '@shared/utils/timeHelpers'
+// import { IUser } from 'src/entities/messages/Messages'
+// import apxR from '@assets/Chat/apx-r.svg'
+// import apxL from '@assets/Chat/apx-l.svg'
+// import { useLocalStorage } from '@shared/lib/useLocalStorage'
+
 import './ChatMessages.scss'
-import {GetAllMessagesByRoomIdDocument} from '@shared/lib/types/__generated-types__/graphql'
-import {IUser} from 'src/entities/messages/Messages'
-import apxR from '@assets/Chat/apx-r.svg'
-import apxL from '@assets/Chat/apx-l.svg'
+
 
 interface IChatMessages {
     groupId: number
 }
 
-interface IMessage {
+ export interface IMessage {
     userId: number
     id: number
     content: string
     createdAt: string
 }
 
-export const ChatMessages = ({groupId}: IChatMessages) => {
-    const {lsValue} = useLocalStorage<IUser>('user')
+export const ChatMessages = ({ groupId }: IChatMessages) => {
+    // const { lsValue } = useLocalStorage<IUser>('user')
     const [groupMessages, setGroupMessages] = useState<IMessage[] | undefined>(undefined)
     const ref = useRef<HTMLDivElement>(null)
     const [autoScrollEnabled, setAutoScrollEnabled] = useState(false)
 
-    const {data: subData, loading: subLoading, error} = useSubscription(NEW_MESSAGE, {variables: {roomId: groupId}})
+    const { data: subData, loading: subLoading, error } = useSubscription(NEW_MESSAGE, { variables: { roomId: groupId } })
 
-    const {data: messagesData, loading: messagesLoading} = useQuery(GetAllMessagesByRoomIdDocument, {
+    const { data: messagesData, loading: messagesLoading } = useQuery(GetAllMessagesByRoomIdDocument, {
         variables: {
             userMessage: {
                 roomId: groupId,
@@ -78,22 +82,6 @@ export const ChatMessages = ({groupId}: IChatMessages) => {
         }
     }, [messagesData])
 
-    const MessageItem = ({message}: { message: IMessage }) => {
-        return (
-            <div className={`chat__message ${message.userId === lsValue?.id ? 'your' : 'answer'}`}>
-                <div className="content">
-                    {message.content}
-                    <div className="time">
-                        {toTime(message.createdAt)}
-                    </div>
-                    <div className='apx'>
-                        {message.userId === lsValue?.id ? <img src={apxR} alt=""/>  : <img src={apxL} alt=""/>}
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
     return (
         <>
             {messagesLoading ? <div>Loading...</div> :
@@ -101,7 +89,7 @@ export const ChatMessages = ({groupId}: IChatMessages) => {
                     {groupMessages && (
                         <div className="chat__messages messages" ref={ref}>
                             {groupMessages.map((message) =>
-                                <MessageItem key={message.id} message={message}/>
+                                <MessageItem key={message.id} message={message} />
                             )}
                         </div>
                     )}</>

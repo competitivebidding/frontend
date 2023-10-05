@@ -24,6 +24,7 @@ const documents = {
     "\nquery GetAllMessagesByRoomId($userMessage: UserMessages!) {\n  getAllMessagesByRoomId(userMessage: $userMessage) {\n    content\n    createdAt\n    id\n    roomId\n    updatedAt\n    userId\n  }\n}\n": types.GetAllMessagesByRoomIdDocument,
     "\n    query GetAllUsersByRoomId($roomId: Float!) {\n      getAllUsersByRoomId(roomId: $roomId) {\n        username\n        firstname\n        lastname\n        avatarUrl\n      }\n    }\n": types.GetAllUsersByRoomIdDocument,
     "\n    mutation SendMessage($newMessage: NewMessageInput!) {\n      sendMessage(newMessage: $newMessage) {\n        id\n        userId\n        roomId\n        content\n        createdAt\n        updatedAt\n      }\n    }\n": types.SendMessageDocument,
+    "\n   mutation RemoveMessage($removeMessageId: Float!) {\n  removeMessage(id: $removeMessageId) {\n    content\n    createdAt\n    updatedAt\n    userId\n    roomId\n    id\n  }\n}\n": types.RemoveMessageDocument,
     "\n    mutation CreateMyRoom($input: RoomCreateInput!) {\n      createMyRoom(input: $input) {\n        id\n        ownerId\n        title\n        description\n        createdAt\n        updatedAt\n      }\n    }\n\n": types.CreateMyRoomDocument,
     "\n  query GetRoomById($roomId: Float!) {\n    getRoomById(roomId: $roomId) {\n      ownerId\n    }\n  }\n": types.GetRoomByIdDocument,
     "\n    mutation JoinToRoom($roomId: Float!) {\n  joinToRoom(roomId: $roomId) {\n    username\n    firstname\n    lastname\n    avatarUrl\n  }\n}\n": types.JoinToRoomDocument,
@@ -101,6 +102,10 @@ export function gql(source: "\n    query GetAllUsersByRoomId($roomId: Float!) {\
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "\n    mutation SendMessage($newMessage: NewMessageInput!) {\n      sendMessage(newMessage: $newMessage) {\n        id\n        userId\n        roomId\n        content\n        createdAt\n        updatedAt\n      }\n    }\n"): (typeof documents)["\n    mutation SendMessage($newMessage: NewMessageInput!) {\n      sendMessage(newMessage: $newMessage) {\n        id\n        userId\n        roomId\n        content\n        createdAt\n        updatedAt\n      }\n    }\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n   mutation RemoveMessage($removeMessageId: Float!) {\n  removeMessage(id: $removeMessageId) {\n    content\n    createdAt\n    updatedAt\n    userId\n    roomId\n    id\n  }\n}\n"): (typeof documents)["\n   mutation RemoveMessage($removeMessageId: Float!) {\n  removeMessage(id: $removeMessageId) {\n    content\n    createdAt\n    updatedAt\n    userId\n    roomId\n    id\n  }\n}\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
