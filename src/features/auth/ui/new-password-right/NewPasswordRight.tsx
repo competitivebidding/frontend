@@ -36,7 +36,7 @@ export const NewPasswordRight = () => {
   }
 
   return (
-    <>
+    <div  className='auth'>
       <form className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <h2 className="form__title">Recover password</h2>
         <div className="form__descr">
@@ -99,6 +99,6 @@ export const NewPasswordRight = () => {
           </button>
         </div>
       </form>
-    </>
+    </div>
   )
 }
