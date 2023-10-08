@@ -1,4 +1,4 @@
-import './AuctionsPage.scss'
+import cls from './AuctionsPage.module.scss'
 import React, { useEffect, useState } from 'react'
 import Filter from '@features/filter/Filter'
 import Search from '@features/search/Search'
@@ -7,8 +7,8 @@ import AuctionsPageContent from '@entities/auction/ui/auction-page-content/Aucti
 const MyAuctionsPage = () => {
   return (
     <>
-      <div className="auctions__components">
-        <div className="auctions__search--card">
+      <div className={cls.auctions__components}>
+        <div className={cls['auctions__search--card']}>
           <Search onChange={() => console.log()} />
           <AuctionsPageContent />
         </div>
