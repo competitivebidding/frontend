@@ -1,8 +1,9 @@
 import React from 'react'
 import AuctionCard from '../auction-card/AuctionCard'
-import '../auction-page-content/AuctionsPageContent.scss'
+import '../auction-page-content/AuctionsPageContent.module.scss'
 import { useQuery } from '@apollo/client'
 import { GetAuctionsDocument } from '@shared/lib/types/__generated-types__/graphql'
+import cls from './AuctionList.module.scss'
 
 interface IAuctionCardProps {
   data: {
@@ -43,7 +44,7 @@ export const AuctionList = () => {
 
   return (
     <div>
-      <div className="auctionList">{auctionCards}</div>
+      <div className={cls.auctionList}>{auctionCards}</div>
     </div>
   )
 }

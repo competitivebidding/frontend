@@ -2,7 +2,7 @@ import React from 'react'
 
 import { StatsItem } from '../stats-item/StatsItem'
 
-import './StatsList.scss'
+import cls from './StatsList.module.scss'
 
 import StatsData from './Data/StatsData'
 
@@ -11,5 +11,5 @@ export const StatsList = () => {
     return <StatsItem key={stat.id} styles={stat.styles} title={stat.title} text={stat.text} image={stat.image} />
   })
 
-  return <div className="main__stats">{getData}</div>
+  return <div className={cls.main__stats}>{getData}</div>
 }

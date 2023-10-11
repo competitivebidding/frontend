@@ -1,33 +1,32 @@
-import React from 'react'
-import './LastUsersList.scss'
-import { LastUser } from '../last-user/LastUser'
+import React from 'react';
+import cls from './LastUsersList.module.scss'; // Используем переменную cls
 
-import LastUsersData from '../last-user/Data/LastUsersData'
+import LastUsersData from '../last-user/Data/LastUsersData';
+import {LastUser} from "@entities/user";
 
 export const LastUsersList = () => {
-  const getData = LastUsersData.map((user) => {
+    const getData = LastUsersData.map((user) => (
+        <LastUser
+            key={user.id}
+            country={user.country}
+            username={user.username}
+            id={user.id}
+            date={user.date}
+            time={user.time}
+        />
+    ));
+
     return (
-      <LastUser
-        key={user.id}
-        country={user.country}
-        username={user.username}
-        id={user.id}
-        date={user.date}
-        time={user.time}
-      />
-    )
-  })
+        <div className={cls['last-users']}>
+            <h2 className={cls['last-users__title']}>Latest registrations</h2>
+            <div className={cls['last-users__top']}>
+                <p className={cls['last-users__top_text']}>Country</p>
+                <p className={cls['last-users__top_text']}>E-mail</p>
+                <p className={cls['last-users__top_text']}>Date</p>
+            </div>
 
-  return (
-    <div className="last-users">
-      <h2 className="last-users__title">Latest registrations</h2>
-      <div className="last-users__top">
-        <p className="last-users__top_text">Country</p>
-        <p className="last-users__top_text">E-mail</p>
-        <p className="last-users__top_text">Date</p>
-      </div>
+            {getData}
+        </div>
+    );
+};
 
-      {getData}
-    </div>
-  )
-}

@@ -1,0 +1,6 @@
+.auctionList {
+  display: grid;
+  grid-template: repeat(2, auto) / repeat(3, 1fr);
+  gap: 23px 16px;
+
+}
