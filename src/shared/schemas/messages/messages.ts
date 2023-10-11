@@ -24,7 +24,10 @@ query GetAllMessagesByRoomId($userMessage: UserMessages!) {
     userId
   }
 }
-`)
+`);
+
+
+
 export const GET_ALL_USERS_BY_ROOM_ID = gql(`
     query GetAllUsersByRoomId($roomId: Float!) {
       getAllUsersByRoomId(roomId: $roomId) {
@@ -47,21 +50,6 @@ export const SEND_MESSAGE = gql(`
       }
     }
 `)
-
-export const REMOVE_MESSAGE = gql(`
-   mutation RemoveMessage($removeMessageId: Float!) {
-  removeMessage(id: $removeMessageId) {
-    content
-    createdAt
-    updatedAt
-    userId
-    roomId
-    id
-  }
-}
-`)
-
-
 export const CREATE_MY_ROOM = gql(`
     mutation CreateMyRoom($input: RoomCreateInput!) {
       createMyRoom(input: $input) {
@@ -74,6 +62,32 @@ export const CREATE_MY_ROOM = gql(`
       }
     }
 
+`)
+
+export const REMOVE_MESSAGE = gql(`
+    mutation RemoveMessage($removeMessageId: Float!) {
+  removeMessage(id: $removeMessageId) {
+    roomId
+    updatedAt
+    userId
+    content
+    id
+    createdAt
+  }
+}
+`)
+
+export const UPDATE_MESSAGE = gql(`
+   mutation UpdateMessage {
+  updateMessage {
+    content
+    createdAt
+    id
+    roomId
+    updatedAt
+    userId
+  }
+}
 `)
 
 export const GET_OWNER_ID = gql(`
@@ -114,6 +128,3 @@ mutation AddUserInRoom($addUser: AddUserInput!) {
     avatarUrl
   }
 }`)
-
-
-

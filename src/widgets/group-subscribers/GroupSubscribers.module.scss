@@ -2,7 +2,28 @@
 
   border-radius: 8px;
 
+  max-height: 400px;
+  overflow-y: auto;
 
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  
   .header {
     display: flex;
     align-items: flex-start;
@@ -24,6 +45,7 @@
     
     &__invite {
       img {
+        margin-right: 10px;
         &:hover{
           cursor: pointer;
         }

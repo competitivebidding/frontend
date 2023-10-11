@@ -1,3 +1,12 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .chat__messages {
   display: flex;
   flex-direction: column;
@@ -26,3 +35,18 @@
   }
 }
 
+.chat__spinner {
+  animation: spin 1s linear infinite;
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+}
+
+.chat__loader {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  background-color: #141923;
+  padding: 15px;
+}

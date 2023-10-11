@@ -1,0 +1,144 @@
+
+
+.context__menu {
+  position: fixed;
+  background-color: #272e3d;
+  margin-top: 10px;
+  margin-left: auto;
+  border: 1px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  border-radius: 5px;
+  width: 150px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  & div {
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #5c5c5d;
+      border-radius: 5px;
+    }
+  }
+}
+
+
+// .chat__message.answer .context__menu {
+//   display: none;
+// }
+
+
+.modal {
+  display: flex;
+  position: fixed;
+
+
+  width: 400px;
+
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+
+
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 400px;
+    color: #fff;
+    width: 100%;
+   
+  }
+
+  &__header {
+    background-color: #3b4a6d;
+    color: #fff0f0;
+
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    // justify-content: center;
+    gap: 20px;
+    align-items: center;
+    border-radius: 5px;
+
+    & img {
+      width: 25px;
+      height: 30px;
+      cursor: pointer;
+    }
+  }
+
+  &__imgEdit {
+    height: 150px;
+    background-image: url('../../assets/Chat/backEditMessage.png') ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__contentEdit {
+      max-width: 80%;
+      padding: 10px;
+      color: #fff;
+      word-break: break-all;
+      background-color: rgb(53, 53, 109);
+      border-radius: 10px;
+  }
+
+  &__time {
+      margin-top: 2%;
+      text-align: start;
+      font-size: 10px;
+  }
+
+  &__editMessage {
+    // display: flex;
+    background-color: #303849;
+    padding: 15px;
+  }
+
+  &__messageContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+   }
+
+  &__message {
+    display: flex;
+    justify-content:space-between;
+    background-color: #3b4a6d;
+    gap: 20px;
+    padding:10px;
+    border-radius: 5px;
+    width: 100%;
+
+    input {
+      width: 100%;
+    }
+  }
+
+
+  &__save img{
+     cursor: pointer;
+     background-color: rgb(101, 101, 167);
+     border-radius: 50px;
+     width: 40px;
+   height: 35px;
+   padding: 2px;
+  }
+
+
+}
+
+
