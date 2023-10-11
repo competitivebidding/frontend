@@ -11,7 +11,7 @@ interface IUserInfoAccountProps {
   id: number;
 }
 
-const UserInfoAccount = ({ id }: IUserInfoAccountProps) => {
+export const UserInfoAccount = ({ id }: IUserInfoAccountProps) => {
   const [userInfo, setUserInfo] = useState({
     mainCard: {
       picture: userImg,
@@ -33,24 +33,24 @@ const UserInfoAccount = ({ id }: IUserInfoAccountProps) => {
   });
 
   return (
-      <article className={cls.blockTemplate}>
-        <div className={cls.itemInfo}>
-          <div className={cls.itemInfoUser}>
-            <img src={userInfo.mainCard.picture} alt="" className={cls.itemInfoImg} />
-            <div className={`${cls.itemInfoVerify} ${userInfo.mainCard.verify ? cls.greenMode : ''}`}>
+      <article className={cls['block__template']}>
+        <div className={`${cls['block__item']} ${cls['item-info']}`}>
+          <div className={cls['item-info__user']}>
+            <img src={userInfo.mainCard.picture} alt="" className={cls['item-info__img']} />
+            <div className={`${cls['item-info__verify']} ${userInfo.mainCard.verify ? cls['green-mode'] : ''}`}>
               {userInfo.mainCard.verify ? 'Confirmed' : 'Unconfirmed'}
             </div>
-            <div className={cls.itemInfoId}>id: {userInfo.mainCard.id}</div>
+            <div className={cls['item-info__id']}>id: {userInfo.mainCard.id}</div>
           </div>
-          <div className={cls.itemInfoButton}>
+          <div className={cls['item-info__button']}>
             <button>Settings</button>
           </div>
         </div>
-        <div className={cls.itemPartner}>
+        <div className={`${cls['block__item']} ${cls['item-partner']}`}>
           <img src={hat} alt={'hat'} />
-          <div className={`${cls.itemPartnerContent} ${cls.item}`}>
-            <button className={cls.itemContentButton}>Status</button>
-            <div className={cls.itemContentText}>
+          <div className={`${cls['item-partner__content']} ${cls['item']}`}>
+            <button className={cls['item-content__button']}>Status</button>
+            <div className={`${cls['item-content__text']}`}>
               <div>
                 Partner
                 <TooltipButton info="As a member of the affiliate program, you will receive a commission in the form of 20% of the spending of users who have registered using your referral link." />
@@ -60,58 +60,57 @@ const UserInfoAccount = ({ id }: IUserInfoAccountProps) => {
           </div>
         </div>
 
-        <div className={cls.itemPhone}>
-          <div className={cls.itemPhoneMain}>
-            <div className={cls.mainPhoneImg}>
+        <div className={`${cls['block__item']} ${cls['item-phone']}`}>
+          <div className={`${cls['item-phone__main']} ${cls['main-phone']}`}>
+            <div className={cls['main-phone__img']}>
               <img src={phone} alt="" />
             </div>
-            <div className={cls.mainPhoneInfo}>
-              <div className={cls.mainPhonePhoneInfo}>
-                <div className={cls.mainPhoneName}>Phone</div>
-                <div className={cls.mainPhonePhone}>{userInfo.phoneCard.phoneNumber}</div>
+            <div className={cls['main-phone__info']}>
+              <div className={`${cls['main-phone__phone-info']}`}>
+                <div className={cls['main-phone__name']}>Phone</div>
+                <div className={cls['main-phone__phone']}>{userInfo.phoneCard.phoneNumber}</div>
               </div>
-              <div className={`${cls.mainPhoneStatus} ${userInfo.phoneCard.verify ? cls.greenMode : ''}`}>
+              <div className={`${cls['main-phone__status']} ${userInfo.phoneCard.verify ? cls['green-mode'] : ''}`}>
                 {userInfo.phoneCard.verify ? 'Confirmed' : 'Uncomfirmed'}
               </div>
             </div>
           </div>
-          <div className={cls.itemPhoneButton}>
+          <div className={cls['item-phone__button']}>
             <button>Submit</button>
           </div>
         </div>
 
-        <div className={cls.itemEmail}>
-          <div className={cls.itemEmailUpperSection}>
-            <div className={cls.upperSectionBlockEmailImg}>
-              <img src={email} alt="" className={cls.upperSectionEmailImg} />
+        <div className={`${cls['block__item']} ${cls['item-email']}`}>
+          <div className={`${cls['item-email__upperSection']} ${cls['upperSection']}`}>
+            <div className={cls['upperSection__block-emailImg']}>
+              <img src={email} alt="" className={cls['upperSection__emailImg']} />
             </div>
-            <div className={cls.upperSectionBlockInfo}>
-              <div className={cls.upperSectionBlockEmail}>
-                <div className={cls.upperSectionTitle}>E-mail</div>
-                <div className={cls.upperSectionEmail}>viktory.mrs@icloud.com</div>
+
+            <div className={cls['upperSection__block-info']}>
+              <div className={cls['upperSection__block-email']}>
+                <div className={cls['upperSection__title']}>E-mail</div>
+                <div className={cls['upperSection__email']}>viktory.mrs@icloud.com</div>
               </div>
 
-              <div className={cls.upperSectionStatus}>Confirmed</div>
+              <div className={cls['upperSection__status']}>Confirmed</div>
             </div>
           </div>
-          <div className={cls.itemEmailBottomSection}>
+          <div className={`${cls['item-email__bottomSection']} ${cls['bottomSection']}`}>
             Verification letter has been sent to your email
-            <TooltipButton info="A verified email address increases your level of authorization and gives you more opportunities to interact with Competitive Bidding" />
+            <TooltipButton info="A verified email address increases your level of authorization and gives you more opportunities to interact with Competitive Biddin" />
           </div>
         </div>
 
-        <div className={cls.itemCard}>
-          <div className={`${cls.itemCardContent} ${cls.content}`}>
-            <div className={cls.contentImg}>
+        <div className={`${cls['block__item']} ${cls['item-card']}`}>
+          <div className={`${cls['item-card__content']} ${cls['content']}`}>
+            <div className={`${cls['content__img']}`}>
               <img src={card} alt="card" />
             </div>
-            <h3 className={cls.contentTitle}>Withdrawal card</h3>
-            <div className={cls.contentStatus}>Not set</div>
+            <h3 className={`${cls['content__title']}`}>Withdrawal card</h3>
+            <div className={`${cls['content__status']}`}>Not set</div>
           </div>
-          <button className={cls.itemCardButton}>Connect</button>
+          <button className={`${cls['item-card__button']}`}>Connect</button>
         </div>
       </article>
   );
 };
-
-export default UserInfoAccount;

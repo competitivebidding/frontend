@@ -7,7 +7,7 @@ import ForPartners from '@/widgets/for-partners/ForPartners'
 
 import { useQuery } from '@apollo/client'
 import { GET_PROFILE_QUERY } from '@/shared/schemas/user/userProfile'
-import UserInfoAccount from "@entities/user/ui/user-info/ui/user-account-info/UserInfoAccount";
+import {UserInfoAccount} from "@entities/user/ui/user-info/ui/user-account-info/UserInfoAccount";
 
 export const UserInfoPartnerProgram = () => {
   const [isLoaded, setIsLoaded] = React.useState(false)
@@ -15,7 +15,7 @@ export const UserInfoPartnerProgram = () => {
 
   return (
     <>
-      {!isLoaded ? (
+      {loading ? (
         <h2>Loading...</h2>
       ) : (
         <section className={cls.block}>
