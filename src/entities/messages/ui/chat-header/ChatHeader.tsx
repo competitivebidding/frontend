@@ -16,9 +16,8 @@ export const ChatHeader = ({ onToggleModal, title, length, toggleActiveSidebar, 
       {title && (
         <div className="chat__header-users" onClick={onToggleModal}>
           <p className="chat__header-title">{title}</p>
-          <div className="chat__header-subscribers">{`${length} subscribers`}</div>
+          <div className="chat__header-subscribers">{length !== undefined ? `${length} subscribers` : "Loading..."}</div>
         </div>
-
       )}
       <div className={`chat__header-burger ${isSidebarOpened && 'active'}`} onClick={toggleActiveSidebar}>
         <span></span>

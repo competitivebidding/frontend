@@ -6,7 +6,7 @@ import { AppModal } from '@shared/ui/modal/AppModal'
 
 import scss from './GroupSubscribers.module.scss'
 import { IUser } from '@entities/messages/Messages'
-import {ActiveGroup} from '@entities/messages/Messages'
+import {Group} from '@entities/messages/Messages'
 import iconPlus from "@assets/Chat/iconPlus.svg";
 import {InviteUserToChat} from "@features/invite-user-to-chat/ui/InviteUserToChat";
 
@@ -15,7 +15,7 @@ interface IGroupSubscribersProps {
   groupSubs: IUser[]
   roomId: number
   onClose: () => void
-  setActiveGroup: Dispatch<SetStateAction<ActiveGroup | undefined>>
+  setActiveGroup: Dispatch<SetStateAction<Group | undefined>>
   isOwner: boolean
 }
 

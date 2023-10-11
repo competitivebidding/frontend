@@ -16,7 +16,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(50, 47, 47, 0.8);
+    background-color: rgba(140, 139, 139, 0.256);
     z-index: 9;
   }
   .modalWindow {
@@ -28,7 +28,7 @@
     transform: translate(-50%, -50%);
     border-radius: 16px;
     box-shadow: 0 4px 20px #000000;
-    padding: 32px;
+    // padding: 32px;
     z-index: 99;
     & > * {
       position: relative;

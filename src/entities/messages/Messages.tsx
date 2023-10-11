@@ -142,7 +142,7 @@ const Messages = () => {
                       roomId={activeGroup.id}
                       onClose={toggleGroup}
                       setActiveGroup={setActiveGroup}
-                   isOwner={activeGroup.ownerId === lsUser?.id}
+                    isOwner={activeGroup.ownerId === lsUser?.id}
                   />
               )}
             </AppModal>
@@ -154,3 +154,10 @@ const Messages = () => {
 
 
 export default Messages;
+
+
+
+
+
+
+

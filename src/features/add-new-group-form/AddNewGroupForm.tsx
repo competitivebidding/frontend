@@ -29,6 +29,13 @@ export const AddNewGroupForm = ({ onClose }: IAddNewGroupFormProps) => {
     onClose(false)
   }
 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleCreateRoom();
+    }
+  };
+
+
   useEffect(() => {
     fieldRef?.current?.focus()
   }, [])
@@ -42,6 +49,7 @@ export const AddNewGroupForm = ({ onClose }: IAddNewGroupFormProps) => {
         className="modalNewGroup__name"
         value={value}
         onChange={(e) => setValue(e.target.value)}
+        onKeyPress={handleKeyPress} 
       />
       <button className="modalNewGroup__button" onClick={handleCreateRoom}>
         Create Group
