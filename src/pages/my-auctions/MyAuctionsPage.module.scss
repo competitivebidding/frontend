@@ -1,0 +1,11 @@
+.auctions__components {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.actions__search--card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

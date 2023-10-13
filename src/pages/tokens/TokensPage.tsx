@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import AppHeader from '@widgets/header/AppHeader'
-import './TokensPage.scss'
+import React from 'react'
+import cls from './TokensPage.module.scss'
 import TokenCard from '@entities/token-card/TokenCard'
 
 const TokensPage = () => {
@@ -38,7 +37,7 @@ const TokensPage = () => {
   ]
 
   return (
-    <div className="tokens">
+    <div className={cls.tokens}>
       {data.map((obj, index) => (
         <TokenCard tokens={obj.tokens} prize={obj.prize} buttonName={obj.buttonName} id={obj.id} key={index} />
       ))}

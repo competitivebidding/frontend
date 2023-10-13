@@ -22,21 +22,19 @@ interface IAuctionCardProps {
 export const AuctionList = () => {
   const { data, loading } = useQuery(GetAuctionsDocument)
 
-  if (!data || !Array.isArray(data)) {
-    return null // Return null or handle the error case appropriately
+  if (!data) {
+    return null
   }
 
-  const auctionCards = data.map((card) => {
+  console.log(data)
+
+  const auctionCards = data.getAuctions.map((card) => {
     // const { id, ...cardProps } = card;
     return (
       <AuctionCard
         id={card.id}
-        alt={card.alt}
         title={card.title}
-        date={card.date}
         bids={card.bids}
-        places={card.places}
-        changeStatus={card.changeStatus}
         startedAt={card.startedAt}
       />
     )

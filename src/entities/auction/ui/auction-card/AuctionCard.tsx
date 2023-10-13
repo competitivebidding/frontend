@@ -4,18 +4,19 @@ import cls from './AuctionCard.module.scss';
 import img from '@assets/temporary-auctions-img/watch.png';
 
 interface IAuctionCardProps {
-  id: string;
-  alt: string;
-  title: string;
-  date: string;
-  bids: string;
-  places: string;
-  changeStatus: boolean;
+
+  id: number;
+  alt?: string;
+  title?: string;
+  date?: string;
+  bids?: { id: number, userId: number, auctionId: number, bitPrice: number, createdAt: any, updatedAt: any, user?: {} | null | undefined}[] | null | undefined;
+  places?: string;
+  changeStatus?: boolean;
   startedAt: Date;
   className?: string;
 }
 
-const AuctionCard = ({ id, alt, title, date, bids, places, changeStatus, startedAt }: IAuctionCardProps) => {
+const AuctionCard = ({ id, alt = 'kek', title, date, bids, places = '', changeStatus, startedAt }: IAuctionCardProps) => {
   const [clazz, setClass] = useState(cls.card);
   const [place, setPlace] = useState(places);
   const [timer, setTimer] = useState(false);

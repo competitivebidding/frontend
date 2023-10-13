@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import validator from 'validator'
 import { Link } from 'react-router-dom'
-
-import './ResetPasswordRight.scss'
+import cls from '../SignInRight.module.scss'
 
 interface IResetPasswordFields {
   email: string
@@ -18,7 +17,6 @@ export const ResetPasswordRight = () => {
   } = useForm<IResetPasswordFields>()
 
   const [emailSubmitted, setEmailSubmitted] = useState(false)
-  // const [verificationCode, setVerificationCode] = useState("1234");
   const [codeVerified, setCodeVerified] = useState(true)
 
   let verificationCode = '1234'
@@ -42,71 +40,64 @@ export const ResetPasswordRight = () => {
   }
 
   return (
-    <div className='auth'>
-      <form className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
-        <h2 className="form__title">Recover password</h2>
-        <div className="form__descr">
+      <form className={cls.form} onSubmit={handleSubmit(onSubmit)} noValidate>
+        <h2 className={cls.form__title}>Recover password</h2>
+        <div className={cls.form__descr}>
           <p>
             Already have an account?{' '}
             <span>
-              <Link to="/SignIn">Log In</Link>
-            </span>
+            <Link to="/SignIn">Log In</Link>
+          </span>
           </p>
         </div>
         {!emailSubmitted && (
-          <div className={`form__group ${errors.email ? 'has-error' : ''}`}>
-            <label htmlFor="email">E-mail</label>
-            <div className="email__input">
-              <input
-                type="email"
-                id="email"
-                required
-                {...register('email', {
-                  required: true,
-                  pattern: /^\S+@\S+$/i,
-                })}
-              />
-            </div>
-            {errors.email?.type === 'required' && <div className="error-message">Please enter your email address</div>}
-            {errors.email?.type === 'pattern' && (
-              <div className="error-message">Please enter a valid email address</div>
-            )}
-          </div>
-        )}
-        {emailSubmitted && (
-          <>
-            <div className="success__message">Code sent! Check your email.</div>
-            <div className={`form__group ${errors.code || !codeVerified ? 'has-error' : ''}`}>
-              <label htmlFor="code">Code</label>
-              <div className="code__input">
+            <div className={`${cls.form__group} ${errors.email ? cls['has-error'] : ''}`}>
+              <label htmlFor="email">E-mail</label>
+              <div className={cls.email__input}>
                 <input
-                  type="text"
-                  id="code"
-                  required
-                  {...register('code', {
-                    required: true,
-                    pattern: /^[0-9]+$/,
-                  })}
+                    type="email"
+                    id="email"
+                    required
+                    {...register('email', {
+                      required: true,
+                      pattern: /^\S+@\S+$/i,
+                    })}
                 />
               </div>
-              {errors.code?.type === 'required' && (
-                <div className="error-message">Please enter the code sent to your email</div>
+              {errors.email?.type === 'required' && <div className={cls['error-message']}>Please enter your email address</div>}
+              {errors.email?.type === 'pattern' && (
+                  <div className={cls['error-message']}>Please enter a valid email address</div>
               )}
-
-              {/* {errors.code?.type === 'pattern' && (
-                <div className="error-message">Please enter only digits</div>
-              )} */}
-
-              {!codeVerified && <div className="error-message">Error: Invalid code</div>}
             </div>
-          </>
         )}
-        <div className="wrap__btn">
-          <button type="submit" className="btn__form">
+        {emailSubmitted && (
+            <>
+              <div className={cls['success__message']}>Code sent! Check your email.</div>
+              <div className={`${cls.form__group} ${errors.code || !codeVerified ? cls['has-error'] : ''}`}>
+                <label htmlFor="code">Code</label>
+                <div className={cls.code__input}>
+                  <input
+                      type="text"
+                      id="code"
+                      required
+                      {...register('code', {
+                        required: true,
+                        pattern: /^[0-9]+$/,
+                      })}
+                  />
+                </div>
+                {errors.code?.type === 'required' && (
+                    <div className={cls['error-message']}>Please enter the code sent to your email</div>
+                )}
+                {!codeVerified && <div className={cls['error-message']}>Error: Invalid code</div>}
+              </div>
+            </>
+        )}
+        <div className={cls['wrap__btn']}>
+          <button type="submit" className={cls['btn__form']}>
             {emailSubmitted ? 'Verify code' : 'Restore'}
           </button>
         </div>
       </form>
-    </div>
   )
 }

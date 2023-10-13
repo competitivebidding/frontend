@@ -1,6 +1,6 @@
 import React from 'react'
 import AppHeader from '../../widgets/header/AppHeader.js'
-import './NotificationsPage.scss'
+import cls from './NotificationsPage.module.scss'
 import NotificationCard from '../../widgets/notification-card/NotificationCard.js'
 
 import useNoAuth from '../../shared/lib/useNoAuth.js'
@@ -38,7 +38,7 @@ const NotificationsPage = () => {
   ]
 
   return (
-    <div className="notes">
+    <div className={cls.notes}>
       {data.map((obj) => (
         <NotificationCard
           key={obj.id}

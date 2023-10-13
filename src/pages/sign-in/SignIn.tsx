@@ -1,14 +1,11 @@
 import React from 'react'
 
 import { SignInRight } from '@features/auth'
-import LeftAuth from '@pages/authorization/leftAuth'
+import AuthLayout from '@pages/authorization/AuthLayout'
 
 const SignIn = () => {
   return (
-    <>
-      <LeftAuth />
       <SignInRight />
-    </>
   )
 }
 

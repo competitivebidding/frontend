@@ -4,23 +4,24 @@
   margin: 0 0 10px;
 }
 
+.selected {
+  margin-top: 1em;
+}
+
 .filter {
   background-color: #171A1E;
   color: rgba(255, 255, 255, 0.6);
   width: fit-content;
   min-width: 270px;
-
   height: fit-content;
   border-radius: 17px;
-  margin-right: -2em;
-
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 1.1rem;
   line-height: 1rem;
 
-  padding: 1em 1em 0 1em;
+  padding: 1em;
 
   @media (max-width: 1000px) {
     width: 100%;
@@ -38,7 +39,7 @@
   &__header {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+
   }
 
   .select__categories {
@@ -130,7 +131,7 @@
     position: relative;
     padding-left: 25px;
     cursor: pointer;
-
+    margin-bottom: .5em;
     input {
       position: absolute;
       opacity: 0;

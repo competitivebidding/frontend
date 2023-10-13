@@ -3,6 +3,7 @@ import MyAuctionContent from '@widgets/my-auctions-content/MyAuctionContent.js'
 import useNoAuth from '@shared/lib/useNoAuth.js'
 import Search from '@features/search/Search'
 import Filter from '@features/filter/Filter'
+import cls from './MyAuctionsPage.module.scss'
 
 enum Status {
   ACTIVE = 'active',
@@ -88,15 +89,18 @@ const MyAuctionsPage = () => {
   useNoAuth()
 
   return (
-    <div className="auctions__components">
-      <div className="actions__search--card">
+    <div className={cls.auctions__components}>
+      <div className={cls['actions__search--card']}>
         <Search onChange={() => console.log()} />
-
-        <MyAuctionContent data={data} />
+        <MyAuctionContent />
       </div>
       <Filter />
     </div>
   )
 }
+
+
+
+
 
 export default MyAuctionsPage

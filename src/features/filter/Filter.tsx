@@ -1,107 +1,107 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import './Filter.scss'
+import React, { useCallback, useEffect, useState } from 'react';
+import cls from './Filter.module.scss';
 
-import arrowGrey from '@assets/imgAuctions/arrowGrey.svg'
-import arrowFilter from '@assets/imgAuctions/arrowFilter.svg'
-import cross from '@assets/imgAuctions/cross.svg'
+import arrowGrey from '../../assets/imgAuctions/arrowGrey.svg';
+import arrowFilter from '../../assets/imgAuctions/arrowFilter.svg';
+import cross from '../../assets/imgAuctions/cross.svg';
 
 const Filter = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(true)
-  const [isCategoriesVisible, setIsCategoriesVisible] = useState<boolean>(true)
-  const [isBrandVisible, setIsBrandVisible] = useState<boolean>(true)
-  const [isMobile, setIsMobile] = useState<boolean>(false)
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [isCategoriesVisible, setIsCategoriesVisible] = useState<boolean>(true);
+  const [isBrandVisible, setIsBrandVisible] = useState<boolean>(true);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   const handleResize = useCallback(() => {
-    setIsMobile(window.innerWidth < 1000)
-    window.innerWidth < 1000 ? setIsVisible(false) : ''
-  }, [])
+    setIsMobile(window.innerWidth < 1000);
+    window.innerWidth < 1000 ? setIsVisible(false) : '';
+  }, []);
 
   useEffect(() => {
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <div className="filter">
-      <div className="filter__header">
-        <h2 className="filter__title">Filtering</h2>
-        <span className={`filter__hide ${isMobile ? '' : 'hidden'}`} onClick={() => setIsVisible(!isVisible)}>
-          <div className="filter__block-arrowImg">
-            <img src={arrowGrey} alt="arrow" className={`filter__arrow ${isVisible ? 'rotate' : ''}`} />
+      <div className={cls.filter}>
+        <div className={cls['filter__header']}>
+          <h2 className={cls['filter__title']}>Filtering</h2>
+          <span className={`${cls['filter__hide']} ${isMobile ? '' : cls['hidden']}`} onClick={() => setIsVisible(!isVisible)}>
+          <div className={cls['filter__block-arrowImg']}>
+            <img src={arrowGrey} alt="arrow" className={`${cls['filter__arrow']} ${isVisible ? cls['rotate'] : ''}`} />
           </div>
         </span>
-      </div>
-      {isVisible && (
-        <>
-          <div>
-            <h3 className="filter__selected">Selected Categories:</h3>
-            <div className="select__categories">
-              Brand
-              <div className="select__img">
-                <img src={cross} alt="cross" />
+        </div>
+        {isVisible && (
+            <>
+              <div className={cls.selected}>
+                <h3 className={cls['filter__selected']}>Selected Categories:</h3>
+                <div className={cls['select__categories']}>
+                  Brand
+                  <div className={cls['select__img']}>
+                    <img src={cross} alt="cross" />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div className="categories">
-            <h3 className="categories__title">Categories:</h3>
-            <span className="categories__arrow" onClick={() => setIsCategoriesVisible(!isCategoriesVisible)}>
-              <img src={arrowFilter} alt="arrow" className={`filter__arrow ${isCategoriesVisible ? 'rotate' : ''}`} />
+              <div className={cls['categories']}>
+                <h3 className={cls['categories__title']}>Categories:</h3>
+                <span className={cls['categories__arrow']} onClick={() => setIsCategoriesVisible(!isCategoriesVisible)}>
+              <img src={arrowFilter} alt="arrow" className={`${cls['filter__arrow']} ${isCategoriesVisible ? cls['rotate'] : ''}`} />
             </span>
-          </div>
+              </div>
 
-          <div className="filter__categories" style={{ display: isCategoriesVisible ? 'block' : 'none' }}>
-            <label className="checkbox__container">
-              <input type="checkbox" name="category" value="all" />
-              <span className="checkmark"></span>
-              All categories
-            </label>
+              <div className={cls['filter__categories']} style={{ display: isCategoriesVisible ? 'block' : 'none' }}>
+                <label className={cls['checkbox__container']}>
+                  <input type="checkbox" name="category" value="all" />
+                  <span className={cls['checkmark']}></span>
+                  All categories
+                </label>
 
-            <label className="checkbox__container">
-              <input type="checkbox" name="category" value="gadgets" />
-              <span className="checkmark"></span>
-              Gadgets
-            </label>
+                <label className={cls['checkbox__container']}>
+                  <input type="checkbox" name="category" value="gadgets" />
+                  <span className={cls['checkmark']}></span>
+                  Gadgets
+                </label>
 
-            <label className="checkbox__container">
-              <input type="checkbox" name="category" value="electronics" />
-              <span className="checkmark"></span>
-              Electronics
-            </label>
-          </div>
+                <label className={cls['checkbox__container']}>
+                  <input type="checkbox" name="category" value="electronics" />
+                  <span className={cls['checkmark']}></span>
+                  Electronics
+                </label>
+              </div>
 
-          <div className="brand">
-            <h3 className="brand__title">Brand</h3>
-            <span className="brand__arrow " onClick={() => setIsBrandVisible(!isBrandVisible)}>
-              <img src={arrowFilter} alt="arrow" className={`filter__arrow ${isBrandVisible ? 'rotate' : ''}`} />
+              <div className={cls['brand']}>
+                <h3 className={cls['brand__title']}>Brand</h3>
+                <span className={`${cls['brand__arrow']}`} onClick={() => setIsBrandVisible(!isBrandVisible)}>
+              <img src={arrowFilter} alt="arrow" className={`${cls['filter__arrow']} ${isBrandVisible ? cls['rotate'] : ''}`} />
             </span>
-          </div>
+              </div>
 
-          <div className="filter__brands" style={{ display: isBrandVisible ? 'block' : 'none' }}>
-            <input type="text" placeholder="Search" />
+              <div className={cls['filter__brands']} style={{ display: isBrandVisible ? 'block' : 'none' }}>
+                <input type="text" placeholder="Search" />
 
-            <label className="checkbox__container">
-              <input type="checkbox" name="brand" value="apple" />
-              <span className="checkmark"></span>
-              Apple
-            </label>
+                <label className={cls['checkbox__container']}>
+                  <input type="checkbox" name="brand" value="apple" />
+                  <span className={cls['checkmark']}></span>
+                  Apple
+                </label>
 
-            <label className="checkbox__container">
-              <input type="checkbox" name="brand" value="samsung" />
-              <span className="checkmark"></span>
-              Samsung
-            </label>
-            <label className="checkbox__container">
-              <input type="checkbox" name="brand" value="Xiaomi" />
-              <span className="checkmark"></span>
-              Xiaomi
-            </label>
-          </div>
-        </>
-      )}
-    </div>
-  )
-}
+                <label className={cls['checkbox__container']}>
+                  <input type="checkbox" name="brand" value="samsung" />
+                  <span className={cls['checkmark']}></span>
+                  Samsung
+                </label>
+                <label className={cls['checkbox__container']}>
+                  <input type="checkbox" name="brand" value="Xiaomi" />
+                  <span className={cls['checkmark']}></span>
+                  Xiaomi
+                </label>
+              </div>
+            </>
+        )}
+      </div>
+  );
+};
 
-export default Filter
+export default Filter;
