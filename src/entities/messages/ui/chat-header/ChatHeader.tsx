@@ -1,5 +1,5 @@
 import React from 'react'
-import './ChatHeader.scss'
+import cls from './ChatHeader.module.scss'
 import { useTranslation } from 'react-i18next'
 
 interface IChatHeaderProps {
@@ -14,15 +14,15 @@ export const ChatHeader = ({ onToggleModal, title, length, toggleActiveSidebar, 
   const { t } = useTranslation('chatHeader')
 
   return (
-    <div className="chat__header" >
+    <div className={cls.chat__header} >
 
       {title && (
-        <div className="chat__header-users" onClick={onToggleModal}>
-          <p className="chat__header-title">{title}</p>
-          <div className="chat__header-subscribers">{length !== undefined ? `${length} ${t('subscribers')}` : t('Loading') + '...'}</div>
+        <div className={cls['chat__header-users']} onClick={onToggleModal}>
+          <p className={cls['chat__header-title']}>{title}</p>
+          <div className={cls['chat__header-subscribers']}>{length !== undefined ? `${length} ${t('subscribers')}` : t('Loading') + '...'}</div>
         </div>
       )}
-      <div className={`chat__header-burger ${isSidebarOpened && 'active'}`} onClick={toggleActiveSidebar}>
+      <div className={`${cls['chat__header-burger']} ${isSidebarOpened && cls['active']}`} onClick={toggleActiveSidebar}>
         <span></span>
       </div>
     </div>

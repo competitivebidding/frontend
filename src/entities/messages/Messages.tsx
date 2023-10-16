@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import './Messages.scss'
+import cls from './Messages.module.scss'
 import {AppModal} from '@shared/ui/modal/AppModal'
 import {useQuery} from '@apollo/client'
 import {GET_ALL_USERS_BY_ROOM_ID} from '@shared/schemas/messages/messages'
@@ -99,7 +99,7 @@ const Messages = () => {
 
   return (
       <>
-        <div className='chat'>
+        <div className={cls.chat}>
           <ChatSidebar
               onToggleNewGroupModal={setModalNewGroup}
               onSelectGroup={handleSelectActiveGroup}
@@ -107,7 +107,7 @@ const Messages = () => {
               isSidebarOpened={isSidebarOpened}
           />
           {activeGroup ? (
-              <div className='chat__container'>
+              <div className={cls.chat__container}>
                 {<ChatHeader
                     title={ activeGroup.title}
                     length={(users?.getAllUsersByRoomId.length) as number}
@@ -123,8 +123,8 @@ const Messages = () => {
                 )}
               </div>
           ) : (
-              <div className='empty__container'>
-                <div className='chat__empty'>{t('Select a chat to start messaging')}</div>
+              <div className={cls.empty__container}>
+                <div className={cls.chat__empty}>{t('Select a chat to start messaging')}</div>
               </div>
           )}
         </div>

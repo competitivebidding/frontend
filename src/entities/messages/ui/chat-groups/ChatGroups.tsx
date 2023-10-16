@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useQuery } from '@apollo/client'
 
 import { useSubscription } from '@apollo/client'
-import './ChatGroups.scss'
+import cls from './ChatGroups.module.scss'
 
 import { NEW_MESSAGE } from '@shared/schemas/messages/subscriptions'
 import { GET_ALL_MY_ROOMS } from '@shared/schemas/messages/messages'
 import { useLocalStorage } from '@shared/lib/useLocalStorage'
 import { GetAllMyRoomsDocument, NewMessageDocument } from '@shared/lib/types/__generated-types__/graphql'
 import {Group} from "@entities/messages/Messages";
-
-
 
 interface IChatGroupsProps {
   onSelectGroup: (group: Group) => void
@@ -43,16 +41,16 @@ export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
   }
 
   return (
-    <div className="sidebar__group ">
+    <div className={cls.sidebar__group}>
       {!groupsLoading && (
         <ul>
           {groupsData?.getAllMyRooms.map((group: Group) => (
             <li
               key={group.id}
-              className={`sidebar__list ${activeItem === group.id ? 'active' : ''}`}
+              className={`${cls.sidebar__list} ${activeItem === group.id ? cls.active : ''}`}
               onClick={() => handleSetActiveGroup(group)}
             >
-              <div className="sidebar__list-title">
+              <div className={cls['sidebar__list-title']}>
                 {group.title}
                 {/*<p>{lastMessages[group.id]}</p>*/}
               </div>
