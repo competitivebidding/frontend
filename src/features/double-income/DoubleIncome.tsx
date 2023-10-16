@@ -3,6 +3,7 @@ import styles from '../../shared/ui/charts/Income.module.scss'
 import arrow from '@assets/Partners/arrow.svg'
 import BarChart from '@shared/ui/charts/BarChart'
 import { ChartData } from 'chart.js'
+import { useTranslation } from 'react-i18next'
 
 interface IDoubleIncomeProps {
   currency: string[]
@@ -14,6 +15,7 @@ function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
   const [filterValue, setFilterValue] = useState<string>('Last week')
   const [dropdownVisibility, setDropdownVisibility] = useState<boolean>(false)
   const [isROTO, setIsROTO] = useState<boolean>(false)
+  const { t } = useTranslation('doubleIncome')
 
   return (
     <div className={styles.income_chart}>
@@ -43,7 +45,7 @@ function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
                   setDropdownVisibility(!dropdownVisibility)
                 }}
               >
-                Last week
+                {t('Last week')}
               </div>
               <div
                 className={styles.filter__item}
@@ -52,7 +54,7 @@ function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
                   setDropdownVisibility(!dropdownVisibility)
                 }}
               >
-                Last month
+                {t('Last month')}
               </div>
               <div
                 className={styles.filter__item}
@@ -61,7 +63,7 @@ function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
                   setDropdownVisibility(!dropdownVisibility)
                 }}
               >
-                Last year
+                {t('Last year')}
               </div>
             </div>
           </div>
@@ -85,7 +87,7 @@ function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
                   e.target.checked = !isROTO
                 }}
               />
-              <p>Rubles</p>
+              <p>ROTO</p>
               <span className={styles.checkmark} onClick={() => setIsROTO(false)}></span>
             </label>
           </div>
@@ -96,7 +98,7 @@ function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
             {isROTO ? currency[0] : currency[1]}
           </div>
           <div className={styles.income_chart__total}>
-            Total earnings: {(isROTO ? data[0] : data[1]).datasets[0].data.reduce((acc: any, v: any) => acc + v, 0)}{' '}
+            {t('Total earnings')}: {(isROTO ? data[0] : data[1]).datasets[0].data.reduce((acc: any, v: any) => acc + v, 0)}{' '}
             {isROTO ? currency[0] : currency[1]}
           </div>
         </div>

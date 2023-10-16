@@ -1,6 +1,7 @@
 import React, { FormEvent, FormEventHandler, useState } from 'react'
 import cls from './CabinetSettings.module.scss'
 import { useMutation, useQuery } from '@apollo/client'
+import { useTranslation } from 'react-i18next'
 
 import {
   EditProfileDocument,
@@ -23,6 +24,7 @@ export const CabinetSettings = () => {
 
   const [updateProfile] = useMutation(EditProfileDocument)
   const [updateAddress] = useMutation(UpdateUserAddressDocument, { refetchQueries: [GetUserAddressDocument] })
+  const { t } = useTranslation('cabinetSettings')
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -94,14 +96,14 @@ export const CabinetSettings = () => {
                 <div className={cls.wrapper}>
                   <div className={cls.body}>
                     <button type="submit" className={cls.form__button}>
-                      Save
+                      {t('Save')}
                     </button>
                   </div>
                 </div>
               ) : (
                 <div className={cls.body}>
                   <button onClick={() => setIsEditable(true)} className={cls.form__button}>
-                    Edit
+                    {t('Edit')}
                   </button>
                 </div>
               )}

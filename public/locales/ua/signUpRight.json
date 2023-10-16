@@ -1,0 +1,21 @@
+{
+  "Sign up": "Зареєструватися",
+  "Already have an account": "Вже є обліковий запис",
+  "Log In": "Увійти",
+  "UserName": "Ім'я користувача",
+  "Use valid name, please!": "Будь ласка, використовуйте дійсне ім'я!",
+  "E-mail": "Електронна пошта",
+  "Use valid email, please!": "Будь ласка, використовуйте дійсну адресу електронної пошти!",
+  "Please enter a valid email address": "Будь ласка, введіть дійсну адресу електронної пошти",
+  "Password": "Пароль",
+  "Please enter a password": "Будь ласка, введіть пароль",
+  "The password must be at least 6 characters long": "Пароль повинен бути не менше 6 символів у довжину",
+  "Use valid password, please!": "Будь ласка, використовуйте дійсний пароль!",
+  "Repeat password": "Повторіть пароль",
+  "Password should match": "Паролі повинні співпадати",
+  "Referrer": "Реферер",
+  "I have read and agree with": "Я прочитав і погоджуюся з",
+  "the terms and conditions of the Competitive Bidding": "умовами та положеннями Competitive Bidding",
+  "It should be checked!": "Це повинно бути позначено!",
+  "Sign in": "Увійти"
+}

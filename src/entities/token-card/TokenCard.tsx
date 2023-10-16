@@ -4,6 +4,8 @@ import cls from './TokenCard.module.scss';
 
 import video from '@assets/videoAd/shorts.mp4';
 
+import { useTranslation } from 'react-i18next'
+
 interface ITokenCardProps {
   tokens: string;
   prize: string;
@@ -17,6 +19,7 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
   const videoRef = useRef(null);
   const [showTimer, setShowTimer] = useState(true);
   const [remainingTime, setRemainingTime] = useState(86400);
+  const { t } = useTranslation('tokenCard')
 
   const toggleButton = () => {
     setModal(!modal);
@@ -68,14 +71,14 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
               <div className={modal ? cls['overlay'] : `${cls['overlay']} ${cls['overlay_hidden']}`} onClick={toggleButton}></div>
 
               <div className={modal ? cls['modal'] : `${cls['modal']} ${cls['modal_hidden']}`} onClick={(e) => e.stopPropagation()}>
-                <h3 className={cls['modal__header']}>Congratulations!</h3>
+                <h3 className={cls['modal__header']}>{t('Congratulations')}!</h3>
 
                 <h4 className={cls['modal__tokens']}>+ {tokens}</h4>
                 <p className={cls['modal__text']}>
-                  Your account has been replenished <br /> by {tokens}
+                  {t('Your account has been replenished')} <br /> by {tokens}
                 </p>
                 <button className={cls['modal__button']} onClick={toggleButton}>
-                  Excellent
+                  {t('Excellent')}
                 </button>
               </div>
             </>
@@ -85,7 +88,7 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
               {modal && (
                   <AppModal isOpen={modal} onClose={setModal}>
                     <div className={cls['modalAd']}>
-                      <h3 className={cls['modalAd__header']}>Advertising</h3>
+                      <h3 className={cls['modalAd__header']}>{t('Advertising')}</h3>
                       {showTimer ? (
                           <>
                             <h4 className={cls['modalAd__video']}>
@@ -105,9 +108,9 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
                           </>
                       ) : (
                           <>
-                            <h4 className={cls['modalAd__video']}>Video content will be available now</h4>
+                            <h4 className={cls['modalAd__video']}>{t('Video content will be available now')}</h4>
                             <button className={cls['modalAd__button']} onClick={toggleButton}>
-                              Pick up ROTO
+                              {t('Take')} ROTO
                             </button>
                           </>
                       )}
@@ -117,11 +120,10 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
               {nextModalActive && (
                   <AppModal isOpen={nextModalActive} onClose={setNextModalActive}>
                     <p className={cls['modalAd__text']}>
-                      Congratulations, you have successfully watched the ad and received 100 ROTO. For this currency, you can
-                      participate in auctions and win valuable prizes.
+                      {t('Congratulations, you have successfully watched the ad and received 100 ROTO. For this currency, you can participate in auctions and win valuable prizes')}.
                     </p>
                     <button className={cls['modalAd__button']} onClick={() => setNextModalActive(false)}>
-                      Забрать 100 ROTO
+                      {t('Take')} 100 ROTO
                     </button>
                   </AppModal>
               )}

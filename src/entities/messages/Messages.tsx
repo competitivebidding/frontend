@@ -12,6 +12,7 @@ import {ChatHeader} from './ui/chat-header/ChatHeader'
 import {ChatSidebar} from './ui/chat-sidebar/ChatSidebar'
 import {ChatJoin} from '@features/chat-join-button/ChatJoin'
 import {GetRoomByIdDocument} from '@shared/lib/types/__generated-types__/graphql'
+import { useTranslation } from 'react-i18next'
 
 export interface Group {
   createdAt: string
@@ -34,6 +35,7 @@ const Messages = () => {
   const { lsValue: lsActiveGroup } = useLocalStorage<Group>('activeGroup');
   const { lsValue: lsUser } = useLocalStorage<IUser>('user');
   const [isSidebarOpened, setIsSidebarOpened] = useState(true)
+  const { t } = useTranslation('messages')
 
   const [modalNewGroup, setModalNewGroup] = useState(false);
   const [modalGroup, setModalGroup] = useState(false);
@@ -122,7 +124,7 @@ const Messages = () => {
               </div>
           ) : (
               <div className='empty__container'>
-                <div className='chat__empty'> Select a chat to start messaging</div>
+                <div className='chat__empty'>{t('Select a chat to start messaging')}</div>
               </div>
           )}
         </div>

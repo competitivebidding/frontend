@@ -1,0 +1,12 @@
+{
+  "Log in": "Войти",
+  "Create an account": "Создать аккаунт",
+  "E-mail": "Электронная почта",
+  "Please enter your email address": "Пожалуйста, введите адрес электронной почты",
+  "Please enter a valid email address": "Пожалуйста, введите действительный адрес электронной почты",
+  "Password": "Пароль",
+  "Please enter your password": "Пожалуйста, введите пароль",
+  "No account": "Нет аккаунта",
+  "Forgot password": "Забыли пароль",
+  "Login or password is incorrect": "Логин или пароль неверны"
+}

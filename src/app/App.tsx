@@ -45,6 +45,8 @@ const App = () => {
             <Route path="/winnerList" element={<WinnersListPage />} />
             <Route path="/Lot/:id" element={<LotPage />} />
             <Route path="/cabinet" element={<CabinetPage />} />
+
+            
           </Route>
 
           <Route element={<NavHeader />}>

@@ -1,0 +1,21 @@
+{
+  "Sign up": "Зарегистрироваться",
+  "Already have an account": "Уже есть аккаунт",
+  "Log In": "Войти",
+  "UserName": "Имя пользователя",
+  "Use valid name, please!": "Пожалуйста, используйте действительное имя!",
+  "E-mail": "Электронная почта",
+  "Use valid email, please!": "Пожалуйста, используйте действительный адрес электронной почты!",
+  "Please enter a valid email address": "Пожалуйста, введите действительный адрес электронной почты",
+  "Password": "Пароль",
+  "Please enter a password": "Пожалуйста, введите пароль",
+  "The password must be at least 6 characters long": "Пароль должен быть не менее 6 символов в длину",
+  "Use valid password, please!": "Пожалуйста, используйте действительный пароль!",
+  "Repeat password": "Повторите пароль",
+  "Password should match": "Пароли должны совпадать",
+  "Referrer": "Реферер",
+  "I have read and agree with": "Я прочитал и согласен с",
+  "the terms and conditions of the Competitive Bidding": "условиями и положениями Competitive Bidding",
+  "It should be checked!": "Это должно быть отмечено!",
+  "Sign in": "Войти"
+}

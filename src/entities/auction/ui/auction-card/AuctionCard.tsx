@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import cls from './AuctionCard.module.scss';
 import img from '@assets/temporary-auctions-img/watch.png';
+import { useTranslation } from 'react-i18next'
 
 interface IAuctionCardProps {
 
@@ -17,6 +18,8 @@ interface IAuctionCardProps {
 }
 
 const AuctionCard = ({ id, alt = 'kek', title, date, bids, places = '', changeStatus, startedAt }: IAuctionCardProps) => {
+  const { t } = useTranslation('auctionCard')
+
   const [clazz, setClass] = useState(cls.card);
   const [place, setPlace] = useState(places);
   const [timer, setTimer] = useState(false);
@@ -36,7 +39,7 @@ const AuctionCard = ({ id, alt = 'kek', title, date, bids, places = '', changeSt
     if (!timer) {
       return (
           <div className={cls.card__start}>
-            <span>Start in:</span>
+            <span>{t('Start in')}:</span>
             <span>{formattedDate}</span>
           </div>
       );
@@ -51,7 +54,7 @@ const AuctionCard = ({ id, alt = 'kek', title, date, bids, places = '', changeSt
           <div className={cls.deposit}>
             <div className={cls.deposit__price}>
               <div className={cls.price__title}>200 ROTO</div>
-              <span>Deposit</span>
+              <span>{t('Deposit')}</span>
             </div>
           </div>
           <div className={cls.img__wrapper}>
@@ -59,7 +62,7 @@ const AuctionCard = ({ id, alt = 'kek', title, date, bids, places = '', changeSt
           </div>
           <div className={cls.click__price}>
             <div className={cls.price__title}>20 ROTO</div>
-            <span>Click price</span>
+            <span>{t('Price')}</span>
           </div>
         </div>
         <div className={cls.cardContent}>
@@ -68,13 +71,13 @@ const AuctionCard = ({ id, alt = 'kek', title, date, bids, places = '', changeSt
             <span className={cls.card__price}>{'$' + 1}</span>
           </div>
           <div className={cls.card__places}>
-            <span>Vacant places:</span>
-            <span>{place} from 30</span>
+            <span>{t ('Vacant places')}:</span>
+            <span>{place} {t('from')} 30</span>
           </div>
           <StartDate />
           <Link to={`/Lot/${id}`}>
             <button className={cls.card__btn} onClick={onJoin}>
-              <span>Read More</span>
+              <span>{t('Read More')}</span>
             </button>
           </Link>
         </div>

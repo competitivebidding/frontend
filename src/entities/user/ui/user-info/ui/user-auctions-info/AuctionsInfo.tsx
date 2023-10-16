@@ -3,6 +3,7 @@ import cls from './AuctionsInfo.module.scss';
 import macbook from '@assets/cabinet/macbook_menu 1.png';
 import iphone from '@assets/cabinet/image 51.png';
 import AuctionItemCard from '@shared/ui/auction-item-card/AuctionItemCard';
+import { useTranslation } from 'react-i18next'
 
 interface IAuctionsInfoProps {
   amount: number;
@@ -13,11 +14,13 @@ interface IAuctionsInfoProps {
 }
 
 export function AuctionsInfo({ amount, wins, winsSum, rotoSpent, auctions }: IAuctionsInfoProps) {
+  const { t } = useTranslation('auctionsInfo')
+
   return (
       <div className={cls['auctions__info']}>
         <div className={`${cls['cabinet-block']} ${cls.amount}`}>
           <div className={cls['amount__header']}>
-            <h3 className={cls['item__text']}>Auctions amount</h3>
+            <h3 className={cls['item__text']}>{t('Auctions amount')}</h3>
             <span className={cls['item__count']}>{amount}</span>
           </div>
           <div className={cls['amount__body']}>
@@ -48,16 +51,16 @@ export function AuctionsInfo({ amount, wins, winsSum, rotoSpent, auctions }: IAu
           </div>
           <div className={cls['amount__footer']}>
             <a href="#" className={cls['item__link']}>
-              See everything
+            {t('See everything')}
             </a>
           </div>
         </div>
         <div className={`${cls['cabinet-block']} ${cls.winsCount}`}>
           <div className={cls['winsCount__description']}>
             <p className={cls['item__count']}>5</p>
-            <h3 className={cls['item__text']}>Auctions won</h3>
+            <h3 className={cls['item__text']}>{t('Auctions won')}</h3>
             <a href="#" className={cls['item__link']}>
-              See everything
+              {t('See everything')}
             </a>
           </div>
           <div className={cls['winsCount__awards']}>
@@ -86,13 +89,13 @@ export function AuctionsInfo({ amount, wins, winsSum, rotoSpent, auctions }: IAu
         <div className={`${cls['cabinet-block']} ${cls.rotoSpent}`}>
           <div className={cls['rotoSpent__body']}>
             <span className={cls['item__count']}>10</span>
-            <h3 className={cls['item__text']}>Spent ROTO</h3>
+            <h3 className={cls['item__text']}>{t('Spent')} ROTO</h3>
           </div>
         </div>
         <div className={`${cls['cabinet-block']} ${cls.winsSum}`}>
           <div className={cls['winsSum__body']}>
-            <span className={cls['item__count']}>400 000 р.</span>
-            <h3 className={cls['item__text']}>The amount of winnings</h3>
+            <span className={cls['item__count']}>400 000 R.</span>
+            <h3 className={cls['item__text']}>{t('The amount of winnings')}</h3>
           </div>
         </div>
       </div>

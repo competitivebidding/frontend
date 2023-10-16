@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './PlayersAmount.module.scss'
 import DonutChart from '../../shared/ui/charts/DonutChart'
 import { ChartData, ChartDataset } from 'chart.js'
+import { useTranslation } from 'react-i18next'
 
 interface IData {
   label: string
@@ -16,8 +17,15 @@ interface IData {
 
 function PlayersAmount() {
   const colors = ['#00FFA3', '#2F53FF', '#ffffff', 'rgba(255, 255, 255, 0.2)']
+  const { t } = useTranslation('playersAmount')
+
   const data: ChartData<'doughnut', number[], string> = {
-    labels: ['Amount of players', 'Amount of partners', 'Amount of active partners per week', 'Total amount'],
+    labels: [
+      t('Amount of players'),
+      t('Amount of partners'),
+      t('Amount of active partners per week'),
+      t('Total amount')
+    ],
     datasets: [
       {
         label: '',
@@ -35,8 +43,8 @@ function PlayersAmount() {
   return (
     <div className={styles.players}>
       <div className={styles.players__header}>
-        <h3 className={styles.players__title}>My players</h3>
-        <p className={styles.players__amount}>112 Total</p>
+        <h3 className={styles.players__title}>{t('My players')}</h3>
+        <p className={styles.players__amount}>112 {t('total')}</p>
       </div>
       <div className={styles.players__body}>
         {data && (

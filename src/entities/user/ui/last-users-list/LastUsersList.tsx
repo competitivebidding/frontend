@@ -3,8 +3,11 @@ import cls from './LastUsersList.module.scss'; // Используем пере�
 
 import LastUsersData from '../last-user/Data/LastUsersData';
 import {LastUser} from "@entities/user";
+import { useTranslation } from 'react-i18next'
 
 export const LastUsersList = () => {
+    const { t } = useTranslation('lastUsersList')
+
     const getData = LastUsersData.map((user) => (
         <LastUser
             key={user.id}
@@ -18,11 +21,11 @@ export const LastUsersList = () => {
 
     return (
         <div className={cls['last-users']}>
-            <h2 className={cls['last-users__title']}>Latest registrations</h2>
+            <h2 className={cls['last-users__title']}>{t('Latest registrations')}</h2>
             <div className={cls['last-users__top']}>
-                <p className={cls['last-users__top_text']}>Country</p>
-                <p className={cls['last-users__top_text']}>E-mail</p>
-                <p className={cls['last-users__top_text']}>Date</p>
+                <p className={cls['last-users__top_text']}>{t('Country')}</p>
+                <p className={cls['last-users__top_text']}>{t('E-mail')}</p>
+                <p className={cls['last-users__top_text']}>{t('Date')}</p>
             </div>
 
             {getData}

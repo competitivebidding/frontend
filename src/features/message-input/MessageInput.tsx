@@ -2,6 +2,8 @@ import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
 import iconSend from '@assets/Chat/iconSend.svg'
 import { useMutation } from '@apollo/client'
 import { SEND_MESSAGE } from '@shared/schemas/messages/messages'
+import { useTranslation } from 'react-i18next'
+
 import scss from './MessageInput.module.scss'
 
 interface IMessageInputProps {
@@ -11,6 +13,7 @@ interface IMessageInputProps {
 export const MessageInput = ({ roomId }: IMessageInputProps) => {
   const [newMessage, setNewMessage] = useState('')
   const [sendMessage] = useMutation(SEND_MESSAGE)
+  const { t } = useTranslation('messageInput')
 
   const handleSendMessage = () => {
     if (newMessage === '') {
@@ -43,7 +46,7 @@ export const MessageInput = ({ roomId }: IMessageInputProps) => {
     <div className={scss.footer}>
       <input
         type="text"
-        placeholder="Enter your message"
+        placeholder={t('Enter your message') as string}
         value={newMessage}
         onChange={handleNewMessage}
         onKeyUp={handleKeyUp}

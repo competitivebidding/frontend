@@ -4,12 +4,14 @@ import cls from './Filter.module.scss';
 import arrowGrey from '../../assets/imgAuctions/arrowGrey.svg';
 import arrowFilter from '../../assets/imgAuctions/arrowFilter.svg';
 import cross from '../../assets/imgAuctions/cross.svg';
+import { useTranslation } from 'react-i18next'
 
 const Filter = () => {
   const [isVisible, setIsVisible] = useState<boolean>(true);
   const [isCategoriesVisible, setIsCategoriesVisible] = useState<boolean>(true);
   const [isBrandVisible, setIsBrandVisible] = useState<boolean>(true);
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const { t } = useTranslation('filter')
 
   const handleResize = useCallback(() => {
     setIsMobile(window.innerWidth < 1000);
@@ -25,7 +27,7 @@ const Filter = () => {
   return (
       <div className={cls.filter}>
         <div className={cls['filter__header']}>
-          <h2 className={cls['filter__title']}>Filtering</h2>
+          <h2 className={cls['filter__title']}>{t('Filtering')}</h2>
           <span className={`${cls['filter__hide']} ${isMobile ? '' : cls['hidden']}`} onClick={() => setIsVisible(!isVisible)}>
           <div className={cls['filter__block-arrowImg']}>
             <img src={arrowGrey} alt="arrow" className={`${cls['filter__arrow']} ${isVisible ? cls['rotate'] : ''}`} />
@@ -35,9 +37,9 @@ const Filter = () => {
         {isVisible && (
             <>
               <div className={cls.selected}>
-                <h3 className={cls['filter__selected']}>Selected Categories:</h3>
+                <h3 className={cls['filter__selected']}>{t('Selected Categories')}:</h3>
                 <div className={cls['select__categories']}>
-                  Brand
+                  {t('Brand')}
                   <div className={cls['select__img']}>
                     <img src={cross} alt="cross" />
                   </div>
@@ -45,7 +47,7 @@ const Filter = () => {
               </div>
 
               <div className={cls['categories']}>
-                <h3 className={cls['categories__title']}>Categories:</h3>
+                <h3 className={cls['categories__title']}>{t('Categories')}:</h3>
                 <span className={cls['categories__arrow']} onClick={() => setIsCategoriesVisible(!isCategoriesVisible)}>
               <img src={arrowFilter} alt="arrow" className={`${cls['filter__arrow']} ${isCategoriesVisible ? cls['rotate'] : ''}`} />
             </span>
@@ -55,7 +57,7 @@ const Filter = () => {
                 <label className={cls['checkbox__container']}>
                   <input type="checkbox" name="category" value="all" />
                   <span className={cls['checkmark']}></span>
-                  All categories
+                  {t('All categories')}
                 </label>
 
                 <label className={cls['checkbox__container']}>
@@ -72,14 +74,14 @@ const Filter = () => {
               </div>
 
               <div className={cls['brand']}>
-                <h3 className={cls['brand__title']}>Brand</h3>
+                <h3 className={cls['brand__title']}>{t('Brand')}:</h3>
                 <span className={`${cls['brand__arrow']}`} onClick={() => setIsBrandVisible(!isBrandVisible)}>
               <img src={arrowFilter} alt="arrow" className={`${cls['filter__arrow']} ${isBrandVisible ? cls['rotate'] : ''}`} />
             </span>
               </div>
 
               <div className={cls['filter__brands']} style={{ display: isBrandVisible ? 'block' : 'none' }}>
-                <input type="text" placeholder="Search" />
+                <input type="text" placeholder={t('Search') as string} />
 
                 <label className={cls['checkbox__container']}>
                   <input type="checkbox" name="brand" value="apple" />

@@ -10,6 +10,7 @@ import cls from '../SignInRight.module.scss'
 
 import { useLocalStorage } from '@/shared/lib/useLocalStorage';
 import SIGNIN_MUTATION from '@shared/schemas/auth/signin';
+import { useTranslation } from 'react-i18next'
 
 interface ISignInFields {
   email: string;
@@ -28,6 +29,7 @@ export const SignInRight = () => {
   const { setValue } = useLocalStorage('user');
 
   const [signin, { error }] = useMutation(SIGNIN_MUTATION);
+  const { t } = useTranslation('signInRight')
 
   const handleSignIn = (data: ISignInFields) => {
     signin({
@@ -55,17 +57,17 @@ export const SignInRight = () => {
   return (
       <>
         <form className={cls.form} onSubmit={handleSubmit(handleSignIn)} noValidate>
-          <h2 className={cls.form__title}>Log in</h2>
+          <h2 className={cls.form__title}>{t('Log in')}</h2>
           <div className={cls.form__descr}>
             <p>
-              No account?
+              {t('No account')}?
               <span>
-              <Link to="/SignUp">Create an account</Link>
+              <Link to="/SignUp">{t('Create an account')}</Link>
             </span>
             </p>
           </div>
           <div className={`${cls.form__group}  ${errors.email ? cls['has-error'] : ''}`}>
-            <label htmlFor="email">E-mail</label>
+            <label htmlFor="email">{t('E-mail')}</label>
             <div className={cls.email__input}>
               <input
                   type="email"
@@ -77,11 +79,11 @@ export const SignInRight = () => {
                   })}
               />
             </div>
-            {errors.email?.type === 'required' && <div className={cls['error-message']}>Please enter your email address</div>}
-            {errors.email?.type === 'pattern' && <div className={cls['error-message']}>Please enter a valid email address</div>}
+            {errors.email?.type === 'required' && <div className={cls['error-message']}>{t('Please enter your email address')}</div>}
+            {errors.email?.type === 'pattern' && <div className={cls['error-message']}>{t('Please enter a valid email address')}</div>}
           </div>
           <div className={`${cls.form__group} ${errors.password ? cls['has-error'] : ''}`}>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">{t('Password')}</label>
             <div className={cls['password__input']}>
               <input
                   type={isRepeatPasswordVisible ? 'text' : 'password'}
@@ -95,22 +97,22 @@ export const SignInRight = () => {
                   className={cls['password__icon']}
               />
             </div>
-            {errors.password?.type === 'required' && <div className={cls['error-message']}>Please enter your password</div>}
+            {errors.password?.type === 'required' && <div className={cls['error-message']}>{t('Please enter your password')}</div>}
           </div>
 
           <div className={cls['wrap__btn']}>
             <button type="submit" className={cls['btn__form']}>
-              Log in
+            {t('Log in')}
             </button>
           </div>
           <div className={cls['form__group']}>
             <Link to="/ResetPassword" className={cls['form__forgot']}>
-              Forgot password?
+              {t('Forgot password')}?
             </Link>
           </div>
         </form>
         {error && <div className={cls['error']}>
-          {`${error.message} Логин или пароль указан не верно`}
+          {`${error.message} ${t('Login or password is incorrect')}`}
         </div>}
       </>
   );

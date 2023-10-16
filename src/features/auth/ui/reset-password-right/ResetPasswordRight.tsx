@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import validator from 'validator'
 import { Link } from 'react-router-dom'
 import cls from '../SignInRight.module.scss'
+import { useTranslation } from 'react-i18next'
 
 interface IResetPasswordFields {
   email: string
@@ -18,6 +19,7 @@ export const ResetPasswordRight = () => {
 
   const [emailSubmitted, setEmailSubmitted] = useState(false)
   const [codeVerified, setCodeVerified] = useState(true)
+  const { t } = useTranslation('resetPasswordRight')
 
   let verificationCode = '1234'
 
@@ -41,18 +43,18 @@ export const ResetPasswordRight = () => {
 
   return (
       <form className={cls.form} onSubmit={handleSubmit(onSubmit)} noValidate>
-        <h2 className={cls.form__title}>Recover password</h2>
+        <h2 className={cls.form__title}>{t('Recover password')}</h2>
         <div className={cls.form__descr}>
           <p>
-            Already have an account?{' '}
+            {t('Already have an account?')}{' '}
             <span>
-            <Link to="/SignIn">Log In</Link>
+            <Link to="/SignIn">{t('Log In')}</Link>
           </span>
           </p>
         </div>
         {!emailSubmitted && (
             <div className={`${cls.form__group} ${errors.email ? cls['has-error'] : ''}`}>
-              <label htmlFor="email">E-mail</label>
+              <label htmlFor="email">{t('E-mail')}</label>
               <div className={cls.email__input}>
                 <input
                     type="email"
@@ -64,17 +66,17 @@ export const ResetPasswordRight = () => {
                     })}
                 />
               </div>
-              {errors.email?.type === 'required' && <div className={cls['error-message']}>Please enter your email address</div>}
+              {errors.email?.type === 'required' && <div className={cls['error-message']}>{t('Please enter a valid email address')}</div>}
               {errors.email?.type === 'pattern' && (
-                  <div className={cls['error-message']}>Please enter a valid email address</div>
+                  <div className={cls['error-message']}>{t('Please enter a valid email address')}</div>
               )}
             </div>
         )}
         {emailSubmitted && (
             <>
-              <div className={cls['success__message']}>Code sent! Check your email.</div>
+              <div className={cls['success__message']}>{t('Code sent! Check your email')}.</div>
               <div className={`${cls.form__group} ${errors.code || !codeVerified ? cls['has-error'] : ''}`}>
-                <label htmlFor="code">Code</label>
+                <label htmlFor="code">{t('Code')}</label>
                 <div className={cls.code__input}>
                   <input
                       type="text"
@@ -87,15 +89,15 @@ export const ResetPasswordRight = () => {
                   />
                 </div>
                 {errors.code?.type === 'required' && (
-                    <div className={cls['error-message']}>Please enter the code sent to your email</div>
+                    <div className={cls['error-message']}>{t('Please enter the code sent to your email')}</div>
                 )}
-                {!codeVerified && <div className={cls['error-message']}>Error: Invalid code</div>}
+                {!codeVerified && <div className={cls['error-message']}>{t('Error: Invalid code')}</div>}
               </div>
             </>
         )}
         <div className={cls['wrap__btn']}>
           <button type="submit" className={cls['btn__form']}>
-            {emailSubmitted ? 'Verify code' : 'Restore'}
+            {emailSubmitted ? t('Verify code') : t('Restore')}
           </button>
         </div>
       </form>

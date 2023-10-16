@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client'
 import cls from './AddNewGroupForm.module.scss'
 import { CREATE_MY_ROOM, GET_ALL_MY_ROOMS } from '@shared/schemas/messages/messages'
 import { CreateMyRoomDocument } from '@shared/lib/types/__generated-types__/graphql'
+import { useTranslation } from 'react-i18next'
 
 interface IAddNewGroupFormProps {
   onClose: (value: boolean) => void
@@ -13,6 +14,8 @@ export const AddNewGroupForm = ({ onClose }: IAddNewGroupFormProps) => {
   const fieldRef = useRef<HTMLInputElement>(null)
   const [value, setValue] = useState('')
   const [createRoom] = useMutation(CreateMyRoomDocument, { refetchQueries: [GET_ALL_MY_ROOMS] })
+  const { t } = useTranslation('addNewGroupForm')
+
 
   const handleCreateRoom = () => {
     if (value.length > 0) {
@@ -42,7 +45,7 @@ export const AddNewGroupForm = ({ onClose }: IAddNewGroupFormProps) => {
 
   return (
     <div className={cls.modalNewGroup}>
-      <div className={cls.modalNewGroup__title}>Enter your group name</div>
+      <div className={cls.modalNewGroup__title}>{t('Enter your group name')}</div>
       <input
         ref={fieldRef}
         type="text"
@@ -52,7 +55,7 @@ export const AddNewGroupForm = ({ onClose }: IAddNewGroupFormProps) => {
         onKeyPress={handleKeyPress} 
       />
       <button className={cls.modalNewGroup__button} onClick={handleCreateRoom}>
-        Create Group
+        {t('Create Group')}
       </button>
     </div>
   )

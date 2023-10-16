@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import cls from '../SignInRight.module.scss'
+import { useTranslation } from 'react-i18next'
 
 
 type INewPasswordForm = {
@@ -25,6 +26,8 @@ export const NewPasswordRight: FC = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false)
 
+  const { t } = useTranslation('newPasswordRight')
+
   const onSubmit = (data: INewPasswordForm) => {
     if (password !== repeatPassword) {
       console.log(data)
@@ -36,17 +39,17 @@ export const NewPasswordRight: FC = () => {
   return (
 
         <form className={cls.form} onSubmit={handleSubmit(onSubmit)} noValidate>
-          <h2 className={cls.formTitle}>Recover password</h2>
+          <h2 className={cls.formTitle}>{t('Recover password')}</h2>
           <div className={cls.formDescr}>
             <p>
-              Already have an account?
+              {t('Already have an account')}?
               <span>
-              <Link to="/SignIn">Log in</Link>
+              <Link to="/SignIn">{t('Log in')}</Link>
             </span>
             </p>
           </div>
           <div className={`${cls.formGroup} ${cls.formPassword} ${errors.password ? cls.hasError : ''}`}>
-            <label htmlFor="password">New Password</label>
+            <label htmlFor="password">{t('New Password')}</label>
             <div className={cls.passwordInput}>
               <input
                   type={isPasswordVisible ? 'text' : 'password'}
@@ -63,10 +66,10 @@ export const NewPasswordRight: FC = () => {
                   className={cls.passwordIcon}
               />
             </div>
-            {errors.password?.type === 'required' && <div className={cls.errorMessage}>Please enter your password</div>}
+            {errors.password?.type === 'required' && <div className={cls.errorMessage}>{t('Please enter your password')}</div>}
           </div>
           <div className={`${cls.formGroup} ${errors.repeatPassword ? cls.hasError : ''}`}>
-            <label htmlFor="repeatPassword">Repeat password</label>
+            <label htmlFor="repeatPassword">{t('Repeat password')}</label>
             <div className={cls.passwordInput}>
               <input
                   type={isRepeatPasswordVisible ? 'text' : 'password'}
@@ -83,15 +86,15 @@ export const NewPasswordRight: FC = () => {
               />
             </div>
             {errors.repeatPassword?.type === 'required' && (
-                <div className={cls.errorMessage}>Please enter your password</div>
+                <div className={cls.errorMessage}>{t('Please enter your password')}</div>
             )}
             {password && repeatPassword && password !== repeatPassword && (
-                <div className={cls.errorMessage}>Passwords don't match</div>
+                <div className={cls.errorMessage}>{t("Passwords don't match")}</div>
             )}
           </div>
           <div className={cls.wrapBtn}>
             <button type="submit" className={cls.btnForm}>
-              Save
+              {t('Save')}
             </button>
           </div>
         </form>

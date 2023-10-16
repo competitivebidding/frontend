@@ -6,6 +6,7 @@ import { AppModal } from '@shared/ui/modal/AppModal'
 import { toTime } from '@shared/utils/timeHelpers';
 import iconClose from '@assets/Chat/iconClose.svg'
 import iconTickMark from '@assets/Chat/iconTickMark.svg'
+import { useTranslation } from 'react-i18next'
 
 import styles from './ChatContext.module.scss'
 
@@ -47,6 +48,7 @@ export const ChatContext = ({
   const [updatedMessageContentTime, setUpdatedMessageContentTime] = useState("");
   const inputMessageRef = useRef<HTMLInputElement | null>(null);;
   const [initialMessageContent, setInitialMessageContent] = useState("");
+  const { t } = useTranslation('chatContext')
 
 
   useEffect(() => {
@@ -111,8 +113,8 @@ export const ChatContext = ({
         left: contextMenuPosition.left,
         display: isModalMenuVisible ? 'none' : 'block',
       }}>
-        <div onClick={handleDeleteClick}>Delete</div>
-        <div onClick={handleUpdateClick}>Edit</div>
+        <div onClick={handleDeleteClick}>{t('Delete')}</div>
+        <div onClick={handleUpdateClick}>{t('Edit')}</div>
       </div>
 
       {isModalMenuVisible && (
@@ -121,7 +123,7 @@ export const ChatContext = ({
             <div className={styles.modal__container}>
               <div className={styles.modal__header}>
                 <img src={iconClose} alt="iconClose" onClick={handleCloseMessage}/>
-                <h2>Edit message</h2>
+                <h2>{t('Edit message')}</h2>
               </div>
 
               <div className={styles.modal__imgEdit}>
