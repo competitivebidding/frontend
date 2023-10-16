@@ -1,46 +1,36 @@
-import React, { useState } from 'react'
-import './MyAuctionContent.scss'
-import { AuctionList } from '@entities/auction/ui/auctions-list/AuctionList'
-import { IAuctionData } from '@pages/my-auctions/MyAuctionsPage'
+import React, { useState } from 'react';
+import cls from './MyAuctionContent.module.scss';
+import { AuctionList } from '@entities/auction/ui/auctions-list/AuctionList';
 
 const MyAuctionContent = () => {
-  const [category, changeCategory] = useState('active')
+  const [category, setCategory] = useState('active');
 
-  const onChangeActive = () => {
-    changeCategory('active')
-  }
+  const handleCategoryChange = (newCategory: string) => {
+    setCategory(newCategory);
+  };
 
-  const onChangeAnnounce = () => {
-    changeCategory('wait')
-  }
+  const categoryButtons = [
+    { name: 'active', label: 'Active auctions' },
+    { name: 'wait', label: 'Announcements' },
+    { name: 'end', label: 'Inactive auctions' },
+  ];
 
-  const onChangeInactve = () => {
-    changeCategory('end')
-  }
-
-  const btnsData = [
-    { name: 'active', onClick: onChangeActive, label: 'Active auctions' },
-    { name: 'wait', onClick: onChangeAnnounce, label: 'Announcements' },
-    { name: 'end', onClick: onChangeInactve, label: 'Inactive auctions' },
-  ]
-
-  const btns = btnsData.map(({ name, label, onClick }) => {
-    const active = category == name
-    const clazz = active ? 'btn-active' : 'btn-inactive'
-
-    return (
-      <button className={`myAuction__btn ${clazz}`} type="button" key={name} onClick={onClick}>
+  const buttons = categoryButtons.map(({ name, label }) => (
+      <button
+          key={name}
+          className={`${cls.myAuction__btn} ${category === name ? cls['btn-active'] : cls.btnInactive}`}
+          onClick={() => handleCategoryChange(name)}
+      >
         {label}
       </button>
-    )
-  })
+  ));
 
   return (
-    <div className="myAuctions__content">
-      <div className="myAuctions__btnsgroup">{btns}</div>
-      <AuctionList  />
-    </div>
-  )
-}
+      <div className={cls.myAuctions__content}>
+        <div className={cls.myAuctions__btnsgroup}>{buttons}</div>
+        <AuctionList />
+      </div>
+  );
+};
 
-export default MyAuctionContent
+export default MyAuctionContent;

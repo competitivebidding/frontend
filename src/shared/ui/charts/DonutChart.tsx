@@ -1,5 +1,5 @@
 import React from 'react'
-import './DonutChart.scss'
+import cls from './DonutChart.module.scss'
 import { Chart as ChartJS, Tooltip, ArcElement } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 
@@ -155,9 +155,9 @@ function DonutChart({ data, count, haveTooltip = false, width = 300, height = 30
   }
 
   return (
-      <div className="donut" style={{ width: `${width}px`, height: `${height}px` }}>
+      <div className={cls.donut} style={{ width: `${width}px`, height: `${height}px` }}>
         <Doughnut options={options} data={data} plugins={plugins} />
-        <p className="donut__amount">{count.toFixed(2)}</p>
+        <p className={cls.donut__amount}>{count.toFixed(2)}</p>
       </div>
   )
 }

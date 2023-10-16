@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './SocialIcon.scss'
+import cls from './SocialIcon.module.scss'
 
 interface Iprops {
   imageSrc: string
@@ -9,8 +9,8 @@ interface Iprops {
 
 export const SocialIcon = ({ imageSrc, link }: Iprops) => {
   return (
-    <div className="social__item">
-      <div className="social__item_wrap">
+    <div className={cls.social__item}>
+      <div className={cls.social__item_wrap}>
         <img src={imageSrc} alt="img" />
       </div>
       <a href="#">{link}</a>

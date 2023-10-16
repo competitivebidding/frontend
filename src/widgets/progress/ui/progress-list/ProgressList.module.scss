@@ -102,9 +102,7 @@
 		&.open {
 			height: 100%;
 			overflow: visible;
-		
-			transition: .4s ease;	
-			
+			transition: .4s ease;
 			&::before {
 				content: none;
 			}

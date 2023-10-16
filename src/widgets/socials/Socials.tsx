@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Socials.scss'
+import cls from './Socials.module.scss'
 
 import SocialData from './Data/SocialData'
 
@@ -11,5 +11,5 @@ export const Socials = () => {
     return <SocialIcon key={item.id} imageSrc={item.imageSrc} link={item.link} />
   })
 
-  return <div className="social">{getData}</div>
+  return <div className={cls.social}>{getData}</div>
 }

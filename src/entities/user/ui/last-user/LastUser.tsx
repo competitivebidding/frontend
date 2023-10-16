@@ -12,7 +12,7 @@ interface ILastUserProps {
 export const LastUser = ({ country, username, id, date, time }: ILastUserProps) => {
     return (
         <div className={cls.user}>
-            <div className={cls.user__circleImg}>{country}</div>
+            <div className={cls['user__circle-img']}>{country}</div>
             <div className={cls.user__info}>
                 <p className={cls.user__info_name}>{username}</p>
                 <p className={cls.user__info_id}>ID: {id}</p>

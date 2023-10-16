@@ -1,13 +1,13 @@
 import React from 'react'
-import './UserInfoButtons.scss'
+import cls from './UserInfoButtons.module.scss'
 
 const UserInfoButtons = () => {
   return (
-    <div className="buttons__block">
-      <a href="#" className="buttons__button blue">
+    <div className={cls.buttons__block}>
+      <a href="#" className={`${cls.buttons__button} ${cls.blue}`}>
         Partner program
       </a>
-      <a href="#" className="buttons__button gray">
+      <a href="#" className={`${cls.buttons__button} ${cls.gray}`}>
         About program
       </a>
     </div>

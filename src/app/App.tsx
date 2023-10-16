@@ -45,16 +45,11 @@ const App = () => {
             <Route path="/winnerList" element={<WinnersListPage />} />
             <Route path="/Lot/:id" element={<LotPage />} />
             <Route path="/cabinet" element={<CabinetPage />} />
-
-            
-          </Route>
-
-          <Route element={<NavHeader />}>
-            <Route path="/cabinet" element={<CabinetPage />} />
             <Route path="/notifications" element={<NotificationsPage />} />
             <Route path="/questions" element={<QuestionsPage />} />
             <Route path="/support" element={<SupportPage />} />
           </Route>
+
 
           <Route element={<AuthLayout />}>
             <Route index path="/SignIn" element={<SignIn />} />

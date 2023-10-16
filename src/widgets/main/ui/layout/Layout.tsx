@@ -3,7 +3,7 @@ import AppFooter from '../../../footer/AppFooter.js'
 import { AppNavBar } from '../../../nav-bar/AppNavBar'
 import { Outlet } from 'react-router-dom'
 
-import './Layout.scss'
+import cls from './Layout.module.scss'
 import useWindowSize from '@shared/lib/useWindowSize'
 import AppHeader from '@widgets/header/AppHeader'
 
@@ -13,7 +13,7 @@ export const Layout = () => {
   return (
     <>
       {userWidth! > 1000 && <AppNavBar />}
-      <div className="main-section">
+      <div className={cls["main-section"]}>
         <AppHeader />
         <Outlet />
         <AppFooter />

@@ -1,6 +1,6 @@
 import React, { SVGProps, useState } from 'react'
 import arrow from '@assets/cabinet/arrow.svg'
-import './DropDown.scss'
+import cls from './DropDown.module.scss'
 import { ILang } from '@features/lang-switcher/LangSwitcher'
 
 interface LangOptions extends ILang {}
@@ -28,18 +28,18 @@ export const DropDown = ({ data, current, onChange, withArrow = true }: IDropDow
   return (
     <>
       {data && (
-        <div className={'dropdown'}>
-          <div className={'dropdown__current'} onClick={() => setDropdownVisibility(!dropdownVisibility)}>
-            {withArrow && <img src={arrow} className={` ${!dropdownVisibility ? 'arrow' : 'arrow arrow--visible'} `} />}
+        <div className={cls.dropdown}>
+          <div className={cls.dropdown__current} onClick={() => setDropdownVisibility(!dropdownVisibility)}>
+            {withArrow && <img src={arrow} className={` ${!dropdownVisibility ? cls.arrow : `${cls.arrow} ${cls['arrow--visible']}`} `} />}
             <img src={current && findFlag(current)} alt={'language'} />
           </div>
           <div
             className={` ${
-              dropdownVisibility ? 'dropdown__dropdown' : 'dropdown__dropdown dropdown__dropdown--visible'
+              dropdownVisibility ? cls.dropdown__dropdown : `${cls.dropdown__dropdown} ${cls['dropdown__dropdown--visible']}`
             } `}
           >
             {data.map((item) => (
-              <div key={item.value} className={'dropdown__item'} onClick={() => onChangeValue(item.value)}>
+              <div key={item.value} className={cls.dropdown__item} onClick={() => onChangeValue(item.value)}>
                 <img src={item.label} key={item.value} />
               </div>
             ))}

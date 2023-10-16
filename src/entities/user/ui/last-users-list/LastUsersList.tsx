@@ -1,5 +1,5 @@
 import React from 'react';
-import cls from './LastUsersList.module.scss'; // Используем переменную cls
+import cls from './LastUsersList.module.scss';
 
 import LastUsersData from '../last-user/Data/LastUsersData';
 import {LastUser} from "@entities/user";
@@ -27,7 +27,6 @@ export const LastUsersList = () => {
                 <p className={cls['last-users__top_text']}>{t('E-mail')}</p>
                 <p className={cls['last-users__top_text']}>{t('Date')}</p>
             </div>
-
             {getData}
         </div>
     );

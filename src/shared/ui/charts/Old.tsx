@@ -1,5 +1,5 @@
 import React from 'react'
-import './DonutChart.scss'
+import './DonutChart.module.scss'
 import { Chart as ChartJS, Tooltip, ArcElement } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 

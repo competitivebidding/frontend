@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Question.scss'
+import cls from './Question.module.scss'
 import AccordionItem from '../../shared/ui/accordion-item/AccordionItem.jsx'
 
 const Question = () => {
@@ -67,7 +67,7 @@ const Question = () => {
   ]
 
   return (
-    <div className="accordion__questions accordion">
+    <div className={cls.accordion__questions}>
       {accordionData.map((item) => (
         <AccordionItem key={item.title} title={item.title} describe={item.description} isClicked={item.isClicked} />
       ))}
