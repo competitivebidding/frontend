@@ -71,6 +71,7 @@ const AppHeader = () => {
           </>
         ) : (
           <div className="group__container">
+            <LangSwitcher />
             <Link to="/SignIn" className="group__log">
               Log in
             </Link>
