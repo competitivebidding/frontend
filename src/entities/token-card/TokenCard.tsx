@@ -19,7 +19,7 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
   const videoRef = useRef(null);
   const [showTimer, setShowTimer] = useState(true);
   const [remainingTime, setRemainingTime] = useState(86400);
-  const { t } = useTranslation('tokenCard')
+  const { t } = useTranslation('tokenPage')
 
   const toggleButton = () => {
     setModal(!modal);
@@ -64,7 +64,7 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
         <h1 className={cls['token__header']}>{tokens}</h1>
         <h2 className={cls['token__prize']}>{prize}</h2>
         <button className={cls['token__button']} onClick={id === 5 ? toggleButtonAd : toggleButton}>
-          {buttonName}
+          {t(buttonName)}
         </button>
         {id >= 1 && id <= 4 ? (
             <>
@@ -75,7 +75,7 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
 
                 <h4 className={cls['modal__tokens']}>+ {tokens}</h4>
                 <p className={cls['modal__text']}>
-                  {t('Your account has been replenished')} <br /> by {tokens}
+                  {t('Your account has been replenished')} <br /> {t('on')} {tokens}
                 </p>
                 <button className={cls['modal__button']} onClick={toggleButton}>
                   {t('Excellent')}

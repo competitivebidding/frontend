@@ -11,7 +11,7 @@ const Filter = () => {
   const [isCategoriesVisible, setIsCategoriesVisible] = useState<boolean>(true);
   const [isBrandVisible, setIsBrandVisible] = useState<boolean>(true);
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const { t } = useTranslation('filter')
+  const { t } = useTranslation('auctionsPage')
 
   const handleResize = useCallback(() => {
     setIsMobile(window.innerWidth < 1000);

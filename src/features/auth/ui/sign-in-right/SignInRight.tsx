@@ -29,7 +29,7 @@ export const SignInRight = () => {
   const { setValue } = useLocalStorage('user');
 
   const [signin, { error }] = useMutation(SIGNIN_MUTATION);
-  const { t } = useTranslation('signInRight')
+  const { t } = useTranslation('authPage')
 
   const handleSignIn = (data: ISignInFields) => {
     signin({

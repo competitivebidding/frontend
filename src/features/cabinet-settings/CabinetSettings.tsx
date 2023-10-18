@@ -24,7 +24,7 @@ export const CabinetSettings = () => {
 
   const [updateProfile] = useMutation(EditProfileDocument)
   const [updateAddress] = useMutation(UpdateUserAddressDocument, { refetchQueries: [GetUserAddressDocument] })
-  const { t } = useTranslation('cabinetSettings')
+  const { t } = useTranslation('cabinetPage')
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()

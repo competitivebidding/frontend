@@ -15,7 +15,7 @@ type Profile = GetProfileQuery['getProfile']
 
 
 export const UserInfoLevel = ({ field }: IUserInfoProps) => {
-  const { t } = useTranslation('cabinet')
+  const { t } = useTranslation('cabinetPage')
   const [value, setValue] = useState<number | null>(null)
 
   const calculate = ( obj: any) => {

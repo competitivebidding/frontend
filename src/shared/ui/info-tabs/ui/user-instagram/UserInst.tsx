@@ -8,7 +8,7 @@ interface UserInstProps {
 }
 
 const UserInst = ({ field, handleUpdate }: UserInstProps) => {
-  const { t } = useTranslation('cabinet')
+  const { t } = useTranslation('cabinetPage')
 
   const [isEditable, setIsEditable] = useState(false)
   const [value, setValue] = useState(field)

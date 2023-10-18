@@ -11,7 +11,7 @@ interface IChatHeaderProps {
 }
 
 export const ChatHeader = ({ onToggleModal, title, length, toggleActiveSidebar, isSidebarOpened }: IChatHeaderProps) => {
-  const { t } = useTranslation('chatHeader')
+  const { t } = useTranslation('messagesPage')
 
   return (
     <div className={cls.chat__header} >

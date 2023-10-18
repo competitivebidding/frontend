@@ -37,7 +37,7 @@ export const SignUpRight = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  const { t } = useTranslation('signUpRight')
+  const { t } = useTranslation('authPage')
 
   const { setValue } = useLocalStorage('user')
 
@@ -192,8 +192,8 @@ export const SignUpRight = () => {
 
           <label className={cls['checkbox__container']}>
             <input type='checkbox' {...register('isChecked', { required: true })} />
-            <span className={cls['checkmark']}></span>{t('I have read and agree with')}
-            <span className={cls['text__blue']}>{t('the terms and conditions of the Competitive Bidding')}</span>
+            <span className={cls['checkmark']}></span>{t('I have read and agree with')} 
+            <span className={cls['text__blue']}>{t(' the terms and conditions of the')} Competitive Bidding</span>
           </label>
 
           {errors.isChecked && (

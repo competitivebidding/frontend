@@ -5,6 +5,7 @@ import { GET_LOT } from '../../schemas/auctions/lot';
 import cls from './lot.module.scss';  // Импортируем CSS-модули
 import watch from '@assets/temporary-auctions-img/watch.png';
 import { CREATE_MY_BID, GET_BIDS_BY_AUCTION_ID } from '../../schemas/auctions/auctions';
+import { useTranslation } from 'react-i18next'
 
 interface IAuctionData {
   title: string;
@@ -22,6 +23,7 @@ interface IBid {
 const Lot = () => {
   const [isShowMore, setIsShowMore] = useState(false);
   const { id } = useParams();
+  const { t } = useTranslation('auctionsPage')
 
   const onToggleShowMore = () => {
     setIsShowMore((prevState) => !prevState);
@@ -79,23 +81,23 @@ const Lot = () => {
                         <div className={cls['lot__price']}>{'$' + datas?.getAuction.startingPrice}</div>
                       </div>
                       <div className={cls['lot__header__col__right']}>
-                        <div className={cls['lot__places']}>Free places:</div>
-                        {datas && <span>{30 - datas?.getAuction.bids?.length} from 30</span>}
+                        <div className={cls['lot__places']}>{t('Free places')}:</div>
+                        {datas && <span>{30 - datas?.getAuction.bids?.length} {t('from')} 30</span>}
                       </div>
                     </div>
                     <div className={`${cls['lot__description']} ${isShowMore ? cls['shown'] : ''}`}>{datas?.getAuction.description}</div>
                     <a href="#" className={cls['lot__more']} onClick={onToggleShowMore}>
-                      <span>Read more</span>
+                      <span>{t('Read more')}</span>
                     </a>
                     <div className={cls['lot__footer']}>
                       <button className={cls['lot__footer-btn']} onClick={handleCreateBid}>
-                        <span>outbid</span> <span> 20 ROTO</span>
+                        <span>{t('Outbid')}</span> <span> 20 ROTO</span>
                       </button>
                     </div>
                   </div>
                 </div>
                 <div className={cls['clicks__history']}>
-                  <span>Click history:</span>
+                  <span>{t('Click history')}:</span>
                   <div className={cls['clicks__history__users']}>
                     {auctionBids &&
                         auctionBids.getBidsByAuctionId.map((bid) => (
@@ -109,8 +111,8 @@ const Lot = () => {
               </div>
               <div className={cls['page__footer']}>
                 <div className={cls['category']}>
-                  <span>Category:</span>
-                  <div className={cls['category__name']}>Gadgets</div>
+                  <span>{t('Category')}:</span>
+                  <div className={cls['category__name']}>{t('Gadgets')}</div>
                 </div>
               </div>
             </>

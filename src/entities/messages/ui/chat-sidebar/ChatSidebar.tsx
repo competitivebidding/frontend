@@ -15,7 +15,7 @@ interface IChatSidebar {
 }
 
 export const ChatSidebar = ({ onToggleNewGroupModal, onSelectGroup, activeGroupId, isSidebarOpened }: IChatSidebar) => {
-  const { t } = useTranslation('chatSidebar')
+  const { t } = useTranslation('messagesPage')
 
   return (
     <div className={`${cls.chat__sidebar} ${cls.sidebar} ${isSidebarOpened && cls.active}`}>

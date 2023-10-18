@@ -17,7 +17,7 @@ interface IData {
 
 function PlayersAmount() {
   const colors = ['#00FFA3', '#2F53FF', '#ffffff', 'rgba(255, 255, 255, 0.2)']
-  const { t } = useTranslation('playersAmount')
+  const { t } = useTranslation('cabinetPage')
 
   const data: ChartData<'doughnut', number[], string> = {
     labels: [

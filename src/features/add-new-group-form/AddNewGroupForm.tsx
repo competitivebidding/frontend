@@ -14,7 +14,7 @@ export const AddNewGroupForm = ({ onClose }: IAddNewGroupFormProps) => {
   const fieldRef = useRef<HTMLInputElement>(null)
   const [value, setValue] = useState('')
   const [createRoom] = useMutation(CreateMyRoomDocument, { refetchQueries: [GET_ALL_MY_ROOMS] })
-  const { t } = useTranslation('addNewGroupForm')
+  const { t } = useTranslation('messagesPage')
 
 
   const handleCreateRoom = () => {

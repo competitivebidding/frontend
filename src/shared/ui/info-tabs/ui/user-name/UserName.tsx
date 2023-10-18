@@ -10,7 +10,7 @@ interface UserNameProps {
 }
 
 const UserName = ({ field, handleUpdate }: UserNameProps) => {
-  const { t } = useTranslation('cabinet')
+  const { t } = useTranslation('cabinetPage')
   const [isEditable, setIsEditable] = useState(false)
   const [value, setValue] = useState(field)
   // const { value: user, setValue: setUserName } = useContext(AuthContext);

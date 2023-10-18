@@ -13,7 +13,7 @@ interface IMessageInputProps {
 export const MessageInput = ({ roomId }: IMessageInputProps) => {
   const [newMessage, setNewMessage] = useState('')
   const [sendMessage] = useMutation(SEND_MESSAGE)
-  const { t } = useTranslation('messageInput')
+  const { t } = useTranslation('messagesPage')
 
   const handleSendMessage = () => {
     if (newMessage === '') {

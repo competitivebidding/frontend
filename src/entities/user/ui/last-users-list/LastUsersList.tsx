@@ -6,7 +6,7 @@ import {LastUser} from "@entities/user";
 import { useTranslation } from 'react-i18next'
 
 export const LastUsersList = () => {
-    const { t } = useTranslation('lastUsersList')
+    const { t } = useTranslation('mainPage')
 
     const getData = LastUsersData.map((user) => (
         <LastUser

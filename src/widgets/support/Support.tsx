@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next'
 import validator from 'validator';
 import cls from './Support.module.scss';
 
@@ -15,6 +16,8 @@ const Support = () => {
     formState: { errors },
     reset,
   } = useForm<ISupportProps>();
+
+  const { t } = useTranslation('support');
 
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
@@ -33,11 +36,11 @@ const Support = () => {
   return (
       <div className={cls['form__support']}>
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
-          <h2 className={cls['form__support--title']}>If you have a problem fill out the form</h2>
+          <h2 className={cls['form__support--title']}>{t('If you have a problem fill out the form')}</h2>
 
           <div className={cls['form__support--group']}>
             <div className={cls['form__support--item']}>
-              <label htmlFor="email">E-mail</label>
+              <label htmlFor="email">{t('E-mail')}</label>
               <div className={cls['email__input']}>
                 <input
                     type="email"
@@ -51,15 +54,15 @@ const Support = () => {
                 />
               </div>
               {errors.email?.type === 'required' && (
-                  <div className={cls['error-message']}>Please enter your email address</div>
+                  <div className={cls['error-message']}>{t('Please enter your email address')}</div>
               )}
               {errors.email?.type === 'pattern' && (
-                  <div className={cls['error-message']}>Please enter a valid email address</div>
+                  <div className={cls['error-message']}>{t('Please enter a valid email address')}</div>
               )}
             </div>
 
             <div className={cls['form__support--item']}>
-              <label htmlFor="problem">What's your problem?</label>
+              <label htmlFor="problem">{t("What's your problem")}?</label>
               <div className={cls['problem__input']}>
               <textarea
                   id="problem"
@@ -73,14 +76,14 @@ const Support = () => {
               ></textarea>
               </div>
               {errors.problem?.type === 'required' && (
-                  <div className={cls['error-message']}>Please describe your problem</div>
+                  <div className={cls['error-message']}>{t('Please describe your problem')}</div>
               )}
               {errors.problem?.type === 'minLength' && (
-                  <div className={cls['error-message']}>Please enter at least 10 characters</div>
+                  <div className={cls['error-message']}>{t('Please enter at least 10 characters')}</div>
               )}
             </div>
             {isFormSubmitted && (
-                <div className={cls['success__message--support']}>Thank you, we will get in touch with you shortly!</div>
+                <div className={cls['success__message--support']}>{t('Thank you, we will get in touch with you shortly')}!</div>
             )}
             <div className={cls['wrap__btn']}>
               <button type="submit" className={cls['btn__form']}>

@@ -35,7 +35,7 @@ const Messages = () => {
   const { lsValue: lsActiveGroup } = useLocalStorage<Group>('activeGroup');
   const { lsValue: lsUser } = useLocalStorage<IUser>('user');
   const [isSidebarOpened, setIsSidebarOpened] = useState(true)
-  const { t } = useTranslation('messages')
+  const { t } = useTranslation('messagesPage')
 
   const [modalNewGroup, setModalNewGroup] = useState(false);
   const [modalGroup, setModalGroup] = useState(false);

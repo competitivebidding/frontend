@@ -4,10 +4,10 @@ import styles from './PlayersAmount.module.scss'
 import { useTranslation } from 'react-i18next'
 
 function PlayersAmount() {
-  const { t } = useTranslation('playersAmount')
+  const { t } = useTranslation('cabinetPage')
 
   const data = {
-    labels: ['Amount of players', 'Amount of partners', 'Amount of active partners per week'],
+    labels: [t('Amount of players'), t('Amount of partners'), t('Amount of active partners per week')],
     datasets: [
       {
         label: '',

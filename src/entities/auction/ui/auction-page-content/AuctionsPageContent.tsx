@@ -11,17 +11,17 @@ interface IAuctionsPageContent {}
 
 const AuctionsPageContent = () => {
     const {data} = useQuery(GET_AUCTIONS)
-    const { t } = useTranslation('auctionsPageContent')
+    const { t } = useTranslation('auctionsPage')
 
   return (
     <>
         {data && <>
             <div className={cls.title}>{t('Upcoming announcements')} </div>
             <AuctionSlider data={data?.getAuctions.filter(card => card.status.name === 'New')}/>
-            <div className={cls.title}>{t('Announcement Auctions')}</div>
-            <AuctionSlider data={data?.getAuctions.filter(card => card.status.name === 'Cancelled')}/>
+            {/* <div className={cls.title}>{t('Announcement Auctions')}</div>
+            <AuctionSlider data={data?.getAuctions.filter(card => card.status.name === 'Cancelled')}/> */}
             <div className={cls.title}>{t('Active Auctions')}</div>
-            <AuctionSlider data={data?.getAuctions.filter(card => card.status.name === 'Open')}/>
+            {/* <AuctionSlider data={data?.getAuctions.filter(card => card.status.name === 'Open')}/> */}
             <AuctionList />
         </>}
     </>

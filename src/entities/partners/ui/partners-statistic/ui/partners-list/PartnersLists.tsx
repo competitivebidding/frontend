@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 
 function PartnersLists() {
   const [isClicked, setIsClicked] = useState(false)
-  const { t } = useTranslation('partnersLists')
+  const { t } = useTranslation('partnerPage')
 
   const users = [
     {

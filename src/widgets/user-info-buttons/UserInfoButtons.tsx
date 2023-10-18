@@ -1,14 +1,17 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import cls from './UserInfoButtons.module.scss'
 
 const UserInfoButtons = () => {
+  const { t } = useTranslation('partnerPage')
+
   return (
     <div className={cls.buttons__block}>
       <a href="#" className={`${cls.buttons__button} ${cls.blue}`}>
-        Partner program
+        {t('Partner program')}
       </a>
       <a href="#" className={`${cls.buttons__button} ${cls.gray}`}>
-        About program
+        {t('About program')}
       </a>
     </div>
   )

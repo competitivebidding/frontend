@@ -17,7 +17,7 @@ interface IFullUserProps {
 }
 
 function FullUser({ userData }: IFullUserProps) {
-  const { t } = useTranslation('fullUser')
+  const { t } = useTranslation('partnerPage')
 
   const days = 4
 

@@ -7,7 +7,7 @@ import { LangSwitcher } from '@features/lang-switcher/LangSwitcher'
 import { useTranslation } from 'react-i18next'
 
 const AuthLayout = () => {
-    const { t } = useTranslation('authLayout')
+    const { t } = useTranslation('authPage')
 
     return (
         <div className={cls.auth}>
@@ -19,20 +19,20 @@ const AuthLayout = () => {
                     <img src={iconAuth} alt="icon" />
                     <div>
                         <div className={cls.icon__title}>
-                            {t('COMPETITIVE')}
-                            <br /> {t('BIDDIN')}
+                            COMPETITIVE
+                            <br /> BIDDIN
                         </div>
                     </div>
                     </Link>
 
                 <div className={cls.left__rocket}>
                     <img src={rocket} alt="" />
-                    <div className={cls.rocket__title}>{t('Competitive Biddin')}</div>
+                    <div className={cls.rocket__title}>Competitive Biddin</div>
                 </div>
 
                 <div className={cls.rocket__descr}>{t('Before you start participating in the auction, complete all tasks')}.</div>
 
-                <div className={cls.left__footer}>{t('Competitive Biddin© 2023. All rights reserved')}</div>
+                <div className={cls.left__footer}>Competitive Biddin© 2023. {t('All rights reserved')}</div>
             </div>
             <div className={cls.form__wrapper}>
                 <Outlet />

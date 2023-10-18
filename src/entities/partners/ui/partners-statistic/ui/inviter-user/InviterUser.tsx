@@ -11,7 +11,7 @@ interface InviterUser {
 }
 
 function InviterUser({ avatar, name, subname, amount }: InviterUser) {
-  const { t } = useTranslation('invaterUser')
+  const { t } = useTranslation('partnerPage')
 
   return (
     <div className={styles.user}>

@@ -16,7 +16,7 @@ interface HTMLInputEvent extends Event {
 }
 
 export const UserSettings = ({ id, avatarUrl, handleUpdate }: IUserSettingsProps) => {
-  const { t } = useTranslation('cabinet')
+  const { t } = useTranslation('cabinetPage')
 
   const [image, setImg] = useState(null)
   const inputRef = useRef<HTMLInputElement>(null)

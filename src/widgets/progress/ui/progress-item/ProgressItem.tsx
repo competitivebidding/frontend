@@ -14,5 +14,6 @@ export const ProgressItem: FC<IProgressItemProps> = ({ styles, value, text }) =>
       <div className={cls.item__value}>{value}</div>
       <span className={cls.item__marker}>{text}</span>
     </li>
+    
   )
 }

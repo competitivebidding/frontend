@@ -13,7 +13,7 @@ interface IUserInfoAccountProps {
 }
 
 export const UserInfoAccount = ({ id }: IUserInfoAccountProps) => {
-  const { t } = useTranslation('userInfoAccount')
+  const { t } = useTranslation('partnerPage')
 
   const [userInfo, setUserInfo] = useState({
     mainCard: {

@@ -15,16 +15,16 @@ function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
   const [filterValue, setFilterValue] = useState<string>('Last week')
   const [dropdownVisibility, setDropdownVisibility] = useState<boolean>(false)
   const [isROTO, setIsROTO] = useState<boolean>(false)
-  const { t } = useTranslation('doubleIncome')
+  const { t } = useTranslation('cabinetPage')
 
   return (
     <div className={styles.income_chart}>
       <div className={styles.income_chart__header}>
-        <h3 className={styles.income_chart__title}>Income</h3>
+        <h3 className={styles.income_chart__title}>{t('Income')}</h3>
         <div className={styles.header__container}>
           <div className={styles.filter}>
             <p className={styles.filter__current}>
-              <span>{filterValue}</span>
+              <span>{t(filterValue)}</span>
               <img
                 src={arrow}
                 className={dropdownVisibility ? styles.arrow : styles.arrow + ' ' + styles.arrow_visible}

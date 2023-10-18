@@ -12,7 +12,7 @@ interface IPaymentsForm {
 }
 
 export const PaymentForm = ({ onClose }: IPaymentsForm) => {
-  const { t } = useTranslation('cabinet');
+  const { t } = useTranslation('cabinetPage');
 
   const [cardNumber, setCardNumber] = React.useState('');
   const [cardDate, setCardDate] = React.useState('');

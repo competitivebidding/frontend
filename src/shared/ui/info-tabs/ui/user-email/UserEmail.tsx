@@ -8,7 +8,7 @@ interface IUserEmailProps {
 }
 
 const UserEmail = ({ field, handleUpdate }: IUserEmailProps) => {
-  const { t } = useTranslation('cabinet')
+  const { t } = useTranslation('cabinetPage')
 
   const [isEditable, setIsEditable] = useState(false)
   const [value, setValue] = useState(field)

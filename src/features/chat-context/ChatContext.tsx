@@ -48,7 +48,7 @@ export const ChatContext = ({
   const [updatedMessageContentTime, setUpdatedMessageContentTime] = useState("");
   const inputMessageRef = useRef<HTMLInputElement | null>(null);;
   const [initialMessageContent, setInitialMessageContent] = useState("");
-  const { t } = useTranslation('chatContext')
+  const { t } = useTranslation('messagesPage')
 
 
   useEffect(() => {

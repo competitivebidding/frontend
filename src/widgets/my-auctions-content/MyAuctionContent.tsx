@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import cls from './MyAuctionContent.module.scss';
 import { AuctionList } from '@entities/auction/ui/auctions-list/AuctionList';
+import { useTranslation } from 'react-i18next'
 
 const MyAuctionContent = () => {
   const [category, setCategory] = useState('active');
+  const { t } = useTranslation('myAuctionContent')
 
   const handleCategoryChange = (newCategory: string) => {
     setCategory(newCategory);
   };
 
   const categoryButtons = [
-    { name: 'active', label: 'Active auctions' },
-    { name: 'wait', label: 'Announcements' },
-    { name: 'end', label: 'Inactive auctions' },
+    { name: 'active', label: t('Active auctions') },
+    { name: 'wait', label: t('Announcements') },
+    { name: 'end', label: t('Inactive auctions') },
   ];
 
   const buttons = categoryButtons.map(({ name, label }) => (

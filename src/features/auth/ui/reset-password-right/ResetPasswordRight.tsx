@@ -19,7 +19,7 @@ export const ResetPasswordRight = () => {
 
   const [emailSubmitted, setEmailSubmitted] = useState(false)
   const [codeVerified, setCodeVerified] = useState(true)
-  const { t } = useTranslation('resetPasswordRight')
+  const { t } = useTranslation('authPage')
 
   let verificationCode = '1234'
 
@@ -46,7 +46,7 @@ export const ResetPasswordRight = () => {
         <h2 className={cls.form__title}>{t('Recover password')}</h2>
         <div className={cls.form__descr}>
           <p>
-            {t('Already have an account?')}{' '}
+            {t('Already have an account')}?{' '}
             <span>
             <Link to="/SignIn">{t('Log In')}</Link>
           </span>

@@ -14,7 +14,7 @@ interface IAuctionsInfoProps {
 }
 
 export function AuctionsInfo({ amount, wins, winsSum, rotoSpent, auctions }: IAuctionsInfoProps) {
-  const { t } = useTranslation('auctionsInfo')
+  const { t } = useTranslation('auctionsPage')
 
   return (
       <div className={cls['auctions__info']}>

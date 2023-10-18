@@ -1,0 +1,40 @@
+{
+  "Royal Auction": "Королівський аукціон",
+  "This is an international online auction that offers the opportunity to bid for the right to purchase goods, services, crypto-assets, cars, real estate and other things, for 15-20% of their market value"
+  : "Це міжнародний онлайн-аукціон, який надає можливість ставити ставки за право придбати товари, послуги, криптовалюту, автомобілі, нерухомість та інше, за 15-20% їх ринкової вартості.",
+  "Mission": "Місія",
+  "lucky people who won the auction": "щасливі люди, які виграли аукціон",
+  "Sum winnings": "Сума виграшів",
+  "Number of participants": "Кількість учасників",
+  "Number of participating countries": "Кількість країн-учасниць",
+  "Auctions daily": "Аукціонів щоденно",
+  "Withdrawn to partners big": "Виведено великих партнерів",
+  "Number of partners": "Кількість партнерів",
+  "Number of winners": "Кількість переможців",
+  "How it works": "Як це працює",
+  "In the": "В",
+  "auction": "аукціоні",
+  "section, various offers in demand on the market are put up for auction: gadgets, electronics, jewelry, cryptocurrencies, cars, and more"
+  : "виставляються різні пропозиції, які популярні на ринку: гаджети, електроніка, прикраси, криптовалюта, автомобілі та інше",
+  "Expand": "Розгорнути",
+  "Before the start of the auction for each of the proposals, an announcement appears with the date and time of the start of the auction and a set of participants is opened"
+  : "Перед початком аукціону для кожної пропозиції з'являється оголошення з датою та часом початку аукціону, і відкривається список учасників",
+  "A limited number of people can participate in each offer, set individually for each offer."
+  : "Обмежена кількість осіб може брати участь в кожній пропозиції, встановлюються індивідуально для кожної пропозиції.",
+  "To participate in the auction, you must have on your balance the internal game currency ROTO"
+  : "Для участі в аукціоні необхідно мати на балансі внутрішню ігрову валюту ROTO",
+  "In order to reserve a place and confirm participation in the auction, players need to freeze the set number of ROTO tokens before the start."
+  : "Для резервування місця та підтвердження участі в аукціоні гравцям потрібно заморозити визначену кількість токенів ROTO до початку.",
+  "At the end of the timer, bidding begins immediately and participants begin to click on the “buy” button"
+  : "По закінченню таймера торги починаються негайно, і учасники починають клікати на кнопку «купити»",
+  "Each click costs a predetermined amount of ROTO on each of the offers."
+  : "Кожен клік коштує визначену суму ROTO на кожній пропозиції.",
+  "After each click made, the right to purchase an offer passes to the last clicked bidder"
+  : "Після кожного зробленого кліку, право придбати пропозицію передається останньому клікненому учаснику",
+  "If no one has called you back within the set time since your click, the offer goes to you!"
+  : "Якщо ніхто не відгукнувся на ваш клік протягом встановленого часу, пропозиція переходить до вас!",
+  "Latest registrations":"Останні реєстрації",
+  "Country":"Країна",
+  "E-mail":"Електронна адреса",
+  "Date":"Дата"
+}

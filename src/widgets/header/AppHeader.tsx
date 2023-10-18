@@ -11,16 +11,19 @@ import LOGOUT_MUTATION from '../../shared/schemas/auth/logout';
 import HeaderBurger from '@/widgets/burger/HeaderBurger';
 import { UserAvatar } from '@shared/ui/user-avatar/UserAvatar';
 
-import cls from './AppHeader.module.scss'; // Импортируйте имена классов из CSS-модуля
+import cls from './AppHeader.module.scss'; 
 
 import { GetProfileDocument } from '@shared/lib/types/__generated-types__/graphql';
 import { getPageTitle } from '@shared/lib/routes/getPath';
 import { LangSwitcher } from '@features/lang-switcher/LangSwitcher';
+import { useTranslation } from 'react-i18next'
 
 const AppHeader = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [logout] = useMutation(LOGOUT_MUTATION);
+  const { t } = useTranslation('appHeader')
+
 
   const [title, setTitle] = useState<string | undefined>(undefined);
 
@@ -74,10 +77,10 @@ const AppHeader = () => {
               <div className={`${cls.group__container}`}>
                 <LangSwitcher />
                 <Link to="/SignIn" className={`${cls.group__log}`}>
-                  Log in
+                  {t('Log in')}
                 </Link>
                 <Link to="/SignUp" className={`${cls.group__sign}`}>
-                  Sign up
+                  {t('Sign up')}
                 </Link>
                 <HeaderBurger isClicked={isClicked} setIcClicked={() => setIsClicked(!isClicked)} />
               </div>

@@ -2,28 +2,8 @@
 
   border-radius: 8px;
 
-  max-height: 400px;
-  overflow-y: auto;
 
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
 
-  &::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.07);
-    border-radius: 100px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 100px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-
-  
   .header {
     display: flex;
     align-items: flex-start;
@@ -42,16 +22,16 @@
       overflow: hidden;
       margin-right: 10px;
     }
-    
+
     &__invite {
       img {
         margin-right: 10px;
-        &:hover{
+
+        &:hover {
           cursor: pointer;
         }
       }
     }
-
 
     &__subscribers {
       font-size: 16px;
@@ -75,9 +55,32 @@
   }
 
   .subscribers {
+
+
     ul {
       list-style-type: none;
       padding: 0;
+
+      max-height: 200px;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 100px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 100px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
     }
 
     li {
@@ -106,6 +109,7 @@
       &:hover {
         background-color: rgba(88, 124, 253, 0.2);
         border-radius: 5px;
+        max-width: 95%;
       }
     }
   }
@@ -137,7 +141,7 @@
     justify-content: center;
   }
 
-  &__title{
+  &__title {
     text-align: center;
   }
 

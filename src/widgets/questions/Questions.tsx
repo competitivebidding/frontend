@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import cls from './Question.module.scss'
 import AccordionItem from '../../shared/ui/accordion-item/AccordionItem.jsx'
+import { useTranslation } from 'react-i18next'
 
 const Question = () => {
+  const { t } = useTranslation('question')
+
   const accordionData = [
     {
       title: 'How does the auction work?',

@@ -18,7 +18,7 @@ interface IAuctionCardProps {
 }
 
 const AuctionCard = ({ id, alt = 'kek', title, date, bids, places = '', changeStatus, startedAt }: IAuctionCardProps) => {
-  const { t } = useTranslation('auctionCard')
+  const { t } = useTranslation('auctionsPage')
 
   const [clazz, setClass] = useState(cls.card);
   const [place, setPlace] = useState(places);

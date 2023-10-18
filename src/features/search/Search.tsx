@@ -7,7 +7,7 @@ interface ISearchProps {
 }
 
 const Search = ({ onChange }: ISearchProps) => {
-  const { t } = useTranslation('search')
+  const { t } = useTranslation('auctionsPage')
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value)
