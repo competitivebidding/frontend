@@ -14,7 +14,6 @@ interface IDoubleIncomeProps {
 function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
   const [filterValue, setFilterValue] = useState<string>('Last week')
   const [dropdownVisibility, setDropdownVisibility] = useState<boolean>(false)
-  const [isROTO, setIsROTO] = useState<boolean>(false)
   const { t } = useTranslation('cabinetPage')
 
   return (
@@ -67,7 +66,7 @@ function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
               </div>
             </div>
           </div>
-          <div className={styles.income_chart__currencyPick}>
+          {/* <div className={styles.income_chart__currencyPick}>
             <label className={styles.currencyPick}>
               <input
                 type="checkbox"
@@ -90,20 +89,20 @@ function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
               <p>ROTO</p>
               <span className={styles.checkmark} onClick={() => setIsROTO(false)}></span>
             </label>
-          </div>
+          </div> */}
         </div>
         <div className={styles.income_chart__subheader}>
           <div className={styles.income_chart__currency}>
-            <span style={{ background: isROTO ? color[0] : color[1] }}></span>
-            {isROTO ? currency[0] : currency[1]}
+            <span style={{ background: color[0] }}></span>
+            { currency[0]}
           </div>
           <div className={styles.income_chart__total}>
-            {t('Total earnings')}: {(isROTO ? data[0] : data[1]).datasets[0].data.reduce((acc: any, v: any) => acc + v, 0)}{' '}
-            {isROTO ? currency[0] : currency[1]}
+            {t('Total earnings')}: {(data[0]).datasets[0].data.reduce((acc: any, v: any) => acc + v, 0)}{' '}
+            {currency[0] }
           </div>
         </div>
       </div>
-      <BarChart data={data[isROTO ? 0 : 1]} color={color[isROTO ? 0 : 1]} />
+      <BarChart data={data[ 0]} color={color[0]} />
     </div>
   )
 }

@@ -6,6 +6,10 @@
     align-items: center;
     padding: 20px;
     border-radius: 5px;
+    background-color: #141923;
+
+   
+
     &__title {
       font-family: 'Roboto';
       color: white;
@@ -13,6 +17,10 @@
       font-weight: 600;
       font-size: 2.2rem;
       line-height: 130%;
+
+      @media screen and (max-width: 800px){
+        font-size: 1.5em;
+      }
     }
 
 
@@ -23,6 +31,13 @@
       font-weight: 400;
       font-size: 1.2rem;
       margin-bottom: 20px;
+
+      @media screen and (max-width: 600px){
+        width: 9em;
+        font-size: 1rem;
+        text-align: center;
+      }
+
 
       & a {
         color: #2F53FF;
@@ -59,6 +74,14 @@
         background: #191D25;
         border-radius: 8px;
 
+        @media screen and (max-width: 600px){
+          width: 20em;
+        }
+
+        @media screen and (max-width: 600px){
+          width: 15em;
+        }
+
         &:focus {
           outline: none;
           border-color: #6e9ef5;
@@ -83,6 +106,14 @@
       color: rgba(255, 255, 255, 0.4);
       padding: 10px 20px;
       cursor: pointer;
+
+      @media screen and (max-width: 600px){
+        width: 20em;
+      }
+
+      @media screen and (max-width: 600px){
+        width: 15em;
+      }
 
       &:hover {
         color: #fff;
@@ -126,6 +157,14 @@
     font-size: 1rem;
 
     color: #666666;
+
+    @media screen and (max-width: 600px){
+      width: 20em;
+    }
+
+    @media screen and (max-width: 600px){
+      width: 15em;
+    }
 
     input {
       position: absolute;
@@ -196,6 +235,10 @@
     font-size: 1.5em;
     padding-bottom: 0.8em;
     color: rgb(226, 155, 155);
+
+    @media screen and (max-width: 768px) {
+      width: 13rem;
+    }
   }
 
   .code__input {
@@ -220,3 +263,32 @@
   }
 
 
+  .company__title {
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+
+    @media screen and (min-width: 1000px) {
+      display: none;
+    }
+  }
+
+
+  .company__icon {
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+      color: white;
+      align-items: center;
+      line-height: 20px;
+
+      @media screen and (min-width: 1000px) {
+        display: none;
+      }
+    }
+
+
+
+  

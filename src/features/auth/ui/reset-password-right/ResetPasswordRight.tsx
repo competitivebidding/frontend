@@ -4,6 +4,7 @@ import validator from 'validator'
 import { Link } from 'react-router-dom'
 import cls from '../SignInRight.module.scss'
 import { useTranslation } from 'react-i18next'
+import iconAuth from '@assets/imgAuth/iconAuth.svg'
 
 interface IResetPasswordFields {
   email: string
@@ -42,7 +43,20 @@ export const ResetPasswordRight = () => {
   }
 
   return (
-      <form className={cls.form} onSubmit={handleSubmit(onSubmit)} noValidate>
+    <>
+          <Link to="/" className={cls.company__icon}>
+        <img src={iconAuth} alt="icon" />
+        <div>
+          <h2 className={cls.company__title}>COMPETITIVE
+            <br/> BIDDING</h2>
+        </div>
+      </Link>
+
+      <form className={cls.form} onSubmit={handleSubmit(onSubmit)} noValidate style={
+        window.innerWidth <= 1000
+          ? { marginTop: '150px' }
+          : {} 
+      }>
         <h2 className={cls.form__title}>{t('Recover password')}</h2>
         <div className={cls.form__descr}>
           <p>
@@ -101,5 +115,6 @@ export const ResetPasswordRight = () => {
           </button>
         </div>
       </form>
+      </>
   )
 }

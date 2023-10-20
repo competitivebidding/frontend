@@ -10,6 +10,7 @@ import { useLocalStorage } from '@/shared/lib/useLocalStorage'
 import SIGNUP_MUTATION from '@shared/schemas/auth/signup'
 import cls from '../SignInRight.module.scss'
 import { useTranslation } from 'react-i18next'
+import iconAuth from '@assets/imgAuth/iconAuth.svg'
 
 interface ISignUpFields {
   email: string
@@ -75,6 +76,15 @@ export const SignUpRight = () => {
 
   return (
       <>
+      
+      <Link to="/" className={cls.company__icon}>
+        <img src={iconAuth} alt="icon" />
+        <div>
+          <h2 className={cls.company__title}>COMPETITIVE
+            <br/> BIDDING</h2>
+        </div>
+      </Link>
+
         <form className={`${cls.form} ${cls['form__sign']}`} onSubmit={handleSubmit(onSubmit)} noValidate>
           <h2 className={cls['form__title']}>{t('Sign up')}</h2>
           <div className={cls['form__descr']}>

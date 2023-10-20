@@ -1,12 +1,18 @@
 .auth {
   display: flex;
   width: 100%;
+  background-color: #141923;
+
   .left {
     width: 60%;
     background-color: #191D25;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 1000px) {
+      display: none;
+    }
 
     &__icon {
       padding: 20px;
@@ -80,8 +86,23 @@
 }
 
 
-.test { 
+.LangSwitcher { 
   position: absolute;
   margin-left: 95%;
   margin-top: 1%;
+
+
+  @media screen and (max-width: 1000px) {
+    margin-left: 92%;
+
+  }
+
+  @media screen and (max-width: 500px) {
+    margin-left: 88%;
+    margin-top: 7%;
+  }
+
+  @media screen and (max-width: 400px) {
+    margin-left: 84%;
+  }
 }
