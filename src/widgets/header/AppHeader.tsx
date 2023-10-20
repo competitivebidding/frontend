@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import Cookies from 'js-cookie';
 
@@ -17,32 +17,31 @@ import { GetProfileDocument } from '@shared/lib/types/__generated-types__/graphq
 import { getPageTitle } from '@shared/lib/routes/getPath';
 import { LangSwitcher } from '@features/lang-switcher/LangSwitcher';
 import { useTranslation } from 'react-i18next'
+import {routesConfig} from "@shared/lib/routes/routesConfig";
 
 const AppHeader = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
+  const location = useLocation()
   const [logout] = useMutation(LOGOUT_MUTATION);
-  const { t } = useTranslation('appHeader')
+  const { t } = useTranslation('headerTitles')
 
-
-  const [title, setTitle] = useState<string | undefined>(undefined);
+  const [title, setTitle] = useState<string>('Main');
 
   const userAuthString = Cookies.get('user');
   const userAuth = userAuthString ? JSON.parse(userAuthString) : null;
 
   const { data } = useQuery(GetProfileDocument);
 
-  useEffect(() => {
-    setTitle(getPageTitle(location.pathname));
-
-    if (Cookies.get('refreshtoken') && userAuth && userAuth.username) {
-      setIsLogged(true);
-    }
-  }, []);
+  const getCurrentPageTitle = () => {
+    const currentPath = location.pathname;
+    const matchingRoute = Object.values(routesConfig).find(route => currentPath === route.path);
+    return matchingRoute ? matchingRoute.name : 'Main';
+  }
 
   const handleLogout = async () => {
     try {
-      const response = await logout({
+       await logout({
         variables: { logoutId: userAuth.id },
       });
       Cookies.remove('accesstoken');
@@ -54,9 +53,19 @@ const AppHeader = () => {
     }
   }
 
+  useEffect(() => {
+    if (Cookies.get('refreshtoken') && userAuth && userAuth.username) {
+      setIsLogged(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    setTitle(getCurrentPageTitle());
+  }, [location.pathname]);
+
   return (
       <header className={cls.header}>
-        <h1 className={cls.header__title}>{title}</h1>
+        <h1 className={cls.header__title}>{t(title)}</h1>
         <div className={`${cls.group}`}>
           {isLogged ? (
               <>
@@ -91,4 +100,3 @@ const AppHeader = () => {
 }
 
 export default AppHeader;
-``
