@@ -11,7 +11,7 @@ const AuthLayout = () => {
 
     return (
         <div className={cls.auth}>
-            <div className={cls.test}>
+            <div className={cls.LangSwitcher}>
                 <LangSwitcher />
             </div>
             <div className={cls.left}>

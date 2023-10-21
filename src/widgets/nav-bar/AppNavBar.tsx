@@ -22,12 +22,12 @@ export const AppNavBar = () => {
 
   return (
       <nav className={cls.navBar}>
-        <div className={cls.navBar__logo}>
+        <Link to="/" className={cls.navBar__logo}>
           <img src={logo} alt="Competitive bidding" />
           <h1 className={cls['navBar__title']}>
-            <Link to="/"> {t('Competitive')}<br/> {t('bidding')} </Link>
+            <div> {t('Competitive')}<br/> {t('bidding')} </div>
           </h1>
-        </div>
+          </Link>
 
         <div className={cls['navBar__menu']}>
           <div className={cls['menu__group']}>
