@@ -58,3 +58,28 @@
   text-overflow: ellipsis;
   max-width: 100%;
 }
+
+.context__menu {
+  position: fixed;
+  background-color: #272e3d;
+  margin-top: 10px;
+  margin-left: auto;
+  border: 1px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 5px;
+  width: 150px;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  button {
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: #5c5c5d;
+      border-radius: 5px;
+    }
+  }
+}

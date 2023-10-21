@@ -15,12 +15,13 @@ import {GetRoomByIdDocument} from '@shared/lib/types/__generated-types__/graphql
 import { useTranslation } from 'react-i18next'
 
 export interface Group {
-  createdAt: string
-  description: null | string
-  id: number
-  ownerId: number
-  title: string
-  updatedAt: string
+  __typename?: "Room",
+  id: number,
+  ownerId: number,
+  title: string,
+  description?: string | null,
+  createdAt: any,
+  updatedAt: any
 }
 
 export interface IUser {

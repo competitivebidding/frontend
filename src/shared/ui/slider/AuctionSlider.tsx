@@ -6,7 +6,7 @@ import 'swiper/css/navigation'
 
 import cls from './AuctionSlider.module.scss'
 
-import { Pagination, Navigation } from 'swiper'
+import {Pagination, Navigation, Virtual} from 'swiper'
 import AuctionCard from '@entities/auction/ui/auction-card/AuctionCard'
 
 interface IAuctionSliderProps {
@@ -35,12 +35,12 @@ export const AuctionSlider = ({ data }: IAuctionSliderProps) => {
       <Swiper
         slidesPerView={configureSlider()}
         spaceBetween={30}
-        loop={true}
+
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
+        virtual={true}
+        modules={[Pagination, Virtual]}
         className={cls['auction-swiper']}
       >
         {data.map((item) => {
