@@ -30,8 +30,8 @@
   .sidebar {
     position: absolute;
     height: 100%;
-    left: -220px;
-    transition: 250ms all ease;
+    left: -1220px;
+    transition: 350ms all ease-in-out;
     z-index: 9;
     &.active {
       left: 0;
