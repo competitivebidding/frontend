@@ -10,6 +10,7 @@ import {Group} from '@entities/messages/Messages'
 import iconPlus from "@assets/Chat/iconPlus.svg";
 import {InviteUserToChat} from "@features/invite-user-to-chat/ui/InviteUserToChat";
 import { useTranslation } from 'react-i18next'
+import {ConfirmModal} from "@shared/ui/configmModal";
 
 interface IGroupSubscribersProps {
   groupTitle: string
@@ -106,22 +107,12 @@ export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose,  setA
             </div>
         )}
         {leaveModalOpen && (
-            <AppModal
+            <ConfirmModal
                 isOpen={leaveModalOpen}
-                onClose={handleCancelLeaveChat}
-            >
-              <div className={scss.modalGroup__container}>
-                <div className={scss.modalGroup__title}>{t('Do you really want to leave the band')}?</div>
-                <div className={scss.modalGroup__button}>
-                  <button className={`${scss.modalGroup__agreement}`} onClick={handleConfirmLeaveChat}>
-                    {t('Yes')}
-                  </button>
-                  <button className={`${scss.modalGroup__agreement}`} onClick={handleCancelLeaveChat}>
-                    {t('No')}
-                  </button>
-                </div>
-              </div>
-            </AppModal>
+                onClose={setLeaveModalOpen}
+                onCancel={handleCancelLeaveChat}
+                onConfirm={handleConfirmLeaveChat}
+                title={'Do you really want to leave the band'} />
         )}
         {inviteModalIsOpen && (
             <AppModal isOpen={inviteModalIsOpen} onClose={handleCancelInvite}>

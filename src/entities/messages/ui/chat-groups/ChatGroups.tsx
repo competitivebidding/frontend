@@ -9,6 +9,8 @@ import {
 } from '@shared/lib/types/__generated-types__/graphql'
 import {Group, IUser} from "@entities/messages/Messages";
 import {ContextMenu} from "@shared/ui/contextMenu";
+import {GET_ALL_MY_ROOMS, LEAVE_FROM_CHAT} from "@shared/schemas/messages/messages";
+import {ConfirmModal} from "@shared/ui/configmModal";
 
 interface IChatGroupsProps {
   onSelectGroup: (group: Group) => void
@@ -25,8 +27,10 @@ interface IContextMenu {
 export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
   const { setValue } = useLocalStorage('activeGroup')
   const [contextMenu, setContextMenu] = useState<IContextMenu | null>(null);
-
   const {lsValue} = useLocalStorage<IUser>('user')
+
+  const [isConfirmDelete, setIsConfirmDelete] = useState(false)
+  const [isConfirmLeave, setIsConfirmLeave] = useState(false)
 
   const { data: groupsData, loading: groupsLoading } = useQuery(GetAllMyRoomsDocument)
   const { data: newMessageData, loading: newMessageLoading } = useSubscription(NewMessageDocument, {
@@ -34,6 +38,8 @@ export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
   })
 
   const [removeRoom, {loading}] = useMutation(RemoveMyRoomDocument, {refetchQueries: [GetAllMyRoomsDocument]})
+  const [leaveFromChat] = useMutation(LEAVE_FROM_CHAT, { refetchQueries: [GET_ALL_MY_ROOMS] })
+
 
   const handleSetActiveGroup = (group: Group) => {
     onSelectGroup(group)
@@ -49,11 +55,53 @@ export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
     setContextMenu(null);
   };
 
+  const handleOpenDeleteConfirm = () => {
+    if (contextMenu) {
+      setContextMenu({...contextMenu, isOpen: false, })
+    }
+    setIsConfirmDelete(true)
+  }
+
+  const handleOpenLeaveConfirm = () => {
+    if (contextMenu) {
+      setContextMenu({...contextMenu, isOpen: false, })
+    }
+    setIsConfirmLeave(true)
+  }
+
+  const handleCancelDelete = () => {
+    setIsConfirmDelete(false)
+    setContextMenu(null)
+  }
+
+  const handleCancelLeave = () => {
+    setIsConfirmLeave(false)
+    setContextMenu(null)
+  }
+
   const handleDeleteGroup = () => {
     if (contextMenu) {
-      removeRoom({variables: {roomId: contextMenu?.group.id}}).then(() => closeContextMenu())
+      removeRoom({variables: {roomId: contextMenu?.group.id}}).then(() => {
+        closeContextMenu()
+        setIsConfirmDelete(false)
+      })
     }
   }
+
+  const handleLeaveGroup = () => {
+    if (contextMenu) {
+      leaveFromChat({
+        variables: {
+          roomId: contextMenu.group.id,
+        },
+      }).then(() => {
+        closeContextMenu()
+        setIsConfirmLeave(false)
+      })
+    }
+  }
+
+
 
   return (
     <div className={cls.sidebar__group}>
@@ -75,12 +123,32 @@ export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
       )}
       {contextMenu && (
           <ContextMenu isOpen={contextMenu.isOpen} onClose={closeContextMenu} x={contextMenu.x} y={contextMenu.y}>
-            <button>Leave group</button>
+            <button onClick={handleOpenLeaveConfirm}>Leave group</button>
             {lsValue && contextMenu
                 && lsValue.id === contextMenu.group.ownerId
-                && <button disabled={loading} onClick={handleDeleteGroup}>Delete group</button>}
+                && <button disabled={loading} onClick={handleOpenDeleteConfirm}>Delete group</button>}
           </ContextMenu>
       )}
+      {
+        isConfirmDelete &&
+          <ConfirmModal
+              onClose={setIsConfirmDelete}
+              isOpen={isConfirmDelete}
+              onCancel={handleCancelDelete}
+              onConfirm={handleDeleteGroup}
+              title={'Do you really want to delete this group?'}
+          />
+      }
+      {
+          isConfirmLeave &&
+          <ConfirmModal
+              onClose={setIsConfirmLeave}
+              isOpen={isConfirmLeave}
+              onCancel={handleCancelLeave}
+              onConfirm={handleLeaveGroup}
+              title={'Do you really want to leave the band?'}
+          />
+      }
     </div>
   )
 }
