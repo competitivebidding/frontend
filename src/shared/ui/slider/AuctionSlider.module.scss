@@ -15,21 +15,10 @@
     max-width: 774px;
   }
 
-  @media (max-width: 1300px) {
-    max-width: 700px;
+  @media (max-width: 1024px) {
+    max-width: 100%;
   }
 
-  @media (max-width: 1200px) {
-    max-width: 466px;
-  }
-
-  @media (max-width: 800px) {
-    max-width: 705px;
-  }
-
-  @media (max-width: 400px) {
-    max-width: 296px;
-  }
 
   .auction-swiper {
     width: 100%;

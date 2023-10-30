@@ -128,3 +128,15 @@ mutation AddUserInRoom($addUser: AddUserInput!) {
     avatarUrl
   }
 }`)
+
+export const REMOVE_MY_ROOM = gql(`
+mutation RemoveMyRoom($roomId: Float!) {
+  removeMyRoom(roomId: $roomId) {
+    id
+    ownerId
+    title
+    description
+    createdAt
+    updatedAt
+  }
+}`)
