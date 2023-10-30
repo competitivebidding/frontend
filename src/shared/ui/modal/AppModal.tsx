@@ -10,8 +10,6 @@ interface IAppModalProps {
   paddingWindow?: string; 
 }
 
-
-
 export const AppModal = ({
   children,
   title,
@@ -20,6 +18,17 @@ export const AppModal = ({
   paddingWindow = '32px',
 }: IAppModalProps) => {
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
 
   return createPortal(
     <div className={`${cls.modal} ${isOpen ? cls.opened : ''}`}>

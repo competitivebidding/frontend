@@ -9,9 +9,15 @@
     font-style: normal;
     font-weight: 600;
     font-size: 1.2rem;
-    line-height: 130%;
     margin: 0 auto 2em auto;
     text-align: center;
+
+    @media screen and (max-width: 500px) {
+      width: 15em;
+      font-size: 0.9rem;
+     
+    }
+
   }
 
 
@@ -52,6 +58,10 @@
       background: #191D25;
       border-radius: 8px;
 
+      @media screen and (max-width: 500px) {
+        width: 15em;
+      }
+
       &:focus {
         outline: none;
         border-color: #6e9ef5;
@@ -66,6 +76,11 @@
     padding: 10px;
     background: #191D25;
     border-radius: 8px;
+    outline:none;
+    @media screen and (max-width: 500px) {
+      width: 15em;
+    }
+
   }
 
   .email__input {
@@ -83,6 +98,11 @@
     color: rgba(255, 255, 255, 0.4);
     padding: 10px 20px;
     cursor: pointer;
+
+    @media screen and (max-width: 500px) {
+      width: 15em;
+    }
+
 
     &:hover {
       color: #fff;
