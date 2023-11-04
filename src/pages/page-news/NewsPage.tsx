@@ -21,8 +21,9 @@ const NewsPage = () => {
 
   return (
     <div>
-      <NewsList data={data.news} />
-      {/* <NewsList data={_data} /> */}
+      {data &&
+        <NewsList data={data.news} />
+      }
     </div>
   )
 }

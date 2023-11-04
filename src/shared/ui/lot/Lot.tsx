@@ -82,7 +82,7 @@ const Lot = () => {
                       </div>
                       <div className={cls['lot__header__col__right']}>
                         <div className={cls['lot__places']}>{t('Free places')}:</div>
-                        {datas && <span>{30 - datas?.getAuction.bids?.length} {t('from')} 30</span>}
+                        {datas && datas.getAuction.bids && <span>{30 - datas?.getAuction.bids?.length} {t('from')} 30</span>}
                       </div>
                     </div>
                     <div className={`${cls['lot__description']} ${isShowMore ? cls['shown'] : ''}`}>{datas?.getAuction.description}</div>

@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next'
 
 interface IAuctionsPageContent {}
 
-const AuctionsPageContent = () => {
+export const AuctionsPageContent = () => {
     const {data} = useQuery(GET_AUCTIONS)
     const { t } = useTranslation('auctionsPage')
 
@@ -28,4 +28,3 @@ const AuctionsPageContent = () => {
   )
 }
 
-export default AuctionsPageContent

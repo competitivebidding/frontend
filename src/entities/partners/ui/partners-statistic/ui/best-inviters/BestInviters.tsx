@@ -13,7 +13,7 @@ function BestInviters() {
   const { t } = useTranslation('partnersPage')
 
   useEffect(() => {
-    if (!loading) {
+    if (!loading && data) {
       setReferrals(data.getMyReferrals)
     }
   })

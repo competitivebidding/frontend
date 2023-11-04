@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 interface UserInstProps {
   field: string | null | undefined
-  handleUpdate: (data: { instagram: string }) => void
+  handleUpdate: (data: { instagram: string | null | undefined }) => void
 }
 
 const UserInst = ({ field, handleUpdate }: UserInstProps) => {
@@ -17,7 +17,7 @@ const UserInst = ({ field, handleUpdate }: UserInstProps) => {
     setIsEditable(!isEditable)
   }
 
-  const update = (data: string) => {
+  const update = (data: string | null | undefined) => {
     handleUpdate({ instagram: data })
     setIsEditable(false)
   }

@@ -1,1 +1,1 @@
-export StatsList from './ui/stats-list/StatsList'
+export {StatsList} from './ui/stats-list/StatsList'

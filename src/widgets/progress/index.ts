@@ -1,1 +1,1 @@
-export ProgressList from './ui/progress-list/ProgressList'
+export {ProgressList} from './ui/progress-list/ProgressList'

@@ -19,7 +19,7 @@ const CabinetPage = () => {
       <AuctionsInfo amount={12} rotoSpent={10} winsSum={400000} wins={5} auctions={auctions} />
       <div className={cls.cabinet__charts}>
         <PlayersAmount />
-        <DoubleIncome currency={['ROTO', 'Rubles']} data={[rotoIncome]} color={['#2F53FF', '#00FFA3']} />
+        <DoubleIncome currency={['ROTO', 'Rubles']} color={['#2F53FF', '#00FFA3']} data={[rotoIncome]} />
       </div>
     </div>
   )

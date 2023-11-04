@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 interface IUserEmailProps {
   field: string | undefined
-  handleUpdate: (data: { email: string }) => void
+  handleUpdate: (data: { email: string | undefined }) => void
 }
 
 const UserEmail = ({ field, handleUpdate }: IUserEmailProps) => {
@@ -17,7 +17,7 @@ const UserEmail = ({ field, handleUpdate }: IUserEmailProps) => {
     setIsEditable(!isEditable)
   }
 
-  const update = (data: { email: string }) => {
+  const update = (data: { email: string | undefined }) => {
     handleUpdate(data)
     setIsEditable(false)
   }

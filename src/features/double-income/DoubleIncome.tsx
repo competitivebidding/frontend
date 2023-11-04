@@ -11,6 +11,7 @@ interface IDoubleIncomeProps {
   data: ChartData<'bar', number[], string[]>[]
 }
 
+
 function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
   const [filterValue, setFilterValue] = useState<string>('Last week')
   const [dropdownVisibility, setDropdownVisibility] = useState<boolean>(false)
@@ -66,30 +67,6 @@ function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
               </div>
             </div>
           </div>
-          {/* <div className={styles.income_chart__currencyPick}>
-            <label className={styles.currencyPick}>
-              <input
-                type="checkbox"
-                checked={isROTO}
-                onChange={(e) => {
-                  e.target.checked = isROTO
-                }}
-              />
-              <p>ROTO</p>
-              <span className={styles.checkmark + ' ' + styles.checkmark_roto} onClick={() => setIsROTO(true)}></span>
-            </label>
-            <label className={styles.currencyPick}>
-              <input
-                type="checkbox"
-                checked={!isROTO}
-                onChange={(e) => {
-                  e.target.checked = !isROTO
-                }}
-              />
-              <p>ROTO</p>
-              <span className={styles.checkmark} onClick={() => setIsROTO(false)}></span>
-            </label>
-          </div> */}
         </div>
         <div className={styles.income_chart__subheader}>
           <div className={styles.income_chart__currency}>
@@ -102,7 +79,7 @@ function DoubleIncome({ currency, color, data }: IDoubleIncomeProps) {
           </div>
         </div>
       </div>
-      <BarChart data={data[ 0]} color={color[0]} />
+      <BarChart data={data[0]} color={color[0]} />
     </div>
   )
 }
