@@ -1,5 +1,6 @@
 .myAuctions__btnsgroup {
     text-align: start;
+
     .myAuction__btn {
         font-weight: 400;
         font-size: 0.875rem;
@@ -18,6 +19,102 @@
         &.btn-active {
             background: #2F53FF;
             border: none;
+        }
+    }
+}
+
+.title {
+    text-align: center;
+    font-size: 22px;
+}
+
+.create {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+
+    &__title {
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+    }
+
+    &__descr {
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+    }
+
+    &__price {
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+    }
+
+    &__finished {
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="datetime-local"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+    }
+
+    &__button {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #0056b3;
+            }
         }
     }
 }
