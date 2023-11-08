@@ -57,7 +57,7 @@ function PlayersAmount() {
             ))}
           </ul>
         )}
-        <DonutChart data={data} count={10} haveTooltip />
+        <DonutChart data={data} width={200} count={10} haveTooltip />
       </div>
     </div>
   )

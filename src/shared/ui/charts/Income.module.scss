@@ -201,3 +201,13 @@
     }
   }
 }
+
+@media (max-width: 375px) {
+  .income_chart {
+    &__subheader {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+}

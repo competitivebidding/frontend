@@ -318,3 +318,37 @@
     }
   }
 }
+@media (max-width: 375px) {
+  .user-info {
+    &__settings {
+
+    }
+    &__level {
+      flex-direction: column;
+      .level-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    &__item {
+      .item-top {
+        flex-direction: column;
+        align-items: center;
+        &__info {
+          flex-direction: column;
+          align-items: center;
+        }
+        &__content {
+          text-align: center;
+          gap: 8px;
+        }
+        &__status {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}
+
