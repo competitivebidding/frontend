@@ -23,6 +23,10 @@
     width: 100%;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+
+    @media screen and (max-width:768) {
+      display: none;
+    }
   }
 
   &__empty {
@@ -30,6 +34,7 @@
     padding: 10px;
     border-radius: 50px;
     background-color: #212a3b;
+
   }
 }
 

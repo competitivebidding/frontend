@@ -7,11 +7,18 @@
 	background: linear-gradient(264deg, rgba(23, 26, 30, 1) 3.93%, rgba(47, 83, 255, 1) 88.81%);
 	border-radius: 17px;
 
+	@media screen and (max-width: 500px) {
+		
+	}
+
 	.royalAction__title {
 		font-weight: 600;
 		font-size: 28px;
 		line-height: 105%;
-		/* or 29px */
+
+		@media screen and (max-width: 500px) {
+			font-size: 20px;
+		}
 	}
 
 	.royalAction__text {
@@ -22,7 +29,13 @@
 		font-weight: 300;
 		font-size: 15px;
 		line-height: 140%;
-		/* or 21px */
+
+		@media screen and (max-width: 500px) {
+			margin-top: 15px;
+			width: 90%;
+			font-size: 12px;
+		}
+
 	}
 
 	.royalAction__crown {

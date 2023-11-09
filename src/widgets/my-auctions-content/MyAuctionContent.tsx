@@ -40,12 +40,7 @@ const MyAuctionContent = () => {
             description: formData.description,
             startingPrice: Number(formData.startingPrice), 
             finishedAt: formData.finishedAt,
-            startedAt: formData.finishedAt, 
-            status: {
-              connect: {
-                id: 1, 
-              },
-            },
+            startedAt: formData.finishedAt,
           },
         },
       });
@@ -73,6 +68,7 @@ const MyAuctionContent = () => {
       >
         {label}
       </button>
+      
     </>
   ));
 
@@ -80,7 +76,7 @@ const MyAuctionContent = () => {
     <div className={cls.myAuctions__content}>
       <div className={cls.myAuctions__btnsgroup}>{buttons}
         <button
-          className={`${cls['btn-active']} ${cls.myAuction__btn}`}
+          className={`${cls.myAuction__btn}`}
           onClick={handleOpenCreateAuction}
         >
           Create auctions

@@ -2,12 +2,25 @@
 
   border-radius: 8px;
 
+  @media screen and (max-width:500px) {
+    width: 300px;
+  }
+  
+
+  @media screen and (max-width:400px) {
+    width: 260px;
+  }
+
 
 
   .header {
     display: flex;
     align-items: flex-start;
     gap: 16px;
+
+    @media screen and (max-width:400px) {
+      gap: 0px;
+    }
 
     &__info {
       display: flex;
@@ -21,14 +34,25 @@
       border-radius: 50%;
       overflow: hidden;
       margin-right: 10px;
+
+      @media screen and (max-width:400px) {
+        min-width: 35px;
+        min-height: 35px;
+      }
     }
 
     &__invite {
       img {
         margin-right: 10px;
-
+        
         &:hover {
           cursor: pointer;
+        }
+        
+        @media screen and (max-width:400px) {
+          min-width: 15px;
+          min-height: 15px;
+          margin-right: 0px;
         }
       }
     }

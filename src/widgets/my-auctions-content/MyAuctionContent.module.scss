@@ -1,6 +1,16 @@
 .myAuctions__btnsgroup {
     text-align: start;
 
+    @media screen and (max-width:600px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width:45`0px) {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
     .myAuction__btn {
         font-weight: 400;
         font-size: 0.875rem;
@@ -12,9 +22,6 @@
         margin-right: 14px;
         margin-bottom: 38px;
 
-        &:last-child {
-            margin-right: 0px;
-        }
 
         &.btn-active {
             background: #2F53FF;
@@ -33,6 +40,8 @@
     margin: 0 auto;
     padding: 20px;
     border-radius: 5px;
+
+    
 
     &__title {
         label {
@@ -103,6 +112,7 @@
         justify-items: center;
         align-items: center;
         width: 100%;
+
         button {
             background-color: #007BFF;
             color: #fff;

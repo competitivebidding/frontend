@@ -45,6 +45,10 @@
         margin: 0 0 0 10px;
       }
     }
+
+    @media screen and (max-width: 500px) {
+      font-size: 0.6rem;
+    }
   }
 
   &__copyright {
@@ -52,5 +56,9 @@
     color: #bbbbbb;
     bottom: 30px;
     right: 0;
+
+    @media screen and (max-width: 500px) {
+      font-size: 0.6rem;
+    }
   }
 }

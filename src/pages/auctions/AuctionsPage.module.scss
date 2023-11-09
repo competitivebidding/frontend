@@ -8,7 +8,8 @@
     gap: 1em;
     justify-content: space-between;
 
-    @media (max-width: 1024px) {
+
+    @media (max-width: 1500px) {
       justify-content: unset;
       flex-wrap: wrap-reverse;
     }

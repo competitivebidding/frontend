@@ -12,7 +12,7 @@ export const MainTop = () => {
     <div className={cls['main-top']}>
       <div className={cls["top__column1"]}>
         <RoyalAuction />
-        <Mission value={'100 000'} />
+        <Mission value={'100'} />
         <StatsList />
       </div>
       <div className={cls["top__column2"]}>

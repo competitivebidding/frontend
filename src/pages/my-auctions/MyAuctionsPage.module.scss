@@ -2,6 +2,12 @@
   display: flex;
   gap: 1em;
   justify-content: space-between;
+
+  
+  @media (max-width: 1500px) {
+    justify-content: unset;
+    flex-wrap: wrap-reverse;
+  }
 }
 
 .actions__search--card {
