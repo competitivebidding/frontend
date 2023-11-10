@@ -30,6 +30,7 @@
     align-items: center;
     gap: 16px;
 
+
     &__balance {
       position: relative;
       display: flex;
@@ -78,6 +79,9 @@
 
     &__name {
       color: white;
+      @media (max-width: 375px) {
+        display: none;
+      }
     }
 
     &__profile {

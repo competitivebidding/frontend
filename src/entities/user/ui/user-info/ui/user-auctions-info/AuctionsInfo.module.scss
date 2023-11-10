@@ -126,7 +126,7 @@
       display: flex;
       column-gap: 14px;
 
-      @media (max-width: 375px) {
+      @media (max-width: 425px) {
         flex-direction: column;
         gap: 12px;
       }

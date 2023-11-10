@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, useLocation} from 'react-router-dom';
-import { useMutation, useQuery } from '@apollo/client';
+import {useMutation, useQuery} from '@apollo/client';
 import Cookies from 'js-cookie';
 
 import blueBalance from '@assets/imgHeader/blueBalance.svg';
@@ -9,14 +9,13 @@ import iconNotification from '@assets/imgHeader/iconNotification.svg';
 
 import LOGOUT_MUTATION from '../../shared/schemas/auth/logout';
 import HeaderBurger from '@/widgets/burger/HeaderBurger';
-import { UserAvatar } from '@shared/ui/user-avatar/UserAvatar';
+import {UserAvatar} from '@shared/ui/user-avatar/UserAvatar';
 
-import cls from './AppHeader.module.scss'; 
+import cls from './AppHeader.module.scss';
 
-import { GetProfileDocument } from '@shared/lib/types/__generated-types__/graphql';
-import { getPageTitle } from '@shared/lib/routes/getPath';
-import { LangSwitcher } from '@features/lang-switcher/LangSwitcher';
-import { useTranslation } from 'react-i18next'
+import {GetProfileDocument} from '@shared/lib/types/__generated-types__/graphql';
+import {LangSwitcher} from '@features/lang-switcher/LangSwitcher';
+import {useTranslation} from 'react-i18next'
 import {routesConfig} from "@shared/lib/routes/routesConfig";
 
 const AppHeader = () => {

@@ -5,8 +5,6 @@
 	background: $bg;
 }
 
-//mixin, variables
-
 .block__template {
 	display: grid;
 	grid-template-areas:
@@ -42,6 +40,9 @@
 	background-color: rgba(23, 26, 30, 1);
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	color: #fff;
+	@media (max-width: 375px) {
+		flex-direction: column;
+	}
 
 	//!item-info-tabs
 
@@ -51,6 +52,7 @@
 		justify-content: space-between;
 		align-items: center;
 
+
 		.item-info__user {
 			display: grid;
 			grid-template-areas:
@@ -58,6 +60,12 @@
 				"img id";
 			column-gap: 2em;
 			row-gap: 1em;
+			@media (max-width: 375px) {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 16px;
+			}
 		}
 
 		.item-info__img {
@@ -181,9 +189,15 @@
 		padding: 1em 2em;
 		gap: 1em;
 		justify-content: space-between;
+
 		.item-phone__main {
 			display: flex;
 			gap: 1.2em;
+			@media (max-width: 375px) {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
 		}
 		.main-phone__info {
 			display: flex;
@@ -191,6 +205,12 @@
 			width: 100%;
 			justify-content: space-between;
 			padding-top: 0.2em;
+			@media (max-width: 375px) {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+			}
 		}
 		.main-phone__phone-info {
 			display: flex;
@@ -203,6 +223,9 @@
 			color: rgba(247, 158, 27, 1);
 			text-align: center;
 			align-self: self-start;
+			@media (max-width: 375px) {
+				align-self: center;
+			}
 		}
 		.green-mode {
 			background: rgba(0, 128, 20, 0.1);
@@ -240,9 +263,15 @@
 		flex-direction: column;
 		justify-content: space-between;
 
+
 		.item-email__upperSection {
 			display: flex;
 			gap: 19px;
+			@media (max-width: 375px) {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
 
 			.upperSection__block-emailImg {
 				background: rgba(47, 83, 255, 0.2);
@@ -258,6 +287,14 @@
 				display: flex;
 				width: 100%;
 				justify-content: space-between;
+				@media (max-width: 375px) {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					text-align: center;
+					gap: 16px;
+					margin-bottom: 16px;
+				}
 
 				.upperSection__block-email {
 					padding-top: 0.2em;
@@ -344,6 +381,11 @@
 		.item-card__content {
 			display: flex;
 			gap: 19px;
+			@media (max-width: 375px) {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
 
 			.content__img {
 				width: fit-content;
@@ -379,6 +421,9 @@
 
 				color: #f79e1b;
 				white-space: nowrap;
+				@media (max-width: 375px) {
+					margin: 0;
+				}
 			}
 		}
 
