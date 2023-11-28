@@ -5,9 +5,14 @@ import cls from './TokenCard.module.scss';
 import video from '@assets/videoAd/shorts.mp4';
 
 import { useTranslation } from 'react-i18next'
+import {useMutation} from "@apollo/client";
+import {PAY_OPERATION} from "@shared/schemas/tokens/tokens";
 
 interface ITokenCardProps {
-  tokens: string;
+  tokens: {
+    amount: number,
+    currency: string
+  };
   prize: string;
   buttonName: string;
   id: number;
@@ -21,8 +26,22 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
   const [remainingTime, setRemainingTime] = useState(86400);
   const { t } = useTranslation('tokenPage')
 
+  const [createPay, {data: payData}] = useMutation(PAY_OPERATION)
+
+  const handleSendPay = (amount: number) => {
+    createPay({variables: {
+        createPayInput: {
+          typeOperation: 'refill',
+          operation: 'refil',
+          amount: tokens.amount,
+        }
+      }
+    }).then(d => console.log(d))
+  }
+
   const toggleButton = () => {
     setModal(!modal);
+    handleSendPay(0)
   };
 
   const toggleButtonAd = () => {
@@ -43,16 +62,16 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
     }
   }, [remainingTime]);
 
-  const formatTime = (seconds: number) => {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = seconds % 60;
-
-    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(
-        2,
-        '0'
-    )}`;
-  };
+  // const formatTime = (seconds: number) => {
+  //   const hours = Math.floor(seconds / 3600);
+  //   const minutes = Math.floor((seconds % 3600) / 60);
+  //   const remainingSeconds = seconds % 60;
+  //
+  //   return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(
+  //       2,
+  //       '0'
+  //   )}`;
+  // };
 
   const handleVideoEnded = () => {
     setModal(false);
@@ -61,7 +80,7 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
 
   return (
       <div className={cls.token}>
-        <h1 className={cls['token__header']}>{tokens}</h1>
+        <h1 className={cls['token__header']}>{`${tokens.amount} ${tokens.currency}`}</h1>
         <h2 className={cls['token__prize']}>{prize}</h2>
         <button className={cls['token__button']} onClick={id === 5 ? toggleButtonAd : toggleButton}>
           {t(buttonName)}
@@ -73,9 +92,9 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
               <div className={modal ? cls['modal'] : `${cls['modal']} ${cls['modal_hidden']}`} onClick={(e) => e.stopPropagation()}>
                 <h3 className={cls['modal__header']}>{t('Congratulations')}!</h3>
 
-                <h4 className={cls['modal__tokens']}>+ {tokens}</h4>
+                <h4 className={cls['modal__tokens']}>+ {`${tokens.amount} ${tokens.currency}` }</h4>
                 <p className={cls['modal__text']}>
-                  {t('Your account has been replenished')} <br /> {t('on')} {tokens}
+                  {t('Your account has been replenished')} <br /> {t('on')} {`${tokens.amount} ${tokens.currency}`}
                 </p>
                 <button className={cls['modal__button']} onClick={toggleButton}>
                   {t('Excellent')}

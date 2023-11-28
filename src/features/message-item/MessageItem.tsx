@@ -11,7 +11,7 @@ import { REMOVE_MESSAGE } from '@/shared/schemas/messages/messages';
 
 import './MessageItem.scss';
 
-export const MessageItem = ({ message, onContextMenu }: { message: IMessage, onContextMenu: React.MouseEventHandler<HTMLDivElement> | undefined }) => {
+export const MessageItem = ({ message, onContextMenu }: { message: any, onContextMenu: React.MouseEventHandler<HTMLDivElement> | undefined }) => {
   const { lsValue } = useLocalStorage<IUser>('user');
   const messageRef = useRef<HTMLDivElement | null>(null);
 
@@ -19,7 +19,7 @@ export const MessageItem = ({ message, onContextMenu }: { message: IMessage, onC
   return (
     <><div
         onContextMenu={onContextMenu}
-      className={`chat__message ${message.userId === lsValue?.id ? 'your' : 'answer'}`}
+      className={`chat__message ${message.user.id === lsValue?.id ? 'your' : 'answer'}`}
       ref={messageRef} >
       <div className="content">
         {message.content}

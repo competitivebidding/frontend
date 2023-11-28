@@ -32,7 +32,7 @@ export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
   const [isConfirmDelete, setIsConfirmDelete] = useState(false)
   const [isConfirmLeave, setIsConfirmLeave] = useState(false)
 
-  const { data: groupsData, loading: groupsLoading } = useQuery(GetAllMyRoomsDocument)
+  const { data: groupsData, loading: groupsLoading } = useQuery(GET_ALL_MY_ROOMS)
   const { data: newMessageData, loading: newMessageLoading } = useSubscription(NewMessageDocument, {
     variables: { roomId: activeItem, content: '' },
   })
@@ -107,17 +107,18 @@ export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
     <div className={cls.sidebar__group}>
       {!groupsLoading && (
         <ul>
-          {groupsData?.getAllMyRooms.map((group: Group ) => (
-            <li
-              key={group.id}
-              className={`${cls.sidebar__list} ${activeItem === group.id ? cls.active : ''}`}
-              onClick={() => handleSetActiveGroup(group)}
-              onContextMenu={(e) => handleContextMenu(e, group)}
-            >
-              <div className={cls['sidebar__list-title']}>
-                {group.title}
-              </div>
-            </li>
+          {/*тут написать нормальный тип*/}
+          {groupsData?.getAllMyRooms.map((group: any ) => (
+              <li
+                  key={group.id}
+                  className={`${cls.sidebar__list} ${activeItem === group.id ? cls.active : ''}`}
+                  onClick={() => handleSetActiveGroup(group)}
+                  onContextMenu={(e) => handleContextMenu(e, group)}
+              >
+                <div className={cls['sidebar__list-title']}>
+                  {group.title}
+                </div>
+              </li>
           ))}
         </ul>
       )}

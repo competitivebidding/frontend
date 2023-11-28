@@ -36,7 +36,7 @@ export const ChatContext = ({
   setIsContextMenuVisible: React.Dispatch<React.SetStateAction<boolean>>;
   contextMenuPosition: contextMenuPosition;
   selectedMessageId: number | null;
-  setGroupMessages: React.Dispatch<React.SetStateAction<IMessage[] | undefined>>;
+  setGroupMessages: React.Dispatch<React.SetStateAction<any>>;
   groupMessages: IMessage[] | undefined;
   isModalMenuVisible: boolean;
   setIsModalMenuVisible: React.Dispatch<React.SetStateAction<boolean>>

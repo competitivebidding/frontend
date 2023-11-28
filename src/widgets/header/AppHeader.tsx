@@ -17,6 +17,7 @@ import {GetProfileDocument} from '@shared/lib/types/__generated-types__/graphql'
 import {LangSwitcher} from '@features/lang-switcher/LangSwitcher';
 import {useTranslation} from 'react-i18next'
 import {routesConfig} from "@shared/lib/routes/routesConfig";
+import {GET_PROFILE_QUERY} from "@shared/schemas/user/userProfile";
 
 const AppHeader = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -31,6 +32,7 @@ const AppHeader = () => {
   const userAuth = userAuthString ? JSON.parse(userAuthString) : null;
 
   const { data } = useQuery(GetProfileDocument);
+  const { data: userData } = useQuery(GET_PROFILE_QUERY);
 
   const getCurrentPageTitle = () => {
     const currentPath = location.pathname;
@@ -70,7 +72,7 @@ const AppHeader = () => {
               <>
                 <div className={`${cls.group__balance} `}>
                   <img src={blueBalance} alt="blueBalance" />
-                  <div className={`${cls.group__balanceSum} `}>20</div>
+                  <div className={`${cls.group__balanceSum} `}>{userData?.getProfile.balance}</div>
                 </div>
                 <LangSwitcher />
                 <img className={cls.group__notifications} src={iconNotification} alt="iconNotification" />

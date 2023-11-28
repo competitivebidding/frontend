@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useMutation, useQuery, useSubscription } from '@apollo/client';
 import { NEW_MESSAGE } from '@shared/schemas/messages/subscriptions';
-import { GetAllMessagesByRoomIdDocument } from '@shared/lib/types/__generated-types__/graphql';
 import { MessageItem } from '@features/message-item/MessageItem';
 import { useLocalStorage } from "@shared/lib/useLocalStorage";
 import { IUser } from "@entities/messages/Messages";
-import { REMOVE_MESSAGE } from "@shared/schemas/messages/messages";
+import {GET_ALL_MESSAGES_BY_ROOM, REMOVE_MESSAGE} from "@shared/schemas/messages/messages";
 import iconLoader from "@assets/Chat/iconLoader.svg"
 
 import scss from './ChatMessages.module.scss';
@@ -24,7 +23,7 @@ export interface IMessage {
 }
 
 export const ChatMessages = ({ groupId }: IChatMessages) => {
-    const [groupMessages, setGroupMessages] = useState<IMessage[] | undefined>(undefined);
+    const [groupMessages, setGroupMessages] = useState(undefined);
     const ref = useRef<HTMLDivElement>(null);
     const { lsValue } = useLocalStorage<IUser>('user');
 
@@ -36,11 +35,12 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
 
     const { data: subData, loading: subLoading } = useSubscription(NEW_MESSAGE, { variables: { roomId: groupId } });
 
-    const { data: messagesData, loading: messagesLoading } = useQuery(GetAllMessagesByRoomIdDocument, {
+    const { data: messagesData, loading: messagesLoading } = useQuery(GET_ALL_MESSAGES_BY_ROOM, {
         variables: {
-            userMessage: {
+            input: {
                 roomId: groupId,
-            },
+                userId: lsValue?.id
+            }
         },
     });
 
@@ -69,11 +69,13 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
         }
     }, [subData, subLoading]);
 
-    useEffect(() => {
-        if (!messagesLoading) {
-            setGroupMessages(messagesData?.getAllMessagesByRoomId);
-        }
-    }, [messagesData]);
+    // useEffect(() => {
+    //     if (!messagesLoading) {
+    //         setGroupMessages(messagesData?.getAllMessagesByRoomId);
+    //     }
+    // }, [messagesData]);
+
+    console.log(subData)
 
 
     const handleContextMenu = (e: React.MouseEvent, messageUserId: number, messageId: number) => {
@@ -136,11 +138,11 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
                 </div>
             ) : (
                 <>
-                    {groupMessages && (
+                    {messagesData?.getAllMessagesByRoomId && (
                        <div className={`${scss.chat__messages} ${scss.chat__messages}`} ref={ref}>
-                            {groupMessages.map((message) => (
+                            {messagesData.getAllMessagesByRoomId.items.map((message) => (
                                 <div key={message.id}>
-                                    <MessageItem onContextMenu={(e) => handleContextMenu(e, message.userId, message.id)} message={message} />
+                                    <MessageItem onContextMenu={(e) => handleContextMenu(e, message.user.id, message.id)} message={message} />
                                     
                                 </div>
                             ))}

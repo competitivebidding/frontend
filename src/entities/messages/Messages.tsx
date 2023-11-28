@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import cls from './Messages.module.scss'
 import {AppModal} from '@shared/ui/modal/AppModal'
 import {useQuery} from '@apollo/client'
-import {GET_ALL_USERS_BY_ROOM_ID} from '@shared/schemas/messages/messages'
+import {GET_ALL_USERS_BY_ROOM_ID, GET_ROOM_BY_ID} from '@shared/schemas/messages/messages'
 import {useLocalStorage} from '@shared/lib/useLocalStorage'
 import {MessageInput} from '@features/message-input/MessageInput'
 import {GroupSubscribers} from '@widgets/group-subscribers/GroupSubscribers'
@@ -11,9 +11,9 @@ import {ChatMessages} from '@features/chat-messages/ChatMessages'
 import {ChatHeader} from './ui/chat-header/ChatHeader'
 import {ChatSidebar} from './ui/chat-sidebar/ChatSidebar'
 import {ChatJoin} from '@features/chat-join-button/ChatJoin'
-import {GetRoomByIdDocument} from '@shared/lib/types/__generated-types__/graphql'
 import { useTranslation } from 'react-i18next'
 
+//это удалить!!
 export interface Group {
   __typename?: "Room",
   id: number,
@@ -42,7 +42,7 @@ const Messages = () => {
   const [modalGroup, setModalGroup] = useState(false);
   const [activeGroup, setActiveGroup] = useState<Group | undefined>(undefined);
   const [groupUsers, setGroupUsers] = useState<IUser[]>([]);
-  const { data: currentRoom, loading, refetch } = useQuery(GetRoomByIdDocument, {
+  const { data: currentRoom, loading, refetch } = useQuery(GET_ROOM_BY_ID, {
     variables: {
       roomId: Number(lsActiveGroup?.id)
     },
@@ -68,7 +68,7 @@ const Messages = () => {
     refetch({
       roomId: Number(lsActiveGroup?.id),
     });
-    return currentRoom?.getRoomById.ownerId === lsUser?.id;
+    return currentRoom?.getRoomById.owner.id === lsUser?.id;
   };
 
   const toggleNewGroup = () => {
