@@ -1,0 +1,57 @@
+.history {
+  background: #121416;
+  color: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px #000000;
+  position: fixed;
+  inset: 1em auto auto 0;
+  padding: 2em 1em 2em 1em;
+  height: 600px;
+  max-height: 100vh;
+  overflow: hidden;
+  animation: .250s openPopover ease-in-out;
+  &__list {
+    height: 100%;
+    overflow: auto;
+    &-title {
+      text-align: center;
+      padding: .5em;
+    }
+    &-item {
+      padding: 1em 2em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+}
+
+@keyframes openPopover {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

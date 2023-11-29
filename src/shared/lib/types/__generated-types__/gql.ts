@@ -39,6 +39,8 @@ const documents = {
     "\nmutation GetTokenById($getTokenByIdId: Int!) {\n  getTokenById(id: $getTokenByIdId) {\n    createdAt\n    description\n    points\n    id\n    price\n    updatedAt\n    title\n    sortOrder\n  }\n}\n": types.GetTokenByIdDocument,
     "\nmutation UpdateToken($updateTokenId: Int!, $data: UpdateTokenInput!) {\n  updateToken(id: $updateTokenId, data: $data) {\n    createdAt\n    description\n    id\n    points\n    price\n    sortOrder\n    title\n    updatedAt\n  }\n}\n": types.UpdateTokenDocument,
     "\nmutation PayOperation($createPayInput: CreatePayInput!) {\n  payOperation(createPayInput: $createPayInput) {\n    id\n    user_id\n    operation\n    typeOperation\n    amount\n    message\n    createAt\n  }\n}": types.PayOperationDocument,
+    "\nquery GetAllMyPayOperation {\n  getAllMyPayOperation {\n    id\n    user_id\n    operation\n    typeOperation\n    amount\n    message\n    createAt\n  }\n}": types.GetAllMyPayOperationDocument,
+    "\nquery GetOneMyPayOperation($getOneMyPayOperationId: Int!) {\n  getOneMyPayOperation(id: $getOneMyPayOperationId) {\n    id\n    user_id\n    operation\n    typeOperation\n    amount\n    message\n    createAt\n  }\n}": types.GetOneMyPayOperationDocument,
     "\n    query GetMyReferrals {\n      getMyReferrals {\n        id\n        cuid\n        email\n        username\n        createdAt\n      }\n    }\n": types.GetMyReferralsDocument,
     "\n  query GetProfile {\n  getProfile {\n    id\n    username\n    email\n    firstname\n    phone\n    lastname\n    patronymic\n    instagram\n    confirmationCode\n    avatarUrl\n    balance\n    createdAt\n    updatedAt\n  }\n}\n": types.GetProfileDocument,
     "\n  query GetUserAddress {\n    getUserAddress {\n      country\n      city\n      address\n      index\n      createdAt\n      updatedAt\n    }\n  }\n": types.GetUserAddressDocument,
@@ -166,6 +168,14 @@ export function gql(source: "\nmutation UpdateToken($updateTokenId: Int!, $data:
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "\nmutation PayOperation($createPayInput: CreatePayInput!) {\n  payOperation(createPayInput: $createPayInput) {\n    id\n    user_id\n    operation\n    typeOperation\n    amount\n    message\n    createAt\n  }\n}"): (typeof documents)["\nmutation PayOperation($createPayInput: CreatePayInput!) {\n  payOperation(createPayInput: $createPayInput) {\n    id\n    user_id\n    operation\n    typeOperation\n    amount\n    message\n    createAt\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\nquery GetAllMyPayOperation {\n  getAllMyPayOperation {\n    id\n    user_id\n    operation\n    typeOperation\n    amount\n    message\n    createAt\n  }\n}"): (typeof documents)["\nquery GetAllMyPayOperation {\n  getAllMyPayOperation {\n    id\n    user_id\n    operation\n    typeOperation\n    amount\n    message\n    createAt\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\nquery GetOneMyPayOperation($getOneMyPayOperationId: Int!) {\n  getOneMyPayOperation(id: $getOneMyPayOperationId) {\n    id\n    user_id\n    operation\n    typeOperation\n    amount\n    message\n    createAt\n  }\n}"): (typeof documents)["\nquery GetOneMyPayOperation($getOneMyPayOperationId: Int!) {\n  getOneMyPayOperation(id: $getOneMyPayOperationId) {\n    id\n    user_id\n    operation\n    typeOperation\n    amount\n    message\n    createAt\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
