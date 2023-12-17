@@ -1,26 +1,24 @@
 import { ApolloClient, createHttpLink, InMemoryCache, split } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { WebSocketLink } from '@apollo/client/link/ws';
+// import { WebSocketLink } from '@apollo/client/link/ws';
+import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
+import { createClient } from 'graphql-ws';
 import { getMainDefinition } from '@apollo/client/utilities';
 import Cookies from 'js-cookie';
 
 const token = Cookies.get('accesstoken');
 
 const httpLink = createHttpLink({
-  uri: 'http://ec2-52-59-235-173.eu-central-1.compute.amazonaws.com:3000/graphql',
+  uri: 'https://competitivebiddingapi.onrender.com/graphql',
 });
 
-const wsLink = new WebSocketLink({
-  uri: 'ws://ec2-52-59-235-173.eu-central-1.compute.amazonaws.com:3000/graphql',
-  options: {
-    reconnect: true,
-    connectionParams: {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    },
-  },
-});
+const wsLink = new GraphQLWsLink(createClient({
+  url: 'wss://competitivebiddingapi.onrender.com/graphql',
+  connectionParams: () => ({
+    Authorization: `Bearer ${token}`, // Use token for authorization
+  }),
+}));
+
 
 const authLink = setContext((_, { headers }) => {
   const token = Cookies.get('accesstoken');

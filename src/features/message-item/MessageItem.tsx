@@ -25,7 +25,7 @@ export const MessageItem = ({ message, onContextMenu }: { message: any, onContex
         {message.content}
         <div className="time">{toTime(message.createdAt)}</div>
         <div className='apx'>
-          {message.userId === lsValue?.id ? <img src={apxR} alt="" /> : <img src={apxL} alt="" />}
+          {message.userId === lsValue?.id ? <img src={apxR} alt="logo" /> : <img src={apxL} alt="logo" />}
         </div>
       </div>
     </div>

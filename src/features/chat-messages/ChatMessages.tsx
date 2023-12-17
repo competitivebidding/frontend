@@ -16,6 +16,7 @@ interface IChatMessages {
 }
 
 export interface IMessage {
+    user: any;
     userId: number
     id: number
     content: string
@@ -23,7 +24,7 @@ export interface IMessage {
 }
 
 export const ChatMessages = ({ groupId }: IChatMessages) => {
-    const [groupMessages, setGroupMessages] = useState(undefined);
+    const [groupMessages, setGroupMessages] = useState<IMessage[]>([]);
     const ref = useRef<HTMLDivElement>(null);
     const { lsValue } = useLocalStorage<IUser>('user');
 
@@ -32,7 +33,6 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
     const [selectedMessageId, setSelectedMessageId] = useState<number | null>(null);
 
     const [isModalMenuVisible, setIsModalMenuVisible] = useState(false);
-
     const { data: subData, loading: subLoading } = useSubscription(NEW_MESSAGE, { variables: { roomId: groupId } });
 
     const { data: messagesData, loading: messagesLoading } = useQuery(GET_ALL_MESSAGES_BY_ROOM, {
@@ -45,6 +45,10 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
     });
 
     useEffect(() => {
+        return setGroupMessages(messagesData?.getAllMessagesByRoomId);
+    }, []);
+
+    useEffect(() => {
         if (ref.current) {
             ref.current.scrollTo({
                 top: ref.current.scrollHeight,
@@ -52,6 +56,7 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
             });
         }
     }, [groupMessages]);
+
 
 
     useEffect(() => {
@@ -91,7 +96,7 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
         setIsContextMenuVisible(messageUserId === lsValue?.id);
         setSelectedMessageId(messageId);
 
-        const selectedMessage = groupMessages?.find(message => message.id === messageId);
+        const selectedMessage = groupMessages?.find((message: { id: number; }) => message.id === messageId);
 
         console.log(selectedMessage?.content);
 
@@ -140,7 +145,7 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
                 <>
                     {messagesData?.getAllMessagesByRoomId && (
                        <div className={`${scss.chat__messages} ${scss.chat__messages}`} ref={ref}>
-                            {messagesData.getAllMessagesByRoomId.items.map((message) => (
+                            {groupMessages.map((message) => (
                                 <div key={message.id}>
                                     <MessageItem onContextMenu={(e) => handleContextMenu(e, message.user.id, message.id)} message={message} />
                                     
