@@ -8,7 +8,7 @@ import { Create__MyAuction } from '@/shared/schemas/auctions/myAuctions';
 import { CreateMyAuctionDocument } from '@/shared/lib/types/__generated-types__/graphql';
 
 
-const MyAuctionContent = () => {
+const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
   const [category, setCategory] = useState('active');
   const { t } = useTranslation('myAuctionContent')
   const [createAuction, setCreateAuction] = useState(false)
@@ -123,7 +123,7 @@ const MyAuctionContent = () => {
         </AppModal>}
 
       </div>
-      <AuctionList />
+      <AuctionList searchValue={searchValue} />
     </div>
   );
 };

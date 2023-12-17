@@ -19,14 +19,16 @@ interface IAuctionCardProps {
   }
 }
 
-export const AuctionList = () => {
-  const { data, loading } = useQuery(GetAuctionsDocument)
+export const AuctionList = ({searchValue}: {searchValue: string}) => {
+  const { data, loading } = useQuery(GetAuctionsDocument, {
+    variables: {
+      search: searchValue
+    }
+  })
 
   if (!data) {
     return null
   }
-
-  console.log(data)
 
   const auctionCards = data.getAuctions.map((card) => {
     // const { id, ...cardProps } = card;

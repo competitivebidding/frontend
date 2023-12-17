@@ -24,7 +24,7 @@ export interface IMessage {
 }
 
 export const ChatMessages = ({ groupId }: IChatMessages) => {
-    const [groupMessages, setGroupMessages] = useState<IMessage[]>([]);
+    const [groupMessages, setGroupMessages] = useState<IMessage[] | undefined>();
     const ref = useRef<HTMLDivElement>(null);
     const { lsValue } = useLocalStorage<IUser>('user');
 
@@ -35,7 +35,7 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
     const [isModalMenuVisible, setIsModalMenuVisible] = useState(false);
     const { data: subData, loading: subLoading } = useSubscription(NEW_MESSAGE, { variables: { roomId: groupId } });
 
-    const { data: messagesData, loading: messagesLoading } = useQuery(GET_ALL_MESSAGES_BY_ROOM, {
+    const { data: messagesData, loading: messagesLoading, refetch } = useQuery(GET_ALL_MESSAGES_BY_ROOM, {
         variables: {
             input: {
                 roomId: groupId,
@@ -45,8 +45,18 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
     });
 
     useEffect(() => {
-        return setGroupMessages(messagesData?.getAllMessagesByRoomId);
-    }, []);
+        refetch()
+    }, [groupId]);
+
+
+    useEffect(() => {
+        if (!messagesLoading) {
+            const messages = messagesData?.getAllMessagesByRoomId
+            setGroupMessages(messages?.items.map(message => (
+                {user: message.user, userId: message.user.id, id: message.id, content: message.content, createdAt: message.createdAt}
+            )));
+        }
+    }, [messagesData, messagesLoading]);
 
     useEffect(() => {
         if (ref.current) {
@@ -65,7 +75,7 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
             if (newMessage) {
                 setGroupMessages((prevMessages) => {
                     if (prevMessages && Array.isArray(prevMessages)) {
-                        return [...prevMessages, newMessage];
+                        return [...prevMessages, {...newMessage, userId: newMessage.user.id}];
                     } else {
                         return [newMessage];
                     }
@@ -73,14 +83,6 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
             }
         }
     }, [subData, subLoading]);
-
-    // useEffect(() => {
-    //     if (!messagesLoading) {
-    //         setGroupMessages(messagesData?.getAllMessagesByRoomId);
-    //     }
-    // }, [messagesData]);
-
-    console.log(subData)
 
 
     const handleContextMenu = (e: React.MouseEvent, messageUserId: number, messageId: number) => {
@@ -143,7 +145,7 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
                 </div>
             ) : (
                 <>
-                    {messagesData?.getAllMessagesByRoomId && (
+                    {groupMessages && (
                        <div className={`${scss.chat__messages} ${scss.chat__messages}`} ref={ref}>
                             {groupMessages.map((message) => (
                                 <div key={message.id}>
