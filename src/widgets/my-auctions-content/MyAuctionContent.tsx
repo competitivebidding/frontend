@@ -1,11 +1,10 @@
-import React, { useState, FormEvent  } from 'react';
+import React, {FormEvent, useState} from 'react';
 import cls from './MyAuctionContent.module.scss';
-import { AuctionList } from '@entities/auction/ui/auctions-list/AuctionList';
-import { useTranslation } from 'react-i18next'
-import { AppModal } from '@/shared/ui/modal/AppModal';
-import { useMutation } from '@apollo/client';
-import { Create__MyAuction } from '@/shared/schemas/auctions/myAuctions';
-import { CreateMyAuctionDocument } from '@/shared/lib/types/__generated-types__/graphql';
+import {AuctionList} from '@entities/auction/ui/auctions-list/AuctionList';
+import {useTranslation} from 'react-i18next'
+import {AppModal} from '@/shared/ui/modal/AppModal';
+import {useMutation} from '@apollo/client';
+import {CreateMyAuctionDocument} from '@/shared/lib/types/__generated-types__/graphql';
 
 
 const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
@@ -61,8 +60,9 @@ const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
 
   const buttons = categoryButtons.map(({ name, label }) => (
     <>
+      {/*говнокод пофиксить*/}
       <button
-        key={name}
+        key={Math.random()}
         className={`${cls.myAuction__btn} ${category === name ? cls['btn-active'] : cls.btnInactive}`}
         onClick={() => handleCategoryChange(name)}
       >

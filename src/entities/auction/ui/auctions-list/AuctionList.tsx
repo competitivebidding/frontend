@@ -31,9 +31,9 @@ export const AuctionList = ({searchValue}: {searchValue: string}) => {
   }
 
   const auctionCards = data.getAuctions.map((card) => {
-    // const { id, ...cardProps } = card;
     return (
       <AuctionCard
+          key={card.id}
         id={card.id}
         title={card.title}
         bids={card.bids}

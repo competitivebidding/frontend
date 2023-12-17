@@ -6,6 +6,7 @@ import cls from './lot.module.scss';  // Импортируем CSS-модули
 import watch from '@assets/temporary-auctions-img/watch.png';
 import { CREATE_MY_BID, GET_BIDS_BY_AUCTION_ID } from '../../schemas/auctions/auctions';
 import { useTranslation } from 'react-i18next'
+import {GET_PROFILE_QUERY} from "@shared/schemas/user/userProfile";
 
 interface IAuctionData {
   title: string;
@@ -32,7 +33,7 @@ const Lot = () => {
   const { data: datas, loading } = useQuery(GET_LOT, { variables: { auctionId: Number(id) } });
   const { data: auctionBids } = useQuery(GET_BIDS_BY_AUCTION_ID, { variables: { auctionId: Number(id) } });
 
-  const [createBid, { data: bidData }] = useMutation(CREATE_MY_BID);
+  const [createBid, { data: bidData }] = useMutation(CREATE_MY_BID, {refetchQueries: [GET_PROFILE_QUERY]});
 
   const toDate = (date: string) => {
     return new Date(date).toLocaleString();
@@ -43,7 +44,7 @@ const Lot = () => {
       variables: {
         input: { auctionId: Number(id), bitPrice: 20 },
       },
-    }).then((result) => console.log(result));
+    }).then((result) => refetch());
   }
 
   return (

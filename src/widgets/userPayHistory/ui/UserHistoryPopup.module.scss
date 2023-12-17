@@ -10,6 +10,7 @@
   max-height: 100vh;
   overflow: hidden;
   animation: .250s openPopover ease-in-out;
+  z-index: 1000;
   &__list {
     height: 100%;
     overflow: auto;
@@ -23,6 +24,13 @@
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
+
+      .amount {
+        color: #00FFA3;
+      }
+      .debit {
+        color: #ff0f0f;
+      }
     }
     &::-webkit-scrollbar {
       width: 6px;

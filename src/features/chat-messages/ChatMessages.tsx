@@ -35,19 +35,16 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
     const [isModalMenuVisible, setIsModalMenuVisible] = useState(false);
     const { data: subData, loading: subLoading } = useSubscription(NEW_MESSAGE, { variables: { roomId: groupId } });
 
-    const { data: messagesData, loading: messagesLoading, refetch } = useQuery(GET_ALL_MESSAGES_BY_ROOM, {
+    const { data: messagesData, loading: messagesLoading } = useQuery(GET_ALL_MESSAGES_BY_ROOM, {
         variables: {
             input: {
                 roomId: groupId,
                 userId: lsValue?.id
-            }
+            },
+
         },
+        fetchPolicy: 'cache-and-network',
     });
-
-    useEffect(() => {
-        refetch()
-    }, [groupId]);
-
 
     useEffect(() => {
         if (!messagesLoading) {
@@ -71,13 +68,13 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
 
     useEffect(() => {
         if (!subLoading) {
-            const newMessage = subData?.newMessage;
-            if (newMessage) {
+            if (subData?.newMessage) {
+                const message = {user: subData?.newMessage.user, userId: subData?.newMessage.user.id, id: subData?.newMessage.id, content: subData?.newMessage.content, createdAt: subData?.newMessage.createdAt}
                 setGroupMessages((prevMessages) => {
                     if (prevMessages && Array.isArray(prevMessages)) {
-                        return [...prevMessages, {...newMessage, userId: newMessage.user.id}];
+                        return [...prevMessages, message];
                     } else {
-                        return [newMessage];
+                        return [message];
                     }
                 });
             }
@@ -127,12 +124,6 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
 
 
     }, [isContextMenuVisible]);
-
-    // if (isContextMenuVisible) {
-    //     !setIsModalMenuVisible
-    // } else if (isModalMenuVisible) {
-    //     !setIsContextMenuVisible
-    // }
 
 
     return (

@@ -5,8 +5,9 @@ import cls from './TokenCard.module.scss';
 import video from '@assets/videoAd/shorts.mp4';
 
 import { useTranslation } from 'react-i18next'
-import {useMutation} from "@apollo/client";
+import {useMutation, useQuery} from "@apollo/client";
 import {PAY_OPERATION} from "@shared/schemas/tokens/tokens";
+import {GET_PROFILE_QUERY} from "@shared/schemas/user/userProfile";
 
 interface ITokenCardProps {
   tokens: {
@@ -26,9 +27,9 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
   const [remainingTime, setRemainingTime] = useState(86400);
   const { t } = useTranslation('tokenPage')
 
-  const [createPay, {data: payData}] = useMutation(PAY_OPERATION)
+  const [createPay, {data: payData}] = useMutation(PAY_OPERATION, {refetchQueries: [GET_PROFILE_QUERY], awaitRefetchQueries: true})
 
-  const handleSendPay = (amount: number) => {
+  const handleSendPay = () => {
     createPay({variables: {
         createPayInput: {
           typeOperation: 'refill',
@@ -36,12 +37,11 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
           amount: tokens.amount,
         }
       }
-    }).then(d => console.log(d))
+    }).then().finally(() => setModal(!modal))
   }
 
   const toggleButton = () => {
     setModal(!modal);
-    handleSendPay(0)
   };
 
   const toggleButtonAd = () => {
@@ -82,7 +82,7 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
       <div className={cls.token}>
         <h1 className={cls['token__header']}>{`${tokens.amount} ${tokens.currency}`}</h1>
         <h2 className={cls['token__prize']}>{prize}</h2>
-        <button className={cls['token__button']} onClick={id === 5 ? toggleButtonAd : toggleButton}>
+        <button className={cls['token__button']} onClick={id === 5 ? toggleButtonAd : handleSendPay}>
           {t(buttonName)}
         </button>
         {id >= 1 && id <= 4 ? (
