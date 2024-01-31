@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { AppModal } from '@shared/ui/modal/AppModal';
 import cls from './TokenCard.module.scss';
 
-import video from '@assets/videoAd/shorts.mp4';
+// import video from '@assets/videoAd/shorts.mp4';
 
 import { useTranslation } from 'react-i18next'
 import {useMutation, useQuery} from "@apollo/client";
