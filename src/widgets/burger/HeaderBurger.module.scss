@@ -18,6 +18,9 @@
 
 .a {
   display: none;
+  @media (max-width: 375px) {
+    margin-left: auto;
+  }
 
   @media (max-width: 1000px) {
     display: flex;

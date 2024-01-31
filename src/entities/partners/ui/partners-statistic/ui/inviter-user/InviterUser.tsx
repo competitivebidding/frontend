@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from './InviterUser.module.scss'
 
+import { useTranslation } from 'react-i18next'
+
 interface InviterUser {
   avatar: string
   name: string
@@ -9,6 +11,8 @@ interface InviterUser {
 }
 
 function InviterUser({ avatar, name, subname, amount }: InviterUser) {
+  const { t } = useTranslation('partnerPage')
+
   return (
     <div className={styles.user}>
       <img src={avatar} alt="avatar" />
@@ -18,7 +22,7 @@ function InviterUser({ avatar, name, subname, amount }: InviterUser) {
       </div>
       <div className={styles.user__contribution}>
         <p>Brought</p>
-        <span>{amount === 1 ? `${amount} person` : `${amount} people`}</span>
+        <span>{amount === 1 ? `${amount} ${t('person')}` : `${amount} ${t('people')}`}</span>
       </div>
     </div>
   )

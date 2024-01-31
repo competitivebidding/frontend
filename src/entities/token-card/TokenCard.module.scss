@@ -1,0 +1,225 @@
+.token{
+  display: flex;
+  flex-direction: column;
+  background: #171A1E;
+  border-radius: 17px;
+  width: 290px;
+  height: 372px;
+  align-items: center;
+  padding: 30px;
+
+
+
+  &__header{
+    color:  #FFFFFF;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 19px;
+    margin-bottom: 200px;
+  }
+
+  &__prize{
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 23px;
+    color: #2F53FF;
+    margin-bottom: 25px;
+  }
+
+  &__button{
+    width: 100%;
+    height: 45px;
+    color: #2F53FF;
+    border: 1px solid #2F53FF;
+    border-radius: 8px;
+
+    &:hover{
+      background-color: #2F53FF;
+      color: white;
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  //opacity: 0.5;
+  z-index: 1000;
+  display: block;
+
+  &_hidden {
+    display: none;
+  }
+}
+
+.modal {
+  width: 50%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  position: fixed;
+  top: calc(50% - 305px);
+  left: calc(50% - 25%);
+  z-index: 1500;
+  background: radial-gradient(circle closest-side, #1e2844, #141618);
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: all .3s ease-in-out;
+
+  &_hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+  }
+
+  &__header {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 29.4px;
+    color: #FFFFFF;
+  }
+
+  &__tokens {
+    color: #2F53FF;
+    font-size: 28px;
+    width: 250px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-top: 15px;
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 29px;
+    color: #FFFFFF;
+    text-align: center;
+  }
+
+  &__button {
+    width: 35%;
+    height: 45px;
+    background-color: #2F53FF;
+    color: white;
+    border-radius: 8px;
+  }
+}
+
+.modalAd {
+
+  &__header {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    text-align: center;
+    padding: 10px;
+  }
+  &__button {
+    width: 35%;
+    height: 45px;
+    background-color: #2F53FF;
+    color: white;
+    border-radius: 8px;
+    margin-left: 30%;
+  }
+}
+
+@media screen and (max-width:1620px){
+
+  .token{width: 25%;
+    &__button{
+      width: 200px;
+    }
+  }
+}
+
+@media screen and (max-width:1403px){
+
+  .token{width: 30%;
+  }
+}
+
+@media screen and (max-width:1250px){
+
+  .token{width: 35%;
+  }
+
+  .modal{
+    height: 70%;
+  }
+}
+
+@media screen and (max-width:1000px){
+
+  .token{width: 60%;
+  }
+
+  .modal{
+    height: 80%;
+  }
+}
+
+
+@media  screen and (max-width:800px) {
+
+  .token{width: 80%;
+
+    &__button{
+      width: 80%;
+    }
+  }
+
+}
+
+@media screen and (max-width:580px){
+  .token{width: 95%;
+  }
+
+  .modal{
+    height: 60%;
+    &__header{
+      font-size: 20px;
+    }
+
+    &__tokens{
+      font-size: 20px;
+      width: 190px;
+      height: 50px;
+    }
+
+    &__text{
+      font-size: 12px;
+    }
+
+  }
+}
+
+@media screen and (max-width:500px){
+  .modal{
+    height: 60%;
+  }
+}
+@media screen and (max-width:380px){
+  .modal{
+    height: 60%;
+  }
+}
+
+@media screen and (max-width:320px){
+  .modal{
+    height: 45%;
+  }
+}

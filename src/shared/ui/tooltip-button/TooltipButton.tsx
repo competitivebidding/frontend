@@ -1,5 +1,5 @@
 import React from 'react'
-import './TooltipButton.scss'
+import cls from './TooltipButton.module.scss'
 
 interface TooltipButtonProps {
   info: string
@@ -27,7 +27,7 @@ export const TooltipButton = ({ info, style }: TooltipButtonProps) => {
 //   return (
 //     <button
 //       data-clue={props.info}
-//       className={'more-info clue'}
+//       className={`${cls['more-info']} ${cls.clue}`}
 //       style={style}
 //     >?</button>
 //   );

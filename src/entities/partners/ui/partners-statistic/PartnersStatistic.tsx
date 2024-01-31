@@ -4,7 +4,7 @@ import PlayersAmount from '@/entities/partners/ui/players-amount/PlayersAmount'
 import Income from '@/shared/ui/charts/Income'
 
 import { rotoIncome } from '@/shared/charts-data/RotoIncome'
-import { rublesIncome } from '@/shared/charts-data/RublesIncome'
+
 
 import BestInviters from '@/entities/partners/ui/partners-statistic/ui/best-inviters/BestInviters'
 import LastPays from '@/entities/partners/ui/last-pays/LastPays'
@@ -17,7 +17,6 @@ export function PartnersStatistic() {
       <BestInviters />
 
       <Income currency={'ROTO'} data={rotoIncome} color={'#2F53FF'} />
-      <Income currency={'Rubles'} data={rublesIncome} color={'#00FFA3'} />
 
       <div className={styles.statistic__list_container}>
         <LastPays />

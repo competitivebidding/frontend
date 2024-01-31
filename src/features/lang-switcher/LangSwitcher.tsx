@@ -27,8 +27,8 @@ export const LangSwitcher = () => {
   }
 
   return (
-    <div>
+    <>
       <DropDown data={langs} current={currentLang} onChange={changeLang} withArrow={false} />
-    </div>
+    </>
   )
 }

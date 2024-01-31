@@ -1,0 +1,130 @@
+.form__support {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+  border-radius: 5px;
+
+  &--title {
+    color: white;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 auto 2em auto;
+    text-align: center;
+
+    @media screen and (max-width: 500px) {
+      width: 15em;
+      font-size: 0.9rem;
+     
+    }
+
+  }
+
+
+  &--descr {
+    color: white;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 1em;
+
+    & a {
+      color: #2F53FF;
+    margin-left: 10px;
+    }
+  }
+
+  &--group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &--item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    color: #BBBBBB;
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 25em;
+      padding: 10px;
+      background: #191D25;
+      border-radius: 8px;
+
+      @media screen and (max-width: 500px) {
+        width: 15em;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #6e9ef5;
+      }
+    }
+  }
+
+  .problem__input textarea{
+    display: flex;
+    width: 25em;
+    height: 10em;
+    padding: 10px;
+    background: #191D25;
+    border-radius: 8px;
+    outline:none;
+    @media screen and (max-width: 500px) {
+      width: 15em;
+    }
+
+  }
+
+  .email__input {
+    display: flex;
+  }
+
+
+
+.btn__form {
+    display: block;
+    background: rgba(47, 83, 255, 0.2);
+    border-radius: 8px;
+    width: 25em;
+    height: 48px;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 10px 20px;
+    cursor: pointer;
+
+    @media screen and (max-width: 500px) {
+      width: 15em;
+    }
+
+
+    &:hover {
+      color: #fff;
+      background-color: #2556b8;
+    }
+  }
+
+  .wrap__btn {
+    display: flex;
+    // width: 25em;
+  }
+
+  .error-message {
+    margin-top: 10px;
+    color: rgb(170, 9, 9);
+  }
+
+  .success__message--support {
+    color: rgb(70, 201, 40);
+    padding: 1em;
+    font-size: 1em;
+  }
+}
+
+

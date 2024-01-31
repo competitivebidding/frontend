@@ -2,6 +2,11 @@
   display: flex;
   gap: 18px;
   justify-content: space-between;
+  @media (max-width: 375px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   &__item {
     background: #171A1E;

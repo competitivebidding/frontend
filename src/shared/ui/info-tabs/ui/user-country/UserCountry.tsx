@@ -23,7 +23,7 @@ const langs: LangOptions[] = [
 ]
 
 const UserCountry = () => {
-  const { t } = useTranslation('cabinet')
+  const { t } = useTranslation('cabinetPage')
 
   const [country, setCountry] = useState<string | null | undefined>('')
   const { data, loading, refetch } = useQuery(GET_USER_ADDRESS)

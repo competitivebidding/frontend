@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './StatsItem.scss'
+import cls from './StatsItem.module.scss'
 
 interface IStatsItemProps {
   styles: string
@@ -11,10 +11,10 @@ interface IStatsItemProps {
 
 export const StatsItem = (props: IStatsItemProps) => {
   return (
-    <div className={`stats__item ${props.styles || ''}`}>
-      <div className="stats__title">{props.title}</div>
-      <div className="stats__content">{props.text}</div>
-      <div className="stats__image">
+    <div className={`${cls.stats__item} ${props.styles || ''}`}>
+      <div className={cls.stats__title}>{props.title}</div>
+      <div className={cls.stats__content}>{props.text}</div>
+      <div className={cls.stats__image}>
         <img src={props.image || ''} alt="" />
       </div>
     </div>

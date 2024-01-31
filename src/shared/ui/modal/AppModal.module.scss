@@ -1,9 +1,15 @@
+.opened body {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 .modal{
   opacity: 0;
   position: fixed;
   inset: 0;
   z-index: -1;
 
+  
   &.opened{
     animation: 250ms modal ease-in-out;
     transition: all 250ms ease-in-out;
@@ -16,7 +22,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(50, 47, 47, 0.8);
+    background-color: rgba(140, 139, 139, 0.256);
     z-index: 9;
   }
   .modalWindow {
@@ -28,7 +34,7 @@
     transform: translate(-50%, -50%);
     border-radius: 16px;
     box-shadow: 0 4px 20px #000000;
-    padding: 32px;
+    // padding: 32px;
     z-index: 99;
     & > * {
       position: relative;

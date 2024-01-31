@@ -1,7 +1,7 @@
 import React from 'react'
-import AppHeader from '../../widgets/header/AppHeader.js'
-import './NotificationsPage.scss'
+import cls from './NotificationsPage.module.scss'
 import NotificationCard from '../../widgets/notification-card/NotificationCard.js'
+import prizeImg from '@assets/temporary-notifications-img/prize.svg'
 
 import useNoAuth from '../../shared/lib/useNoAuth.js'
 
@@ -15,7 +15,7 @@ const NotificationsPage = () => {
       date: '16/02/2023',
       time: '22:32',
       id: 1,
-      prizeImg: 'src/pages/notifications/temporary-auctions-img/prize.svg',
+      prizeImg
     },
     {
       title: 'Iphone 14 pro за 32 999 ₽',
@@ -24,7 +24,7 @@ const NotificationsPage = () => {
       date: '16/02/2023',
       time: '22:32',
       id: 2,
-      prizeImg: 'src/pages/notifications/temporary-auctions-img/prize.svg',
+      prizeImg
     },
     {
       title: 'Iphone 14 pro за 32 999 ₽',
@@ -33,12 +33,12 @@ const NotificationsPage = () => {
       date: '16/02/2023',
       time: '22:32',
       id: 3,
-      prizeImg: 'src/pages/notifications/temporary-auctions-img/prize.svg',
+      prizeImg
     },
   ]
 
   return (
-    <div className="notes">
+    <div className={cls.notes}>
       {data.map((obj) => (
         <NotificationCard
           key={obj.id}

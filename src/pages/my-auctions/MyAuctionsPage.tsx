@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import MyAuctionContent from '@widgets/my-auctions-content/MyAuctionContent.js'
 import useNoAuth from '@shared/lib/useNoAuth.js'
 import Search from '@features/search/Search'
 import Filter from '@features/filter/Filter'
+import cls from './MyAuctionsPage.module.scss'
+import {useDebounce} from "@shared/lib/hooks/useDebounce";
 
 enum Status {
   ACTIVE = 'active',
@@ -21,82 +23,24 @@ export interface IAuctionData {
   id: number
 }
 
-const data: IAuctionData[] = [
-  {
-    img: '/src/pages/auctions/temporary-auctions-img/quare.png',
-    alt: 'img',
-    name: 'Apple Watch SE 44mm',
-    date: '2023-04-06T15:12',
-    price: '50',
-    places: 12,
-    status: Status.ACTIVE,
-    id: 1,
-  },
-  {
-    img: '/src/pages/auctions/temporary-auctions-img/quare.png',
-    alt: 'img',
-    name: 'iPhone 12 Pro 128 Gb',
-    date: '2023-04-06T17:30',
-    price: '86',
-    places: 12,
-    status: Status.END,
-    id: 2,
-  },
-  {
-    img: '/src/pages/auctions/temporary-auctions-img/quare.png',
-    alt: 'img',
-    name: '1 Bitcoin',
-    date: '2023-04-06T17:30',
-    price: '2458',
-    places: 3,
-    status: Status.WAIT,
-    id: 3,
-  },
-  {
-    img: '/src/pages/auctions/temporary-auctions-img/quare.png',
-    alt: 'img',
-    name: 'Vacuum Dyson',
-    date: '2023-04-06T17:30',
-    price: '98.3',
-    places: 15,
-    status: Status.ACTIVE,
-    id: 4,
-  },
-  {
-    img: '/src/pages/auctions/temporary-auctions-img/quare.png',
-    alt: 'img',
-    name: 'Hair Dryer Dyson',
-    date: '2023-04-06T17:30',
-    price: '85.9',
-    places: 30,
-    status: Status.ACTIVE,
-    id: 5,
-  },
-  {
-    img: '/src/pages/auctions/temporary-auctions-img/quare.png',
-    alt: 'img',
-    name: 'MacBook Pro M1 256 Gb',
-    date: '2023-04-06T17:30',
-    price: '183.9',
-    places: 0,
-    status: Status.END,
-    id: 6,
-  },
-]
 
 const MyAuctionsPage = () => {
   useNoAuth()
-
+  const [searchValue, setSearchValue] = useState('')
+  const debouncedValue = useDebounce(searchValue)
   return (
-    <div className="auctions__components">
-      <div className="actions__search--card">
-        <Search onChange={() => console.log()} />
-
-        <MyAuctionContent data={data} />
+    <div className={cls.auctions__components}>
+      <div className={cls['actions__search--card']}>
+        <Search onChange={(value) => setSearchValue(value)} />
+        <MyAuctionContent  searchValue={debouncedValue}/>
       </div>
       <Filter />
     </div>
   )
 }
+
+
+
+
 
 export default MyAuctionsPage

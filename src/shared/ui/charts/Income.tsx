@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from '@/shared/ui/charts/Income.module.scss'
 import arrow from '@assets/Partners/arrow.svg'
 import BarChart from '@/shared/ui/charts/BarChart'
+import { useTranslation } from 'react-i18next'
 
 interface IncomeProps {
   currency: string
@@ -16,11 +17,12 @@ interface IncomeProps {
 const Income = ({ currency, color, data }: IncomeProps) => {
   const [filterValue, setFilterValue] = useState<string>('Last week')
   const [dropdownVisibility, setDropdownVisibility] = useState<boolean>(false)
+  const { t } = useTranslation('cabinetPage')
 
   return (
     <div className={styles.income_chart}>
       <div className={styles.income_chart__header}>
-        <h3 className={styles.income_chart__title}>Income</h3>
+        <h3 className={styles.income_chart__title}>{t('Income')}</h3>
         <div className={styles.filter}>
           <p className={styles.filter__current}>
             <span>{filterValue}</span>
@@ -45,7 +47,7 @@ const Income = ({ currency, color, data }: IncomeProps) => {
                 setDropdownVisibility(!dropdownVisibility)
               }}
             >
-              Last week
+              {t('Last week')}
             </div>
             <div
               className={styles.filter__item}
@@ -54,7 +56,7 @@ const Income = ({ currency, color, data }: IncomeProps) => {
                 setDropdownVisibility(!dropdownVisibility)
               }}
             >
-              Last month
+              {t('Last month')}
             </div>
             <div
               className={styles.filter__item}
@@ -63,7 +65,7 @@ const Income = ({ currency, color, data }: IncomeProps) => {
                 setDropdownVisibility(!dropdownVisibility)
               }}
             >
-              Last year
+              {t('Last year')}
             </div>
           </div>
         </div>
@@ -73,7 +75,7 @@ const Income = ({ currency, color, data }: IncomeProps) => {
             {currency}
           </div>
           <div className={styles.income_chart__total}>
-            Total earnings: {data.datasets[0].data.reduce((acc, v) => acc + v, 0)} {currency}
+            {t('Total earnings')}: {data.datasets[0].data.reduce((acc, v) => acc + v, 0)} {currency}
           </div>
         </div>
       </div>

@@ -1,0 +1,24 @@
+.donut {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  &__amount {
+    position: absolute;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 105%;
+    /* or 29px */
+
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+}

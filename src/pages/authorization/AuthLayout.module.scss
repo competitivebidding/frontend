@@ -1,0 +1,108 @@
+.auth {
+  display: flex;
+  width: 100%;
+  background-color: #141923;
+
+  .left {
+    width: 60%;
+    background-color: #191D25;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: 1000px) {
+      display: none;
+    }
+
+    &__icon {
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+      color: white;
+      align-items: center;
+      line-height: 20px;
+    }
+
+    .icon__title {
+      color: white;
+      font-size: 1.2em;
+
+      &:hover {
+        color: rgb(149, 148, 148);
+      }
+    }
+
+
+
+    &__rocket {
+      margin-left: 35%;
+      margin-top: 15%;
+      width: fit-content;
+
+      // padding: 30px;
+      // background-image: url('../assets/imgAuth/bgAUTH.svg');
+      // background-color: #6B84DF;
+      // opacity: 0.5;
+      // border-radius: 20px;
+      .rocket__title {
+        font-family: 'Roboto', serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2rem;
+        line-height: 5rem;
+        color: #FFFFFF;
+      }
+    }
+
+    &__footer {
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 0.8rem;
+      color: #BBBBBB;
+
+      padding: 4%;
+      margin-top: auto;
+    }
+
+    .rocket__descr {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.1rem;
+      text-align: center;
+      // line-height: 5rem;
+      color: #FFFFFF;
+    }
+
+  }
+  .form__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: auto;
+
+  }
+}
+
+
+.LangSwitcher { 
+  position: absolute;
+  margin-left: 95%;
+  margin-top: 1%;
+
+
+  @media screen and (max-width: 1000px) {
+    margin-left: 92%;
+
+  }
+
+  @media screen and (max-width: 500px) {
+    margin-left: 88%;
+    margin-top: 7%;
+  }
+
+  @media screen and (max-width: 400px) {
+    margin-left: 84%;
+  }
+}

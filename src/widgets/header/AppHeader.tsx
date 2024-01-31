@@ -1,94 +1,113 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useMutation, useQuery } from '@apollo/client'
-import Cookies from 'js-cookie'
+import React, {useEffect, useRef, useState} from 'react';
+import {Link, useLocation} from 'react-router-dom';
+import {useMutation, useQuery} from '@apollo/client';
+import Cookies from 'js-cookie';
 
-import blueBalance from '@assets/imgHeader/blueBalance.svg'
-import iconExit from '@assets/imgHeader/iconExit.svg'
-import iconNotification from '@assets/imgHeader/iconNotification.svg'
+import blueBalance from '@assets/imgHeader/blueBalance.svg';
+import iconExit from '@assets/imgHeader/iconExit.svg';
+import iconNotification from '@assets/imgHeader/iconNotification.svg';
 
-import LOGOUT_MUTATION from '../../shared/schemas/auth/logout'
-import HeaderBurger from '@/widgets/burger/HeaderBurger'
-import { UserAvatar } from '@shared/ui/user-avatar/UserAvatar'
+import LOGOUT_MUTATION from '../../shared/schemas/auth/logout';
+import HeaderBurger from '@/widgets/burger/HeaderBurger';
+import {UserAvatar} from '@shared/ui/user-avatar/UserAvatar';
 
-import './AppHeader.scss'
-import { GetProfileDocument } from '@shared/lib/types/__generated-types__/graphql'
-import { getPageTitle } from '@shared/lib/routes/getPath'
-import { LangSwitcher } from '@features/lang-switcher/LangSwitcher'
+import cls from './AppHeader.module.scss';
+
+import {GetProfileDocument} from '@shared/lib/types/__generated-types__/graphql';
+import {LangSwitcher} from '@features/lang-switcher/LangSwitcher';
+import {useTranslation} from 'react-i18next'
+import {routesConfig} from "@shared/lib/routes/routesConfig";
+import {GET_PROFILE_QUERY} from "@shared/schemas/user/userProfile";
+import {GET_ALL_MY_PAY_OPERATIONS, GET_ONE_MY_PAY_OPERATION} from "@shared/schemas/tokens/tokens";
+import {UserHistoryPopup} from "@widgets/userPayHistory";
+import {useOutsideClick} from "@shared/lib/hooks/useOutsideClick";
 
 const AppHeader = () => {
-  const [isClicked, setIsClicked] = useState(false)
-  const [isLogged, setIsLogged] = useState(false)
-  const [logout] = useMutation(LOGOUT_MUTATION)
+  const [isClicked, setIsClicked] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
+  const [isPayHistoryOpened, setIsPayHistoryOpened] = useState(false);
+  const location = useLocation()
+  const [logout] = useMutation(LOGOUT_MUTATION);
+  const { t } = useTranslation('headerTitles')
 
-  const [title, setTitle] = useState<string | undefined>(undefined)
+  const [title, setTitle] = useState<string>('Main');
 
-  const userAuthString = Cookies.get('user')
-  const userAuth = userAuthString ? JSON.parse(userAuthString) : null
+  const userAuthString = Cookies.get('user');
+  const userAuth = userAuthString ? JSON.parse(userAuthString) : null;
 
-  const { data } = useQuery(GetProfileDocument)
+  const { data } = useQuery(GetProfileDocument);
+  const { data: userData } = useQuery(GET_PROFILE_QUERY);
 
-  useEffect(() => {
-    setTitle(getPageTitle(location.pathname))
+  const buttonRef = useRef<HTMLDivElement>(null)
 
-    if (Cookies.get('refreshtoken') && userAuth && userAuth.username) {
-      setIsLogged(true)
-    }
-  }, [])
+  const ref = useOutsideClick(() => setIsPayHistoryOpened(false))
+
+  const getCurrentPageTitle = () => {
+    const currentPath = location.pathname;
+    const matchingRoute = Object.values(routesConfig).find(route => currentPath === route.path);
+    return matchingRoute ? matchingRoute.name : 'Main';
+  }
 
   const handleLogout = async () => {
     try {
-      const response = await logout({
+       await logout({
         variables: { logoutId: userAuth.id },
-      })
-      Cookies.remove('accesstoken')
-      Cookies.remove('refreshtoken')
-      Cookies.remove('user')
-      setIsLogged(false)
+      });
+      Cookies.remove('accesstoken');
+      Cookies.remove('refreshtoken');
+      Cookies.remove('user');
+      setIsLogged(false);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   }
 
+  useEffect(() => {
+    if (Cookies.get('refreshtoken') && userAuth && userAuth.username) {
+      setIsLogged(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    setTitle(getCurrentPageTitle());
+  }, [location.pathname]);
+
+
   return (
-    <header className="header">
-      <h1 className="header__title">{title}</h1>
-      <div className="header__group group">
-        {isLogged ? (
-          <>
-            <div className="group__balance">
-              <img src={blueBalance} alt="blueBalance" />
-              <div className="group__balanceSum">20</div>
-            </div>
-            <LangSwitcher />
-            <img className="group__notifications" src={iconNotification} alt="iconNotification" />
-            <p className="group__name">{userAuth && data?.getProfile.username}</p>
-            <Link to={'/cabinet'}>
-              <UserAvatar width={40} height={40} />
-            </Link>
-            <img className="group__exit" src={iconExit} alt="iconExit" onClick={handleLogout} />
-            <HeaderBurger isClicked={isClicked} setIcClicked={() => setIsClicked(!isClicked)} />
-          </>
-        ) : (
-          <div className="group__container">
-            <Link to="/SignIn" className="group__log">
-              Log in
-            </Link>
-            <Link to="/SignUp" className="group__sign">
-              Sign up
-            </Link>
-            <HeaderBurger isClicked={isClicked} setIcClicked={() => setIsClicked(!isClicked)} />
-          </div>
-        )}
-      </div>
-      {/* {isModalOpen && (
-        <div className="modal">
-              <button onClick={handleLogout}>OK</button>
-              <button onClick={toggleModal}>Cancel</button>
+      <header className={cls.header}>
+        <h1 className={cls.header__title}>{t(title)}</h1>
+        <div className={`${cls.group}`}>
+          {isLogged ? (
+              <>
+                <div className={`${cls.group__balance} `}>
+                  <div ref={buttonRef}><img  onClick={() => setIsPayHistoryOpened(!isPayHistoryOpened)} src={blueBalance} alt="blueBalance" /></div>
+                  <div  className={`${cls.group__balanceSum} `}>{userData?.getProfile.balance}</div>
+                  {isPayHistoryOpened && <UserHistoryPopup buttonRef={buttonRef} ref={ref} />}
+                </div>
+                <LangSwitcher />
+                <img className={cls.group__notifications} src={iconNotification} alt="iconNotification" />
+                <p className={`${cls.group__name} `}>{userAuth && data?.getProfile.username}</p>
+                <Link to={'/cabinet'}>
+                  <UserAvatar width={40} height={40} />
+                </Link>
+                <img className={`${cls.group__exit}`} src={iconExit} alt="iconExit" onClick={handleLogout} />
+                <HeaderBurger isClicked={isClicked} setIcClicked={() => setIsClicked(!isClicked)} />
+              </>
+          ) : (
+              <div className={`${cls.group__container}`}>
+                <LangSwitcher />
+                <Link to="/SignIn" className={`${cls.group__log}`}>
+                  {t('Log in')}
+                </Link>
+                <Link to="/SignUp" className={`${cls.group__sign}`}>
+                  {t('Sign up')}
+                </Link>
+                <HeaderBurger isClicked={isClicked} setIcClicked={() => setIsClicked(!isClicked)} />
+              </div>
+          )}
         </div>
-      )} */}
-    </header>
-  )
+      </header>
+  );
 }
 
-export default AppHeader
+export default AppHeader;

@@ -8,7 +8,7 @@ interface IUserPhoneProps {
 }
 
 export const UserPhone = ({ field, handleUpdate }: IUserPhoneProps) => {
-  const { t } = useTranslation('cabinet')
+  const { t } = useTranslation('cabinetPage')
 
   const [isEditable, setIsEditable] = React.useState(false)
   const [value, setValue] = React.useState(field)

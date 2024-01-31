@@ -10,6 +10,7 @@ const NewsPage = () => {
   const { loading, error, data } = useQuery(ALL_NEWS)
   //error, data
 
+  console.log(data)
   if (loading) {
     return <h2 style={{ color: 'ffffff' }}>Loading...</h2>
   }
@@ -20,8 +21,9 @@ const NewsPage = () => {
 
   return (
     <div>
-      <NewsList data={data.news} />
-      {/* <NewsList data={_data} /> */}
+      {data &&
+        <NewsList data={data.news} />
+      }
     </div>
   )
 }

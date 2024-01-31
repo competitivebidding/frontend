@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
-import AppHeader from '../../widgets/header/AppHeader.js'
+import React from 'react'
 import Lot from '@shared/ui/lot/Lot'
 
 const LotPage = () => {
-  'asdasdasdasdasd'
   return <Lot />
 }
 

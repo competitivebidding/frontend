@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next'
+
 const StatsData = [
 	{
 		id: 1,
 		styles: "big",
-		title: "Sum winnings",
+		title: 'Sum winnings',
 		text: "1 300 300 r.",
 		image: ""
 	},

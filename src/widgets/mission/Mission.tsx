@@ -1,20 +1,23 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
-import './Mission.scss'
+import cls from './Mission.module.scss'
 
 interface IMissionProps {
   value: string
 }
 
 export const Mission = ({ value }: IMissionProps) => {
+  const { t } = useTranslation('mainPage')
+
   return (
-    <div className={'main__mission'}>
-      <div className={'mission__title'}>Mission</div>
-      <div className={'mission__subtitle'}>
-        {value} lucky people who won the auction
+    <div className={cls['main__mission']}>
+      <div className={cls['mission__title']}>{t('Mission')}</div>
+      <div className={cls['mission__subtitle']}>
+        {value} {t('lucky people who won the auction')}
         <span>{value}</span>
       </div>
-      <div className={'mission__progressBar'}>
+      <div className={cls['mission__progressBar']}>
         <span></span>
       </div>
     </div>

@@ -1,20 +1,20 @@
 import React from 'react'
 
-import './MainBottom.scss'
+import cls from './MainBottom.module.scss'
 
-import { Socials } from '../../../socials/Socials'
+
 import { LastUsersList } from '@entities/user'
 
 export const MainBottom = () => {
   return (
-    <div className="main-bottom">
-      <div className="main-bottom__left">
-        <Socials />
+    <div className={cls["main-bottom"]}>
+      <div className={cls["main-bottom__left"]}>
+
 
         {/*<Chats />*/}
       </div>
 
-      <div className="main-bottom__right">
+      <div className={cls["main-bottom__right"]}>
         <LastUsersList />
       </div>
     </div>

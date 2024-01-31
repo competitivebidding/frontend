@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import './Messages.scss'
+import cls from './Messages.module.scss'
 import {AppModal} from '@shared/ui/modal/AppModal'
 import {useQuery} from '@apollo/client'
-import {GET_ALL_USERS_BY_ROOM_ID} from '@shared/schemas/messages/messages'
+import {GET_ALL_USERS_BY_ROOM_ID, GET_ROOM_BY_ID} from '@shared/schemas/messages/messages'
 import {useLocalStorage} from '@shared/lib/useLocalStorage'
 import {MessageInput} from '@features/message-input/MessageInput'
 import {GroupSubscribers} from '@widgets/group-subscribers/GroupSubscribers'
@@ -11,15 +11,17 @@ import {ChatMessages} from '@features/chat-messages/ChatMessages'
 import {ChatHeader} from './ui/chat-header/ChatHeader'
 import {ChatSidebar} from './ui/chat-sidebar/ChatSidebar'
 import {ChatJoin} from '@features/chat-join-button/ChatJoin'
-import {GetRoomByIdDocument} from '@shared/lib/types/__generated-types__/graphql'
+import { useTranslation } from 'react-i18next'
 
+//это удалить!!
 export interface Group {
-  createdAt: string
-  description: null | string
-  id: number
-  ownerId: number
-  title: string
-  updatedAt: string
+  __typename?: "Room",
+  id: number,
+  ownerId: number,
+  title: string,
+  description?: string | null,
+  createdAt: any,
+  updatedAt: any
 }
 
 export interface IUser {
@@ -34,12 +36,13 @@ const Messages = () => {
   const { lsValue: lsActiveGroup } = useLocalStorage<Group>('activeGroup');
   const { lsValue: lsUser } = useLocalStorage<IUser>('user');
   const [isSidebarOpened, setIsSidebarOpened] = useState(true)
+  const { t } = useTranslation('messagesPage')
 
   const [modalNewGroup, setModalNewGroup] = useState(false);
   const [modalGroup, setModalGroup] = useState(false);
   const [activeGroup, setActiveGroup] = useState<Group | undefined>(undefined);
   const [groupUsers, setGroupUsers] = useState<IUser[]>([]);
-  const { data: currentRoom, loading, refetch } = useQuery(GetRoomByIdDocument, {
+  const { data: currentRoom, loading, refetch } = useQuery(GET_ROOM_BY_ID, {
     variables: {
       roomId: Number(lsActiveGroup?.id)
     },
@@ -65,7 +68,7 @@ const Messages = () => {
     refetch({
       roomId: Number(lsActiveGroup?.id),
     });
-    return currentRoom?.getRoomById.ownerId === lsUser?.id;
+    return currentRoom?.getRoomById.owner.id === lsUser?.id;
   };
 
   const toggleNewGroup = () => {
@@ -95,9 +98,11 @@ const Messages = () => {
   }, [users, activeGroup?.id]);
 
 
+
+
   return (
       <>
-        <div className='chat'>
+        <div className={cls.chat}>
           <ChatSidebar
               onToggleNewGroupModal={setModalNewGroup}
               onSelectGroup={handleSelectActiveGroup}
@@ -105,7 +110,7 @@ const Messages = () => {
               isSidebarOpened={isSidebarOpened}
           />
           {activeGroup ? (
-              <div className='chat__container'>
+              <div className={cls.chat__container}>
                 {<ChatHeader
                     title={ activeGroup.title}
                     length={(users?.getAllUsersByRoomId.length) as number}
@@ -121,8 +126,8 @@ const Messages = () => {
                 )}
               </div>
           ) : (
-              <div className='empty__container'>
-                <div className='chat__empty'> Select a chat to start messaging</div>
+              <div className={cls.empty__container}>
+                <div className={cls.chat__empty}>{t('Select a chat to start messaging')}</div>
               </div>
           )}
         </div>
@@ -142,7 +147,7 @@ const Messages = () => {
                       roomId={activeGroup.id}
                       onClose={toggleGroup}
                       setActiveGroup={setActiveGroup}
-                   isOwner={activeGroup.ownerId === lsUser?.id}
+                    isOwner={activeGroup.ownerId === lsUser?.id}
                   />
               )}
             </AppModal>
@@ -154,3 +159,10 @@ const Messages = () => {
 
 
 export default Messages;
+
+
+
+
+
+
+

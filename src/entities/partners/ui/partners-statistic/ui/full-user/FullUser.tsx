@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from './FullUser.module.scss'
 
+import { useTranslation } from 'react-i18next'
+
 interface IFullUserProps {
   userData: {
     avatar: string
@@ -15,6 +17,8 @@ interface IFullUserProps {
 }
 
 function FullUser({ userData }: IFullUserProps) {
+  const { t } = useTranslation('partnerPage')
+
   const days = 4
 
   return (
@@ -26,7 +30,7 @@ function FullUser({ userData }: IFullUserProps) {
       </div>
       <div className={styles.user__startDate}>
         {userData.startDate}
-        <p className={styles.user__daysIn}>{`${days} days`}</p>
+        <p className={styles.user__daysIn}>{`${days} ${ t('days')}`}</p>
       </div>
       <div className={styles.user__earnedThisMonth}>
         {userData.earnedThisMonth}

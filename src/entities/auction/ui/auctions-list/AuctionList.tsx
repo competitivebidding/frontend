@@ -1,8 +1,9 @@
 import React from 'react'
 import AuctionCard from '../auction-card/AuctionCard'
-import '../auction-page-content/AuctionsPageContent.scss'
+import '../auction-page-content/AuctionsPageContent.module.scss'
 import { useQuery } from '@apollo/client'
 import { GetAuctionsDocument } from '@shared/lib/types/__generated-types__/graphql'
+import cls from './AuctionList.module.scss'
 
 interface IAuctionCardProps {
   data: {
@@ -18,24 +19,24 @@ interface IAuctionCardProps {
   }
 }
 
-export const AuctionList = () => {
-  const { data, loading } = useQuery(GetAuctionsDocument)
+export const AuctionList = ({searchValue}: {searchValue: string}) => {
+  const { data, loading } = useQuery(GetAuctionsDocument, {
+    variables: {
+      search: searchValue
+    }
+  })
 
-  if (!data || !Array.isArray(data)) {
-    return null // Return null or handle the error case appropriately
+  if (!data) {
+    return null
   }
 
-  const auctionCards = data.map((card) => {
-    // const { id, ...cardProps } = card;
+  const auctionCards = data.getAuctions.map((card) => {
     return (
       <AuctionCard
+          key={card.id}
         id={card.id}
-        alt={card.alt}
         title={card.title}
-        date={card.date}
         bids={card.bids}
-        places={card.places}
-        changeStatus={card.changeStatus}
         startedAt={card.startedAt}
       />
     )
@@ -43,7 +44,7 @@ export const AuctionList = () => {
 
   return (
     <div>
-      <div className="auctionList">{auctionCards}</div>
+      <div className={cls.auctionList}>{auctionCards}</div>
     </div>
   )
 }

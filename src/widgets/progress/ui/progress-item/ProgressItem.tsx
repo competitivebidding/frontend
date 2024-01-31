@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import './ProgressItem.scss'
+import cls from './ProgressItem.module.scss'
 
 interface IProgressItemProps {
   styles: string
@@ -10,9 +10,10 @@ interface IProgressItemProps {
 
 export const ProgressItem: FC<IProgressItemProps> = ({ styles, value, text }) => {
   return (
-    <li className={`listItem-item ${styles}`}>
-      <div className="item__value">{value}</div>
-      <span className="item__marker">{text}</span>
+    <li className={`${cls['listItem-item']} ${styles}`}>
+      <div className={cls.item__value}>{value}</div>
+      <span className={cls.item__marker}>{text}</span>
     </li>
+    
   )
 }

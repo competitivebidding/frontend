@@ -16,7 +16,7 @@ interface IField {
 }
 
 const UserPaymentsInfo = ({ onOpen }: UserPaymentsInfoProps) => {
-  const { t } = useTranslation('cabinet')
+  const { t } = useTranslation('cabinetPage')
 
   const [field, setField] = useState<IField | {}>({})
   const [updateCard] = useMutation(UPDATE_USER_PAYMENT)

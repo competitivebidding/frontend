@@ -45,3 +45,42 @@ mutation UpdateToken($updateTokenId: Int!, $data: UpdateTokenInput!) {
   }
 }
 `)
+
+export const PAY_OPERATION = gql(`
+mutation PayOperation($createPayInput: CreatePayInput!) {
+  payOperation(createPayInput: $createPayInput) {
+    id
+    user_id
+    operation
+    typeOperation
+    amount
+    message
+    createAt
+  }
+}`)
+
+export const GET_ALL_MY_PAY_OPERATIONS = gql(`
+query GetAllMyPayOperation {
+  getAllMyPayOperation {
+    id
+    user_id
+    operation
+    typeOperation
+    amount
+    message
+    createAt
+  }
+}`)
+
+export const GET_ONE_MY_PAY_OPERATION = gql(`
+query GetOneMyPayOperation($getOneMyPayOperationId: Int!) {
+  getOneMyPayOperation(id: $getOneMyPayOperationId) {
+    id
+    user_id
+    operation
+    typeOperation
+    amount
+    message
+    createAt
+  }
+}`)

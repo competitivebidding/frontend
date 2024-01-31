@@ -1,14 +1,11 @@
 import React from 'react'
 
 import { NewPasswordRight } from '@features/auth'
-import LeftAuth from '@pages/authorization/leftAuth'
+import AuthLayout from '@pages/authorization/AuthLayout'
 
 const NewPassword = () => {
   return (
-    <>
-      <LeftAuth />
       <NewPasswordRight />
-    </>
   )
 }
 

@@ -1,18 +1,19 @@
 import React, { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import './NewPasswordRight.scss'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-// import {$newPassword, $repeatNewPassword, passwordChanged, repeatPasswordChanged} from './model'
-// import { useUnit } from 'effector-react'
+import cls from '../SignInRight.module.scss'
+import { useTranslation } from 'react-i18next'
+import iconAuth from '@assets/imgAuth/iconAuth.svg'
+
 
 type INewPasswordForm = {
   password: string
   repeatPassword: string
 }
 
-export const NewPasswordRight = () => {
+export const NewPasswordRight: FC = () => {
   const {
     register,
     handleSubmit,
@@ -20,12 +21,13 @@ export const NewPasswordRight = () => {
     watch,
   } = useForm<INewPasswordForm>()
 
-
   const password = watch('password')
   const repeatPassword = watch('repeatPassword')
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false)
+
+  const { t } = useTranslation('newPasswordRight')
 
   const onSubmit = (data: INewPasswordForm) => {
     if (password !== repeatPassword) {
@@ -37,25 +39,36 @@ export const NewPasswordRight = () => {
 
   return (
     <>
-      <form className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
-        <h2 className="form__title">Recover password</h2>
-        <div className="form__descr">
+      <Link to="/" className={cls.company__icon}>
+        <img src={iconAuth} alt="icon" />
+        <div>
+          <h2 className={cls.company__title}>COMPETITIVE
+            <br /> BIDDING</h2>
+        </div>
+      </Link>
+
+      <form className={cls.form} onSubmit={handleSubmit(onSubmit)} noValidate style={
+        window.innerWidth <= 1000
+          ? { marginTop: '150px' }
+          : {}
+      }>
+        <h2 className={cls.form__title}>{t('Recover password')}</h2>
+        <div className={cls.formDescr}>
           <p>
-            Already have an account?
+            {t('Already have an account')}?
             <span>
-              <Link to="/SignIn">Log in</Link>
+              <Link to="/SignIn">{t('Log in')}</Link>
             </span>
           </p>
         </div>
-        <div className={`form__group form__password ${errors.password ? 'has-error' : ''}`}>
-          <label htmlFor="password">New Password</label>
-          <div className="password__input">
+        <div className={`${cls.formGroup} ${cls.formPassword} ${errors.password ? cls.hasError : ''}`}>
+          <label htmlFor="password">{t('New Password')}</label>
+          <div className={cls.passwordInput}>
             <input
               type={isPasswordVisible ? 'text' : 'password'}
               id="password"
               required
               {...register('password', {
-                
                 required: true,
                 pattern: /^\S+@\S+$/i,
               })}
@@ -63,39 +76,38 @@ export const NewPasswordRight = () => {
             <FontAwesomeIcon
               icon={isPasswordVisible ? faEyeSlash : faEye}
               onClick={() => setIsPasswordVisible(!isPasswordVisible)}
-              className="password__icon"
+              className={cls.passwordIcon}
             />
           </div>
-          {errors.password?.type === 'required' && <div className="error-message">Please enter your password</div>}
+          {errors.password?.type === 'required' && <div className={cls.errorMessage}>{t('Please enter your password')}</div>}
         </div>
-        <div className={`form__group ${errors.repeatPassword ? 'has-error' : ''}`}>
-          <label htmlFor="repeat__password">Repeat password</label>
-          <div className="password__input">
+        <div className={`${cls.formGroup} ${errors.repeatPassword ? cls.hasError : ''}`}>
+          <label htmlFor="repeatPassword">{t('Repeat password')}</label>
+          <div className={cls.passwordInput}>
             <input
               type={isRepeatPasswordVisible ? 'text' : 'password'}
-              id="repeat__password"
+              id="repeatPassword"
               required
               {...register('repeatPassword', {
-                
-                required: true
+                required: true,
               })}
             />
             <FontAwesomeIcon
               icon={isRepeatPasswordVisible ? faEyeSlash : faEye}
               onClick={() => setIsRepeatPasswordVisible(!isRepeatPasswordVisible)}
-              className="password__icon"
+              className={cls.passwordIcon}
             />
           </div>
           {errors.repeatPassword?.type === 'required' && (
-            <div className="error-message">Please enter your password</div>
+            <div className={cls.errorMessage}>{t('Please enter your password')}</div>
           )}
           {password && repeatPassword && password !== repeatPassword && (
-            <div className="error-message">Passwords don't match</div>
+            <div className={cls.errorMessage}>{t("Passwords don't match")}</div>
           )}
         </div>
-        <div className="wrap__btn">
-          <button type="submit" className="btn__form">
-            Save
+        <div className={cls.wrapBtn}>
+          <button type="submit" className={cls.btnForm}>
+            {t('Save')}
           </button>
         </div>
       </form>

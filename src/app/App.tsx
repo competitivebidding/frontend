@@ -26,6 +26,7 @@ import NewPassword from '../pages/new-password/NewPassword'
 
 import './ui/App.scss'
 import { useTranslation } from 'react-i18next'
+import AuthLayout from "@pages/authorization/AuthLayout";
 
 const App = () => {
   const { t } = useTranslation('header')
@@ -44,19 +45,18 @@ const App = () => {
             <Route path="/winnerList" element={<WinnersListPage />} />
             <Route path="/Lot/:id" element={<LotPage />} />
             <Route path="/cabinet" element={<CabinetPage />} />
-          </Route>
-
-          <Route element={<NavHeader />}>
-            <Route path="/cabinet" element={<CabinetPage />} />
             <Route path="/notifications" element={<NotificationsPage />} />
             <Route path="/questions" element={<QuestionsPage />} />
             <Route path="/support" element={<SupportPage />} />
           </Route>
 
-          <Route path="/SignIn" element={<SignIn />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/ResetPassword" element={<ResetPassword />} />
-          <Route path="/NewPassword" element={<NewPassword />} />
+
+          <Route element={<AuthLayout />}>
+            <Route index path="/SignIn" element={<SignIn />} />
+            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/ResetPassword" element={<ResetPassword />} />
+            <Route path="/NewPassword" element={<NewPassword />} />
+          </Route>
         </Routes>
       </div>
     </Suspense>

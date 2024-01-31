@@ -6,16 +6,18 @@ import { AppModal } from '@shared/ui/modal/AppModal'
 
 import scss from './GroupSubscribers.module.scss'
 import { IUser } from '@entities/messages/Messages'
-import {ActiveGroup} from '@entities/messages/Messages'
+import {Group} from '@entities/messages/Messages'
 import iconPlus from "@assets/Chat/iconPlus.svg";
 import {InviteUserToChat} from "@features/invite-user-to-chat/ui/InviteUserToChat";
+import { useTranslation } from 'react-i18next'
+import {ConfirmModal} from "@shared/ui/configmModal";
 
 interface IGroupSubscribersProps {
   groupTitle: string
   groupSubs: IUser[]
   roomId: number
   onClose: () => void
-  setActiveGroup: Dispatch<SetStateAction<ActiveGroup | undefined>>
+  setActiveGroup: Dispatch<SetStateAction<Group | undefined>>
   isOwner: boolean
 }
 
@@ -23,6 +25,8 @@ export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose,  setA
   const [modalGroupOpen, setModalGroupOpen] = useState(true)
   const [leaveModalOpen, setLeaveModalOpen] = useState(false)
   const [inviteModalIsOpen, setInviteModalIsOpen] = useState(false)
+  const { t } = useTranslation('messagesPage')
+
   const [leaveFromChat] = useMutation(LEAVE_FROM_CHAT, { refetchQueries: [GET_ALL_MY_ROOMS] })
   const { data, refetch } = useQuery(GET_ALL_USERS_BY_ROOM_ID, {
     variables: {
@@ -84,7 +88,7 @@ export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose,  setA
               </div>
               {groupSubs && (
                   <div className={`${scss.modalGroup__members} ${scss.subscribers}`}>
-                    <div className={scss.subscribers__count}>{groupSubs.length} subscribers</div>
+                    <div className={scss.subscribers__count}>{groupSubs.length} {t('subscribers')}</div>
                     <ul>
                       {groupSubs.map((user) => (
                           <li key={user.username} className={scss.subscribers__member}>
@@ -97,28 +101,18 @@ export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose,  setA
               )}
               <div className={scss.modalGroup__button}>
                 <button className={`${scss.modalGroup__leave}`} onClick={confirm}>
-                  Leave chat
+                  {t('Leave chat')}
                 </button>
               </div>
             </div>
         )}
         {leaveModalOpen && (
-            <AppModal
+            <ConfirmModal
                 isOpen={leaveModalOpen}
-                onClose={handleCancelLeaveChat}
-            >
-              <div className={scss.modalGroup__container}>
-                <div className={scss.modalGroup__title}>Do you really want to leave the band?</div>
-                <div className={scss.modalGroup__button}>
-                  <button className={`${scss.modalGroup__agreement}`} onClick={handleConfirmLeaveChat}>
-                    Yes
-                  </button>
-                  <button className={`${scss.modalGroup__agreement}`} onClick={handleCancelLeaveChat}>
-                    No
-                  </button>
-                </div>
-              </div>
-            </AppModal>
+                onClose={setLeaveModalOpen}
+                onCancel={handleCancelLeaveChat}
+                onConfirm={handleConfirmLeaveChat}
+                title={'Do you really want to leave the band'} />
         )}
         {inviteModalIsOpen && (
             <AppModal isOpen={inviteModalIsOpen} onClose={handleCancelInvite}>

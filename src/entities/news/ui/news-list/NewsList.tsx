@@ -1,6 +1,6 @@
 import React from 'react'
 import NewsListItem from '../news-list-item/NewsListItem'
-import './NewsList.scss'
+import cls from './NewsList.module.scss'
 
 export const NewsList = ({ data }: any) => {
   const listItem = data.items.map((item: any) => {
@@ -9,5 +9,5 @@ export const NewsList = ({ data }: any) => {
     return <NewsListItem key={id} {...itemProps} />
   })
 
-  return <div className="newsList">{listItem}</div>
+  return <div className={cls.newsList}>{listItem}</div>
 }

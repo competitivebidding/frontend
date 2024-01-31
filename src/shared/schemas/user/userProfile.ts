@@ -2,21 +2,22 @@ import {gql} from '@shared/lib/types/__generated-types__/gql'
 
 export const GET_PROFILE_QUERY = gql(`
   query GetProfile {
-    getProfile {
-      id
-      username
-      email
-      firstname
-      phone
-      lastname
-      patronymic
-      instagram
-      confirmationCode
-      avatarUrl
-      createdAt
-      updatedAt
-    }
+  getProfile {
+    id
+    username
+    email
+    firstname
+    phone
+    lastname
+    patronymic
+    instagram
+    confirmationCode
+    avatarUrl
+    balance
+    createdAt
+    updatedAt
   }
+}
 `)
 
 export const GET_USER_ADDRESS = gql(`

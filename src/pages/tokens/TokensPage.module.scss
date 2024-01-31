@@ -1,0 +1,38 @@
+.tokens{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 300px;
+}
+
+
+
+@media screen and (max-width:1620px){
+    .tokens{
+        gap: 50px;
+    }
+
+}
+
+@media screen and (max-width:1403px){
+    .tokens{
+        gap: 60px;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width:1250px){
+    .tokens{
+        gap: 60px;
+        justify-content: center;
+    }
+}
+
+
+@media  screen and (max-width:800px) {
+    .tokens{
+       justify-content: center;
+    }
+}
