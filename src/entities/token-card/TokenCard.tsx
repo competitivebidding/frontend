@@ -121,7 +121,7 @@ const TokenCard = ({ tokens, prize, buttonName, id }: ITokenCardProps) => {
                                   playsInline
                                   onEnded={handleVideoEnded}
                               >
-                                <source src={video} type="video/mp4" />
+                                {/* <source src={video} type="video/mp4" /> */}
                               </video>
                             </h4>
                           </>
