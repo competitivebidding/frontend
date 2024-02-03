@@ -18,7 +18,7 @@ interface HTMLInputEvent extends Event {
 export const UserSettings = ({ id, avatarUrl, handleUpdate }: IUserSettingsProps) => {
   const { t } = useTranslation('cabinetPage')
 
-  const [image, setImg] = useState(null)
+  const [image, setImg] = useState(avatarUrl)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const [isOpenSettings, setIsOpenSettings] = useState(false)
@@ -26,17 +26,12 @@ export const UserSettings = ({ id, avatarUrl, handleUpdate }: IUserSettingsProps
   const handleChangeFile = (e: React.ChangeEvent) => {
     const target = e.target as HTMLInputElement
     const file: File = (target.files as FileList)[0]
-    // setImg(URL.createObjectURL(img))
+    setImg(URL.createObjectURL(file))
+
   }
   const update = (data: string) => {
     handleUpdate({ avatarUrl: data })
   }
-
-  useEffect(() => {
-    if (image) {
-      update(image)
-    }
-  }, [image])
 
   return (
     <>
@@ -51,7 +46,7 @@ export const UserSettings = ({ id, avatarUrl, handleUpdate }: IUserSettingsProps
               ref={inputRef}
               onChange={handleChangeFile}
             />
-            <UserAvatar onClick={() => inputRef.current?.click()} />
+            <UserAvatar avatarUrl={image && image} onClick={() => inputRef.current?.click()} />
           </div>
           <div className="item-top__info">
             <div className="item-top__status">{t('Unconfirmed')}</div>
@@ -59,9 +54,7 @@ export const UserSettings = ({ id, avatarUrl, handleUpdate }: IUserSettingsProps
           </div>
         </div>
         <div className="item-bottom">
-          <button className="user-info__button" onClick={() => setIsOpenSettings(true)}>
-            {t('Settings')}
-          </button>
+          <p></p>
         </div>
       </div>
       {isOpenSettings && (

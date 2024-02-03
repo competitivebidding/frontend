@@ -3,7 +3,7 @@ import cls from './UserAvatar.module.scss'
 import avatar from '@assets/cabinet/icons/avatar.svg'
 
 interface IUserAvatarProps {
-  avatarUrl?: string
+  avatarUrl?: string | null
   onClick?: () => void
   className?: string
   width?: number

@@ -4,6 +4,8 @@ import macbook from '@assets/cabinet/macbook_menu 1.png';
 import iphone from '@assets/cabinet/image 51.png';
 import AuctionItemCard from '@shared/ui/auction-item-card/AuctionItemCard';
 import { useTranslation } from 'react-i18next'
+import {useQuery} from "@apollo/client";
+import {GetMyWonAuctionsDocument} from "@shared/lib/types/__generated-types__/graphql";
 
 interface IAuctionsInfoProps {
   amount: number;
@@ -15,6 +17,10 @@ interface IAuctionsInfoProps {
 
 export function AuctionsInfo({ amount, wins, winsSum, rotoSpent, auctions }: IAuctionsInfoProps) {
   const { t } = useTranslation('auctionsPage')
+
+  const {data} = useQuery(GetMyWonAuctionsDocument)
+
+  console.log(data?.getMyWonAuctions)
 
   return (
       <div className={cls['auctions__info']}>

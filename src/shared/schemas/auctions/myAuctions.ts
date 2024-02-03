@@ -46,3 +46,56 @@ mutation CreateMyAuction($input: CreateAuctionInput!) {
     }
   }
 } `)
+
+export const GET_MY_WON_AUCTIONS = gql(`
+    query GetMyWonAuctions {
+  getMyWonAuctions {
+    id
+    title
+    description
+    startingPrice
+    creator {
+      id
+      username
+      firstname
+      lastname
+      avatarUrl
+      balance
+    }
+    winner {
+      id
+      username
+      firstname
+      lastname
+      avatarUrl
+      balance
+    }
+    status {
+      id
+      name
+    }
+    sortOrder
+    finishedAt
+    startedAt
+    createdAt
+    updatedAt
+    bids {
+      id
+      userId
+      auctionId
+      bitPrice
+      createdAt
+      updatedAt
+      user {
+        id
+        username
+        firstname
+        lastname
+        avatarUrl
+        balance
+      }
+    }
+  }
+}
+
+`)
