@@ -171,18 +171,14 @@ export const REMOVE_MESSAGE = gql(`
 `)
 
 export const UPDATE_MESSAGE = gql(`
-   mutation UpdateMessage($input: MessageUpdateInput!) {
+  mutation UpdateMessage($input: MessageUpdateInput!) {
   updateMessage(input: $input) {
+    content
+    createdAt
     id
-    user {
-      id
-      username
-      firstname
-      lastname
-      avatarUrl
-      balance
-    }
     room {
+      createdAt
+      description
       id
       owner {
         id
@@ -192,15 +188,19 @@ export const UPDATE_MESSAGE = gql(`
         avatarUrl
         balance
       }
-      title
-      description
       isPrivate
-      createdAt
+      title
       updatedAt
     }
-    content
-    createdAt
     updatedAt
+    user {
+      id
+      username
+      firstname
+      lastname
+      avatarUrl
+      balance
+    }
   }
 }
 `)

@@ -42,7 +42,7 @@ export const ChatContext = ({
   setIsModalMenuVisible: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
   const [removeMessage] = useMutation(REMOVE_MESSAGE);
-  const [UpdateMessage] = useMutation(UPDATE_MESSAGE);
+  const [updateMessage] = useMutation(UPDATE_MESSAGE);
 
   const [updatedMessageContent, setUpdatedMessageContent] = useState("");
   const [updatedMessageContentTime, setUpdatedMessageContentTime] = useState("");
@@ -66,9 +66,9 @@ export const ChatContext = ({
       removeMessage({ variables: { removeMessageId: selectedMessageId } })
         .then(() => {
           // setIsContextMenuVisible(false);
-          setGroupMessages((prevMessages) => {
+          setGroupMessages((prevMessages: any[]) => {
             if (prevMessages) {
-              return prevMessages.filter((message) => message.id !== selectedMessageId);
+              return prevMessages.filter((message: { id: number; }) => message.id !== selectedMessageId);
             }
             return prevMessages;
           });
@@ -93,11 +93,27 @@ export const ChatContext = ({
     }
   };
 
-  const handleSaveMessage = () => {
-    setIsContextMenuVisible(false);
-    console.log('handleSaveMessage')
-  }
 
+  const handleSaveMessage = () => {
+    if (selectedMessageId !== null) {
+      // Вызываем мутацию для обновления сообщения
+      updateMessage({
+        variables: {
+          input: {
+            id: selectedMessageId,
+            content: updatedMessageContent,
+          },
+        },
+      })
+      .then(({ data }) => {
+        setInitialMessageContent(data?.updateMessage?.content || '');
+        setIsModalMenuVisible(false);
+      })
+      .catch((error) => {
+        console.error('Error updating message:', error);
+      });
+    }
+  };
   const handleCloseMessage = () => {
     setIsContextMenuVisible(false);
     console.log('handleCloseMessage')

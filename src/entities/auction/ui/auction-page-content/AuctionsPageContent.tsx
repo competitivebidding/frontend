@@ -8,6 +8,7 @@ import {AuctionSlider} from "@shared/ui/slider/AuctionSlider";
 import { useTranslation } from 'react-i18next'
 
 interface IAuctionsPageContent {
+    
     searchValue: string
 }
 
@@ -19,6 +20,15 @@ export const AuctionsPageContent = ({searchValue}: IAuctionsPageContent) => {
     })
     const { t } = useTranslation('auctionsPage')
 
+    if (data && data.getAuctions) {
+        data.getAuctions.forEach(auction => {
+          console.log(auction.status);
+        });
+      }
+      
+
+      const openAuctions = data?.getAuctions.filter(auction => auction.status.name !== 'Open');
+
   return (
     <>
         {data && <>
@@ -28,7 +38,7 @@ export const AuctionsPageContent = ({searchValue}: IAuctionsPageContent) => {
             <AuctionSlider data={data?.getAuctions.filter(card => card.status.name === 'Cancelled')}/> */}
             <div className={cls.title}>{t('Active Auctions')}</div>
             {/* <AuctionSlider data={data?.getAuctions.filter(card => card.status.name === 'Open')}/> */}
-            <AuctionList  searchValue={searchValue} />
+            <AuctionList dataFilter={openAuctions || []} searchValue={searchValue} />
         </>}
     </>
   )
