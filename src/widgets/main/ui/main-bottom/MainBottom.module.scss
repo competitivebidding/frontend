@@ -1,6 +1,6 @@
 .main-bottom {
-	display: grid;
-	grid-template-columns: 2fr 1fr;
+	display: flex;
+	// justify-content: center;
 	gap: 15px;
 	margin-bottom: 35px;
 	margin-top: 38px;

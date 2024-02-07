@@ -80,17 +80,17 @@ const AppHeader = () => {
           {isLogged ? (
               <>
                 <div className={`${cls.group__balance} `}>
-                  <div ref={buttonRef}><img  onClick={() => setIsPayHistoryOpened(!isPayHistoryOpened)} src={blueBalance} alt="blueBalance" /></div>
+                  <div ref={buttonRef}><img  onClick={() => setIsPayHistoryOpened(!isPayHistoryOpened)} src={blueBalance} alt="blueBalance"  width={38} height={38} /></div>
                   <div  className={`${cls.group__balanceSum} `}>{userData?.getProfile.balance}</div>
                   {isPayHistoryOpened && <UserHistoryPopup buttonRef={buttonRef} ref={ref} />}
                 </div>
                 <LangSwitcher />
-                <img className={cls.group__notifications} src={iconNotification} alt="iconNotification" />
+                <img className={cls.group__notifications} src={iconNotification} alt="iconNotification" width={38} height={38}  />
                 <p className={`${cls.group__name} `}>{userAuth && data?.getProfile.username}</p>
                 <Link to={'/cabinet'}>
                   <UserAvatar width={40} height={40} />
                 </Link>
-                <img className={`${cls.group__exit}`} src={iconExit} alt="iconExit" onClick={handleLogout} />
+                <img className={`${cls.group__exit}`} src={iconExit} alt="iconExit" onClick={handleLogout}  width={30} height={30} />
                 <HeaderBurger isClicked={isClicked} setIcClicked={() => setIsClicked(!isClicked)} />
               </>
           ) : (

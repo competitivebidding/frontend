@@ -8,6 +8,7 @@ import ForPartners from '@/widgets/for-partners/ForPartners'
 import { useQuery } from '@apollo/client'
 import { GET_PROFILE_QUERY } from '@/shared/schemas/user/userProfile'
 import {UserInfoAccount} from "@entities/user/ui/user-info/ui/user-account-info/UserInfoAccount";
+import iconLoader from "@assets/Chat/iconLoader.svg"
 
 export const UserInfoPartnerProgram = () => {
   const [isLoaded, setIsLoaded] = React.useState(false)
@@ -16,7 +17,9 @@ export const UserInfoPartnerProgram = () => {
   return (
     <>
       {loading ? (
-        <h2>Loading...</h2>
+        <div className='spinner'>
+        <img src={iconLoader} alt="Spinner" />
+    </div>
       ) : (
         <section className={cls.block}>
           <UserInfoButtons />

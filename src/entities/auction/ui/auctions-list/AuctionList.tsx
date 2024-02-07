@@ -6,6 +6,7 @@ import { GetAuctionsDocument } from '@shared/lib/types/__generated-types__/graph
 import cls from './AuctionList.module.scss';
 import arrowNext from '@/assets/imgAuctions/arrowNext.svg'
 import arrowPrev from '@/assets/imgAuctions/arrowPrev.svg'
+import iconLoader from "@assets/Chat/iconLoader.svg"
 
 interface IAuctionSliderProps {
   dataFilter: any[];
@@ -77,7 +78,11 @@ export const AuctionList = ({ searchValue, dataFilter }: IAuctionSliderProps) =>
   }, [totalPages, currentPage]);
 
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return (
+    <div className='spinner'>
+                <img src={iconLoader} alt="Spinner" />
+            </div>
+  );
   if (!data) return null;
 
   return (

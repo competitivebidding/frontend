@@ -16,7 +16,7 @@
     font-size: 32px;
     line-height: 1em;
     /* identical to box height, or 34px */
-    color: #FFFFFF;
+    color: white;
 
     @media screen and (max-width: 550px) {
       font-size: 26px;
@@ -37,9 +37,6 @@
       align-items: center;
     }
 
-    &__exit {
-      margin-right: 20px;
-    }
 
     &__container {
       display: flex;

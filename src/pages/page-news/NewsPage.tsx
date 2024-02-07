@@ -4,6 +4,7 @@ import { NewsList } from '@entities/news/ui/news-list/NewsList'
 
 import { useQuery } from '@apollo/client'
 import { ALL_NEWS } from '@shared/schemas/news/news.js'
+import iconLoader from "@assets/Chat/iconLoader.svg"
 
 const NewsPage = () => {
   // Эмитация базы данных. Данные будут приходить с бэка
@@ -12,7 +13,11 @@ const NewsPage = () => {
 
   console.log(data)
   if (loading) {
-    return <h2 style={{ color: 'ffffff' }}>Loading...</h2>
+    return (
+      <div className='spinner'>
+        <img src={iconLoader} alt="Spinner" />
+      </div>
+    )
   }
 
   if (error) {

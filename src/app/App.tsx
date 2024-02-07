@@ -23,6 +23,7 @@ import SignIn from '../pages/sign-in/SignIn'
 import SignUp from '../pages/sign-up/SignUp'
 import ResetPassword from '../pages/reset-password/ResetPassword'
 import NewPassword from '../pages/new-password/NewPassword'
+import iconLoader from "@assets/Chat/iconLoader.svg"
 
 import './ui/App.scss'
 import { useTranslation } from 'react-i18next'
@@ -31,7 +32,11 @@ import AuthLayout from "@pages/authorization/AuthLayout";
 const App = () => {
   const { t } = useTranslation('header')
   return (
-    <Suspense fallback={'loading...'}>
+    <Suspense fallback={
+      <div className='spinner'>
+        <img src={iconLoader} alt="Spinner" />
+      </div>
+    }>
       <div className="app">
         <Routes>
           <Route element={<Layout />}>
