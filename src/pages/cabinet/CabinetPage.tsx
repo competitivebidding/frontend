@@ -7,7 +7,7 @@ import {UserInfoCabinet} from '@/entities/user'
 import useNoAuth from '@shared/lib/useNoAuth'
 import cls from './CabinetPage.module.scss'
 
-const AuctionsInfo = lazy(() => import('@/entities/user/ui/user-info'))
+const AuctionsInfo = lazy(() => import('@/entities/user'))
 const CabinetPage = () => {
   const auctions = 0
   // const auctions = {}

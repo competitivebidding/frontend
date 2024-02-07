@@ -7,7 +7,6 @@ import UserEmail from '@/shared/ui/info-tabs/ui/user-email/UserEmail'
 import {UserPhone} from '@/shared/ui/info-tabs/ui/user-phone/UserPhone'
 import UserInst from '@/shared/ui/info-tabs/ui/user-instagram/UserInst'
 import {PaymentForm} from '@/features/payment-form/PaymentForm'
-import UserPaymentsInfo from '@/shared/ui/info-tabs/ui/user-payment-info/UserPaymentsInfo'
 import UserCountry from '@/shared/ui/info-tabs/ui/user-country/UserCountry'
 import {UserSettings} from '@/shared/ui/info-tabs/ui/user-settings/UserSettings'
 import {UserInfoLevel} from '@/shared/ui/info-tabs/ui/user-verification/UserInfoLevel'
@@ -18,7 +17,7 @@ import {GetProfileDocument,} from '@shared/lib/types/__generated-types__/graphql
 export const UserInfoCabinet = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [update] = useMutation(UPDATE_PROFILE)
-  const { data, error, loading, refetch } = useQuery(GetProfileDocument)
+  const { data, loading, refetch } = useQuery(GetProfileDocument)
 
   const updateProfile = (data: any) => {
     update({
@@ -39,7 +38,6 @@ export const UserInfoCabinet = () => {
           <UserEmail field={data?.getProfile.email} handleUpdate={updateProfile} />
           <UserPhone field={data?.getProfile.phone} handleUpdate={updateProfile} />
           <UserInst field={data?.getProfile.instagram} handleUpdate={updateProfile} />
-          <UserPaymentsInfo onOpen={setModalIsOpen} />
           <UserCountry />
         </article>
         {modalIsOpen && <PaymentForm onClose={setModalIsOpen} />}
