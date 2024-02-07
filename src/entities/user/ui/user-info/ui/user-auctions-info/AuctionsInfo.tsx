@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {lazy} from 'react';
 import cls from './AuctionsInfo.module.scss';
 import macbook from '@assets/cabinet/macbook_menu 1.png';
 import iphone from '@assets/cabinet/image 51.png';
-import AuctionItemCard from '@shared/ui/auction-item-card/AuctionItemCard';
 import { useTranslation } from 'react-i18next'
 import {useQuery} from "@apollo/client";
 import {GetMyWonAuctionsDocument} from "@shared/lib/types/__generated-types__/graphql";
+
+const  AuctionItemCard = lazy(() => import( '@shared/ui/auction-item-card/AuctionItemCard'))
 
 interface IAuctionsInfoProps {
   amount: number;

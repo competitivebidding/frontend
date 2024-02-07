@@ -18,7 +18,6 @@ import {LangSwitcher} from '@features/lang-switcher/LangSwitcher';
 import {useTranslation} from 'react-i18next'
 import {routesConfig} from "@shared/lib/routes/routesConfig";
 import {GET_PROFILE_QUERY} from "@shared/schemas/user/userProfile";
-import {GET_ALL_MY_PAY_OPERATIONS, GET_ONE_MY_PAY_OPERATION} from "@shared/schemas/tokens/tokens";
 import {UserHistoryPopup} from "@widgets/userPayHistory";
 import {useOutsideClick} from "@shared/lib/hooks/useOutsideClick";
 

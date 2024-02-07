@@ -1,10 +1,10 @@
-import React from 'react'
-import AppHeader from '../../widgets/header/AppHeader.js'
+import React, {lazy, Suspense} from 'react'
 import './WinnerListPage.scss'
-import { WinnerListCard } from '@/entities/user'
 
 import winner from '@/assets/winner-list/winner.png'
 import prize from '@/assets/winner-list/prize.png'
+
+const WinnerListCard = lazy(() => import('@/entities/user/ui/winner-list-card/WinnerListCard'))
 
 const WinnersListPage = () => {
   const data = [
@@ -42,16 +42,18 @@ const WinnersListPage = () => {
   return (
     <div className="winnerlist_cards">
       {data.map((obj) => (
-        <WinnerListCard
-          key={obj.id}
-          acc={obj.acc}
-          cardData={obj.cardData}
-          cardTime={obj.cardTime}
-          winnerImg={obj.winnerImg}
-          prizeImg={obj.prizeImg}
-          prizeTitle={obj.prizeTitle}
-          text={obj.text}
-        />
+        <Suspense fallback={''}>
+          <WinnerListCard
+              key={obj.id}
+              acc={obj.acc}
+              cardData={obj.cardData}
+              cardTime={obj.cardTime}
+              winnerImg={obj.winnerImg}
+              prizeImg={obj.prizeImg}
+              prizeTitle={obj.prizeTitle}
+              text={obj.text}
+          />
+        </Suspense>
       ))}
     </div>
   )

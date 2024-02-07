@@ -7,7 +7,7 @@ import AppHeader from '@widgets/header/AppHeader'
 function NavHeader() {
   return (
     <>
-      <AppNavBar />
+      {/*<AppNavBar />*/}
       
       <div className="main-section">
       <AppHeader />

@@ -3,7 +3,7 @@ import auction from '@assets/pageMain/royalAuction.png'
 import cls from './RoyalAuction.module.scss'
 import { useTranslation } from 'react-i18next'
 
-export const RoyalAuction = () => {
+ export const RoyalAuction = () => {
   const { t } = useTranslation('mainPage')
 
   return (
@@ -18,3 +18,4 @@ export const RoyalAuction = () => {
     </div>
   )
 }
+
