@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {lazy} from 'react'
 import {PartnersStatistic} from '@/entities/partners'
-import {UserInfoPartnerProgram} from '@/entities/user/ui/user-info'
 import useNoAuth from '@shared/lib/useNoAuth.js'
+
+const UserInfoPartnerProgram = lazy(() => import('@/entities/user/ui/user-info/ui/user-info-partner-program/UserInfoPartnerProgram'))
 
 const PartnerPage = () => {
   useNoAuth()
