@@ -30,3 +30,5 @@ export const UserInfoPartnerProgram = () => {
     </>
   )
 }
+
+export default UserInfoPartnerProgram
