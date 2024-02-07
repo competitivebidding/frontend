@@ -2,11 +2,17 @@
   "version": 2,
   "routes": [
     {
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "^/(.*)\\.(js|css|png|jpg|woff|woff2|ico|json|svg|scss|ts)$",
+      "dest": "/$1.$2"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html",
-      "status": 200,
-      "continue": false
+      "status": 200
     }
   ]
 }
-
