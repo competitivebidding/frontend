@@ -45,7 +45,7 @@ export const DropDown = ({ data, current, onChange, withArrow = true }: IDropDow
     <div className={cls.dropdown} ref={dropdownRef}>
       <div className={cls.dropdown__current} onClick={() => setDropdownVisibility(!dropdownVisibility)}>
         {withArrow && <img src={arrow} className={` ${!dropdownVisibility ? cls.arrow : `${cls.arrow} ${cls['arrow--visible']}`} `} />}
-        <img src={current && findFlag(current)} alt={'language'} />
+        <img src={current && findFlag(current)} alt={'language'} width={35} height={35} />
       </div>
       <div
         className={` ${dropdownVisibility ? cls.dropdown__dropdown : `${cls.dropdown__dropdown} ${cls['dropdown__dropdown--visible']}`

@@ -2,7 +2,7 @@ import React from 'react';
 import cls from './WinnerListCard.module.scss';
 import green from '@assets/winner-list/green.png';
 
-export const WinnerListCard = ({ acc, cardData, cardTime, winnerImg, prizeImg, prizeTitle, text }: { acc: any, cardData: any, cardTime: any, winnerImg: any, prizeImg: any, prizeTitle: any, text: any }) => {
+const WinnerListCard = ({ acc, cardData, cardTime, winnerImg, prizeImg, prizeTitle, text }: { acc: any, cardData: any, cardTime: any, winnerImg: any, prizeImg: any, prizeTitle: any, text: any }) => {
   return (
       <div className={cls.winnerlist_card}>
         <div className={cls['card-header']}>
@@ -29,4 +29,6 @@ export const WinnerListCard = ({ acc, cardData, cardTime, winnerImg, prizeImg, p
       </div>
   );
 }
+
+export default WinnerListCard
 

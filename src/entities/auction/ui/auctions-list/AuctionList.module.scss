@@ -10,5 +10,44 @@
   @media screen and (max-width:500px) {
     grid-template: repeat(2, auto) / repeat(1, 1fr);
   }
+}
 
+.paginationControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  gap: 20px;
+}
+
+.controlButton {
+  text-align: center;
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.pageButton {
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgb(116, 157, 194);
+  }
+}
+
+.activePage {
+  background-color: #4e648f;
+  color: white;
+}
+
+.pageButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }

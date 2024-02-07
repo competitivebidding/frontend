@@ -1,37 +1,39 @@
 import { Route, Routes } from 'react-router-dom'
 
-import React, { Suspense } from 'react'
+import React, {lazy, Suspense} from 'react'
 
-import AuctionsPage from '../pages/auctions/AuctionsPage'
-import CabinetPage from '../pages/cabinet/CabinetPage'
-import MainPage from '../pages/main/MainPage'
-import MyAuctionsPage from '../pages/my-auctions/MyAuctionsPage'
-import NewsPage from '../pages/page-news/NewsPage'
-import Messages from '../pages/messages/MessagesPage'
-import NotificationsPage from '../pages/notifications/NotificationsPage'
-import PartnerPage from '../pages/partner-program/PartnerPage'
-import QuestionsPage from '../pages/questions/QuestionsPage'
-import SupportPage from '../pages/support/SupportPage'
-import TokensPage from '../pages/tokens/TokensPage'
-import WinnersListPage from '../pages/winner-list/WinnersListPage'
-import LotPage from '../pages/lot/LotPage'
+const AuctionsPage = lazy(()=> import('@/pages/auctions/AuctionsPage'))
+const MainPage = lazy(()=> import('@/pages/main/MainPage'))
+const CabinetPage = lazy(() => import('../pages/cabinet/CabinetPage'))
+const MyAuctionsPage = lazy(() => import('../pages/my-auctions/MyAuctionsPage'))
+const NewsPage = lazy(() => import('../pages/page-news/NewsPage'))
+const Messages = lazy(() => import('../pages/messages/MessagesPage'))
+const NotificationsPage = lazy(() => import('../pages/notifications/NotificationsPage'))
+const PartnerPage = lazy(() => import('../pages/partner-program/PartnerPage'))
+const QuestionsPage = lazy(() => import('../pages/questions/QuestionsPage'))
+const SupportPage = lazy(() => import('../pages/support/SupportPage'))
+const TokensPage = lazy(() => import('../pages/tokens/TokensPage'))
+const WinnersListPage = lazy(() => import('../pages/winner-list/WinnersListPage'))
+const LotPage = lazy(() => import('../pages/lot/LotPage'))
+const SignIn = lazy(() => import('../pages/sign-in/SignIn'))
+const SignUp = lazy(() => import('../pages/sign-up/SignUp'))
+const ResetPassword = lazy(() => import('../pages/reset-password/ResetPassword'))
+const NewPassword = lazy(() => import('../pages/new-password/NewPassword'))
+const AuthLayout = lazy(() => import("@pages/authorization/AuthLayout"))
 
 import { Layout } from '@widgets/main'
-import NavHeader from '../widgets/nav-header-section/NavHeader'
-
-import SignIn from '../pages/sign-in/SignIn'
-import SignUp from '../pages/sign-up/SignUp'
-import ResetPassword from '../pages/reset-password/ResetPassword'
-import NewPassword from '../pages/new-password/NewPassword'
-
+import iconLoader from "@assets/Chat/iconLoader.svg"
 import './ui/App.scss'
 import { useTranslation } from 'react-i18next'
-import AuthLayout from "@pages/authorization/AuthLayout";
 
 const App = () => {
   const { t } = useTranslation('header')
   return (
-    <Suspense fallback={'loading...'}>
+    <Suspense fallback={
+      <div className='spinner'>
+        <img src={iconLoader} alt="Spinner" />
+      </div>
+    }>
       <div className="app">
         <Routes>
           <Route element={<Layout />}>

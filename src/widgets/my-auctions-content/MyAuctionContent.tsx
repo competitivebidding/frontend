@@ -3,8 +3,9 @@ import cls from './MyAuctionContent.module.scss';
 import {AuctionList} from '@entities/auction/ui/auctions-list/AuctionList';
 import {useTranslation} from 'react-i18next'
 import {AppModal} from '@/shared/ui/modal/AppModal';
-import {useMutation} from '@apollo/client';
+import {useMutation, useQuery} from '@apollo/client';
 import {CreateMyAuctionDocument} from '@/shared/lib/types/__generated-types__/graphql';
+import { GET_AUCTIONS } from '@/shared/schemas/auctions/auctions';
 
 
 const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
@@ -72,6 +73,16 @@ const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
     </>
   ));
 
+  const { loading, data } = useQuery(GET_AUCTIONS, {
+    variables: {
+        search: searchValue,
+    },
+});
+
+  const openAuctions = data?.getAuctions.filter(auction => auction.status.name !== 'Open');
+
+
+
   return (
     <div className={cls.myAuctions__content}>
       <div className={cls.myAuctions__btnsgroup}>{buttons}
@@ -123,7 +134,7 @@ const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
         </AppModal>}
 
       </div>
-      <AuctionList searchValue={searchValue} />
+      <AuctionList searchValue={searchValue} dataFilter={openAuctions || []} />
     </div>
   );
 };

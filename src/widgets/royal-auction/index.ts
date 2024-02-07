@@ -1,0 +1,1 @@
+export {RoyalAuction as default} from './RoyalAuction'
