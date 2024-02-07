@@ -7,15 +7,6 @@
       "status": 200,
       "continue": false
     }
-  ],
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
   ]
 }
 
