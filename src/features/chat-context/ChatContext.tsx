@@ -60,8 +60,7 @@ export const ChatContext = ({
   }, [isModalMenuVisible]);
 
   const handleDeleteClick = () => {
-    console.log(selectedMessageId);
-    console.log('Message deleted');
+
     if (selectedMessageId !== null) {
       removeMessage({ variables: { removeMessageId: selectedMessageId } })
         .then(() => {
@@ -116,7 +115,7 @@ export const ChatContext = ({
   };
   const handleCloseMessage = () => {
     setIsContextMenuVisible(false);
-    console.log('handleCloseMessage')
+
   }
 
   const handleNone = () => {

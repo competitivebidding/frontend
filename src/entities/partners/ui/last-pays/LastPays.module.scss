@@ -1,15 +1,31 @@
 .payers {
-  overflow-x: scroll;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 25px 28px 30px 28px;
   height: 100%;
   gap: 5px;
-
+  overflow: auto;
   background: #171A1E;
   border-radius: 17px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
   &__title {
     padding-bottom: 25px;

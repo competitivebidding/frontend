@@ -4,10 +4,6 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1em;
 
-  //@media (width < 1500px) {
-  //  grid-template-columns: 1fr;
-  //  grid-template-rows: auto;
-  //}
   .cabinet-block {
     border-radius: 1em;
     padding: 1rem 1.5rem;

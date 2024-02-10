@@ -13,10 +13,10 @@ import PartnersLists from '@/entities/partners/ui/partners-statistic/ui/partners
 export function PartnersStatistic() {
   return (
     <div className={styles.statistic}>
-      <PlayersAmount />
+      {/*<PlayersAmount />*/}
       <BestInviters />
 
-      <Income currency={'ROTO'} data={rotoIncome} color={'#2F53FF'} />
+      {/*<Income currency={'ROTO'} data={rotoIncome} color={'#2F53FF'} />*/}
 
       <div className={styles.statistic__list_container}>
         <LastPays />

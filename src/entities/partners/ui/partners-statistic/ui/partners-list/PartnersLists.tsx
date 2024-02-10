@@ -13,9 +13,9 @@ function PartnersLists() {
   const users = [
     {
       avatar: avatar,
-      ign: 'User User',
+      ign: 'User User2',
       id: 56789085,
-      startDate: '22.01.2023',
+      startDate: '21.01.2023',
       earnedThisMonth: 22,
       spentThisMonth: 4,
       earned: 22,
@@ -23,7 +23,7 @@ function PartnersLists() {
     },
     {
       avatar: avatar,
-      ign: 'User User',
+      ign: 'User User1',
       id: 56789086,
       startDate: '22.01.2023',
       earnedThisMonth: 22,
@@ -33,7 +33,7 @@ function PartnersLists() {
     },
     {
       avatar: avatar,
-      ign: 'User User',
+      ign: 'User User3',
       id: 56789087,
       startDate: '22.01.2023',
       earnedThisMonth: 22,
@@ -43,7 +43,7 @@ function PartnersLists() {
     },
     {
       avatar: avatar,
-      ign: 'User User',
+      ign: 'User User4',
       id: 56789088,
       startDate: '22.01.2023',
       earnedThisMonth: 22,
@@ -53,7 +53,7 @@ function PartnersLists() {
     },
     {
       avatar: avatar,
-      ign: 'User User',
+      ign: 'User User6',
       id: 56789089,
       startDate: '22.01.2023',
       earnedThisMonth: 22,
@@ -63,7 +63,7 @@ function PartnersLists() {
     },
     {
       avatar: avatar,
-      ign: 'User User',
+      ign: 'User User7',
       id: 56789090,
       startDate: '22.01.2023',
       earnedThisMonth: 22,

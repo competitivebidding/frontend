@@ -21,7 +21,6 @@ export function AuctionsInfo({ amount, wins, winsSum, rotoSpent, auctions }: IAu
 
   const {data} = useQuery(GetMyWonAuctionsDocument)
 
-  console.log(data?.getMyWonAuctions)
 
   return (
       <div className={cls['auctions__info']}>

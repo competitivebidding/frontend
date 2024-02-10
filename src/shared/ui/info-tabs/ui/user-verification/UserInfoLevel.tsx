@@ -3,7 +3,7 @@ import DonutChart from '@/shared/ui/charts/DonutChart'
 import { useTranslation } from 'react-i18next'
 
 import { TooltipButton } from '../../../tooltip-button/TooltipButton'
-import { GetProfileQuery, GetProfileQueryVariables } from '@shared/lib/types/__generated-types__/graphql'
+import { GetProfileQuery } from '@shared/lib/types/__generated-types__/graphql'
 import { useEffect, useState } from 'react'
 import { ChartData } from 'chart.js'
 
@@ -18,22 +18,34 @@ export const UserInfoLevel = ({ field }: IUserInfoProps) => {
   const { t } = useTranslation('cabinetPage')
   const [value, setValue] = useState<number | null>(null)
 
+
+
   const calculate = ( obj: any) => {
     const l = Object.keys(obj).length
     const v =
-      Object.values(Object.values(field!)).filter((item: any) => {
+      Object.values(
+          Object.values(obj!)).filter((item: any) => {
         if (item === '' || item === null) {
           return
         }
         return item
       }).length * 100
 
+
     return v / l
   }
 
   useEffect(() => {
     if (field) {
-      setValue(calculate(field))
+      const filteredInfo = Object.assign({},
+          {email: field.email,
+            avatarUrl: field.avatarUrl,
+            firstname: field.firstname,
+            instagram: field.instagram,
+            phone: field.phone,
+            username: field.username,
+          })
+      setValue(calculate(filteredInfo))
     }
   }, [field])
 

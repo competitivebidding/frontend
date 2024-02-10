@@ -11,7 +11,9 @@ export const FilterButton = ({ isClicked, filterAction }: IFilterButtonProps) =>
 
   const handleClick = () => {
     setIsActive(!isActive)
-    // filterAction()
+    if (filterAction) {
+      filterAction()
+    }
   }
 
   return (

@@ -97,7 +97,7 @@ export const ChatMessages = ({ groupId }: IChatMessages) => {
 
         const selectedMessage = groupMessages?.find((message: { id: number; }) => message.id === messageId);
 
-        console.log(selectedMessage?.content);
+
 
         const handleContextMenuClose = () => {
             setIsContextMenuVisible(false);

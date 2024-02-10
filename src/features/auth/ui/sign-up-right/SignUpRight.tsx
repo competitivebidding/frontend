@@ -44,7 +44,7 @@ export const SignUpRight = () => {
 
   const [signupMutation, { loading, error }] = useMutation(SIGNUP_MUTATION, {
     onCompleted: (data) => {
-      console.log(data)
+
       setSubmitted(true)
       Cookies.set('accesstoken', data.signup.accessToken)
       Cookies.set('refreshtoken', data.signup.refreshToken)
@@ -56,10 +56,10 @@ export const SignUpRight = () => {
     },
     onError: (error) => {
       console.error(error)
-      console.log()
+
     },
   })
-  console.log(errors)
+
 
   const onSubmit = (data: ISignUpFields) => {
     signupMutation({

@@ -45,7 +45,7 @@
 //     for (let i = 0; i < Math.ceil(data.length / slidesPerSlide()); i++) {
 //         subarray[i] = data.slice(i * slidesPerSlide(), i * slidesPerSlide() + slidesPerSlide());
 //     }
-//     console.log(subarray);
+
 //
 //     const Slide = ({ slideData }: {slideData: SlideData[]}) => {
 //         const card = slideData.map((item) => {

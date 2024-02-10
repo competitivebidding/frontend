@@ -26,7 +26,7 @@ export const AddNewGroupForm = ({ onClose }: IAddNewGroupFormProps) => {
             description: 'new room',
           },
         },
-      }).then((v) => console.log(v))
+      })
     }
     setValue('')
     onClose(false)

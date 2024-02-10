@@ -1,15 +1,14 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, {useEffect, useState} from 'react'
 import icon from '@assets/cabinet/icons/user.svg'
-// import { AuthContext } from '../../../../../context/AuthContext';
-import { useLocalStorage } from '@shared/lib/useLocalStorage'
-import { useTranslation } from 'react-i18next'
+import {useLocalStorage} from '@shared/lib/useLocalStorage'
+import {useTranslation} from 'react-i18next'
 
 interface UserNameProps {
-  field: string | undefined | null
-  handleUpdate: (data: { firstname: string }) => void
+  field: string | undefined
+  handleUpdate: (data: { username: string }) => void
 }
 
-const UserName = ({ field, handleUpdate }: UserNameProps) => {
+const NickName = ({ field, handleUpdate }: UserNameProps) => {
   const { t } = useTranslation('cabinetPage')
   const [isEditable, setIsEditable] = useState(false)
   const [value, setValue] = useState(field)
@@ -20,7 +19,7 @@ const UserName = ({ field, handleUpdate }: UserNameProps) => {
   }
 
   const update = (data: string) => {
-    handleUpdate({ firstname: data })
+    handleUpdate({ username: data })
     setIsEditable(false)
   }
 
@@ -38,20 +37,20 @@ const UserName = ({ field, handleUpdate }: UserNameProps) => {
         </div>
         <div className="item-top__info">
           <div className="item-top__content">
-            <p className="item-top__content-title">Firstname</p>
+            <p className="item-top__content-title">NickName</p>
             {isEditable ? (
               <input
                 type="text"
                 autoFocus
                 className="item-top__input"
-                defaultValue={field ? field : ''}
+                defaultValue={field}
                 onChange={(e) => setValue(e.target.value)}
               />
             ) : (
               <span className="item-top__content-subtitle">{field}</span>
             )}
           </div>
-          {!value && <div className="item-top__status">Enter a name</div>}
+          {!value && <div className="item-top__status">Enter a NickName</div>}
         </div>
       </div>
       <div className="item-bottom">
@@ -69,4 +68,4 @@ const UserName = ({ field, handleUpdate }: UserNameProps) => {
   )
 }
 
-export default UserName
+export default NickName

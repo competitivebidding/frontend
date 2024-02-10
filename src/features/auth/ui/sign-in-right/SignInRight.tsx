@@ -42,7 +42,6 @@ export const SignInRight = () => {
       },
     })
       .then((response) => {
-        console.log('Logged in successfully', response.data);
         Cookies.set('accesstoken', response.data?.signin.accessToken as string);
         Cookies.set('refreshtoken', response.data?.signin.refreshToken as string);
         const user = JSON.stringify(response.data?.signin.user);

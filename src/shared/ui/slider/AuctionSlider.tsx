@@ -16,7 +16,7 @@ interface IAuctionSliderProps {
 export const AuctionSlider = ({ data }: IAuctionSliderProps) => {
   const { width } = useWindowSize()
 
-    console.log(data)
+
 
   const configureSlider = () => {
     if (width && width <= 600) {

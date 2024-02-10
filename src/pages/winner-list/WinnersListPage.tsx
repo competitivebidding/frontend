@@ -42,7 +42,7 @@ const WinnersListPage = () => {
   return (
     <div className="winnerlist_cards">
       {data.map((obj) => (
-        <Suspense fallback={''}>
+        <Suspense key={obj.id} fallback={''}>
           <WinnerListCard
               key={obj.id}
               acc={obj.acc}

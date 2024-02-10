@@ -24,7 +24,7 @@ const Support = () => {
   const onSubmit = (data: ISupportProps) => {
     if (validator.isEmail(data.email)) {
       setIsFormSubmitted(true);
-      console.log('Logged in successfully');
+
       reset();
     }
   };

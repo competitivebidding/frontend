@@ -8,22 +8,19 @@ import { ReferralUser } from '../../../../../../shared/lib/types/__generated-typ
 import { useTranslation } from 'react-i18next'
 
 function BestInviters() {
-  const [referrals, setReferrals] = useState<ReferralUser[] | null>(null)
   const { data, loading } = useQuery(GET_MY_REFERRALS)
   const { t } = useTranslation('partnersPage')
 
-  useEffect(() => {
-    if (!loading && data) {
-      setReferrals(data.getMyReferrals)
+    if (!data?.getMyReferrals.length) {
+        return null
     }
-  })
 
   return (
     <div className={styles.invites}>
       <h3 className={styles.invites__title}>{t('Inviters leaders')}</h3>
       <div className={styles.invites__users_list}>
-        {referrals &&
-          referrals.map((referral) => (
+        {data &&
+          data.getMyReferrals.map((referral) => (
             <InviterUser
               key={referral.id}
               avatar={avatar}

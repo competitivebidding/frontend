@@ -40,12 +40,12 @@ export const AuctionsPageContent = ({ searchValue }: IAuctionsPageContent) => {
 
     return (
         <>
-            <div className={cls.title}>{t('Upcoming announcements')}</div>
-            {loading ? <Spinner /> 
-            : newAuctions && newAuctions.length > 0 
-            ? <AuctionSlider data={newAuctions} /> 
-            : <div className={cls.no__auctions}>{t('No upcoming announcements')}</div>
-            }
+            {/*<div className={cls.title}>{t('Upcoming announcements')}</div>*/}
+            {/*{loading ? <Spinner /> */}
+            {/*: newAuctions && newAuctions.length > 0 */}
+            {/*? <AuctionSlider data={newAuctions} /> */}
+            {/*: <div className={cls.no__auctions}>{t('No upcoming announcements')}</div>*/}
+            {/*}*/}
             
             <div className={cls.title}>{t('Active Auctions')}</div>
             {loading ? <Spinner /> : openAuctions && openAuctions.length > 0 

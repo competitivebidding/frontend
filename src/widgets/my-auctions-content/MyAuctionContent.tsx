@@ -30,7 +30,7 @@ const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
 
   const handleCreateAuction = async (e: FormEvent) => {
     setCreateAuction(true);
-    console.log('create');
+
     e.preventDefault();
     try {
       const { data } = await createMyAuction({
@@ -45,7 +45,7 @@ const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
         },
       });
 
-      console.log('Auction created:', data);
+
     } catch (error) {
       console.error('Failed to create auction:', error);
     }
@@ -53,24 +53,23 @@ const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
 
 
   const categoryButtons = [
-    { name: 'active', label: t('Active auctions') },
-    { name: 'wait', label: t('Announcements') },
-    { name: 'end', label: t('Inactive auctions') },
+    { name: 'active', label: t('Active auctions'),  },
+    { name: 'wait', label: t('Announcements'),  },
+    { name: 'end', label: t('Inactive auctions'), },
 
   ];
 
   const buttons = categoryButtons.map(({ name, label }) => (
-    <>
-      {/*говнокод пофиксить*/}
+
       <button
-        key={Math.random()}
+        key={name}
         className={`${cls.myAuction__btn} ${category === name ? cls['btn-active'] : cls.btnInactive}`}
         onClick={() => handleCategoryChange(name)}
       >
         {label}
       </button>
       
-    </>
+
   ));
 
   const { loading, data } = useQuery(GET_AUCTIONS, {
@@ -85,13 +84,14 @@ const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
 
   return (
     <div className={cls.myAuctions__content}>
-      <div className={cls.myAuctions__btnsgroup}>{buttons}
-        <button
-          className={`${cls.myAuction__btn}`}
-          onClick={handleOpenCreateAuction}
-        >
-          Create auctions
-        </button>
+      <div className={cls.myAuctions__btnsgroup}>
+        {buttons}
+        {/*<button*/}
+        {/*  className={`${cls.myAuction__btn}`}*/}
+        {/*  onClick={handleOpenCreateAuction}*/}
+        {/*>*/}
+        {/*  Create auctions*/}
+        {/*</button>*/}
         {createAuction && <AppModal onClose={setCreateAuction} isOpen={createAuction}>
           <h1 className={cls.title}>Create Auction</h1>
           <form className={cls.create}>

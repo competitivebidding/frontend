@@ -27,7 +27,7 @@ export const MessageInput = ({ roomId }: IMessageInputProps) => {
           roomId: roomId,
         },
       },
-    }).then((message) => console.log(message))
+    })
 
     setNewMessage('')
   }

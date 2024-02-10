@@ -22,7 +22,7 @@ export const DropDown = ({ data, current, onChange, withArrow = true }: IDropDow
   };
 
   const findFlag = (v: string) => {
-    const c = data.find((obj) => obj.value === v);
+    const c = data.find((obj) => obj.value === v)
     return c ? c.label : '';
   };
 

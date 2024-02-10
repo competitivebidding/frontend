@@ -36,7 +36,6 @@ export const ResetPasswordRight = () => {
       }
     } else {
       if (validator.isEmail(data.email)) {
-        console.log(data)
         setEmailSubmitted(true)
       }
     }

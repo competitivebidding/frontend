@@ -13,11 +13,13 @@ import {UserInfoLevel} from '@/shared/ui/info-tabs/ui/user-verification/UserInfo
 import {UPDATE_PROFILE} from '@/shared/schemas/user/userProfile'
 import './UserInfoCabinet.scss'
 import {GetProfileDocument,} from '@shared/lib/types/__generated-types__/graphql'
+import NickName from "@shared/ui/info-tabs/ui/user-nickName/NickName";
 
 export const UserInfoCabinet = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [update] = useMutation(UPDATE_PROFILE)
-  const { data, loading, refetch } = useQuery(GetProfileDocument)
+  const { data, loading, refetch } = useQuery(GetProfileDocument, {canonizeResults: true, })
+
 
   const updateProfile = (data: any) => {
     update({
@@ -34,7 +36,8 @@ export const UserInfoCabinet = () => {
         <article className="user-info">
           <UserSettings id={data?.getProfile.id} avatarUrl={data?.getProfile.avatarUrl} />
           <UserInfoLevel field={data?.getProfile} />
-          <UserName field={data?.getProfile.username} handleUpdate={updateProfile} />
+          <UserName field={data?.getProfile.firstname} handleUpdate={updateProfile} />
+          <NickName field={data?.getProfile.username} handleUpdate={updateProfile} />
           <UserEmail field={data?.getProfile.email} handleUpdate={updateProfile} />
           <UserPhone field={data?.getProfile.phone} handleUpdate={updateProfile} />
           <UserInst field={data?.getProfile.instagram} handleUpdate={updateProfile} />

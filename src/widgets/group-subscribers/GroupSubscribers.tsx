@@ -34,8 +34,6 @@ export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose,  setA
     },
   })
 
-  console.log(isOwner)
-
   const confirm = () => {
     setModalGroupOpen(false)
     setLeaveModalOpen(true)
