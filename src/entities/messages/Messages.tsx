@@ -17,12 +17,18 @@ import { useTranslation } from 'react-i18next'
 export interface Group {
   __typename?: "Room",
   id: number,
-  ownerId: number,
+  owner: Owner,
   title: string,
   description?: string | null,
   createdAt: any,
   updatedAt: any
 }
+
+export interface Owner {
+  id: number;
+  owner: number,
+}
+
 
 export interface IUser {
   id: number
@@ -47,6 +53,10 @@ const Messages = () => {
       roomId: Number(lsActiveGroup?.id)
     },
   });
+
+
+  console.log(activeGroup?.owner.id, lsUser?.id)
+
 
   const { data: users, loading: isUsersLoading } = useQuery(GET_ALL_USERS_BY_ROOM_ID, {
     variables: {
@@ -99,7 +109,6 @@ const Messages = () => {
 
 
 
-
   return (
       <>
         <div className={cls.chat}>
@@ -147,7 +156,7 @@ const Messages = () => {
                       roomId={activeGroup.id}
                       onClose={toggleGroup}
                       setActiveGroup={setActiveGroup}
-                    isOwner={activeGroup.ownerId === lsUser?.id}
+                    isOwner={activeGroup.owner.id === lsUser?.id}
                   />
               )}
             </AppModal>

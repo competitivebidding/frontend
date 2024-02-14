@@ -1,4 +1,4 @@
-import React, {FormEvent, useState} from 'react';
+import React, {FormEvent, useEffect, useState} from 'react';
 import cls from './MyAuctionContent.module.scss';
 import {AuctionList} from '@entities/auction/ui/auctions-list/AuctionList';
 import {useTranslation} from 'react-i18next'
@@ -16,9 +16,37 @@ const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    startingPrice: 0,
+    startingPrice: '',
     finishedAt: '',
   });
+
+  const [minFinishedAtDate, setMinFinishedAtDate] = useState('');
+
+  useEffect(() => {
+    const now = new Date();
+    const futureDate = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+  
+    let month = '' + (futureDate.getMonth() + 1),
+        day = '' + futureDate.getDate(),
+        year = futureDate.getFullYear();
+        let hours = futureDate.getHours().toString();
+        let minutes = futureDate.getMinutes().toString(); 
+        
+  
+        if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+    if (hours.length < 2)
+        hours = '0' + hours;
+    if (minutes.length < 2)
+        minutes = '0' + minutes;
+    
+    const minDateTime = [year, month, day].join('-') + 'T' + [hours, minutes].join(':');
+  
+    setMinFinishedAtDate(minDateTime);
+  }, []);
+  
 
   const handleCategoryChange = (newCategory: string) => {
     setCategory(newCategory);
@@ -86,12 +114,13 @@ const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
     <div className={cls.myAuctions__content}>
       <div className={cls.myAuctions__btnsgroup}>
         {buttons}
-        {/*<button*/}
-        {/*  className={`${cls.myAuction__btn}`}*/}
-        {/*  onClick={handleOpenCreateAuction}*/}
-        {/*>*/}
-        {/*  Create auctions*/}
-        {/*</button>*/}
+        <button         className={`${cls.myAuction__btn}`}
+        onClick={handleOpenCreateAuction}>
+
+
+          Create auctions
+        </button>
+       
         {createAuction && <AppModal onClose={setCreateAuction} isOpen={createAuction}>
           <h1 className={cls.title}>Create Auction</h1>
           <form className={cls.create}>
@@ -112,18 +141,24 @@ const MyAuctionContent = ({searchValue}: {searchValue: string}) => {
 
             <div className={cls.create__price}>
               <label htmlFor="startingPrice">Starting Price:</label>
-              <input type="number" id="startingPrice" name="startingPrice" required
+              <input type="number" id="startingPrice" name="startingPrice" 
+              required
                 value={formData.startingPrice}
-                onChange={(e) => setFormData({ ...formData, startingPrice: Number(e.target.value) })} />
+                onChange={(e) => setFormData({ ...formData, startingPrice: e.target.value.toString() })} />
             </div>
 
             <div className={cls.create__finished}>
-              <label htmlFor="finishedAt">Finished At:</label>
-              <input type="datetime-local" id="finishedAt" name="finishedAt" required 
+                <label htmlFor="finishedAt">Finished At:</label>
+                <input
+                  type="datetime-local"
+                  id="finishedAt"
+                  name="finishedAt"
+                  required
                   value={formData.finishedAt}
-                  onChange={(e) => setFormData({ ...formData, finishedAt: e.target.value })}/>
-            </div>
-
+                  min={minFinishedAtDate} 
+                  onChange={(e) => setFormData({ ...formData, finishedAt: e.target.value })}
+                />
+              </div>
             <div className={cls.create__button}>
               <button type="submit"
               onClick={handleCreateAuction}>Create Auction</button>

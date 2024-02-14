@@ -126,7 +126,7 @@ export const ChatGroups = ({ onSelectGroup, activeItem }: IChatGroupsProps) => {
           <ContextMenu isOpen={contextMenu.isOpen} onClose={closeContextMenu} x={contextMenu.x} y={contextMenu.y}>
             <button onClick={handleOpenLeaveConfirm}>Leave group</button>
             {lsValue && contextMenu
-                && lsValue.id === contextMenu.group.ownerId
+                && lsValue.id === contextMenu.group.owner.id
                 && <button disabled={loading} onClick={handleOpenDeleteConfirm}>Delete group</button>}
           </ContextMenu>
       )}

@@ -91,10 +91,10 @@ const Lot = () => {
                             <div className={cls['lot__title']}>{lotData?.getAuction.title}</div>
                             <div className={cls['lot__price']}>{'$' + lotData?.getAuction.startingPrice}</div>
                           </div>
-                          <div className={cls['lot__header__col__right']}>
+                          {/* <div className={cls['lot__header__col__right']}>
                             <div className={cls['lot__places']}>{t('Free places')}:</div>
                             {lotData && lotData.getAuction.bids && <span>{30 - lotData?.getAuction.bids?.length} {t('from')} 30</span>}
-                          </div>
+                          </div> */}
                         </div>
                         <div className={`${cls['lot__description']} ${isShowMore ? cls['shown'] : ''}`}>{lotData?.getAuction.description}</div>
                         <button className={cls['lot__more']} onClick={onToggleShowMore}>

@@ -95,6 +95,7 @@ export const AuctionList = ({ searchValue, dataFilter }: IAuctionSliderProps) =>
             title={card.title}
             bids={card.bids}
             startedAt={card.startedAt}
+            finishedAt={card.finishedAt}
           />
         ))}
       </div>

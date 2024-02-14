@@ -66,6 +66,8 @@ export const GroupSubscribers = ({ groupTitle, groupSubs, roomId, onClose,  setA
     setInviteModalIsOpen(true)
   }
 
+  console.log(isOwner)
+
   return (
       <>
         {modalGroupOpen && (
