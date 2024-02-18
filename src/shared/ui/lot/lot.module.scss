@@ -402,6 +402,13 @@ $fz8: 0.5rem;
     height: 44px;
 }
 
+.modal__body {
+    span {
+        color: #00A76B;
+        font-weight: 600;
+    }
+}
+
 
 @media (max-width: 1360px) {
     .page__content {

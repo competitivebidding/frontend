@@ -8,6 +8,7 @@ import { CREATE_MY_BID, GET_BIDS_BY_AUCTION_ID } from '../../schemas/auctions/au
 import { useTranslation } from 'react-i18next'
 import {GET_PROFILE_QUERY} from "@shared/schemas/user/userProfile";
 import {Skeleton} from "@shared/ui/skeleton/ui/Skeleton";
+import {AppModal} from "@shared/ui/modal/AppModal";
 
 interface IAuctionData {
   title: string;
@@ -29,6 +30,7 @@ const Lot = () => {
   const [isShowMore, setIsShowMore] = useState(false);
   const { id } = useParams();
   const { t } = useTranslation('auctionsPage')
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
   const onToggleShowMore = () => {
     setIsShowMore((prevState) => !prevState);
@@ -44,11 +46,13 @@ const Lot = () => {
   }
 
   const handleCreateBid = () => {
-    createBid({
-      variables: {
-        input: { auctionId: Number(id), bitPrice: BID_PRICE },
-      },
-    });
+    if (lotData?.getAuction) {
+      createBid({
+        variables: {
+          input: { auctionId: Number(id), bitPrice: lotData?.getAuction.startingPrice },
+        },
+      }).then(() => setModalIsOpen(true))
+    }
   }
 
   const isBidActive = () => {
@@ -106,9 +110,8 @@ const Lot = () => {
                           <button className={cls['lot__footer-btn']}
                                   onClick={handleCreateBid}
                                   disabled={isBidActive()}
-
                           >
-                            <span>{t('Outbid')}</span> <span> 200 ROTO</span>
+                            <span>{t('Outbid')}</span> <span> {lotData?.getAuction.startingPrice} ROTO</span>
                           </button>
                         </div>
                       </div>
@@ -147,6 +150,11 @@ const Lot = () => {
               </div>
             </>
         )}
+        {modalIsOpen && <AppModal isOpen={modalIsOpen} onClose={() => setModalIsOpen(false)}>
+          <div className={cls.modal__body}>
+            Ваша ставка <span>{bidData?.createMyBid.bitPrice}</span> ROTO
+          </div>
+        </AppModal>}
       </>
   )
 }

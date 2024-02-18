@@ -36,7 +36,6 @@ export const UserInfoCabinet = () => {
         <article className="user-info">
           <UserSettings id={data?.getProfile.id} avatarUrl={data?.getProfile.avatarUrl} />
           <UserInfoLevel field={data?.getProfile} />
-          <UserName field={data?.getProfile.firstname} handleUpdate={updateProfile} />
           <NickName field={data?.getProfile.username} handleUpdate={updateProfile} />
           <UserEmail field={data?.getProfile.email} handleUpdate={updateProfile} />
           <UserPhone field={data?.getProfile.phone} handleUpdate={updateProfile} />
